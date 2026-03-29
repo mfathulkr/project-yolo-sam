@@ -1,0 +1,51 @@
+dataset:
+  name: isaid
+  target_category: swimming pool
+  keep_all_images: true
+  train_split: train
+  eval_split: val
+  urls:
+    isaid_train: https://drive.google.com/drive/folders/19RPVhC0dWpLF9Y_DYjxjUrwLbKUBQZ2K?usp=sharing
+    isaid_val: https://drive.google.com/drive/folders/17MErPhWQrwr92Ca1Maf4mwiarPS5rcWM?usp=sharing
+    dota_train_images: https://drive.google.com/drive/folders/1gmeE3D7R62UAtuIFOB9j2M5cUPTwtsxK?usp=sharing
+    dota_val_images: https://drive.google.com/drive/folders/1n5w45suVOyaqY84hltJhIZdtVFD9B224?usp=sharing
+    test: https://drive.google.com/drive/folders/1mYOf5USMGNcJRPcvRVJVV1uHEalG5RPl?usp=sharing
+    test_info: https://drive.google.com/open?id=1nQokIxSy3DEHImJribSCODTRkWlPJLE3
+
+paths:
+  raw_dataset_dir: data/isaid_raw
+  prepared_dataset_dir: data/isaid_swimming_pool
+  yolo_train_run_dir: runs/yolo_pool
+  pipeline_a_output_dir: results/pipeline_a
+  pipeline_b_output_dir: results/pipeline_b
+  metrics_dir: results/metrics
+  visualizations_dir: results/visualizations
+
+yolo:
+  base_weights: yolov8n.pt
+  trained_weights: runs/yolo_pool/train/weights/best.pt
+  imgsz: 1024
+  batch: 4
+  epochs: 50
+  conf: 0.25
+  workers: 1
+  device: 0
+
+sam2:
+  checkpoint: models/sam2.1_b.pt
+  device: 0
+
+sam3:
+  backend: local
+  local_model_dir: models/sam3_hf
+  prompt: swimming pool
+  output_prob_thresh: 0.5
+  mask_threshold: 0.5
+  device: 0
+  torch_dtype: float16
+  endpoint: https://serverless.roboflow.com/sam3/concept_segment
+  model_id: sam3/sam3_final
+
+evaluation:
+  positive_only: true
+  max_visualizations: 12
