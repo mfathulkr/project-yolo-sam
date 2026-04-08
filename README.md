@@ -1,142 +1,151 @@
-# YOLO + SAM2 vs SAM3 on iSAID Swimming Pool
+# SAM3 Text vs Box-Guided SAM3 on LandCover.ai Buildings
 
-Bu repo, aerial goruntuler uzerinde tek sinifli bir deney kurar:
+This repository contains a single focused study on top-down aerial imagery:
 
-1. `Pipeline A`: YOLO detection -> bbox prompt -> SAM2 mask
-2. `Pipeline B`: text prompt `"swimming pool"` -> SAM3 concept segmentation
+1. `SAM3 text-only`
+2. `YOLO + SAM3`
+3. `GT bbox + SAM3`
 
-Temel veri kaynagi `iSAID` veri setidir. Deneyde sadece `swimming pool` kategorisi tutulur.
+The goal is to test how much explicit geometry helps when SAM3 already has text-conditioned localization ability.
 
-## Neden iSAID?
+## Final Finding
 
-- Resmi olarak aerial `instance segmentation` veri setidir.
-- `swimming pool` sinifi vardir.
-- Pixel-level anotasyon kullandigi icin gercek `mask IoU` hesaplanabilir.
+On the LandCover.ai `building` validation split, evaluated with positive-only mask IoU:
 
-Not: iSAID resmi sayfasina gore veri seti sadece akademik kullanim icindir.
+| Pipeline | Mean IoU |
+| --- | ---: |
+| `SAM3 text-only` | `0.7034` |
+| `YOLO + SAM3` | `0.7123` |
+| `GT bbox + SAM3` | `0.7920` |
 
-## Deney Kurallari
+Interpretation:
 
-- Tek kategori: `swimming pool`
-- YOLO sadece bu sinifta egitilir
-- Segmentasyon metrikleri ayni evaluation split uzerinde hesaplanir
-- Varsayilan evaluation split `val`'dir
-  - Cunku iSAID resmi `test` split'inde ground truth public degildir
+- `SAM3 text-only` is already strong.
+- `YOLO + SAM3` gives a small but real improvement.
+- `GT bbox + SAM3` is much better, which shows that **box quality still matters**.
 
-## Kurulum
+## Why This Dataset
 
-```bash
+The repo uses `LandCover.ai v1` and keeps only the `building` class.
+
+- official and directly downloadable
+- true aerial / orthophoto imagery
+- pixel-level masks available
+- easier and cleaner than tiny-object aerial categories for a controlled prompt study
+
+Because LandCover.ai is semantic segmentation, YOLO detection labels are derived from connected components of the binary building masks.
+
+## Setup
+
+```powershell
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-`.env.example` dosyasini `.env` olarak kopyalayip ihtiyaca gore su degiskenleri doldur:
+Create `.env` from `.env.example` and fill:
 
-- `HF_TOKEN`: local `facebook/sam3` modelini indirmek ve calistirmak icin gerekli
-- `ROBOFLOW_API_KEY`: hosted SAM3 backend'ine donmek istersen gerekli
+- `HF_TOKEN` for local `facebook/sam3`
+- `ROBOFLOW_API_KEY` only if you intentionally switch to hosted SAM3
 
-## Hizli Akis
+## Reproducible Workflow
 
-### 1. Resmi iSAID train ve val splitlerini indir
+### 1. Download LandCover.ai
 
-```bash
+```powershell
 python scripts/download_dataset.py
 ```
 
-### 2. `swimming pool` tek-sinif subset'ini hazirla
+### 2. Prepare the single-class dataset
 
-```bash
-python scripts/prepare_isaid_subset.py
+```powershell
+python scripts/prepare_landcover_dataset.py
 ```
 
-Bu adim:
+This step:
 
-- train ve val anotasyonlarinda sadece `swimming pool` kategorisini birakir
-- tum goruntuleri korur
-- pool olmayan goruntuler icin bos label yazar
-- YOLO detect egitimi icin `labels/`
-- evaluation icin `_annotations.coco.json`
-- YOLO icin `data.yaml`
+- tiles the orthophotos into `512x512`
+- keeps only `building`
+- creates YOLO labels from connected components
+- balances `train` negatives with `train_negative_ratio`
+- writes COCO masks for evaluation
 
-### 3. Model dosyalarini indir
+### 3. Download local SAM3 weights
 
-```bash
-python scripts/download_models.py
+```powershell
+python scripts/download_models.py --download-sam3-local
 ```
 
-Bu script:
+### 4. Train the detector
 
-- `SAM2` checkpoint'ini Ultralytics uzerinden indirir veya cache'den kullanir
-- `SAM3` local model dosyalarini Hugging Face uzerinden indirir
-  - `facebook/sam3` gated oldugu icin `HF_TOKEN` ve repo erisimi gerekir
-
-Varsayilan `Pipeline B` local SAM3 backend kullanir.
-
-### 4. YOLO modeli egit
-
-```bash
+```powershell
 python scripts/train_yolo.py
 ```
 
-### 5. Pipeline A calistir
+### 5. Run the three pipelines
 
-```bash
-python scripts/run_pipeline_a.py
+```powershell
+python scripts/run_sam3_text.py
+python scripts/run_yolo_sam3.py
+python scripts/run_gt_box_sam3.py
 ```
 
-### 6. Pipeline B calistir
+### 6. Evaluate the triplet
 
-```bash
-python scripts/run_pipeline_b.py
+```powershell
+python scripts/evaluate_triplet.py
 ```
 
-Not: Ilk calistirmada local `SAM3` model dosyalari yoksa indirilmeye calisilir. `HF_TOKEN` yoksa veya hesap `facebook/sam3` reposuna erisimli degilse bu adim gated-model hatasi verir.
+### 7. Export slide material
 
-### 7. Sonuclari degerlendir
-
-```bash
-python scripts/evaluate_experiment.py
+```powershell
+python scripts/export_presentation_assets.py
 ```
 
-CSV ciktilari `results/metrics/`, overlay'ler `results/visualizations/` altina yazilir.
+By default this creates a sibling folder:
 
-## Dizin Yapisi
+```text
+../presentation_sam3_bbox_study/
+```
+
+with slide-ready tables, charts, copied qualitative examples, and speaking notes.
+
+## Repository Layout
 
 ```text
 project_yolo-sam/
 ├── configs/
 │   └── experiment.yaml
-├── data/
-│   ├── isaid_raw/
-│   ├── isaid_swimming_pool/
-│   └── .gitkeep
-├── models/
-│   └── .gitkeep
-├── results/
-│   ├── metrics/
-│   ├── pipeline_a/
-│   ├── pipeline_b/
-│   ├── visualizations/
-│   └── .gitkeep
-├── runs/
-│   └── .gitkeep
 ├── scripts/
 │   ├── download_dataset.py
-│   ├── prepare_isaid_subset.py
+│   ├── prepare_landcover_dataset.py
 │   ├── download_models.py
-│   ├── run_pipeline_a.py
-│   ├── run_pipeline_b.py
 │   ├── train_yolo.py
-│   └── evaluate_experiment.py
-└── src/
-    └── pool_segmentation_compare/
+│   ├── run_sam3_text.py
+│   ├── run_yolo_sam3.py
+│   ├── run_gt_box_sam3.py
+│   ├── evaluate_triplet.py
+│   └── export_presentation_assets.py
+├── src/
+│   └── pool_segmentation_compare/
+├── data/
+├── models/
+├── runs/
+└── results/
 ```
 
-## Notlar
+## Important Outputs
 
-- `Pipeline A` local `YOLO + SAM2` kullanir.
-- `Pipeline B` varsayilan olarak local `transformers + SAM3` kullanir.
-- Istersen config'te `sam3.backend: hosted` yapip Roboflow serverless endpoint'ine donebilirsin.
-- Local `facebook/sam3` gated oldugu icin Hugging Face erisimi gerekir.
-- `mask IoU` varsayilan olarak sadece ground truth havuz bulunan goruntuler uzerinde raporlanir.
+- detector weights:
+  - `runs/yolo_building_s640/train/weights/best.pt`
+- final triplet metrics:
+  - `results/landcover_metrics_sam3_triplet/summary_sam3_triplet.csv`
+  - `results/landcover_metrics_sam3_triplet/per_image_iou_sam3_triplet.csv`
+- qualitative overlays:
+  - `results/landcover_visualizations_sam3_triplet/`
+
+## Notes
+
+- Evaluation is configured as `positive_only: true`, because the main research question is mask quality on images that actually contain buildings.
+- `GT bbox + SAM3` is an upper-bound style experiment: it isolates the value of accurate geometry by removing detector error.
+- The repo intentionally centers the final SAM3-only study; older SAM2 / pool experiments are not part of the present workflow.

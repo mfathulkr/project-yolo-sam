@@ -17,7 +17,7 @@ from pool_segmentation_compare.pipelines.pipeline_b import run_sam3_hosted_pipel
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run text-prompt SAM3 segmentation on the evaluation split.")
+    parser = argparse.ArgumentParser(description="Run SAM3 text-only segmentation on the evaluation split.")
     parser.add_argument("--config", type=Path, default=ROOT / "configs" / "experiment.yaml")
     parser.add_argument("--api-key", type=str, default=None)
     parser.add_argument("--prompt", type=str, default=None)
@@ -31,9 +31,9 @@ def main() -> None:
 
     split = config["dataset"]["eval_split"]
     sam3_cfg = config["sam3"]
-    backend = sam3_cfg.get("backend", "hosted")
+    backend = sam3_cfg.get("backend", "local")
     images_dir = resolve_path(config["paths"]["prepared_dataset_dir"]) / split / "images"
-    output_dir = resolve_path(config["paths"]["pipeline_b_output_dir"])
+    output_dir = resolve_path(config["paths"]["sam3_text_output_dir"])
     prompt = args.prompt or sam3_cfg["prompt"]
 
     if backend == "hosted":

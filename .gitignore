@@ -10,6 +10,8 @@ __pycache__/
 .ipynb_checkpoints/
 Thumbs.db
 .DS_Store
+
+tmp_smoke/
 tmp_sam3_smoke/
 tmp_sam3_smoke_out/
 *.pt
@@ -25,11 +27,3 @@ runs/*
 
 results/*
 !results/.gitkeep
-results/metrics/*
-!results/metrics/.gitkeep
-results/pipeline_a/*
-!results/pipeline_a/.gitkeep
-results/pipeline_b/*
-!results/pipeline_b/.gitkeep
-results/visualizations/*
-!results/visualizations/.gitkeep

@@ -7,13 +7,11 @@ from pathlib import Path
 import cv2
 import numpy as np
 import requests
-import torch
 from PIL import Image
 from tqdm import tqdm
-from transformers import Sam3Model, Sam3Processor
 
 from pool_segmentation_compare.io_utils import ensure_dir, list_images, save_binary_mask
-from pool_segmentation_compare.models.download import ensure_sam3_model_dir
+from pool_segmentation_compare.models.sam3_local import LocalSam3ImageSegmenter
 
 
 def encode_image_base64(image_path: Path) -> str:
@@ -44,48 +42,6 @@ def response_to_mask(response_json: dict, shape: tuple[int, int]) -> np.ndarray:
             if polygons:
                 merged |= polygons_to_mask(polygons, shape)
     return merged
-
-
-def masks_to_merged_mask(masks: object, shape: tuple[int, int]) -> np.ndarray:
-    if masks is None:
-        return np.zeros(shape, dtype=bool)
-
-    if torch.is_tensor(masks):
-        masks_array = masks.detach().cpu().numpy()
-    else:
-        masks_array = np.asarray(masks)
-
-    if masks_array.size == 0:
-        return np.zeros(shape, dtype=bool)
-    if masks_array.ndim == 2:
-        masks_array = masks_array[None, ...]
-    return masks_array.astype(bool).any(axis=0)
-
-
-def resolve_torch_device(device_value: str | int) -> str:
-    if isinstance(device_value, int):
-        return f"cuda:{device_value}"
-
-    normalized = str(device_value).strip().lower()
-    if normalized == "cpu":
-        return "cpu"
-    if normalized.startswith("cuda"):
-        return normalized
-    if normalized.isdigit():
-        return f"cuda:{normalized}"
-    return normalized
-
-
-def resolve_torch_dtype(dtype_value: str) -> torch.dtype:
-    mapping = {
-        "float16": torch.float16,
-        "float32": torch.float32,
-        "bfloat16": torch.bfloat16,
-    }
-    normalized = str(dtype_value).strip().lower()
-    if normalized not in mapping:
-        raise ValueError(f"Unsupported torch dtype: {dtype_value}")
-    return mapping[normalized]
 
 
 def run_sam3_hosted_pipeline(
@@ -145,42 +101,30 @@ def run_sam3_local_pipeline(
     masks_dir = ensure_dir(output_dir / "masks")
     raw_dir = ensure_dir(output_dir / "raw")
 
-    local_model_dir = ensure_sam3_model_dir(model_dir, token=hf_token)
-    resolved_device = resolve_torch_device(device)
-    resolved_dtype = resolve_torch_dtype(torch_dtype)
-
-    processor = Sam3Processor.from_pretrained(str(local_model_dir), local_files_only=True)
-    model = Sam3Model.from_pretrained(
-        str(local_model_dir),
-        local_files_only=True,
-        torch_dtype=resolved_dtype,
-    ).to(resolved_device)
-    model.eval()
+    segmenter = LocalSam3ImageSegmenter(
+        model_dir=model_dir,
+        device=device,
+        torch_dtype=torch_dtype,
+        hf_token=hf_token,
+    )
 
     for index, image_path in enumerate(tqdm(list_images(images_dir), desc="Pipeline B (local)"), start=1):
         with Image.open(image_path) as pil_image:
             image = pil_image.convert("RGB")
-            inputs = processor(images=image, text=prompt, return_tensors="pt").to(resolved_device)
-
-        with torch.inference_mode():
-            outputs = model(**inputs)
-
-        results = processor.post_process_instance_segmentation(
-            outputs,
-            threshold=output_prob_thresh,
+        result = segmenter.segment(
+            image=image,
+            prompt=prompt,
+            output_prob_thresh=output_prob_thresh,
             mask_threshold=mask_threshold,
-            target_sizes=inputs.get("original_sizes").tolist(),
-        )[0]
-
-        merged_mask = masks_to_merged_mask(results.get("masks"), tuple(image.size[::-1]))
-        save_binary_mask(merged_mask, masks_dir / f"{image_path.stem}.png")
+        )
+        save_binary_mask(result.merged_mask, masks_dir / f"{image_path.stem}.png")
 
         raw_payload = {
-            "num_masks": int(merged_mask.any()) if results.get("masks") is None else int(len(results.get("masks"))),
-            "scores": results.get("scores", []).tolist() if torch.is_tensor(results.get("scores")) else results.get("scores", []),
+            "num_masks": result.num_masks,
+            "scores": result.scores,
+            "boxes": result.boxes,
         }
         with (raw_dir / f"{image_path.stem}.json").open("w", encoding="utf-8") as handle:
             json.dump(raw_payload, handle, indent=2)
 
-        if resolved_device.startswith("cuda") and index % 10 == 0:
-            torch.cuda.empty_cache()
+        segmenter.maybe_clear_cuda_cache(index)

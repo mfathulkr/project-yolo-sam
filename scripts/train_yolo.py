@@ -15,7 +15,7 @@ from pool_segmentation_compare.config import load_config, resolve_path
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Train YOLO on the prepared iSAID swimming-pool dataset.")
+    parser = argparse.ArgumentParser(description="Train YOLO on the prepared LandCover.ai building dataset.")
     parser.add_argument("--config", type=Path, default=ROOT / "configs" / "experiment.yaml")
     parser.add_argument("--weights", type=str, default=None)
     parser.add_argument("--resume", action="store_true")

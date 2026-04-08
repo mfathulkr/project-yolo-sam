@@ -1,44 +1,43 @@
 dataset:
-  name: isaid
-  target_category: swimming pool
-  keep_all_images: true
+  name: landcover_ai
+  target_category: building
+  target_category_value: 1
   train_split: train
   eval_split: val
+  test_split: test
+  tile_size: 512
+  tile_image_format: jpg
+  min_component_area: 20
+  train_negative_ratio: 1.0
+  sampling_seed: 42
+  archive_name: landcover.ai.v1.zip
   urls:
-    isaid_train: https://drive.google.com/drive/folders/19RPVhC0dWpLF9Y_DYjxjUrwLbKUBQZ2K?usp=sharing
-    isaid_val: https://drive.google.com/drive/folders/17MErPhWQrwr92Ca1Maf4mwiarPS5rcWM?usp=sharing
-    dota_train_images: https://drive.google.com/drive/folders/1gmeE3D7R62UAtuIFOB9j2M5cUPTwtsxK?usp=sharing
-    dota_val_images: https://drive.google.com/drive/folders/1n5w45suVOyaqY84hltJhIZdtVFD9B224?usp=sharing
-    test: https://drive.google.com/drive/folders/1mYOf5USMGNcJRPcvRVJVV1uHEalG5RPl?usp=sharing
-    test_info: https://drive.google.com/open?id=1nQokIxSy3DEHImJribSCODTRkWlPJLE3
+    landcover_v1_zip: https://landcover.ai.linuxpolska.com/download/landcover.ai.v1.zip
 
 paths:
-  raw_dataset_dir: data/isaid_raw
-  prepared_dataset_dir: data/isaid_swimming_pool
-  yolo_train_run_dir: runs/yolo_pool
-  pipeline_a_output_dir: results/pipeline_a
-  pipeline_b_output_dir: results/pipeline_b
-  metrics_dir: results/metrics
-  visualizations_dir: results/visualizations
+  raw_dataset_dir: data/landcover_ai_raw
+  prepared_dataset_dir: data/landcover_ai_building
+  yolo_train_run_dir: runs/yolo_building_s640
+  sam3_text_output_dir: results/landcover_sam3_text
+  yolo_sam3_output_dir: results/landcover_yolo_sam3
+  gt_box_sam3_output_dir: results/landcover_gt_box_sam3
+  sam3_triplet_metrics_dir: results/landcover_metrics_sam3_triplet
+  sam3_triplet_visualizations_dir: results/landcover_visualizations_sam3_triplet
 
 yolo:
-  base_weights: yolov8n.pt
-  trained_weights: runs/yolo_pool/train/weights/best.pt
-  imgsz: 1024
-  batch: 4
-  epochs: 50
+  base_weights: yolov8s.pt
+  trained_weights: runs/yolo_building_s640/train/weights/best.pt
+  imgsz: 640
+  batch: 6
+  epochs: 100
   conf: 0.25
   workers: 1
-  device: 0
-
-sam2:
-  checkpoint: models/sam2.1_b.pt
   device: 0
 
 sam3:
   backend: local
   local_model_dir: models/sam3_hf
-  prompt: swimming pool
+  prompt: building
   output_prob_thresh: 0.5
   mask_threshold: 0.5
   device: 0

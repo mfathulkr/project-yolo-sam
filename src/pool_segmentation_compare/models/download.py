@@ -1,35 +1,9 @@
 from __future__ import annotations
 
-import shutil
 from pathlib import Path
 
-from huggingface_hub.errors import GatedRepoError
 from huggingface_hub import snapshot_download
-
-
-def ensure_sam2_checkpoint(checkpoint_path: str | Path) -> Path:
-    from ultralytics import SAM
-
-    target_path = Path(checkpoint_path)
-    target_path.parent.mkdir(parents=True, exist_ok=True)
-    if target_path.exists():
-        return target_path
-
-    # Ultralytics downloads SAM2 weights when initialized by basename.
-    SAM(target_path.name)
-
-    downloaded_candidates = [
-        Path.cwd() / target_path.name,
-        Path.home() / ".cache" / "ultralytics" / target_path.name,
-        Path.home() / ".config" / "Ultralytics" / target_path.name,
-    ]
-    for candidate in downloaded_candidates:
-        if candidate.exists():
-            if candidate.resolve() != target_path.resolve():
-                shutil.move(str(candidate), str(target_path))
-            return target_path
-
-    return target_path
+from huggingface_hub.errors import GatedRepoError
 
 
 def ensure_sam3_model_dir(model_dir: Path, token: str | None = None) -> Path:
