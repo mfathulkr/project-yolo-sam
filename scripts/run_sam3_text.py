@@ -12,8 +12,8 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from pool_segmentation_compare.config import load_config, resolve_path
-from pool_segmentation_compare.pipelines.pipeline_b import run_sam3_hosted_pipeline, run_sam3_local_pipeline
+from sam3_bbox_study.config import load_config, resolve_path
+from sam3_bbox_study.pipelines.sam3_text import run_sam3_hosted_pipeline, run_sam3_local_pipeline
 
 
 def parse_args() -> argparse.Namespace:

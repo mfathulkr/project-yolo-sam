@@ -8,8 +8,8 @@ from PIL import Image
 from tqdm import tqdm
 from ultralytics import YOLO
 
-from pool_segmentation_compare.io_utils import ensure_dir, list_images, save_binary_mask
-from pool_segmentation_compare.models.sam3_local import LocalSam3ImageSegmenter
+from sam3_bbox_study.io_utils import ensure_dir, list_images, save_binary_mask
+from sam3_bbox_study.models.sam3_local import LocalSam3ImageSegmenter
 
 
 def run_yolo_sam3_pipeline(
@@ -38,7 +38,7 @@ def run_yolo_sam3_pipeline(
         hf_token=hf_token,
     )
 
-    for index, image_path in enumerate(tqdm(list_images(images_dir), desc="Pipeline C"), start=1):
+    for index, image_path in enumerate(tqdm(list_images(images_dir), desc="YOLO + SAM3"), start=1):
         det_results = detector.predict(
             source=str(image_path),
             conf=conf_threshold,

@@ -10,8 +10,8 @@ import requests
 from PIL import Image
 from tqdm import tqdm
 
-from pool_segmentation_compare.io_utils import ensure_dir, list_images, save_binary_mask
-from pool_segmentation_compare.models.sam3_local import LocalSam3ImageSegmenter
+from sam3_bbox_study.io_utils import ensure_dir, list_images, save_binary_mask
+from sam3_bbox_study.models.sam3_local import LocalSam3ImageSegmenter
 
 
 def encode_image_base64(image_path: Path) -> str:
@@ -57,7 +57,7 @@ def run_sam3_hosted_pipeline(
     masks_dir = ensure_dir(output_dir / "masks")
     raw_dir = ensure_dir(output_dir / "raw")
 
-    for image_path in tqdm(list_images(images_dir), desc="Pipeline B (hosted)"):
+    for image_path in tqdm(list_images(images_dir), desc="SAM3 text-only (hosted)"):
         image = cv2.imread(str(image_path))
         if image is None:
             raise FileNotFoundError(f"Failed to read image: {image_path}")
@@ -108,7 +108,7 @@ def run_sam3_local_pipeline(
         hf_token=hf_token,
     )
 
-    for index, image_path in enumerate(tqdm(list_images(images_dir), desc="Pipeline B (local)"), start=1):
+    for index, image_path in enumerate(tqdm(list_images(images_dir), desc="SAM3 text-only"), start=1):
         with Image.open(image_path) as pil_image:
             image = pil_image.convert("RGB")
         result = segmenter.segment(

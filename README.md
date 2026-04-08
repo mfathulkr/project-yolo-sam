@@ -127,7 +127,7 @@ project_yolo-sam/
 │   ├── evaluate_triplet.py
 │   └── export_presentation_assets.py
 ├── src/
-│   └── pool_segmentation_compare/
+│   └── sam3_bbox_study/
 ├── data/
 ├── models/
 ├── runs/

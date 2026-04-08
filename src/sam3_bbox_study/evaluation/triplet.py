@@ -4,10 +4,10 @@ from pathlib import Path
 
 import pandas as pd
 
-from pool_segmentation_compare.data.coco_masks import load_ground_truth_masks
-from pool_segmentation_compare.evaluation.metrics import compute_iou
-from pool_segmentation_compare.evaluation.visualization import save_sam3_triplet_comparison_figure
-from pool_segmentation_compare.io_utils import ensure_dir, load_binary_mask
+from sam3_bbox_study.data.coco_masks import load_ground_truth_masks
+from sam3_bbox_study.evaluation.metrics import compute_iou
+from sam3_bbox_study.evaluation.visualization import save_sam3_triplet_comparison_figure
+from sam3_bbox_study.io_utils import ensure_dir, load_binary_mask
 
 
 def evaluate_sam3_triplet(

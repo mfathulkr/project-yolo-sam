@@ -8,7 +8,7 @@ import torch
 from PIL import Image
 from transformers import Sam3Model, Sam3Processor
 
-from pool_segmentation_compare.models.download import ensure_sam3_model_dir
+from sam3_bbox_study.models.download import ensure_sam3_model_dir
 
 
 def masks_to_merged_mask(masks: object, shape: tuple[int, int]) -> np.ndarray:

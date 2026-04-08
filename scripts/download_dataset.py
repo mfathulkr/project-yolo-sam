@@ -9,8 +9,8 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from pool_segmentation_compare.config import load_config, resolve_path
-from pool_segmentation_compare.data.landcover import (
+from sam3_bbox_study.config import load_config, resolve_path
+from sam3_bbox_study.data.landcover import (
     download_landcover_archive,
     expected_archive_size_bytes,
     extract_landcover_archive,

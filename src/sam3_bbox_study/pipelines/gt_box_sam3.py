@@ -7,9 +7,9 @@ import numpy as np
 from PIL import Image
 from tqdm import tqdm
 
-from pool_segmentation_compare.data.coco_boxes import load_ground_truth_boxes
-from pool_segmentation_compare.io_utils import ensure_dir, list_images, save_binary_mask
-from pool_segmentation_compare.models.sam3_local import LocalSam3ImageSegmenter
+from sam3_bbox_study.data.coco_boxes import load_ground_truth_boxes
+from sam3_bbox_study.io_utils import ensure_dir, list_images, save_binary_mask
+from sam3_bbox_study.models.sam3_local import LocalSam3ImageSegmenter
 
 
 def run_gt_box_sam3_pipeline(
@@ -35,7 +35,7 @@ def run_gt_box_sam3_pipeline(
         hf_token=hf_token,
     )
 
-    for index, image_path in enumerate(tqdm(list_images(images_dir), desc="Pipeline D"), start=1):
+    for index, image_path in enumerate(tqdm(list_images(images_dir), desc="GT bbox + SAM3"), start=1):
         with Image.open(image_path) as pil_image:
             image = pil_image.convert("RGB")
             height, width = image.size[1], image.size[0]
