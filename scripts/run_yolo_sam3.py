@@ -41,6 +41,7 @@ def main() -> None:
         conf_threshold=config["yolo"]["conf"],
         image_size=config["yolo"]["imgsz"],
         yolo_device=config["yolo"]["device"],
+        max_det=config["yolo"].get("max_det"),
         model_dir=resolve_path(config["sam3"]["local_model_dir"]),
         prompt=prompt,
         sam_device=config["sam3"]["device"],

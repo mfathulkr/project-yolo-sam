@@ -144,6 +144,66 @@ project_yolo-sam/
 - qualitative overlays:
   - `results/landcover_visualizations_sam3_triplet/`
 
+## Drone Urban Vehicle Extension
+
+For the follow-up study requested around drone-like overhead city imagery, use the Semantic Drone Dataset under `data/semantic_drone_raw`.
+The new primary config extracts `car` masks from semantic labels, derives connected-component boxes, and builds a balanced evaluation split across:
+
+- bbox overlap vs no bbox overlap
+- high vs low target-mask area
+
+The default crop is `1536x1536`, which keeps more urban context than tight crops and better matches a moderately distant drone view.
+
+Workflow:
+
+```powershell
+python scripts/prepare_semantic_drone_dataset.py --config configs/semantic_drone_car_yolo26x.yaml
+python scripts/estimate_yolo_training_time.py --config configs/semantic_drone_car_yolo26x.yaml
+python scripts/train_yolo.py --config configs/semantic_drone_car_yolo26x.yaml
+python scripts/run_sam3_text.py --config configs/semantic_drone_car_yolo26x.yaml
+python scripts/run_yolo_sam3.py --config configs/semantic_drone_car_yolo26x.yaml
+python scripts/run_gt_box_sam3.py --config configs/semantic_drone_car_yolo26x.yaml
+python scripts/evaluate_stratified_triplet.py --config configs/semantic_drone_car_yolo26x.yaml
+python scripts/export_stratified_presentation_assets.py --config configs/semantic_drone_car_yolo26x.yaml
+```
+
+The detector baseline is `YOLO26x`, configured in `configs/semantic_drone_car_yolo26x.yaml` for 4x A6000 training:
+
+- `device: "0,1,2,3"`
+- `batch: 32`
+- `workers: 8`
+- expected full training estimate: about `18` hours for `100` epochs
+
+Before the full run, use a short DDP smoke run:
+
+```powershell
+python scripts/train_yolo.py --config configs/semantic_drone_car_yolo26x.yaml --epochs 3 --name smoke_ddp
+```
+
+## iSAID Aerial Vehicle Backup
+
+If a stricter instance-segmentation benchmark is needed as a secondary experiment, use the iSAID raw dataset already expected under `data/isaid_raw`.
+The new config merges `Small_Vehicle` and `Large_Vehicle` into one `vehicle` class and builds a balanced evaluation split across:
+
+- bbox overlap vs no bbox overlap
+- high vs low target-mask area
+
+Workflow:
+
+```powershell
+python scripts/prepare_isaid_vehicle_dataset.py --config configs/isaid_vehicle_yolo26x.yaml
+python scripts/estimate_yolo_training_time.py --config configs/isaid_vehicle_yolo26x.yaml
+python scripts/train_yolo.py --config configs/isaid_vehicle_yolo26x.yaml
+python scripts/run_sam3_text.py --config configs/isaid_vehicle_yolo26x.yaml
+python scripts/run_yolo_sam3.py --config configs/isaid_vehicle_yolo26x.yaml
+python scripts/run_gt_box_sam3.py --config configs/isaid_vehicle_yolo26x.yaml
+python scripts/evaluate_stratified_triplet.py --config configs/isaid_vehicle_yolo26x.yaml
+python scripts/export_stratified_presentation_assets.py --config configs/isaid_vehicle_yolo26x.yaml
+```
+
+The detector baseline is `YOLO26x` at `1024x1024`, configured in `configs/isaid_vehicle_yolo26x.yaml`.
+On the current machine, the estimator projects roughly `2.7` days for the full `100` epoch run after preparing the default iSAID vehicle split.
+
 ## Notes
 
 - Evaluation is configured as `positive_only: true`, because the main research question is mask quality on images that actually contain buildings.

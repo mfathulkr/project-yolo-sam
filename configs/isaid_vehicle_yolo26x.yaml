@@ -1,0 +1,67 @@
+dataset:
+  name: isaid_vehicle
+  target_categories:
+    - Small_Vehicle
+    - Large_Vehicle
+  merged_category: vehicle
+  train_split: train
+  val_split: val
+  eval_split: eval
+  tile_size: 1024
+  stride: 1024
+  tile_image_format: jpg
+  min_instance_area: 12
+  train_negative_ratio: 0.5
+  sampling_seed: 42
+
+paths:
+  raw_dataset_dir: data/isaid_raw
+  prepared_dataset_dir: data/isaid_vehicle
+  yolo_train_run_dir: runs/yolo26x_isaid_vehicle_s1024
+  sam3_text_output_dir: results/isaid_vehicle_sam3_text
+  yolo_sam3_output_dir: results/isaid_vehicle_yolo26x_sam3
+  gt_box_sam3_output_dir: results/isaid_vehicle_gt_box_sam3
+  sam3_triplet_metrics_dir: results/isaid_vehicle_metrics_sam3_triplet
+  sam3_triplet_visualizations_dir: results/isaid_vehicle_visualizations_sam3_triplet
+
+yolo:
+  base_weights: yolo26x.pt
+  trained_weights: runs/yolo26x_isaid_vehicle_s1024/train/weights/best.pt
+  imgsz: 1024
+  batch: 2
+  epochs: 100
+  patience: 30
+  conf: 0.20
+  iou: 0.70
+  max_det: 500
+  workers: 2
+  device: 0
+
+sam3:
+  backend: local
+  local_model_dir: models/sam3_hf
+  prompt: vehicle
+  output_prob_thresh: 0.5
+  mask_threshold: 0.5
+  device: 0
+  torch_dtype: float16
+  endpoint: https://serverless.roboflow.com/sam3/concept_segment
+  model_id: sam3/sam3_final
+
+evaluation:
+  positive_only: true
+  min_objects_per_image: 5
+  max_objects_per_image: 80
+  overlap_iou_threshold: 0.0
+  area_threshold: median
+  max_per_stratum: 40
+  balance_to_smallest_stratum: true
+  max_visualizations: 24
+  max_visualizations_per_stratum: 3
+
+training_time_reference:
+  baseline_results_csv: runs/yolo_building_s640/train/results.csv
+  baseline_train_images: 2370
+  baseline_imgsz: 640
+  baseline_gflops: 28.8
+  target_gflops: 209.5

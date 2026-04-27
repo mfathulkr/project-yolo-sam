@@ -19,6 +19,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", type=Path, default=ROOT / "configs" / "experiment.yaml")
     parser.add_argument("--weights", type=str, default=None)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--epochs", type=int, default=None)
+    parser.add_argument("--batch", type=int, default=None)
+    parser.add_argument("--imgsz", type=int, default=None)
+    parser.add_argument("--device", type=str, default=None)
+    parser.add_argument("--workers", type=int, default=None)
+    parser.add_argument("--name", type=str, default="train")
     return parser.parse_args()
 
 
@@ -41,18 +47,23 @@ def main() -> None:
         return
 
     model = YOLO(weights)
-    model.train(
-        data=str(data_yaml),
-        epochs=yolo_cfg["epochs"],
-        imgsz=yolo_cfg["imgsz"],
-        batch=yolo_cfg["batch"],
-        conf=yolo_cfg["conf"],
-        workers=yolo_cfg.get("workers", 1),
-        project=str(project_dir),
-        name="train",
-        exist_ok=True,
-        device=yolo_cfg["device"],
-    )
+    train_kwargs = {
+        "data": str(data_yaml),
+        "epochs": args.epochs if args.epochs is not None else yolo_cfg["epochs"],
+        "imgsz": args.imgsz if args.imgsz is not None else yolo_cfg["imgsz"],
+        "batch": args.batch if args.batch is not None else yolo_cfg["batch"],
+        "conf": yolo_cfg["conf"],
+        "workers": args.workers if args.workers is not None else yolo_cfg.get("workers", 1),
+        "project": str(project_dir),
+        "name": args.name,
+        "exist_ok": True,
+        "device": args.device if args.device is not None else yolo_cfg["device"],
+    }
+    for optional_key in ["patience", "cache", "close_mosaic", "multi_scale", "optimizer", "lr0", "lrf"]:
+        if optional_key in yolo_cfg:
+            train_kwargs[optional_key] = yolo_cfg[optional_key]
+
+    model.train(**train_kwargs)
 
 
 if __name__ == "__main__":

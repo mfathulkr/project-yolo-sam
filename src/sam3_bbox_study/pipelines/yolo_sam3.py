@@ -19,6 +19,7 @@ def run_yolo_sam3_pipeline(
     conf_threshold: float,
     image_size: int,
     yolo_device: str | int,
+    max_det: int | None,
     model_dir: Path,
     prompt: str,
     sam_device: str | int,
@@ -39,13 +40,16 @@ def run_yolo_sam3_pipeline(
     )
 
     for index, image_path in enumerate(tqdm(list_images(images_dir), desc="YOLO + SAM3"), start=1):
-        det_results = detector.predict(
-            source=str(image_path),
-            conf=conf_threshold,
-            imgsz=image_size,
-            device=yolo_device,
-            verbose=False,
-        )
+        predict_kwargs = {
+            "source": str(image_path),
+            "conf": conf_threshold,
+            "imgsz": image_size,
+            "device": yolo_device,
+            "verbose": False,
+        }
+        if max_det is not None:
+            predict_kwargs["max_det"] = max_det
+        det_results = detector.predict(**predict_kwargs)
         boxes = det_results[0].boxes.xyxy
 
         with Image.open(image_path) as pil_image:
