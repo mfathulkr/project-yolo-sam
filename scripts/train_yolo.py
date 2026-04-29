@@ -52,14 +52,24 @@ def main() -> None:
         "epochs": args.epochs if args.epochs is not None else yolo_cfg["epochs"],
         "imgsz": args.imgsz if args.imgsz is not None else yolo_cfg["imgsz"],
         "batch": args.batch if args.batch is not None else yolo_cfg["batch"],
-        "conf": yolo_cfg["conf"],
         "workers": args.workers if args.workers is not None else yolo_cfg.get("workers", 1),
         "project": str(project_dir),
         "name": args.name,
         "exist_ok": True,
         "device": args.device if args.device is not None else yolo_cfg["device"],
     }
-    for optional_key in ["patience", "cache", "close_mosaic", "multi_scale", "optimizer", "lr0", "lrf"]:
+    if "train_conf" in yolo_cfg:
+        train_kwargs["conf"] = yolo_cfg["train_conf"]
+    for optional_key in [
+        "patience",
+        "cache",
+        "close_mosaic",
+        "multi_scale",
+        "optimizer",
+        "lr0",
+        "lrf",
+        "max_det",
+    ]:
         if optional_key in yolo_cfg:
             train_kwargs[optional_key] = yolo_cfg[optional_key]
 

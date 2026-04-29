@@ -191,9 +191,15 @@ def format_duration(hours: float) -> str:
 def main() -> None:
     config = load_config(parse_args().config)
     reference_cfg = config["training_time_reference"]
-    baseline_results = pd.read_csv(resolve_path(reference_cfg["baseline_results_csv"]))
-    baseline_epochs = int(baseline_results["epoch"].max())
-    baseline_seconds_per_epoch = float(baseline_results["time"].iloc[-1]) / baseline_epochs
+    baseline_results_path = resolve_path(reference_cfg["baseline_results_csv"])
+    if baseline_results_path.exists():
+        baseline_results = pd.read_csv(baseline_results_path)
+        baseline_epochs = int(baseline_results["epoch"].max())
+        baseline_seconds_per_epoch = float(baseline_results["time"].iloc[-1]) / baseline_epochs
+        baseline_source = str(baseline_results_path)
+    else:
+        baseline_seconds_per_epoch = float(reference_cfg.get("baseline_seconds_per_epoch", 66.1))
+        baseline_source = f"fallback_default_missing:{baseline_results_path}"
 
     train_images = count_prepared_train_images(config)
     source = "prepared dataset"
@@ -222,6 +228,7 @@ def main() -> None:
 
     print(f"source: {source}")
     print(f"estimated_train_images: {train_images}")
+    print(f"baseline_source: {baseline_source}")
     print(f"baseline_seconds_per_epoch: {baseline_seconds_per_epoch:.1f}")
     print(f"estimated_seconds_per_epoch: {target_seconds_per_epoch:.1f}")
     print(f"configured_epochs: {config['yolo']['epochs']}")

@@ -12,6 +12,12 @@ from sam3_bbox_study.io_utils import ensure_dir, list_images, save_binary_mask
 from sam3_bbox_study.models.sam3_local import LocalSam3ImageSegmenter
 
 
+def first_predict_device(device: str | int) -> str | int:
+    if isinstance(device, str) and "," in device:
+        return device.split(",", maxsplit=1)[0].strip()
+    return device
+
+
 def run_yolo_sam3_pipeline(
     images_dir: Path,
     output_dir: Path,
@@ -44,7 +50,7 @@ def run_yolo_sam3_pipeline(
             "source": str(image_path),
             "conf": conf_threshold,
             "imgsz": image_size,
-            "device": yolo_device,
+            "device": first_predict_device(yolo_device),
             "verbose": False,
         }
         if max_det is not None:
@@ -68,7 +74,7 @@ def run_yolo_sam3_pipeline(
                 boxes_list = boxes.detach().cpu().numpy().tolist()
                 result = segmenter.segment(
                     image=image,
-                    prompt=prompt,
+                    prompt=None,
                     boxes=boxes_list,
                     box_labels=[1] * len(boxes_list),
                     output_prob_thresh=output_prob_thresh,
@@ -80,6 +86,7 @@ def run_yolo_sam3_pipeline(
                     "num_masks": result.num_masks,
                     "scores": result.scores,
                     "input_boxes": boxes_list,
+                    "prompt_type": "yolo_bbox",
                     "sam3_boxes": result.boxes,
                 }
 

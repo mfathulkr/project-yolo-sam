@@ -16,6 +16,8 @@ tmp_sam3_smoke/
 tmp_sam3_smoke_out/
 *.pt
 
+external_models/
+
 data/*
 !data/.gitkeep
 

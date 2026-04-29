@@ -9,6 +9,7 @@ dataset:
   eval_split: eval
   tile_size: 1024
   stride: 1024
+  include_edge_tiles: true
   tile_image_format: jpg
   min_instance_area: 12
   train_negative_ratio: 0.5
@@ -28,14 +29,14 @@ yolo:
   base_weights: yolo26x.pt
   trained_weights: runs/yolo26x_isaid_vehicle_s1024/train/weights/best.pt
   imgsz: 1024
-  batch: 2
+  batch: 32
   epochs: 100
   patience: 30
   conf: 0.20
   iou: 0.70
   max_det: 500
-  workers: 2
-  device: 0
+  workers: 4
+  device: "0,1,2,3"
 
 sam3:
   backend: local
@@ -50,11 +51,16 @@ sam3:
 
 evaluation:
   positive_only: true
-  min_objects_per_image: 5
-  max_objects_per_image: 80
+  stratify_by: object_count
+  min_objects_per_image: 1
+  max_objects_per_image: 500
+  low_object_count_max: 5
+  high_object_count_min: 20
   overlap_iou_threshold: 0.0
+  no_overlap_iou_max: 0.0
+  overlap_iou_min: 0.05
   area_threshold: median
-  max_per_stratum: 40
+  max_per_stratum: 32
   balance_to_smallest_stratum: true
   max_visualizations: 24
   max_visualizations_per_stratum: 3

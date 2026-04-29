@@ -18,11 +18,11 @@ from sam3_bbox_study.config import load_config, resolve_path
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Export stratified iSAID experiment assets for presentation use.")
-    parser.add_argument("--config", type=Path, default=ROOT / "configs" / "isaid_vehicle_yolo26x.yaml")
+    parser.add_argument("--config", type=Path, default=ROOT / "configs" / "isaid_vehicle_yolo26x_cpu_eval.yaml")
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=ROOT.parent / "presentation_semantic_drone_bbox_study",
+        default=ROOT.parent / "presentation_isaid_vehicle_sam3_study",
     )
     return parser.parse_args()
 
@@ -30,7 +30,8 @@ def parse_args() -> argparse.Namespace:
 def plot_stratified_metric(summary: pd.DataFrame, metric: str, output_path: Path) -> None:
     pivot = summary.pivot(index="stratum", columns="pipeline_label", values=metric)
     fig, ax = plt.subplots(figsize=(10, 5))
-    pivot.plot(kind="bar", ax=ax, color=["#2f2f2f", "#787878", "#b5b5b5"])
+    colors = ["#252525", "#666666", "#9a9a9a", "#c7c7c7", "#e2e2e2"]
+    pivot.plot(kind="bar", ax=ax, color=colors[: len(pivot.columns)])
     ax.set_ylim(0, 1)
     ax.set_ylabel(metric.replace("_", " ").title())
     ax.set_xlabel("")
@@ -44,13 +45,13 @@ def plot_stratified_metric(summary: pd.DataFrame, metric: str, output_path: Path
 
 def write_takeaways(overall: pd.DataFrame, by_stratum: pd.DataFrame, pairwise: pd.DataFrame, output_path: Path) -> None:
     lines = [
-        "# Stratified Aerial Object Study",
+        "# Stratified iSAID Vehicle Study",
         "",
         "## Setup",
         "",
-        "- Dataset: configured overhead/drone imagery with derived bbox prompts.",
-        "- Evaluation split is balanced across bbox-overlap and mask-area strata.",
-        "- Pipelines: `SAM3 text-only`, `YOLO26x + SAM3`, `GT bbox + SAM3`.",
+        "- Dataset: iSAID overhead urban imagery, filtered to Small_Vehicle and Large_Vehicle as one `vehicle` class.",
+        "- Evaluation split is balanced across bbox-overlap and target-mask-area strata.",
+        "- Pipelines: `SAM3 text-only`, `YOLO26x + SAM3`, `GT bbox + SAM3`, and `YOLO26x + SAM2`.",
         "",
         "## Overall metrics",
         "",

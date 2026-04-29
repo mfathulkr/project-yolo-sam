@@ -3,12 +3,13 @@ dataset:
   target_categories:
     - car
   target_category_ids: null
-  target_rgb_colors: null
+  target_rgb_colors:
+    - [9, 143, 150]
   train_split: train
   val_split: val
   eval_split: eval
-  image_dir: null
-  mask_dir: null
+  image_dir: semantic_drone_dataset/training_set/images
+  mask_dir: semantic_drone_dataset/training_set/gt/semantic/label_images
   tile_size: 1536
   stride: 1536
   include_edge_tiles: true
@@ -54,10 +55,10 @@ sam3:
 
 evaluation:
   positive_only: true
-  min_objects_per_image: 3
+  min_objects_per_image: 1
   max_objects_per_image: 80
   overlap_iou_threshold: 0.0
-  area_threshold: median
+  area_threshold: 0.1
   max_per_stratum: 35
   balance_to_smallest_stratum: true
   max_visualizations: 24

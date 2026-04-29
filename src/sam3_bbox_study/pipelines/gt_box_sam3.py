@@ -52,7 +52,7 @@ def run_gt_box_sam3_pipeline(
         else:
             result = segmenter.segment(
                 image=image,
-                prompt=prompt,
+                prompt=None,
                 boxes=boxes_list,
                 box_labels=[1] * len(boxes_list),
                 output_prob_thresh=output_prob_thresh,
@@ -64,6 +64,7 @@ def run_gt_box_sam3_pipeline(
                 "num_masks": result.num_masks,
                 "scores": result.scores,
                 "input_boxes": boxes_list,
+                "prompt_type": "gt_bbox",
                 "sam3_boxes": result.boxes,
             }
 

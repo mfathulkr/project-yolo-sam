@@ -71,6 +71,17 @@ def yolo_label_line(bbox: list[float], image_width: int, image_height: int) -> s
     return f"0 {x_center:.6f} {y_center:.6f} {width:.6f} {height:.6f}"
 
 
+def tile_starts(length: int, tile_size: int, stride: int, include_edge_tiles: bool) -> list[int]:
+    if length < tile_size:
+        return []
+
+    starts = list(range(0, length - tile_size + 1, stride))
+    last_start = length - tile_size
+    if include_edge_tiles and starts[-1] != last_start:
+        starts.append(last_start)
+    return starts
+
+
 def bbox_intersects_tile(bbox: list[float], tile_x: int, tile_y: int, tile_size: int) -> bool:
     x, y, width, height = bbox
     return (
@@ -226,6 +237,7 @@ def convert_isaid_split_to_tiles(
     merged_category_name: str,
     tile_size: int,
     stride: int,
+    include_edge_tiles: bool,
     image_format: str,
     min_instance_area: int,
     negative_ratio: float | None,
@@ -272,8 +284,8 @@ def convert_isaid_split_to_tiles(
         source_annotations = annotations_by_image.get(int(source_image["id"]), [])
 
         tile_index = 0
-        for tile_y in range(0, height - tile_size + 1, stride):
-            for tile_x in range(0, width - tile_size + 1, stride):
+        for tile_y in tile_starts(height, tile_size, stride, include_edge_tiles):
+            for tile_x in tile_starts(width, tile_size, stride, include_edge_tiles):
                 tile_annotations: list[dict[str, Any]] = []
                 yolo_lines: list[str] = []
                 tile_boxes: list[list[float]] = []
@@ -406,7 +418,12 @@ def create_balanced_eval_split(
     min_objects: int,
     max_objects: int | None,
     overlap_iou_threshold: float,
+    no_overlap_iou_max: float | None,
+    overlap_iou_min: float | None,
     area_threshold: float | str,
+    stratify_by: str,
+    low_object_count_max: int | None,
+    high_object_count_min: int | None,
     max_per_stratum: int | None,
     balance_to_smallest_stratum: bool,
     sampling_seed: int,
@@ -426,24 +443,75 @@ def create_balanced_eval_split(
     if eligible.empty:
         raise RuntimeError("No iSAID eval tiles satisfy the configured stratification filters.")
 
-    if isinstance(area_threshold, str):
-        if area_threshold != "median":
-            raise ValueError("area_threshold must be a float or 'median'")
-        resolved_area_threshold = float(eligible["mask_area_ratio"].median())
-    else:
-        resolved_area_threshold = float(area_threshold)
+    if no_overlap_iou_max is not None or overlap_iou_min is not None:
+        resolved_no_overlap_iou_max = (
+            float(no_overlap_iou_max) if no_overlap_iou_max is not None else overlap_iou_threshold
+        )
+        resolved_overlap_iou_min = (
+            float(overlap_iou_min) if overlap_iou_min is not None else overlap_iou_threshold
+        )
+        if resolved_no_overlap_iou_max >= resolved_overlap_iou_min:
+            raise ValueError("no_overlap_iou_max must be less than overlap_iou_min")
 
-    eligible["overlap_group"] = np.where(
-        eligible["max_pair_bbox_iou"] > overlap_iou_threshold,
-        "overlap",
-        "no_overlap",
-    )
-    eligible["area_group"] = np.where(
-        eligible["mask_area_ratio"] >= resolved_area_threshold,
-        "high_mask_area",
-        "low_mask_area",
-    )
-    eligible["stratum"] = eligible["overlap_group"] + "__" + eligible["area_group"]
+        eligible["overlap_group"] = np.select(
+            [
+                eligible["max_pair_bbox_iou"] <= resolved_no_overlap_iou_max,
+                eligible["max_pair_bbox_iou"] >= resolved_overlap_iou_min,
+            ],
+            ["no_overlap", "overlap"],
+            default="ambiguous_overlap",
+        )
+        eligible = eligible[eligible["overlap_group"] != "ambiguous_overlap"].copy()
+        if eligible.empty:
+            raise RuntimeError("No iSAID eval tiles remain after overlap gap filtering.")
+    else:
+        resolved_no_overlap_iou_max = overlap_iou_threshold
+        resolved_overlap_iou_min = overlap_iou_threshold
+        eligible["overlap_group"] = np.where(
+            eligible["max_pair_bbox_iou"] > overlap_iou_threshold,
+            "overlap",
+            "no_overlap",
+        )
+    resolved_area_threshold: float | None = None
+    normalized_stratify_by = stratify_by.strip().lower()
+    if normalized_stratify_by == "mask_area":
+        if isinstance(area_threshold, str):
+            if area_threshold != "median":
+                raise ValueError("area_threshold must be a float or 'median'")
+            resolved_area_threshold = float(eligible["mask_area_ratio"].median())
+        else:
+            resolved_area_threshold = float(area_threshold)
+
+        eligible["area_group"] = np.where(
+            eligible["mask_area_ratio"] >= resolved_area_threshold,
+            "high_mask_area",
+            "low_mask_area",
+        )
+        group_column = "area_group"
+        group_values = {"high_mask_area", "low_mask_area"}
+    elif normalized_stratify_by == "object_count":
+        if low_object_count_max is None or high_object_count_min is None:
+            raise ValueError("object_count stratification requires low_object_count_max and high_object_count_min")
+        if low_object_count_max >= high_object_count_min:
+            raise ValueError("low_object_count_max must be less than high_object_count_min")
+
+        eligible["count_group"] = np.select(
+            [
+                eligible["num_objects"] <= low_object_count_max,
+                eligible["num_objects"] >= high_object_count_min,
+            ],
+            ["low_object_count", "high_object_count"],
+            default="middle_object_count",
+        )
+        eligible = eligible[eligible["count_group"] != "middle_object_count"].copy()
+        if eligible.empty:
+            raise RuntimeError("No iSAID eval tiles remain after object-count stratification filters.")
+        group_column = "count_group"
+        group_values = {"high_object_count", "low_object_count"}
+    else:
+        raise ValueError("stratify_by must be 'mask_area' or 'object_count'")
+
+    eligible["stratum"] = eligible["overlap_group"] + "__" + eligible[group_column]
 
     rng = random.Random(sampling_seed)
     selected_indices: list[int] = []
@@ -452,10 +520,9 @@ def create_balanced_eval_split(
         for stratum, group in eligible.groupby("stratum")
     }
     expected_strata = {
-        "overlap__high_mask_area",
-        "overlap__low_mask_area",
-        "no_overlap__high_mask_area",
-        "no_overlap__low_mask_area",
+        f"overlap__{group_value}" for group_value in group_values
+    } | {
+        f"no_overlap__{group_value}" for group_value in group_values
     }
     missing_strata = expected_strata - set(grouped_indices)
     if missing_strata:
@@ -476,6 +543,11 @@ def create_balanced_eval_split(
 
     selected = eligible.loc[selected_indices].sort_values(["stratum", "file_name"]).copy()
     selected["area_threshold"] = resolved_area_threshold
+    selected["stratify_by"] = normalized_stratify_by
+    selected["low_object_count_max"] = low_object_count_max
+    selected["high_object_count_min"] = high_object_count_min
+    selected["no_overlap_iou_max"] = resolved_no_overlap_iou_max
+    selected["overlap_iou_min"] = resolved_overlap_iou_min
     selected["selected_eval"] = True
 
     source_coco = json.loads((source_root / "_annotations.coco.json").read_text(encoding="utf-8"))
@@ -550,6 +622,7 @@ def prepare_isaid_vehicle_dataset(
     eval_split: str,
     tile_size: int,
     stride: int,
+    include_edge_tiles: bool,
     image_format: str,
     min_instance_area: int,
     train_negative_ratio: float | None,
@@ -557,7 +630,12 @@ def prepare_isaid_vehicle_dataset(
     min_eval_objects: int,
     max_eval_objects: int | None,
     eval_overlap_iou_threshold: float,
+    eval_no_overlap_iou_max: float | None,
+    eval_overlap_iou_min: float | None,
     eval_area_threshold: float | str,
+    eval_stratify_by: str,
+    eval_low_object_count_max: int | None,
+    eval_high_object_count_min: int | None,
     eval_max_per_stratum: int | None,
     eval_balance_to_smallest_stratum: bool,
 ) -> dict[str, PreparedSplitSummary]:
@@ -574,6 +652,7 @@ def prepare_isaid_vehicle_dataset(
         merged_category_name=merged_category_name,
         tile_size=tile_size,
         stride=stride,
+        include_edge_tiles=include_edge_tiles,
         image_format=image_format,
         min_instance_area=min_instance_area,
         negative_ratio=train_negative_ratio,
@@ -587,6 +666,7 @@ def prepare_isaid_vehicle_dataset(
         merged_category_name=merged_category_name,
         tile_size=tile_size,
         stride=stride,
+        include_edge_tiles=include_edge_tiles,
         image_format=image_format,
         min_instance_area=min_instance_area,
         negative_ratio=None,
@@ -599,7 +679,12 @@ def prepare_isaid_vehicle_dataset(
         min_objects=min_eval_objects,
         max_objects=max_eval_objects,
         overlap_iou_threshold=eval_overlap_iou_threshold,
+        no_overlap_iou_max=eval_no_overlap_iou_max,
+        overlap_iou_min=eval_overlap_iou_min,
         area_threshold=eval_area_threshold,
+        stratify_by=eval_stratify_by,
+        low_object_count_max=eval_low_object_count_max,
+        high_object_count_min=eval_high_object_count_min,
         max_per_stratum=eval_max_per_stratum,
         balance_to_smallest_stratum=eval_balance_to_smallest_stratum,
         sampling_seed=sampling_seed,
