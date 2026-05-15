@@ -27,16 +27,16 @@ CURATED_SAMPLES = [
 ]
 
 PIPELINES = [
-    ("GT mask + boxes", "gt", "ground_truth", (0, 210, 75)),
-    ("SAM3 text-only", "sam3_text", "sam3_text_output_dir", (40, 90, 255)),
-    ("RemoteSAM text", "remotesam_text", "remotesam_text_output_dir", (90, 190, 255)),
-    ("SegEarth-OV3 + SAM3", "segearth_ov3", "segearth_ov3_output_dir", (40, 210, 90)),
-    ("YOLO + SAM3", "yolo_sam3", "yolo_sam3_output_dir", (255, 190, 0)),
-    ("GT bbox + SAM3", "gt_box_sam3", "gt_box_sam3_output_dir", (255, 0, 220)),
-    ("YOLO + SAM2", "yolo_sam2", "yolo_sam2_output_dir", (0, 190, 220)),
-    ("GroundingDINO + SAM2", "grounded_sam2", "grounded_sam2_output_dir", (255, 128, 0)),
-    ("YOLO + RingMo-SAM", "yolo_ringmo_sam", "yolo_ringmo_sam_output_dir", (255, 80, 155)),
-    ("GT bbox + RingMo-SAM", "gt_box_ringmo_sam", "gt_box_ringmo_sam_output_dir", (155, 90, 255)),
+    ("GT mask + GT boxes", "gt", "ground_truth", (0, 210, 75), "gt"),
+    ("SAM3 text-only", "sam3_text", "sam3_text_output_dir", (40, 90, 255), None),
+    ("SAM3 YOLO bbox", "yolo_sam3", "yolo_sam3_output_dir", (255, 190, 0), "yolo"),
+    ("SAM3 GT bbox", "gt_box_sam3", "gt_box_sam3_output_dir", (255, 0, 220), "gt"),
+    ("SAM3 hybrid YOLO bbox", "sam3_hybrid_yolo", "sam3_hybrid_yolo_output_dir", (210, 80, 255), "yolo"),
+    ("RemoteSAM text-only", "remotesam_text", "remotesam_text_output_dir", (90, 190, 255), None),
+    ("RingMo-SAM GT bbox", "gt_box_ringmo_sam", "gt_box_ringmo_sam_output_dir", (155, 90, 255), "gt"),
+    ("RingMo-SAM YOLO bbox", "yolo_ringmo_sam", "yolo_ringmo_sam_output_dir", (255, 80, 155), "yolo"),
+    ("SAM2 GT bbox", "gt_box_sam2", "gt_box_sam2_output_dir", (0, 155, 255), "gt"),
+    ("SAM2 YOLO bbox", "yolo_sam2", "yolo_sam2_output_dir", (0, 190, 220), "yolo"),
 ]
 
 
@@ -138,6 +138,8 @@ def draw_boxes(
     crop: list[int] | None = None,
     highlight: set[int] | None = None,
     scale: float = 1.0,
+    box_color: tuple[int, int, int, int] = (255, 35, 35, 255),
+    highlight_color: tuple[int, int, int, int] = (255, 220, 0, 255),
 ) -> Image.Image:
     draw = ImageDraw.Draw(image)
     x_offset = crop[0] if crop else 0
@@ -151,7 +153,7 @@ def draw_boxes(
             (x2 - x_offset) * scale,
             (y2 - y_offset) * scale,
         ]
-        color = (255, 220, 0, 255) if index in highlight else (255, 35, 35, 255)
+        color = highlight_color if index in highlight else box_color
         width = 7 if index in highlight else 4
         draw.rectangle(coords, outline=color, width=width)
     return image
@@ -166,6 +168,7 @@ def panel(
     boxes: list[list[float]] | None = None,
     crop: list[int] | None = None,
     highlight: set[int] | None = None,
+    box_color: tuple[int, int, int, int] = (255, 35, 35, 255),
 ) -> Image.Image:
     if crop:
         image = base_image.crop(crop)
@@ -175,7 +178,7 @@ def panel(
         panel_mask = mask
     image = overlay_mask(image, panel_mask, color)
     if boxes:
-        image = draw_boxes(image, boxes, crop=crop, highlight=highlight)
+        image = draw_boxes(image, boxes, crop=crop, highlight=highlight, box_color=box_color)
     image = image.convert("RGB").resize((size[0], size[1] - 46), Image.Resampling.BILINEAR)
     output = Image.new("RGB", size, "white")
     output.paste(image, (0, 46))
@@ -190,6 +193,7 @@ def make_card(
     gt_mask: np.ndarray,
     pred_masks: dict[str, np.ndarray],
     boxes: list[list[float]],
+    boxes_by_key: dict[str, list[list[float]]],
     metadata_row: pd.Series,
     reason: str,
     output_path: Path,
@@ -222,9 +226,10 @@ def make_card(
     )
     canvas.paste(full, (40, 165))
     canvas.paste(zoom, (805, 165))
-    note = "yellow boxes = max-overlap pair" if highlight else "red boxes = separated GT boxes"
+    note = "yellow boxes = max-overlap GT pair" if highlight else "red boxes = GT boxes"
     draw.text((1565, 220), note, fill=(0, 0, 0), font=font(28, bold=True))
-    draw.text((1565, 270), "Large zoom makes small-object labels visible.", fill=(55, 55, 55), font=font(25))
+    draw.text((1565, 270), "cyan boxes = YOLO boxes on YOLO-bbox panels.", fill=(55, 55, 55), font=font(25))
+    draw.text((1565, 318), "Large zoom makes small-object labels visible.", fill=(55, 55, 55), font=font(25))
 
     positions = [
         (40, 955),
@@ -238,9 +243,11 @@ def make_card(
         (1690, 1370),
         (2240, 1370),
     ]
-    for (x, y), (label, key, _, color) in zip(positions, PIPELINES, strict=True):
+    for (x, y), (label, key, _, color, box_source) in zip(positions, PIPELINES, strict=True):
         mask = gt_mask if key == "gt" else pred_masks[key]
-        boxes_to_draw = boxes if key == "gt" else None
+        boxes_to_draw = boxes_by_key.get(key)
+        box_color = (255, 35, 35, 255) if box_source == "gt" else (0, 220, 255, 255)
+        panel_highlight = highlight if box_source == "gt" else None
         comparison = panel(
             image,
             mask,
@@ -249,12 +256,24 @@ def make_card(
             (540, 390),
             boxes=boxes_to_draw,
             crop=crop,
-            highlight=highlight,
+            highlight=panel_highlight,
+            box_color=box_color,
         )
         canvas.paste(comparison, (x, y))
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(output_path)
+
+
+def load_prompt_boxes(output_dir: Path, stem: str) -> list[list[float]]:
+    raw_path = output_dir / "raw" / f"{stem}.json"
+    if not raw_path.exists():
+        return []
+    import json
+
+    payload = json.loads(raw_path.read_text(encoding="utf-8"))
+    boxes = payload.get("input_boxes", [])
+    return boxes if isinstance(boxes, list) else []
 
 
 def main() -> None:
@@ -283,19 +302,28 @@ def main() -> None:
             raise RuntimeError(f"{file_name} is {metadata_row['stratum']}, expected {expected_stratum}")
 
         gt_mask = gt_masks[file_name]
+        stem = Path(file_name).stem
+        gt_boxes = boxes_by_name[file_name]
         pred_masks: dict[str, np.ndarray] = {}
-        for _, key, output_key, _ in PIPELINES:
+        boxes_by_key: dict[str, list[list[float]]] = {"gt": gt_boxes}
+        for _, key, output_key, _, box_source in PIPELINES:
             if key == "gt":
                 continue
-            mask_path = resolve_path(config["paths"][output_key]) / "masks" / f"{Path(file_name).stem}.png"
+            output_root = resolve_path(config["paths"][output_key])
+            mask_path = output_root / "masks" / f"{stem}.png"
             pred_masks[key] = load_binary_mask(mask_path, gt_mask.shape)
+            if box_source == "gt":
+                boxes_by_key[key] = gt_boxes
+            elif box_source == "yolo":
+                boxes_by_key[key] = load_prompt_boxes(output_root, stem)
 
-        output_path = hero_dir / f"{expected_stratum}__{Path(file_name).stem}_hero.png"
+        output_path = hero_dir / f"{expected_stratum}__{stem}_hero.png"
         make_card(
             image_path=image_dir / file_name,
             gt_mask=gt_mask,
             pred_masks=pred_masks,
-            boxes=boxes_by_name[file_name],
+            boxes=gt_boxes,
+            boxes_by_key=boxes_by_key,
             metadata_row=metadata_row,
             reason=reason,
             output_path=output_path,

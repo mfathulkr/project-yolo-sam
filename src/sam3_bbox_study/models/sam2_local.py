@@ -15,6 +15,8 @@ def collapse_masks_to_merged_mask(masks: object, shape: tuple[int, int]) -> np.n
         return np.zeros(shape, dtype=bool)
     if torch.is_tensor(masks):
         masks_array = masks.detach().cpu().numpy()
+    elif isinstance(masks, (list, tuple)) and masks and all(torch.is_tensor(item) for item in masks):
+        masks_array = np.asarray([item.detach().cpu().numpy() for item in masks])
     else:
         masks_array = np.asarray(masks)
     if masks_array.size == 0:

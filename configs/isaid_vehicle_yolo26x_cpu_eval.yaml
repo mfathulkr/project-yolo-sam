@@ -22,7 +22,10 @@ paths:
   sam3_text_output_dir: results/isaid_vehicle_sam3_text
   yolo_sam3_output_dir: results/isaid_vehicle_yolo26x_sam3
   gt_box_sam3_output_dir: results/isaid_vehicle_gt_box_sam3
+  sam3_hybrid_yolo_output_dir: results/isaid_vehicle_sam3_hybrid_yolo_bbox
+  sam3_hybrid_gt_output_dir: results/isaid_vehicle_sam3_hybrid_gt_bbox
   yolo_sam2_output_dir: results/isaid_vehicle_yolo26x_sam2
+  gt_box_sam2_output_dir: results/isaid_vehicle_gt_box_sam2
   grounded_sam2_output_dir: results/isaid_vehicle_groundingdino_sam2
   segearth_ov3_output_dir: results/isaid_vehicle_segearth_ov3_sam3
   remotesam_text_output_dir: results/isaid_vehicle_remotesam_text
