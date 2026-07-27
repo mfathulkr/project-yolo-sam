@@ -180,3 +180,14 @@ PYTHONPATH=src:studies/teacher_reference_bias_v2_512/src \
 Tablo değerleri çalıştırılmış detector ve segmentasyon sonuçlarından okunur.
 Eksik koşul varsa rapor üretimi hata verir; varsayılan veya elle yazılmış
 metrik kullanılmaz.
+
+## Yerel Inference ve Büyük Dosyalar
+
+Altı eğitilmiş YOLO26x `best.pt` ağırlığı ve iki yeniden üretim paketi Git LFS
+ile depolanır. RTX 4060 8 GB VRAM için detector batch `1` ve SAM `float16`
+kullanan ayrı çalışma profili de vardır. Canonical rapor protokolü
+değiştirilmemiştir.
+
+Kurulum, model boyutları, SAM indirme, private test görüntüsü aktarımı ve tam
+inference komutları:
+[docs/LOCAL_INFERENCE.md](docs/LOCAL_INFERENCE.md).

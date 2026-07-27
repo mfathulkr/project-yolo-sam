@@ -98,7 +98,10 @@ pip install -r requirements.txt
 .venv/bin/python tools/models/setup_external_models.py
 ```
 
-Token ve checkpoint dosyaları Git'e eklenmez.
+Harici/gated SAM checkpoint dosyaları Git'e eklenmez. Canonical v2
+çalışmasında eğitilmiş YOLO ağırlıkları ve yeniden üretim bundle'ları Git LFS
+ile tutulur. Yerel inference kurulumu:
+[LOCAL_INFERENCE.md](studies/teacher_reference_bias_v2_512/docs/LOCAL_INFERENCE.md).
 
 ## Testler
 

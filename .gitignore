@@ -24,3 +24,4 @@ datasets/*
 
 studies/*/data/prepared/
 studies/*/results/
+studies/*/bundles/private_*

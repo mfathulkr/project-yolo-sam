@@ -6,6 +6,20 @@ from huggingface_hub import snapshot_download
 from huggingface_hub.errors import GatedRepoError
 
 
+SAM3_TRANSFORMERS_FILES = [
+    "LICENSE",
+    "README.md",
+    "config.json",
+    "merges.txt",
+    "model.safetensors",
+    "processor_config.json",
+    "special_tokens_map.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.json",
+]
+
+
 def ensure_sam3_model_dir(model_dir: Path, token: str | None = None) -> Path:
     model_dir = Path(model_dir)
     required_files = [
@@ -23,6 +37,7 @@ def ensure_sam3_model_dir(model_dir: Path, token: str | None = None) -> Path:
             local_dir=str(model_dir),
             local_dir_use_symlinks=False,
             token=token,
+            allow_patterns=SAM3_TRANSFORMERS_FILES,
         )
     except GatedRepoError as exc:
         raise RuntimeError(

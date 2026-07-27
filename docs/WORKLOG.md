@@ -1643,3 +1643,35 @@ Bir sonraki adım:
 - Canonical analizi derleyip üç MD/DOCX/PDF raporunu üretmek.
 - Tabloları, hash manifestlerini ve PDF sayfalarını bağımsız olarak
   doğrulamak.
+
+### 2026-07-27 - Yerel inference aktarım paketi
+
+Yapılanlar:
+
+- Canonical v2 çalışmasının altı eğitilmiş YOLO26x `best.pt` ağırlığı, mevcut
+  beklenen yolları korunarak Git LFS kapsamına alındı.
+- Tahmin, değerlendirme, analiz ve audit çıktıları ağırlıkları tekrar
+  içermeyen tek canonical bundle'a dönüştürüldü.
+- Prepared split anotasyonları, metadata ve YOLO label dosyaları görüntüsüz
+  ayrı bir bundle'a dönüştürüldü.
+- RTX 4060 8 GB için detector batch `1` ve SAM `float16` kullanan yerel
+  inference profili eklendi; canonical `float32` protokol değiştirilmedi.
+- LFS durumunu ve SHA-256 değerlerini kontrol eden, bundle'ları güvenli açan,
+  SAM modellerini indiren ve 512+512 private test görüntüsünü aktarım için
+  paketleyen yönetim aracı eklendi.
+
+Gönderilmeyenler:
+
+- iSAID/DOTA ve SAMRS üçüncü taraf görüntüleri public GitHub deposuna
+  yüklenmedi.
+- Gated SAM3 ve resmi SAM1/SAM2 checkpoint'leri yeniden dağıtılmadı; pinned
+  Hugging Face kaynaklarından indirme adımı belgelendi.
+- Canonical v2 için gerekmeyen tarihsel checkpoint ve raw dataset kopyaları
+  aktarım paketine alınmadı.
+
+Basit sonuç:
+
+> Yerel bilgisayar detector eğitimini tekrarlamadan altı YOLO ağırlığını ve
+> bütün canonical makine çıktılarını GitHub'dan çekebilir. Gerçek görüntüler
+> lisans nedeniyle private aktarılır; 8 GB GPU profili modelleri sırayla ve
+> düşük bellekle çalıştırır.

@@ -1,0 +1,2 @@
+studies/teacher_reference_bias_v2_512/results/detectors/**/weights/best.pt filter=lfs diff=lfs merge=lfs -text
+studies/teacher_reference_bias_v2_512/bundles/*.tar.gz filter=lfs diff=lfs merge=lfs -text
