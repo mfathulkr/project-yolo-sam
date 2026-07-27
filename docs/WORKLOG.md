@@ -28,6 +28,35 @@ Eski çalışmalar kendi `studies/` klasörlerinde kayıpsız korunuyor.
 
 ## Son Çalışmalar
 
+### 2026-07-27 - Nitel görseller bütün instance'ları gösterecek biçimde düzeltildi
+
+Yapılanlar:
+
+- Full metric belgelerdeki dört nitel sayfa tek bir seçilmiş instance yerine
+  seçilen görüntüdeki bütün GT uçak kutularını gösterir hale getirildi.
+- SAM1, SAM2 ve SAM3 tarafından her kutu için ayrı üretilen maskeler nitel
+  panelde birleştirilerek sahne düzeyinde TP/FP/FN görünümü oluşturuldu.
+- Görselde instance sayısı ve yalnız nitel inceleme amacı taşıyan union IoU
+  açıkça yazıldı; ana tablolar instance-level bırakıldı.
+
+Doğrulananlar:
+
+- Eski iSAID insan raporunun 12. sayfasındaki `P2249_0014` görüntüsünde 20
+  GT uçak bulunduğu ve SAM1/SAM2/SAM3 prediction dosyalarının her birinde 20
+  tahmin kaydının eksiksiz olduğu doğrulandı.
+- Bu görüntünün toplam uçak maskesi 3.380 piksel (`%0,322`), dondurulmuş
+  high/low eşiği `%1,671` ve 10 bbox-overlap çifti bulunduğu için
+  `Overlap / Low Mask Area` etiketi doğrudur.
+- Yenilenen iSAID insan raporunun 12. sayfasında seçilen sahnedeki 13
+  instance'ın bütün kutuları ve birleşik model maskeleri görünür durumdadır.
+- iSAID insan, iSAID SAM1 pseudo ve SAMRS rapor validator'ları yeniden geçti.
+
+Basit sonuç:
+
+> Model koşularında nesne kaybı yoktu; hata, nitel görselin yalnız bir
+> instance'ı göstermesi nedeniyle deney kapsamını eksik anlatmasıydı.
+> Rapor artık her seçilmiş sahnedeki bütün hedefleri gösteriyor.
+
 ### 2026-07-27 - Canonical v2 deney ve refactor kapatıldı
 
 Yapılanlar:

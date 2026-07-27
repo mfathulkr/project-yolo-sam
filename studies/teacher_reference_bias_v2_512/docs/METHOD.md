@@ -99,6 +99,13 @@ Ortalama önce her uçak için hesaplanan skorların aritmetik ortalamasıdır.
 Nesneler eşit ağırlıklıdır; büyük uçaklar daha çok piksele sahip olduğu için
 sonucu tek başına baskılamaz.
 
+Bir görüntüde birden fazla uçak varsa görüntüdeki bütün instance'lar koşuya
+dahildir. GT-bbox koşulunda her uçak kendi kutusuyla ayrı istem olarak
+çalıştırılır; örneğin 20 GT uçağı bulunan bir görüntü her model için 20
+tahmin kaydı üretir. Nitel rapor sayfalarında bu ayrı instance maskeleri
+sahnenin tamamını inceleyebilmek için birleştirilerek gösterilir. Bu
+görselleştirme tabloların instance-level hesap mantığını değiştirmez.
+
 `IoU ≥ 0.50/0.75/0.90`, ilgili eşiği geçen uçak örneklerinin oranıdır. Bunlar
 COCO mask AP değildir. Confidence sırasındaki bütün tahmin maskelerini ve
 yanlış pozitifleri kullanan uçtan uca COCO segmentation AP bu raporun

@@ -469,7 +469,7 @@ def build_qualitative_examples(
         (0.550, 0.768),
         (0.774, 0.993),
     )
-    panel_labels = ("Input + GT bbox", "Reference", "SAM1", "SAM2", "SAM3")
+    panel_labels = ("Input + all GT bbox", "Reference union", "SAM1", "SAM2", "SAM3")
     panel_positions = (
         (75, 80),
         (660, 80),
@@ -479,7 +479,10 @@ def build_qualitative_examples(
     )
     label_font = _load_font(27, bold=True)
     legend_font = _load_font(21)
-    legend = "Yeşil: TP   |   Turuncu: FP   |   Pembe: FN   |   Gösterilen istem: GT bbox"
+    legend = (
+        "Yeşil: TP | Turuncu: FP | Pembe: FN | "
+        "Her GT bbox ayrı istem, maskeler birleşik görünüm"
+    )
     outputs: list[tuple[str, Path]] = []
 
     with Image.open(source_path) as source:
@@ -590,8 +593,11 @@ def build_docx(
 
     document.add_heading("Qualitative Examples", level=1)
     document.add_paragraph(
-        "Her satır bir overlap × mask-area stratum'unu gösterir. Yeşil TP, "
-        "turuncu FP ve pembe FN pikselleridir. Görseller GT-bbox koşulundandır."
+        "Her sayfa bir overlap × mask-area grubundan tek görüntüyü gösterir. "
+        "Görüntüdeki bütün GT uçak kutuları modele ayrı istemler olarak "
+        "verilmiş, üretilen instance maskeleri yalnız görsel sunum için "
+        "birleştirilmiştir. Tablolar instance-level kalır. Yeşil TP, turuncu "
+        "FP ve pembe FN pikselleridir."
     )
     for image_title, image_path in qualitative_examples:
         document.add_heading(image_title, level=2)
@@ -847,7 +853,11 @@ def build_markdown(
         [
             "## Qualitative Examples",
             "",
-            "Her örnek GT-bbox koşulundandır. Yeşil TP, turuncu FP ve pembe FN piksellerini gösterir.",
+            "Her sayfa bir gruptan tek görüntüyü gösterir. Görüntüdeki bütün "
+            "GT uçak kutuları modele ayrı istemler olarak verilmiş ve "
+            "instance maskeleri yalnız bu görsel için birleştirilmiştir. "
+            "Tablolar instance-level kalır. Yeşil TP, turuncu FP ve pembe FN "
+            "piksellerini gösterir.",
             "",
         ]
     )

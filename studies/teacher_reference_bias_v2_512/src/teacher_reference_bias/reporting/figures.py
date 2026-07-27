@@ -446,7 +446,7 @@ def _error_overlay(
     return np.clip(output, 0, 255).astype(np.uint8)
 
 
-def _select_representative_instances(
+def _select_representative_images(
     metrics: pd.DataFrame,
     *,
     dataset_id: str,
@@ -463,19 +463,19 @@ def _select_representative_instances(
         raise ValueError(
             f"Incomplete GT-bbox model coverage for {dataset_id}/{reference_type}"
         )
-    per_instance = (
+    per_image = (
         selected.groupby(
-            ["instance_id", "source_scene_id", "stratum"],
+            ["image_id", "source_scene_id", "stratum"],
             as_index=False,
             sort=True,
         )["iou"]
         .mean()
         .rename(columns={"iou": "mean_model_iou"})
     )
-    instance_ids: list[str] = []
+    image_ids: list[str] = []
     used_scene_ids: set[str] = set()
     for stratum in STRATUM_ORDER[1:]:
-        stratum_rows = per_instance[per_instance["stratum"] == stratum].copy()
+        stratum_rows = per_image[per_image["stratum"] == stratum].copy()
         if stratum_rows.empty:
             raise ValueError(f"No representative candidate for {dataset_id}/{stratum}")
         median = float(stratum_rows["mean_model_iou"].median())
@@ -483,15 +483,15 @@ def _select_representative_instances(
             stratum_rows["mean_model_iou"].astype(float) - median
         ).abs()
         ordered = stratum_rows.sort_values(
-            ["distance_to_median", "instance_id"]
+            ["distance_to_median", "image_id"]
         )
         unused = ordered[
             ~ordered["source_scene_id"].astype(str).isin(used_scene_ids)
         ]
         row = (unused if not unused.empty else ordered).iloc[0]
-        instance_ids.append(str(row["instance_id"]))
+        image_ids.append(str(row["image_id"]))
         used_scene_ids.add(str(row["source_scene_id"]))
-    return instance_ids
+    return image_ids
 
 
 def qualitative_gt_bbox_figure(
@@ -535,89 +535,111 @@ def qualitative_gt_bbox_figure(
         else {}
     )
 
-    annotation_by_instance: dict[str, dict[str, Any]] = {}
+    annotations_by_image: dict[int, list[dict[str, Any]]] = {}
     for annotation_id in coco.getAnnIds():
         annotation = coco.loadAnns([annotation_id])[0]
-        instance_id = (
-            f"{dataset_id}:{int(annotation['image_id'])}:{int(annotation['id'])}"
+        annotations_by_image.setdefault(int(annotation["image_id"]), []).append(
+            annotation
         )
-        annotation_by_instance[instance_id] = annotation
 
-    instance_ids = _select_representative_instances(
+    image_ids = _select_representative_images(
         canonical_metrics,
         dataset_id=dataset_id,
         reference_type=reference_type,
     )
     figure, axes = plt.subplots(
-        len(instance_ids),
+        len(image_ids),
         5,
         figsize=(11.2, 9.1),
         squeeze=False,
     )
-    column_titles = ("Input + GT bbox", "Reference", "SAM1", "SAM2", "SAM3")
+    column_titles = ("Input + all GT bbox", "Reference union", "SAM1", "SAM2", "SAM3")
     for axis, title in zip(axes[0], column_titles, strict=True):
         axis.set_title(title, fontsize=10)
 
-    for row_index, (stratum, instance_id) in enumerate(
-        zip(STRATUM_ORDER[1:], instance_ids, strict=True)
+    for row_index, (stratum, canonical_image_id) in enumerate(
+        zip(STRATUM_ORDER[1:], image_ids, strict=True)
     ):
-        annotation = annotation_by_instance[instance_id]
-        image_record = coco.loadImgs([int(annotation["image_id"])])[0]
+        image_id = int(canonical_image_id.rsplit(":", 1)[-1])
+        annotations = sorted(
+            annotations_by_image[image_id],
+            key=lambda annotation: int(annotation["id"]),
+        )
+        instance_ids = [
+            f"{dataset_id}:{image_id}:{int(annotation['id'])}"
+            for annotation in annotations
+        ]
+        for model in MODEL_ORDER:
+            missing = [
+                instance_id
+                for instance_id in instance_ids
+                if instance_id not in prediction_by_model[model]
+            ]
+            if missing:
+                raise ValueError(
+                    f"Missing {model} GT-bbox predictions for "
+                    f"{dataset_id}/image={image_id}: {missing[:5]}"
+                )
+        image_record = coco.loadImgs([image_id])[0]
         image = np.asarray(
             Image.open(images_root / str(image_record["file_name"])).convert("RGB")
         )
         if pseudo_reference_by_instance:
-            reference = decode_binary_mask(
-                pseudo_reference_by_instance[instance_id]["mask_rle"]
-            )
+            missing_references = [
+                instance_id
+                for instance_id in instance_ids
+                if instance_id not in pseudo_reference_by_instance
+            ]
+            if missing_references:
+                raise ValueError(
+                    f"Missing pseudo references for {dataset_id}/image={image_id}: "
+                    f"{missing_references[:5]}"
+                )
+            reference = np.zeros(image.shape[:2], dtype=bool)
+            for instance_id in instance_ids:
+                reference |= decode_binary_mask(
+                    pseudo_reference_by_instance[instance_id]["mask_rle"]
+                )
         else:
-            reference = coco.annToMask(annotation).astype(bool)
-        crop = _expanded_square_crop(
-            [float(value) for value in annotation["bbox"]],
-            image.shape[1],
-            image.shape[0],
-        )
-        x1, y1, x2, y2 = crop
-        image_crop = image[y1:y2, x1:x2]
-        reference_crop = reference[y1:y2, x1:x2]
+            reference = np.zeros(image.shape[:2], dtype=bool)
+            for annotation in annotations:
+                reference |= coco.annToMask(annotation).astype(bool)
 
-        axes[row_index, 0].imshow(image_crop)
-        bbox_x, bbox_y, bbox_width, bbox_height = [
-            float(value) for value in annotation["bbox"]
-        ]
-        axes[row_index, 0].add_patch(
-            Rectangle(
-                (bbox_x - x1, bbox_y - y1),
-                bbox_width,
-                bbox_height,
-                fill=False,
-                edgecolor="#00FF66",
-                linewidth=1.5,
-            )
-        )
-        axes[row_index, 1].imshow(_reference_overlay(image_crop, reference_crop))
-        for column_index, model in enumerate(MODEL_ORDER, start=2):
-            prediction = decode_binary_mask(
-                prediction_by_model[model][instance_id]["predicted_mask_rle"]
-            )
-            axes[row_index, column_index].imshow(
-                _error_overlay(
-                    image_crop,
-                    prediction[y1:y2, x1:x2],
-                    reference_crop,
+        axes[row_index, 0].imshow(image)
+        for annotation in annotations:
+            bbox_x, bbox_y, bbox_width, bbox_height = [
+                float(value) for value in annotation["bbox"]
+            ]
+            axes[row_index, 0].add_patch(
+                Rectangle(
+                    (bbox_x, bbox_y),
+                    bbox_width,
+                    bbox_height,
+                    fill=False,
+                    edgecolor="#00FF66",
+                    linewidth=1.5,
                 )
             )
-            metric_row = canonical_metrics[
-                (canonical_metrics["dataset_id"] == dataset_id)
-                & (canonical_metrics["model"] == model)
-                & (canonical_metrics["bbox_source"] == "gt_bbox")
-                & (canonical_metrics["reference_type"] == reference_type)
-                & (canonical_metrics["instance_id"] == instance_id)
-            ].iloc[0]
+        axes[row_index, 1].imshow(_reference_overlay(image, reference))
+        for column_index, model in enumerate(MODEL_ORDER, start=2):
+            prediction = np.zeros(image.shape[:2], dtype=bool)
+            for instance_id in instance_ids:
+                prediction |= decode_binary_mask(
+                    prediction_by_model[model][instance_id]["predicted_mask_rle"]
+                )
+            axes[row_index, column_index].imshow(
+                _error_overlay(image, prediction, reference)
+            )
+            union = np.logical_or(prediction, reference).sum()
+            union_iou = (
+                float(np.logical_and(prediction, reference).sum() / union)
+                if union
+                else 1.0
+            )
             axes[row_index, column_index].text(
                 0.02,
                 0.97,
-                f"IoU {float(metric_row['iou']):.3f}",
+                f"Union IoU {union_iou:.3f}",
                 transform=axes[row_index, column_index].transAxes,
                 ha="left",
                 va="top",
@@ -626,7 +648,7 @@ def qualitative_gt_bbox_figure(
                 bbox={"facecolor": "black", "alpha": 0.65, "pad": 2, "edgecolor": "none"},
             )
         axes[row_index, 0].set_ylabel(
-            STRATUM_LABELS[stratum],
+            f"{STRATUM_LABELS[stratum]}\n{len(instance_ids)} instances",
             fontsize=8,
         )
         for axis in axes[row_index]:
@@ -636,7 +658,8 @@ def qualitative_gt_bbox_figure(
                 spine.set_visible(False)
 
     figure.suptitle(
-        f"{dataset_id}: GT-bbox nitel örnekleri · TP yeşil, FP turuncu, FN pembe",
+        f"{dataset_id}: tüm GT-bbox istemlerinin birleşik görünümü · "
+        "TP yeşil, FP turuncu, FN pembe",
         fontsize=12,
         y=0.995,
     )

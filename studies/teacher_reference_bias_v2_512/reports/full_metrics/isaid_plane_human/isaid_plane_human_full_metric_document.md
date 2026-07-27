@@ -133,7 +133,7 @@ Görüntü, uçak örneği, bbox ve model tahmini aynıdır; yalnız karşılaş
 
 ## Qualitative Examples
 
-Her örnek GT-bbox koşulundandır. Yeşil TP, turuncu FP ve pembe FN piksellerini gösterir.
+Her sayfa bir gruptan tek görüntüyü gösterir. Görüntüdeki bütün GT uçak kutuları modele ayrı istemler olarak verilmiş ve instance maskeleri yalnız bu görsel için birleştirilmiştir. Tablolar instance-level kalır. Yeşil TP, turuncu FP ve pembe FN piksellerini gösterir.
 
 ### No Overlap / Low Mask Area
 

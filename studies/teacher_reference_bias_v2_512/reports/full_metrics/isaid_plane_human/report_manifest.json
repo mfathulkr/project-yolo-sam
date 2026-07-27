@@ -6,12 +6,12 @@
   "inputs": {
     "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/results/analysis/aggregate_metrics.csv": "6ffff203776bbf52aa47c29d154a614e6add705431cf9a22df7d6149e4d01b4b",
     "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/results/analysis/detector_seed_summary.csv": "2cd917768e807382febc916df8b93337717c0b3acb4d73b03efeda83d2d763be",
-    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/results/figures/isaid_plane_gt_bbox_qualitative.png": "9d43a63fe9a54b9d0e653fd5d231b7e92aaf869fc63c5bfffd0e4103659e8da4"
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/results/figures/isaid_plane_gt_bbox_qualitative.png": "fc6a80f93c16583886f0a3379e65c535981577d0c026d7a0eb66cbd18881b4a1"
   },
   "outputs": {
-    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/isaid_plane_human_full_metric_document.md": "75ebf96349ccbb14709879348bf52776ab1b16d6e86798a7e92803f62144ebec",
-    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/isaid_plane_human_full_metric_document_colored.docx": "a439661ce1a16ab34ed281465838d590811ed7a038dd6067b6ddb5a059ca2247",
-    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/isaid_plane_human_full_metric_document_colored.pdf": "e6e601489d985e4e254fbc9256fb02577854893334871e83e3c02260817572d6",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/isaid_plane_human_full_metric_document.md": "12b88a470806275cdef0cef35546a949b6dd8b279a304b336b5488e639bdfb4a",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/isaid_plane_human_full_metric_document_colored.docx": "bf6431af9359ba478f7b66fd68c6cb31b1522ba17ee7e72d621f081976caa2ec",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/isaid_plane_human_full_metric_document_colored.pdf": "132a9ea7a9eef8e2542c2b50b06f2e3c5a3511b113483f0c580234de6568ce8a",
     "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/tables/detector_summary.csv": "97d37acf81ddf9b7c21e707b1bfea26cd2a6751183303712f1ab746f7db65898",
     "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/tables/human__no_overlap__high_mask_area.csv": "d848d6cb53e2ded3d1219d86c6fd72f92b1856da9f44ad423732f4dc35176dc2",
     "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/tables/human__no_overlap__low_mask_area.csv": "02af00ab3f0c8bfdb301f35bfbe9562f76e5a73eb5d455064c0a096f9037e27a",
@@ -19,10 +19,10 @@
     "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/tables/human__overlap__high_mask_area.csv": "25db7d1b69d44a7d4810fdd7577b135ca7dbfb2d6d517341686715d1e3b42550",
     "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/tables/human__overlap__low_mask_area.csv": "bcf71593199410ad20f5a61b8fda2b3d00850abcb8f1519e15e32adfa9019628",
     "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/tables/reference_sensitivity.csv": "67b4200d8c02d2aff94dfb67d17ed80c189a0b2ba7c3652b761c4b05208a2951",
-    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/qualitative/no_overlap__low_mask_area.png": "7d7e59aa27c2cbebad1348e349864b59058a03ea93c3c8efac7daf2fbb353880",
-    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/qualitative/no_overlap__high_mask_area.png": "740a1fb48942be7145349c072d0ba8141f195969c4208a3ce6c3c0fbd3d5c02b",
-    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/qualitative/overlap__low_mask_area.png": "f327a4ca8dccafe84d338aaaaafb276c33f017aa963b3645fac716e12a8a6b3d",
-    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/qualitative/overlap__high_mask_area.png": "ef38bb4805a5579a723de33554e54942d37f3a6fe963e97a3bdd20e67e9e094f"
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/qualitative/no_overlap__low_mask_area.png": "1b235792f8d2b2f6190f2361bce05a3a2d23bf7a746263391c75ff220397b09d",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/qualitative/no_overlap__high_mask_area.png": "16751522d196b284bff46aa36a1fbb78cef47cd2a06a3ce3eed6fde4bd0103d8",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/qualitative/overlap__low_mask_area.png": "18f35645e5a936fa2a69312df8aac425d2daf7ed607eb8d12b07a6db60988eaa",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/qualitative/overlap__high_mask_area.png": "6ab37cf097cbcc6f0e2e33f82492a3a9f41ac627b97d38a347b798330340f7ff"
   },
   "strata": [
     "overall",

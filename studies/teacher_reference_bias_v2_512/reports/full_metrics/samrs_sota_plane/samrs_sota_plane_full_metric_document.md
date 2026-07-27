@@ -120,7 +120,7 @@ Referans: Resmi SAMRS SAM1 Pseudo Referansı. Bu tablo 128 görüntüdeki 1.806 
 
 ## Qualitative Examples
 
-Her örnek GT-bbox koşulundandır. Yeşil TP, turuncu FP ve pembe FN piksellerini gösterir.
+Her sayfa bir gruptan tek görüntüyü gösterir. Görüntüdeki bütün GT uçak kutuları modele ayrı istemler olarak verilmiş ve instance maskeleri yalnız bu görsel için birleştirilmiştir. Tablolar instance-level kalır. Yeşil TP, turuncu FP ve pembe FN piksellerini gösterir.
 
 ### No Overlap / Low Mask Area
 
