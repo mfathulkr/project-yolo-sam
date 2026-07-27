@@ -1,0 +1,50 @@
+dataset:
+  name: landcover_ai
+  target_category: building
+  target_category_value: 1
+  train_split: train
+  eval_split: val
+  test_split: test
+  tile_size: 512
+  tile_image_format: jpg
+  min_component_area: 20
+  train_negative_ratio: 1.0
+  sampling_seed: 42
+  archive_name: landcover.ai.v1.zip
+  urls:
+    landcover_v1_zip: https://landcover.ai.linuxpolska.com/download/landcover.ai.v1.zip
+
+paths:
+  raw_dataset_dir: studies/landcover_building_study/data/raw
+  prepared_dataset_dir: studies/landcover_building_study/data/prepared
+  yolo_train_run_dir: studies/landcover_building_study/results/detector_training/yolo_building_s640
+  sam3_text_output_dir: studies/landcover_building_study/results/pipelines/sam3_text
+  yolo_sam3_output_dir: studies/landcover_building_study/results/pipelines/yolo_sam3
+  gt_box_sam3_output_dir: studies/landcover_building_study/results/pipelines/gt_box_sam3
+  sam3_triplet_metrics_dir: studies/landcover_building_study/results/pipelines/metrics_sam3_triplet
+  sam3_triplet_visualizations_dir: studies/landcover_building_study/results/pipelines/visualizations_sam3_triplet
+
+yolo:
+  base_weights: yolov8s.pt
+  trained_weights: studies/landcover_building_study/results/detector_training/yolo_building_s640/train/weights/best.pt
+  imgsz: 640
+  batch: 6
+  epochs: 100
+  conf: 0.25
+  workers: 1
+  device: 0
+
+sam3:
+  backend: local
+  local_model_dir: models/sam3_hf
+  prompt: building
+  output_prob_thresh: 0.5
+  mask_threshold: 0.5
+  device: 0
+  torch_dtype: float16
+  endpoint: https://serverless.roboflow.com/sam3/concept_segment
+  model_id: sam3/sam3_final
+
+evaluation:
+  positive_only: true
+  max_visualizations: 12

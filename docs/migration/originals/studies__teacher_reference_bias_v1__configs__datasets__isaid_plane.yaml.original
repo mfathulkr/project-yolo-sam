@@ -1,0 +1,11 @@
+dataset_id: isaid_plane
+version: official_release
+profile_id: isaid
+raw_root: data/isaid_raw
+prepared_root: data/matched/isaid_plane
+reference_type: human
+target_category: plane
+source_url: https://captain-whu.github.io/iSAID/
+license_name: iSAID dataset terms
+annotation_format: coco_instance_segmentation
+archive_sha256: null

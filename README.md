@@ -1,128 +1,150 @@
-# iSAID Vehicle YOLO/SAM Study
+# Remote Sensing YOLO-SAM Studies
 
-This repository now centers the final iSAID overhead-vehicle experiment: text/referring segmentation versus detector-guided segmentation for small urban vehicles in aerial imagery.
+Bu depo, detection ile promptlanan SAM tabanlı uzaktan algılama
+segmentasyon çalışmalarını içerir. Her deney kendi config, hazırlanmış veri,
+script, sonuç, rapor ve testleriyle `studies/` altında bağımsız tutulur.
+Kökte yalnız birden fazla çalışmanın gerçekten paylaştığı kod ve kaynaklar
+bulunur.
 
-The active study compares:
+## Çalışmalar
 
-- `SAM3 text-only`
-- `RemoteSAM text`
-- `SegEarth-OV3 + SAM3`
-- `YOLO26x + SAM3`
-- `GT bbox + SAM3`
-- `YOLO26x + SAM2`
-- `GroundingDINO + SAM2`
-- `YOLO26x + RingMo-SAM`
-- `GT bbox + RingMo-SAM`
+| Study | Durum | Amaç |
+|---|---|---|
+| [`teacher_reference_bias_v2_512`](studies/teacher_reference_bias_v2_512/README.md) | Tamamlandı, canonical | Dört alt grupta 128'er, Overall'da 512 görüntüyle iSAID insan/SAM1-pseudo ve SAMRS SOTA SAM1-pseudo referanslarını eşlenmiş protokolde ölçer. |
+| [`teacher_reference_bias_v1`](studies/teacher_reference_bias_v1/README.md) | Tarihsel | İlk 4×32 teacher-reference-bias deneyini ve altı sayfalık taslağı değiştirilemez öncül olarak korur. |
+| [`isaid_vehicle_study`](studies/isaid_vehicle_study/README.md) | Tarihsel | iSAID small/large vehicle birleşik maskelerinde eski pipeline karşılaştırmasını korur. |
+| [`samrs_sota_plane_study`](studies/samrs_sota_plane_study/README.md) | Tarihsel | İlk SAMRS SOTA plane deneyini ve eski sunum çıktısını korur. |
+| [`semantic_drone_car_study`](studies/semantic_drone_car_study/README.md) | Planlandı | Semantic Drone car deneyi için config ve handoff içeriğini tutar. |
+| [`landcover_building_study`](studies/landcover_building_study/README.md) | Eksik legacy | Eski landcover.ai building hazırlığını tarihsel olarak tutar. |
 
-The target class is one merged `vehicle` class from iSAID `Small_Vehicle` and `Large_Vehicle` instance annotations.
+Tarihsel iSAID ve SAMRS çalışmaları silinmemiştir. Ancak eşlenmemiş
+protokolleri nedeniyle teacher-reference-bias bildirisine kanıt olarak
+karıştırılmazlar.
 
-## Final Outputs
+## Tarihsel V1 Sonuçları
 
-Main local artifacts:
+İlk teacher-reference-bias çalışmasının ana bulgusu, aynı tahminlerin bağımsız
+iSAID insan maskesi yerine SAM1 üretimli pseudo maskeye karşı ölçülmesinin
+skorları belirgin biçimde yükseltmesidir:
+
+| Model | İnsan IoU | SAM1 pseudo IoU | IoU enflasyonu |
+|---|---:|---:|---:|
+| SAM1 | 0,648 | 0,998 | +0,350 |
+| SAM2 | 0,580 | 0,806 | +0,225 |
+| SAM3 | 0,540 | 0,723 | +0,184 |
+
+Bu sonuç pseudo-maskelerin eğitim için değersiz olduğunu söylemez. Sonuç,
+teacher üretimli maskelerin bağımsız test ground truth'u gibi
+yorumlanmaması gerektiğini gösterir.
+
+V1 tarihsel çıktıları:
+
+- [Altı sayfalık bildiri](studies/teacher_reference_bias_v1/reports/paper/teacher_reference_bias_paper_6pages.pdf)
+- [iSAID tam metrik PDF](studies/teacher_reference_bias_v1/reports/full_metrics/isaid_plane/isaid_plane_full_metric_document_colored.pdf)
+- [SAMRS SOTA tam metrik PDF](studies/teacher_reference_bias_v1/reports/full_metrics/samrs_sota_plane/samrs_sota_plane_full_metric_document_colored.pdf)
+- [Canonical analiz](studies/teacher_reference_bias_v1/results/analysis/)
+
+## Canonical V2 Sonuçları
+
+512 görüntülük canonical v2 çalışması tamamlandı. GT-bbox koşulundaki Overall
+instance IoU:
+
+| Referans | SAM1 | SAM2 | SAM3 |
+|---|---:|---:|---:|
+| iSAID insan | 0,653 | 0,629 | 0,655 |
+| iSAID SAM1 pseudo | 1,000 | 0,827 | 0,795 |
+| SAMRS SAM1 pseudo | 0,991 | 0,781 | 0,611 |
+
+Aynı iSAID tahminlerinde yalnız referans insan maskesinden SAM1 pseudo
+maskesine değiştirildiğinde IoU artışı `+0,347 / +0,198 / +0,140` oldu.
+İnsan referansındaki `SAM3 > SAM1 > SAM2` sırası pseudo referansta
+`SAM1 > SAM2 > SAM3` olarak değişti. SAM1 pseudo satırındaki `1,000`,
+kontrollü kimlik testidir; bağımsız segmentasyon başarısı değildir.
+
+Final raporlar:
+
+- [iSAID insan referansı](studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/isaid_plane_human_full_metric_document_colored.pdf)
+- [iSAID SAM1 pseudo referansı](studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_pseudo_sam1/isaid_plane_pseudo_sam1_full_metric_document_colored.pdf)
+- [SAMRS SOTA plane](studies/teacher_reference_bias_v2_512/reports/full_metrics/samrs_sota_plane/samrs_sota_plane_full_metric_document_colored.pdf)
+
+## Dizin Yapısı
 
 ```text
-results/isaid_vehicle_final_report/REPORT.md
-results/isaid_vehicle_final_report/QA_MANIFEST.md
-results/isaid_vehicle_final_report/ARTIFACT_MANIFEST.csv
-../presentation_isaid_vehicle_sam3_sam2_study/isaid_vehicle_sam3_sam2_summary.pptx
-../presentation_isaid_vehicle_sam3_sam2_study/isaid_vehicle_sam3_sam2_summary.pdf
+.
+├── datasets/                 # Paylaşılan değiştirilemez ham veri
+├── docs/                     # Depo mimarisi, refactor ve worklog
+├── external_models/          # Harici model kaynak kodları
+├── models/                   # Paylaşılan checkpoint ve başlangıç ağırlıkları
+├── src/yolo_sam/             # Çalışmadan bağımsız ortak kütüphane
+├── studies/                  # Her deney için bağımsız çalışma alanı
+├── tests/                    # Ortak kod testleri
+└── tools/                    # Ortak bakım ve pipeline araçları
 ```
 
-Long-form walkthrough:
+Sahiplik kuralı:
 
-```text
-docs/ISAID_VEHICLE_STUDY_WALKTHROUGH.md
-```
+> Bir dosya yalnız bir deneyde kullanılıyorsa ilgili study altında; birden
+> fazla deneyde aynı davranışla kullanılıyorsa ortak kök katmanda bulunur.
 
-## Key Result
+Ayrıntılı sözleşme:
+[docs/REPOSITORY_ARCHITECTURE.md](docs/REPOSITORY_ARCHITECTURE.md)
 
-Overall mean metrics over the 128-image stratified eval split:
-
-| Pipeline | IoU | Dice | Precision | Recall |
-| --- | ---: | ---: | ---: | ---: |
-| GT bbox + SAM3 | 0.5230 | 0.6510 | 0.5826 | 0.8072 |
-| YOLO + SAM2 | 0.4336 | 0.5615 | 0.5494 | 0.6549 |
-| YOLO + SAM3 | 0.4076 | 0.5328 | 0.5130 | 0.6485 |
-| RemoteSAM text | 0.3850 | 0.5132 | 0.5244 | 0.5993 |
-| SegEarth-OV3 + SAM3 | 0.2952 | 0.4027 | 0.3599 | 0.6449 |
-| SAM3 text-only | 0.2739 | 0.3782 | 0.3589 | 0.5850 |
-| GT bbox + RingMo-SAM | 0.2625 | 0.3592 | 0.7247 | 0.2815 |
-| YOLO + RingMo-SAM | 0.2349 | 0.3266 | 0.6292 | 0.2630 |
-| GroundingDINO + SAM2 | 0.0713 | 0.1196 | 0.1059 | 0.3734 |
-
-Short interpretation:
-
-- `RemoteSAM text` is the strongest box-free text/referring baseline.
-- `YOLO + SAM2` is the best trained-detector pipeline in this run.
-- `GT bbox + SAM3` is the best IoU/Dice upper-bound case.
-- `RingMo-SAM` is precise but misses too many vehicles.
-- `GroundingDINO + SAM2` is useful as a zero-shot text-to-box control, but weak for this tiny overhead vehicle task.
-
-## Active Config
-
-```text
-configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-```
-
-This config points to the final local outputs and sets model devices to CPU for inference.
-
-## Important Local Folders
-
-These are intentionally ignored by Git but valuable on this VM:
-
-```text
-data/isaid_raw/
-data/isaid_raw_downloads/
-data/isaid_vehicle/
-models/sam3_hf/
-models/remotesam_hf/
-models/ringmo_sam_hf/
-runs/yolo26x_isaid_vehicle_s1024/train/
-results/isaid_vehicle_*/
-../presentation_isaid_vehicle_sam3_sam2_study/
-```
-
-## Setup
+## Kurulum
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python scripts/setup_external_models.py
+.venv/bin/python tools/models/setup_external_models.py
 ```
 
-`external_models/` is not committed. The setup script clones and patches the RemoteSAM and SegEarth-OV3 repos for this CPU-oriented evaluation workflow.
+Token ve checkpoint dosyaları Git'e eklenmez.
 
-SAM3 may require `HF_TOKEN` for gated model access. Do not commit `.env`.
+## Testler
 
-## Re-run Evaluation
-
-Use CPU-only inference when the GPUs are busy:
+Ortak kütüphane:
 
 ```bash
-export CUDA_VISIBLE_DEVICES=''
+PYTHONPATH=src .venv/bin/python -m unittest discover \
+  -s tests -p 'test_*.py' -v
 ```
 
-Main final workflow:
+Canonical teacher-reference-bias v2 study:
 
 ```bash
-python scripts/run_sam3_text.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/run_remotesam_text.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/run_segearth_ov3.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/run_yolo_sam3.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/run_gt_box_sam3.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/run_yolo_sam2.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/run_grounded_sam2.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/run_ringmo_sam.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/evaluate_stratified_triplet.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/export_curated_qualitative_examples.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/write_isaid_experiment_report.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/export_isaid_presentation_pdf.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
-python scripts/validate_isaid_experiment_outputs.py --config configs/isaid_vehicle_yolo26x_cpu_eval.yaml
+PYTHONPATH=src:studies/teacher_reference_bias_v2_512/src \
+  .venv/bin/python -m unittest discover \
+  -s studies/teacher_reference_bias_v2_512/tests -p 'test_*.py' -v
 ```
 
-## Notes
+## Canonical Study Kullanımı
 
-- Final iSAID GT masks and boxes come from iSAID instance polygons, not Semantic Drone semantic connected components.
-- The eval split is balanced into four strata: overlap/no-overlap x low/high target-mask area.
-- The old LandCover and Semantic Drone material is not the active final study.
+Ana CLI ve bütün tekrar üretim komutları study README’sindedir:
+
+```bash
+.venv/bin/python \
+  studies/teacher_reference_bias_v2_512/scripts/study.py --help
+```
+
+Tam metrik belgeleri:
+
+```bash
+.venv/bin/python \
+  studies/teacher_reference_bias_v2_512/scripts/write_full_metric_reports.py
+```
+
+Final bütünlük kontrolü:
+
+```bash
+.venv/bin/python \
+  studies/teacher_reference_bias_v2_512/scripts/validate_full_metric_reports.py
+```
+
+## Dokümantasyon
+
+- [Repository Architecture](docs/REPOSITORY_ARCHITECTURE.md)
+- [Refactor Plan](docs/REFACTOR_PLAN.md)
+- [Canonical Deney Planı](studies/teacher_reference_bias_v2_512/docs/EXPERIMENT_PLAN.md)
+- [Legacy Status](docs/LEGACY_STATUS.md)
+- [Worklog](docs/WORKLOG.md)
+- [Migration Manifests](docs/migration/)

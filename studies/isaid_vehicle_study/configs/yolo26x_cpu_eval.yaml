@@ -1,0 +1,134 @@
+dataset:
+  name: isaid_vehicle
+  target_categories:
+    - Small_Vehicle
+    - Large_Vehicle
+  merged_category: vehicle
+  train_split: train
+  val_split: val
+  eval_split: eval
+  tile_size: 1024
+  stride: 1024
+  include_edge_tiles: true
+  tile_image_format: jpg
+  min_instance_area: 12
+  train_negative_ratio: 0.5
+  sampling_seed: 42
+
+paths:
+  raw_dataset_dir: datasets/isaid/raw
+  prepared_dataset_dir: studies/isaid_vehicle_study/data/prepared
+  yolo_train_run_dir: studies/isaid_vehicle_study/results/detector_training/yolo26x_isaid_vehicle_s1024
+  sam3_text_output_dir: studies/isaid_vehicle_study/results/pipelines/sam3_text
+  yolo_sam3_output_dir: studies/isaid_vehicle_study/results/pipelines/yolo26x_sam3
+  gt_box_sam3_output_dir: studies/isaid_vehicle_study/results/pipelines/gt_box_sam3
+  sam3_hybrid_yolo_output_dir: studies/isaid_vehicle_study/results/pipelines/sam3_hybrid_yolo_bbox
+  sam3_hybrid_gt_output_dir: studies/isaid_vehicle_study/results/pipelines/sam3_hybrid_gt_bbox
+  yolo_sam2_output_dir: studies/isaid_vehicle_study/results/pipelines/yolo26x_sam2
+  gt_box_sam2_output_dir: studies/isaid_vehicle_study/results/pipelines/gt_box_sam2
+  grounded_sam2_output_dir: studies/isaid_vehicle_study/results/pipelines/groundingdino_sam2
+  segearth_ov3_output_dir: studies/isaid_vehicle_study/results/pipelines/segearth_ov3_sam3
+  remotesam_text_output_dir: studies/isaid_vehicle_study/results/pipelines/remotesam_text
+  gt_box_ringmo_sam_output_dir: studies/isaid_vehicle_study/results/pipelines/gt_box_ringmo_sam
+  yolo_ringmo_sam_output_dir: studies/isaid_vehicle_study/results/pipelines/yolo26x_ringmo_sam
+  sam3_triplet_metrics_dir: studies/isaid_vehicle_study/results/pipelines/metrics_sam3_triplet
+  sam3_triplet_visualizations_dir: studies/isaid_vehicle_study/results/pipelines/visualizations_sam3_triplet
+
+yolo:
+  base_weights: models/yolo/yolo26x.pt
+  trained_weights: studies/isaid_vehicle_study/results/detector_training/yolo26x_isaid_vehicle_s1024/train/weights/best.pt
+  imgsz: 1024
+  batch: 32
+  epochs: 100
+  patience: 30
+  conf: 0.20
+  iou: 0.70
+  max_det: 500
+  workers: 4
+  device: cpu
+
+sam3:
+  backend: local
+  local_model_dir: models/sam3_hf
+  prompt: vehicle
+  output_prob_thresh: 0.5
+  mask_threshold: 0.5
+  device: cpu
+  torch_dtype: float32
+  endpoint: https://serverless.roboflow.com/sam3/concept_segment
+  model_id: sam3/sam3_final
+
+sam2:
+  model_id: facebook/sam2.1-hiera-large
+  device: cpu
+  torch_dtype: float32
+  mask_threshold: 0.0
+  box_batch_size: 16
+
+grounded_sam2:
+  detector_model_id: IDEA-Research/grounding-dino-tiny
+  prompt: vehicle. car. truck. bus. van.
+  threshold: 0.20
+  text_threshold: 0.20
+  nms_iou: 0.50
+  max_boxes: 120
+  device: cpu
+  torch_dtype: float32
+
+segearth_ov3:
+  external_root: external_models/SegEarth-OV-3
+  checkpoint_path: models/sam3_hf/sam3.pt
+  bpe_path: external_models/SegEarth-OV-3/sam3/assets/bpe_simple_vocab_16e6.txt.gz
+  prompts:
+    - vehicle
+    - small vehicle
+    - large vehicle
+  confidence_threshold: 0.4
+  prob_threshold: 0.5
+  resolution: 1008
+  use_semantic_head: true
+  use_instance_head: true
+  use_presence_score: true
+  device: cpu
+
+remotesam_text:
+  external_root: external_models/RemoteSAM
+  checkpoint_path: models/remotesam_hf/RemoteSAMv1.pth
+  prompts:
+    - vehicles
+    - small vehicle
+  prob_threshold: 0.1
+  use_epoc: false
+  device: cpu
+
+ringmo_sam:
+  model_root: models/ringmo_sam_hf
+  config_path: models/ringmo_sam_hf/configs/fine_tuning_one_decoder.yaml
+  checkpoint_path: models/ringmo_sam_hf/save/model_epoch_last.pth
+  device: cpu
+  normalize: true
+  vehicle_class_ids:
+    - 5
+
+evaluation:
+  positive_only: true
+  stratify_by: mask_area
+  min_objects_per_image: 1
+  max_objects_per_image: 500
+  low_object_count_max: 5
+  high_object_count_min: 20
+  overlap_iou_threshold: 0.0
+  no_overlap_iou_max: 0.0
+  overlap_iou_min: 0.05
+  area_threshold: median
+  max_per_stratum: 32
+  balance_to_smallest_stratum: true
+  max_visualizations: 24
+  max_visualizations_per_stratum: 4
+
+training_time_reference:
+  baseline_seconds_per_epoch: 66.1
+  baseline_train_images: 2370
+  baseline_imgsz: 640
+  baseline_gflops: 28.8
+  target_gflops: 209.5

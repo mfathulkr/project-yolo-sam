@@ -1,0 +1,76 @@
+dataset:
+  name: semantic_drone_car
+  target_categories:
+    - car
+  target_category_ids: null
+  target_rgb_colors:
+    - [9, 143, 150]
+  train_split: train
+  val_split: val
+  eval_split: eval
+  image_dir: semantic_drone_dataset/training_set/images
+  mask_dir: semantic_drone_dataset/training_set/gt/semantic/label_images
+  tile_size: 1536
+  stride: 1536
+  include_edge_tiles: true
+  tile_image_format: jpg
+  min_component_area: 80
+  train_negative_ratio: 0.5
+  val_fraction: 0.2
+  sampling_seed: 42
+
+paths:
+  raw_dataset_dir: studies/semantic_drone_car_study/data/raw
+  prepared_dataset_dir: studies/semantic_drone_car_study/data/prepared
+  yolo_train_run_dir: studies/semantic_drone_car_study/results/detector_training/yolo26x_semantic_drone_car_s1536_i1024_4xa6000
+  sam3_text_output_dir: studies/semantic_drone_car_study/results/pipelines/sam3_text
+  yolo_sam3_output_dir: studies/semantic_drone_car_study/results/pipelines/yolo26x_sam3
+  gt_box_sam3_output_dir: studies/semantic_drone_car_study/results/pipelines/gt_box_sam3
+  sam3_triplet_metrics_dir: studies/semantic_drone_car_study/results/pipelines/metrics_sam3_triplet
+  sam3_triplet_visualizations_dir: studies/semantic_drone_car_study/results/pipelines/visualizations_sam3_triplet
+
+yolo:
+  base_weights: models/yolo/yolo26x.pt
+  trained_weights: studies/semantic_drone_car_study/results/detector_training/yolo26x_semantic_drone_car_s1536_i1024_4xa6000/train/weights/best.pt
+  imgsz: 1024
+  batch: 32
+  epochs: 100
+  patience: 30
+  conf: 0.20
+  iou: 0.70
+  max_det: 300
+  workers: 8
+  device: "0,1,2,3"
+
+sam3:
+  backend: local
+  local_model_dir: models/sam3_hf
+  prompt: car
+  output_prob_thresh: 0.5
+  mask_threshold: 0.5
+  device: 0
+  torch_dtype: float16
+  endpoint: https://serverless.roboflow.com/sam3/concept_segment
+  model_id: sam3/sam3_final
+
+evaluation:
+  positive_only: true
+  min_objects_per_image: 1
+  max_objects_per_image: 80
+  overlap_iou_threshold: 0.0
+  area_threshold: 0.1
+  max_per_stratum: 35
+  balance_to_smallest_stratum: true
+  max_visualizations: 24
+  max_visualizations_per_stratum: 3
+
+training_time_reference:
+  baseline_seconds_per_epoch: 66.1
+  baseline_train_images: 2370
+  baseline_imgsz: 640
+  baseline_gflops: 28.8
+  target_gflops: 209.5
+  multi_gpu_efficiency: 0.78
+  expected_source_images: 400
+  expected_source_width: 6000
+  expected_source_height: 4000

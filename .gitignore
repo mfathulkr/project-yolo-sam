@@ -18,14 +18,9 @@ tmp_sam3_smoke_out/
 
 external_models/
 
-data/*
-!data/.gitkeep
-
 models/*
-!models/.gitkeep
 
-runs/*
-!runs/.gitkeep
+datasets/*
 
-results/*
-!results/.gitkeep
+studies/*/data/prepared/
+studies/*/results/

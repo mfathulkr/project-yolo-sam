@@ -1,0 +1,954 @@
+{
+  "migration_id": "study_layout_20260726",
+  "verified_at_utc": "2026-07-26T17:46:16.848813+00:00",
+  "repository_root": "/home/ssyzai/projects/yolo-sam/project-yolo-sam",
+  "record_count": 63,
+  "records": [
+    {
+      "move": {
+        "source": "data/isaid_raw",
+        "destination": "datasets/isaid/raw",
+        "owner": "shared"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/datasets/isaid/raw",
+        "file_count": 1871,
+        "directory_count": 6,
+        "total_bytes": 14693962785,
+        "sha256": "9794844a38113af3139775ead52edf9890f8c60af0ead94a6ab7e07290f39a1c"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "data/isaid_raw_downloads",
+        "destination": "datasets/isaid/downloads",
+        "owner": "shared"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/datasets/isaid/downloads",
+        "file_count": 6,
+        "directory_count": 8,
+        "total_bytes": 569673721,
+        "sha256": "e0dc5e36b0d8b27d8e53addaf45955dc22690ef2111f4da29f6ed6733e8bef99"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "data/samrs_raw",
+        "destination": "datasets/samrs/raw",
+        "owner": "shared"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/datasets/samrs/raw",
+        "file_count": 52667,
+        "directory_count": 6,
+        "total_bytes": 28940347307,
+        "sha256": "94169fcdc888ee41b297df5a0f11d2f077d3fb915e397445e06313606dc63fcf"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "data/matched/isaid_plane",
+        "destination": "studies/teacher_reference_bias_v1/data/prepared/isaid_plane",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/data/prepared/isaid_plane",
+        "file_count": 5335,
+        "directory_count": 12,
+        "total_bytes": 3005860886,
+        "sha256": "ff01ebc6775a9a069c2085e4cddb6840be3e01468d9dc676e143531c423b87fc"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "data/matched/samrs_sota_plane",
+        "destination": "studies/teacher_reference_bias_v1/data/prepared/samrs_sota_plane",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/data/prepared/samrs_sota_plane",
+        "file_count": 6918,
+        "directory_count": 12,
+        "total_bytes": 5239185123,
+        "sha256": "80fd93a15520a7c6abca0416e2aedc28bb07065ec40d997139c453a45460159d"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "artifacts/studies/teacher_reference_bias_v1",
+        "destination": "studies/teacher_reference_bias_v1/results",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/results",
+        "file_count": 484,
+        "directory_count": 166,
+        "total_bytes": 1673113675,
+        "sha256": "2d19b8ae2d543363877b2f67051e6000f6d6a77e0ce87bca65693c816aefb9f8"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "artifacts/audits/isaid_plane",
+        "destination": "studies/teacher_reference_bias_v1/results/audits/legacy_dataset_discovery/isaid_plane",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/results/audits/legacy_dataset_discovery/isaid_plane",
+        "file_count": 2,
+        "directory_count": 0,
+        "total_bytes": 3563,
+        "sha256": "2b3b2686265594c3341e2f46ac54c97e265b581c36c7865bce5a5b55b5cd0659"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "artifacts/audits/local_samrs_claimed_sota",
+        "destination": "studies/teacher_reference_bias_v1/results/audits/legacy_dataset_discovery/local_samrs_claimed_sota",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/results/audits/legacy_dataset_discovery/local_samrs_claimed_sota",
+        "file_count": 2,
+        "directory_count": 0,
+        "total_bytes": 5375,
+        "sha256": "c8e21ad516860907c952b1c349e07a98e715fca5d6022e9e0ab8b90d069842d5"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "artifacts/legacy/pre_refactor_20260726",
+        "destination": "studies/teacher_reference_bias_v1/results/legacy/pre_refactor_20260726",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/results/legacy/pre_refactor_20260726",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 40573,
+        "sha256": "08f8f53cd64dc38e735ecfbaeb986c66a45953f76a4cd00d6dcb1065d32914f2"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "paper_teacher_reference_bias",
+        "destination": "studies/teacher_reference_bias_v1/reports/paper",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/reports/paper",
+        "file_count": 7,
+        "directory_count": 1,
+        "total_bytes": 817702,
+        "sha256": "18c0b2deca6bafa41a5d2abbe831173019447d39d726478b4e84e6942710fe72"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "configs/studies/teacher_reference_bias_v1.yaml",
+        "destination": "studies/teacher_reference_bias_v1/configs/protocol.yaml",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/configs/protocol.yaml",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 1661,
+        "sha256": "6e60f8129ddd59d5e7e11eab1243c8b88cc2f7647df24f2161047fb2922c8950"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "configs/datasets/isaid_plane.yaml",
+        "destination": "studies/teacher_reference_bias_v1/configs/datasets/isaid_plane.yaml",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/configs/datasets/isaid_plane.yaml",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 328,
+        "sha256": "f92443297fed9a3b09d7352bd78c8c3f5f91b8beb7bb729af67f9f6458472f3f"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "configs/datasets/samrs_sota_plane.yaml",
+        "destination": "studies/teacher_reference_bias_v1/configs/datasets/samrs_sota_plane.yaml",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/configs/datasets/samrs_sota_plane.yaml",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 423,
+        "sha256": "8691d43386dd211a14fcc491b8aef07cd9b277c6808cbf23b657f162cfccde29"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "docs/MATCHED_EXPERIMENT_PLAN.md",
+        "destination": "studies/teacher_reference_bias_v1/docs/EXPERIMENT_PLAN.md",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/docs/EXPERIMENT_PLAN.md",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 29839,
+        "sha256": "ccf84de2e6c0b22f2504cf25aa7217c729625234847242132c6665d84387d76c"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "docs/LITERATURE_REVIEW.md",
+        "destination": "studies/teacher_reference_bias_v1/docs/LITERATURE_REVIEW.md",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/docs/LITERATURE_REVIEW.md",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 13331,
+        "sha256": "752dc11031726c260c77b3e26be08b029889f8468d0f3d1931a8afb2e94bdc9d"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "docs/REPRODUCIBILITY_APPENDIX.md",
+        "destination": "studies/teacher_reference_bias_v1/docs/REPRODUCIBILITY_APPENDIX.md",
+        "owner": "teacher_reference_bias_v1"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_v1/docs/REPRODUCIBILITY_APPENDIX.md",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 10459,
+        "sha256": "defbb69bf51500f4765a324f6caacd5c698836b034d5859784ec9eef1b80e337"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "data/isaid_vehicle",
+        "destination": "studies/isaid_vehicle_study/data/prepared",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/data/prepared",
+        "file_count": 24019,
+        "directory_count": 9,
+        "total_bytes": 4391938546,
+        "sha256": "d9ab4b7d86c1b9b248885ab877524790b16dc718a753c452509f599a14921930"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "presentation_isaid_vehicle_sam3_sam2_study",
+        "destination": "studies/isaid_vehicle_study/reports",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/reports",
+        "file_count": 28,
+        "directory_count": 5,
+        "total_bytes": 30694654,
+        "sha256": "e0c797b66227a5705c6a8e086d14b776d54ef58bdd59c1313e2b92abec4577e5"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "configs/isaid_vehicle_yolo26x.yaml",
+        "destination": "studies/isaid_vehicle_study/configs/yolo26x.yaml",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/configs/yolo26x.yaml",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 1879,
+        "sha256": "d76d1558dec6f966c839931aaab68bc320aabdf72d5a0ac2aae9e3cefc41e7a1"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "configs/isaid_vehicle_yolo26x_cpu_eval.yaml",
+        "destination": "studies/isaid_vehicle_study/configs/yolo26x_cpu_eval.yaml",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/configs/yolo26x_cpu_eval.yaml",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 3709,
+        "sha256": "46fb0518b2d4f385a14ea2fad82b02557e714d6d7e5dbdbe2686abe745bb2892"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "docs/ISAID_VEHICLE_STUDY_WALKTHROUGH.md",
+        "destination": "studies/isaid_vehicle_study/docs/WALKTHROUGH.md",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/docs/WALKTHROUGH.md",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 14605,
+        "sha256": "2a1d09005647f770f4760592390d588e1da30650696710b72a4c6202eaacb727"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "runs/yolo26x_isaid_vehicle_s1024",
+        "destination": "studies/isaid_vehicle_study/results/detector_training/yolo26x_isaid_vehicle_s1024",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/detector_training/yolo26x_isaid_vehicle_s1024",
+        "file_count": 8,
+        "directory_count": 2,
+        "total_bytes": 709551858,
+        "sha256": "9af4b3f9195db2ff7363f4228478a046e6e54cf132b85994f714873722e4601a"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "data/samrs_sota_plane",
+        "destination": "studies/samrs_sota_plane_study/data/prepared",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/data/prepared",
+        "file_count": 6754,
+        "directory_count": 9,
+        "total_bytes": 3885160696,
+        "sha256": "f1402c23e7a92dbed4fa6e61008431adfa4b0358521221dd119613906195df08"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "presentation_samrs_sota_plane_study",
+        "destination": "studies/samrs_sota_plane_study/reports",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/reports",
+        "file_count": 13,
+        "directory_count": 3,
+        "total_bytes": 6647998,
+        "sha256": "23afd5bd3dcdfc5491f938a0b4b84192565d505bdee6e420eaff7a45ca1b64ea"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "configs/samrs_sota_plane_yolo26x.yaml",
+        "destination": "studies/samrs_sota_plane_study/configs/yolo26x.yaml",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/configs/yolo26x.yaml",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 3102,
+        "sha256": "07f8d583097b0ff7427045123a1cf81b35caf8a88405e2e5b92b07538c018e8f"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "runs/yolo26x_samrs_sota_plane_s1024",
+        "destination": "studies/samrs_sota_plane_study/results/detector_training/yolo26x_samrs_sota_plane_s1024",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/detector_training/yolo26x_samrs_sota_plane_s1024",
+        "file_count": 8,
+        "directory_count": 2,
+        "total_bytes": 945203092,
+        "sha256": "34c7a3cd272c9ea6ab0aaf19607079659fea8ed851a46fe1f4d228d7aaff1f2c"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "configs/semantic_drone_car_yolo26x.yaml",
+        "destination": "studies/semantic_drone_car_study/configs/yolo26x.yaml",
+        "owner": "semantic_drone_car_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/semantic_drone_car_study/configs/yolo26x.yaml",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 2103,
+        "sha256": "c94bd0deebe9c115bff7117e8b9e8a02eba059eefea2c9108d036af1c2830a44"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "CODEX_HANDOFF_SEMANTIC_DRONE.md",
+        "destination": "studies/semantic_drone_car_study/docs/HANDOFF.md",
+        "owner": "semantic_drone_car_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/semantic_drone_car_study/docs/HANDOFF.md",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 7291,
+        "sha256": "25f17645fe2b632aef8694a3e7f032f25fc12f605d4805f73f21dbc1bcf455d4"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "configs/experiment.yaml",
+        "destination": "studies/landcover_building_study/configs/yolo_sam3.yaml",
+        "owner": "landcover_building_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/landcover_building_study/configs/yolo_sam3.yaml",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 1332,
+        "sha256": "81dfa809718e9240f738ec92b226abb6b5964bbfa782b4cf56ae149b5502c2fb"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "yolo26n.pt",
+        "destination": "models/yolo/yolo26n.pt",
+        "owner": "shared"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/models/yolo/yolo26n.pt",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 5544453,
+        "sha256": "06f9b0d92ec083a9e7c61be4e93e0382ab309b632dba670d778b0ca02f32f0b4"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "yolo26x.pt",
+        "destination": "models/yolo/yolo26x.pt",
+        "owner": "shared"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/models/yolo/yolo26x.pt",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 118667365,
+        "sha256": "ad84cf5062931cebc37395be57495d5328407ae3e55782f2bf8cfa1e4364cb15"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_detector_metrics",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/detector_metrics",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/detector_metrics",
+        "file_count": 2,
+        "directory_count": 0,
+        "total_bytes": 3321963,
+        "sha256": "faf3282974165792e5e43ba755abd21848cb889fe049477e5a7cef002d20f61e"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_final_report",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/final_report",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/final_report",
+        "file_count": 3,
+        "directory_count": 0,
+        "total_bytes": 25106,
+        "sha256": "659f67eace64b6565fcbb0b59c512d8dc8ba38b604f3d2ea72d0f5030a05a040"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_groundingdino_sam2",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/groundingdino_sam2",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/groundingdino_sam2",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 1265717,
+        "sha256": "356c7d7c8d5a7d4c2745cb5bc8871453ba44ff8dc0f8df312c4e84336d6751ed"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_gt_box_ringmo_sam",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/gt_box_ringmo_sam",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/gt_box_ringmo_sam",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 865976,
+        "sha256": "7d5b6413596191552f6902134221e4bfb4e85e2bd61df4017cfc26f01aeb29c8"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_gt_box_sam2",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/gt_box_sam2",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/gt_box_sam2",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 1081867,
+        "sha256": "b0e8fdd9b8024bed0594a8081e4342f3e098fd774187bface1f14347caf07706"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_gt_box_sam3",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/gt_box_sam3",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/gt_box_sam3",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 1387201,
+        "sha256": "5182b96c21553befaa9f31ee63ad9ec2f8b24636d216b18f30f534d32c9245db"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_metrics_sam3_triplet",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/metrics_sam3_triplet",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/metrics_sam3_triplet",
+        "file_count": 4,
+        "directory_count": 0,
+        "total_bytes": 279889,
+        "sha256": "00893afb821ae9c0445c6a3161735e4e185cd5c9568d618732bc4b38513fa280"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_remotesam_text",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/remotesam_text",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/remotesam_text",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 726105,
+        "sha256": "8a9311826b088af890f2de48a7d467de1fe9ace837927b661d6798d5f4483786"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_sam3_hybrid_gt_bbox",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/sam3_hybrid_gt_bbox",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/sam3_hybrid_gt_bbox",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 1509207,
+        "sha256": "4d312251fcf4c6050e2d30fb57fb5e97ea53816851a303d2ef564704eff3373a"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_sam3_hybrid_yolo_bbox",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/sam3_hybrid_yolo_bbox",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/sam3_hybrid_yolo_bbox",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 1789462,
+        "sha256": "fd7cd1e6b92aff1948136b64045a5bac45cbf5645d4459c494708f0549063b47"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_sam3_text",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/sam3_text",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/sam3_text",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 1237871,
+        "sha256": "9e27d5eb354d70759e12d42c11d210d4d034466a5204ad76de4b18cd597dd283"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_segearth_ov3_sam3",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/segearth_ov3_sam3",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/segearth_ov3_sam3",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 886787,
+        "sha256": "44a84404a5bc54ff26e428a3329b340334f2e3075ef1843a46e03cc59f43b8f2"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_visualizations_sam3_triplet",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/visualizations_sam3_triplet",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/visualizations_sam3_triplet",
+        "file_count": 17,
+        "directory_count": 0,
+        "total_bytes": 36551398,
+        "sha256": "f7d824771fc5ca36ea479f8c325835f5b672f04713f0d3f2342793432397e3e6"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_visualizations_sam3_triplet_curated",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/visualizations_sam3_triplet_curated",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/visualizations_sam3_triplet_curated",
+        "file_count": 5,
+        "directory_count": 1,
+        "total_bytes": 8468414,
+        "sha256": "ca736132d38086dcc411b99d3318bbc4270baa923a3a8f89f528d417d006ef81"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_yolo26x_ringmo_sam",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/yolo26x_ringmo_sam",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/yolo26x_ringmo_sam",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 1199252,
+        "sha256": "81de6c805859f3b31934a6e3bb970e0d9d3017cc8f486c5ed4eb5f2b2feff3b4"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_yolo26x_sam2",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/yolo26x_sam2",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/yolo26x_sam2",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 1445007,
+        "sha256": "3938a0f159da9ed1a8bb98b81f6762e80c005da531943c9cbbb588648bf2c870"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/isaid_vehicle_yolo26x_sam3",
+        "destination": "studies/isaid_vehicle_study/results/pipelines/yolo26x_sam3",
+        "owner": "isaid_vehicle_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/isaid_vehicle_study/results/pipelines/yolo26x_sam3",
+        "file_count": 256,
+        "directory_count": 2,
+        "total_bytes": 1677757,
+        "sha256": "1a282705fd536036a2c546f6174ade32a82bb17f0978e247a83026d88962f42d"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_detector_metrics",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/detector_metrics",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/detector_metrics",
+        "file_count": 2,
+        "directory_count": 0,
+        "total_bytes": 7908934,
+        "sha256": "3135bc7992d896cac34b044752b40c313a82feb931ef0c069b6c2a247b9e6a49"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_gt_box_ringmo_sam",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/gt_box_ringmo_sam",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/gt_box_ringmo_sam",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 1859687,
+        "sha256": "d216797df187d2ec6c0336936242971e35629ade1732a71050b65c0eba9fea77"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_gt_box_sam1",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/gt_box_sam1",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/gt_box_sam1",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 3596462,
+        "sha256": "159031823dbd31dbf8e97e6c7ae474d8e1f4f56c6d11d183465f17022643a422"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_gt_box_sam2",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/gt_box_sam2",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/gt_box_sam2",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 3549947,
+        "sha256": "670ae46de85a78a92d524ee33e3009f3b06d59e5cb622d82b0e9ec2ceb1c3cdb"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_gt_box_sam3",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/gt_box_sam3",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/gt_box_sam3",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 4403880,
+        "sha256": "c4416c8d16c4e2848f5c4996159e9cfb1e82eff6f4f20fa0d8f107801c0ae1ee"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_metrics",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/metrics",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/metrics",
+        "file_count": 4,
+        "directory_count": 0,
+        "total_bytes": 1277581,
+        "sha256": "500454cb699511533b275a6c96de1c80a7d68e9e18b4aab31c140861c95f0953"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_remotesam_text",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/remotesam_text",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/remotesam_text",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 3319813,
+        "sha256": "9ed9754bac3ae7a418721c3ce7db28bdd74e5834802e284cdc26d2efa3bbc992"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_ringmo_class_sweep",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/ringmo_class_sweep",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/ringmo_class_sweep",
+        "file_count": 1,
+        "directory_count": 0,
+        "total_bytes": 5722,
+        "sha256": "fe7ba8a10650ec70b172bcc2ea581affe9d57bde80d01e8a7fcb364c26840814"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_sam3_hybrid_yolo_bbox",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/sam3_hybrid_yolo_bbox",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/sam3_hybrid_yolo_bbox",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 4580971,
+        "sha256": "4d409e92af5f87358bcc3be4cfb162b74b23799a1202d00d979c8bcbd285742c"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_sam3_text",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/sam3_text",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/sam3_text",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 3996155,
+        "sha256": "55d0f64e460c715d14ff7ae47322c0dd602074373f50dc2f57b4a29e4696a58e"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_visualizations",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/visualizations",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/visualizations",
+        "file_count": 17,
+        "directory_count": 0,
+        "total_bytes": 21377028,
+        "sha256": "47904ba856230eb22b4d76bb8b743ea04628deb6216b34f9b3f2305a7893b49c"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_yolo26x_ringmo_sam",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/yolo26x_ringmo_sam",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/yolo26x_ringmo_sam",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 2099100,
+        "sha256": "c3a886b3c09e535228fc8e6d45e55d3b5015d37c19fbb29e4c8b80b62cd9de6b"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_yolo26x_sam1",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/yolo26x_sam1",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/yolo26x_sam1",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 3777504,
+        "sha256": "f5fff2d1e96e49dc0ab65d3b66c1bcfc23c6f71e31ff39f8c3756e3e9a408c3a"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_yolo26x_sam2",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/yolo26x_sam2",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/yolo26x_sam2",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 3735777,
+        "sha256": "ebec9139de8ed0046be5323c25c17f54f57cd1b64f05b5ee47bff54f690e3251"
+      },
+      "status": "verified"
+    },
+    {
+      "move": {
+        "source": "results/samrs_sota_plane_yolo26x_sam3",
+        "destination": "studies/samrs_sota_plane_study/results/pipelines/yolo26x_sam3",
+        "owner": "samrs_sota_plane_study"
+      },
+      "inventory": {
+        "path": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/samrs_sota_plane_study/results/pipelines/yolo26x_sam3",
+        "file_count": 1024,
+        "directory_count": 2,
+        "total_bytes": 4546075,
+        "sha256": "15f01086d60119e739a5d7bc0896d6dd08946a5010c5832f391a819e86820708"
+      },
+      "status": "verified"
+    }
+  ],
+  "status": "verified"
+}

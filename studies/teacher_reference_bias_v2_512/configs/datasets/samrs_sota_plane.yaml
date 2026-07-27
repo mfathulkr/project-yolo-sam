@@ -1,0 +1,13 @@
+dataset_id: samrs_sota_plane
+version: SAMRS-SOTA-DOTA2.0-2023
+profile_id: samrs_sota
+raw_root: datasets/samrs/raw/sota
+prepared_root: studies/teacher_reference_bias_v2_512/data/prepared/samrs_sota_plane
+master_prepared_root: studies/teacher_reference_bias_v1/data/prepared/samrs_sota_plane
+area_threshold: 0.011932373046875
+reference_type: pseudo_sam1
+target_category: plane
+source_url: https://github.com/ViTAE-Transformer/SAMRS
+license_name: SAMRS dataset terms
+annotation_format: samrs_pickle_instances
+archive_sha256: bbae2fb7f81b09dae3146dde2df406db1641716a8d7b3204dbafcabf8f00c706

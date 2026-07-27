@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "migration_id": "study_layout_20260726",
+  "status": "pass",
+  "modified_file_count": 10,
+  "scope": "pre-audit relocation path rewrites with pre-migration inventory proof",
+  "files": [
+    {
+      "path": "studies/isaid_vehicle_study/configs/yolo26x.yaml",
+      "original_copy": "docs/migration/originals/studies__isaid_vehicle_study__configs__yolo26x.yaml.original",
+      "before_sha256": "89cb8bb1224732dc903971b6ed1efa44a8eb87260e0711487fe09b99e616555e",
+      "after_sha256": "43f605b6aab81329cfbf86594c291af7d0893a9cedb517c864a31b7323954d38",
+      "bytes_after": 2105,
+      "provenance": "git HEAD:configs/isaid_vehicle_yolo26x.yaml"
+    },
+    {
+      "path": "studies/isaid_vehicle_study/configs/yolo26x_cpu_eval.yaml",
+      "original_copy": "docs/migration/originals/studies__isaid_vehicle_study__configs__yolo26x_cpu_eval.yaml.original",
+      "before_sha256": "5598c45b9a4ac7fb55ae0f16e6c53565cb1557ee66f634262d614a8d9b643837",
+      "after_sha256": "09954581fd61ce57bd856722367c79a670fa3b59542ca2e2bdedc0d85a52b21e",
+      "bytes_after": 4151,
+      "provenance": "git HEAD:configs/isaid_vehicle_yolo26x_cpu_eval.yaml"
+    },
+    {
+      "path": "studies/isaid_vehicle_study/docs/WALKTHROUGH.md",
+      "original_copy": "docs/migration/originals/studies__isaid_vehicle_study__docs__WALKTHROUGH.md.original",
+      "before_sha256": "3e7ea65352ec7dde39e6134b6e3a8c8e6a702120494b4674ef61e8a8cc3a811d",
+      "after_sha256": "b85ec1ab65d46bed9c49e67c758cf0c76b0581856642b79e440d417231ae59f6",
+      "bytes_after": 15326,
+      "provenance": "git HEAD:docs/ISAID_VEHICLE_STUDY_WALKTHROUGH.md"
+    },
+    {
+      "path": "studies/landcover_building_study/configs/yolo_sam3.yaml",
+      "original_copy": "docs/migration/originals/studies__landcover_building_study__configs__yolo_sam3.yaml.original",
+      "before_sha256": "2d108038b230294d520a202e0d32d8683a42ae5ea6293b264f66cb347d830bec",
+      "after_sha256": "4772ef68fced634febbb3503aa5a510d9e632facba399986bb3681b9b060c054",
+      "bytes_after": 1645,
+      "provenance": "git HEAD:configs/experiment.yaml"
+    },
+    {
+      "path": "studies/samrs_sota_plane_study/configs/yolo26x.yaml",
+      "original_copy": "docs/migration/originals/studies__samrs_sota_plane_study__configs__yolo26x.yaml.original",
+      "before_sha256": "546b65d1610bab2020fade627d5f34fa6f15849e8156bac5bbbc57a2dedc86cf",
+      "after_sha256": "d3bc49497da495d8760f67f8231b68e6a1b4c76f00ba6ff6e401f4a3dd1f9310",
+      "bytes_after": 3560,
+      "provenance": "inverse audited path replacements"
+    },
+    {
+      "path": "studies/semantic_drone_car_study/configs/yolo26x.yaml",
+      "original_copy": "docs/migration/originals/studies__semantic_drone_car_study__configs__yolo26x.yaml.original",
+      "before_sha256": "cbcf8bffd2c78c39095ba55946005b4b09888a4eaae9f40e928dcb7a446db950",
+      "after_sha256": "6c1a6a3760b9be999ba0b9d8c1cfc15f7f2d12da7de04e85b7648227cf41fc18",
+      "bytes_after": 2353,
+      "provenance": "git HEAD:configs/semantic_drone_car_yolo26x.yaml"
+    },
+    {
+      "path": "studies/semantic_drone_car_study/docs/HANDOFF.md",
+      "original_copy": "docs/migration/originals/studies__semantic_drone_car_study__docs__HANDOFF.md.original",
+      "before_sha256": "c54334de68b6d4461e7334ce114c3cc9e447896c60147e6d5606ca9d81a49f00",
+      "after_sha256": "9f98a6ef172f870f47fcdfb9515960a37aedc892a30d0e6f887bc93aef0fc207",
+      "bytes_after": 7352,
+      "provenance": "git HEAD:CODEX_HANDOFF_SEMANTIC_DRONE.md"
+    },
+    {
+      "path": "studies/teacher_reference_bias_v1/configs/datasets/isaid_plane.yaml",
+      "original_copy": "docs/migration/originals/studies__teacher_reference_bias_v1__configs__datasets__isaid_plane.yaml.original",
+      "before_sha256": "ca9df36aad6b13e5a65ebbc3f3c970b44c537de80b0fe936c7289eead6ebcac0",
+      "after_sha256": "cd6658dccd9d5fc692f0b7a7665d2c3a0959e41ee1ba7bfbfc032e07d9f3e2e5",
+      "bytes_after": 367,
+      "provenance": "inverse audited path replacements"
+    },
+    {
+      "path": "studies/teacher_reference_bias_v1/configs/datasets/samrs_sota_plane.yaml",
+      "original_copy": "docs/migration/originals/studies__teacher_reference_bias_v1__configs__datasets__samrs_sota_plane.yaml.original",
+      "before_sha256": "e5a6dfadde9f0131f5a4489725cf693022546cd7b2232696890053a3b374c9de",
+      "after_sha256": "0d5aaff0987d0e00e2bdf72b9b7d56b04de96ccdc98470790f81b00c59056d62",
+      "bytes_after": 462,
+      "provenance": "inverse audited path replacements"
+    },
+    {
+      "path": "studies/teacher_reference_bias_v1/configs/protocol.yaml",
+      "original_copy": "docs/migration/originals/studies__teacher_reference_bias_v1__configs__protocol.yaml.original",
+      "before_sha256": "c21cedb8d8645ca9fbb0a16c5789cdeb45a59cde4664e8a27cf20cec407c6e94",
+      "after_sha256": "a15a61bd491cddd957c611be3e786a024eb1780ce04fbf187fa19a2d041d5f7d",
+      "bytes_after": 1673,
+      "provenance": "inverse audited path replacements"
+    }
+  ]
+}
