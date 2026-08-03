@@ -12,6 +12,9 @@ from yolo_sam.models.sam2_local import LocalSam2ImageSegmenter
 from yolo_sam.models.sam3_local import LocalSam3ImageSegmenter
 
 
+DEFAULT_BOX_BATCH_SIZE = 16
+
+
 @dataclass(frozen=True)
 class SingleBoxSegmentation:
     mask: np.ndarray
@@ -78,7 +81,7 @@ class Sam1BoxSegmenter:
             image=image,
             boxes=boxes_xyxy,
             mask_threshold=self.mask_threshold,
-            box_batch_size=max(1, len(boxes_xyxy)),
+            box_batch_size=min(DEFAULT_BOX_BATCH_SIZE, max(1, len(boxes_xyxy))),
         )
         if len(result.instance_masks) != len(boxes_xyxy):
             raise ValueError(
@@ -120,7 +123,7 @@ class Sam2BoxSegmenter:
             image=image,
             boxes=boxes_xyxy,
             mask_threshold=self.mask_threshold,
-            box_batch_size=max(1, len(boxes_xyxy)),
+            box_batch_size=min(DEFAULT_BOX_BATCH_SIZE, max(1, len(boxes_xyxy))),
         )
         if len(result.instance_masks) != len(boxes_xyxy):
             raise ValueError(

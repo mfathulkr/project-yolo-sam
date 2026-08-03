@@ -9,8 +9,6 @@ split_seed: 42
 
 detector_seeds:
   - 42
-  - 123
-  - 2026
 
 detector:
   architecture: yolo26x

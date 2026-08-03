@@ -219,7 +219,7 @@ def _common_scope(
         "SAM1, SAM2 ve SAM3 aynı görüntülerde hem GT bbox hem YOLO bbox istemiyle çalıştırılmıştır.",
         "YOLO detector her veri setinde ayrıca eğitilmiştir; SAM1, SAM2 ve SAM3 bu veri setlerinde yeniden eğitilmeden veya ince ayar yapılmadan yalnız bbox istemiyle kullanılmıştır.",
         "Detector protokolü aynı olsa da iSAID eğitim bölümü 1.571, SAMRS eğitim bölümü 2.191 görüntüdür; bu nedenle veri setleri arasındaki detector skoru farkı yalnız referans kaynağına bağlanan kontrollü bir etki değildir.",
-        "YOLO bbox sonuçları üç bağımsız YOLO eğitiminin ortalaması ± standart sapmasıdır.",
+        "YOLO bbox sonuçları deney başlamadan önce sabitlenen seed 42 ile eğitilmiş tek YOLO26x detector sonucudur.",
         "Maske metrikleri uçak örneği düzeyinde hesaplanır; büyük nesneler küçük nesnelerin sonucunu piksel sayısıyla baskılamaz.",
     )
 
@@ -299,7 +299,7 @@ def isaid_human_spec(aggregates: pd.DataFrame) -> ReportSpec:
             "İnsan referansında GT-bbox Overall IoU değerleri SAM1/SAM2/SAM3 sırasıyla "
             f"{_triple(gt)} olarak ölçülmüştür.",
             "İnsan referansında YOLO-bbox Overall IoU değerleri SAM1/SAM2/SAM3 sırasıyla "
-            f"{_triple(yolo)} olarak ölçülmüştür; bunlar üç detector seed ortalamasıdır.",
+            f"{_triple(yolo)} olarak ölçülmüştür; bunlar sabit seed 42 detector sonuçlarıdır.",
             f"En yüksek insan-referanslı Overall IoU, GT bbox koşulunda {gt_best_model} için "
             f"{gt_best_value:.3f}; YOLO bbox koşulunda {yolo_best_model} için "
             f"{yolo_best_value:.3f} olmuştur.",
@@ -483,7 +483,7 @@ def samrs_spec(aggregates: pd.DataFrame) -> ReportSpec:
             "Resmi SAMRS pseudo referansında GT-bbox Overall IoU değerleri SAM1/SAM2/SAM3 sırasıyla "
             f"{_triple(gt)} olarak ölçülmüştür.",
             "YOLO-bbox Overall IoU değerleri SAM1/SAM2/SAM3 sırasıyla "
-            f"{_triple(yolo)} olarak ölçülmüştür; bunlar üç detector seed ortalamasıdır.",
+            f"{_triple(yolo)} olarak ölçülmüştür; bunlar sabit seed 42 detector sonuçlarıdır.",
             "GT bbox yerine YOLO bbox kullanıldığında Overall IoU kaybı SAM1/SAM2/SAM3 için sırasıyla "
             f"{_triple(_gt_to_yolo_loss(gt, yolo))} olmuştur.",
             "SAM1'in GT-bbox IoU değeri, SAM2 ve SAM3 ortalamasından "

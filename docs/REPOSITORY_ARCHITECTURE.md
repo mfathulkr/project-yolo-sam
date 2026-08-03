@@ -86,6 +86,16 @@ inceler.
 
 Durum: `completed_canonical`
 
+### `teacher_reference_bias_small_vehicle_v1_512`
+
+Plane canonical deneyinin yalnız hedef sınıfı küçük araç olacak biçimde
+eşlenmiş tekrarıdır. İki veri setinde de aynı 1024×1024 giriş, sabit seed 42
+YOLO26x detector, SAM1/SAM2/SAM3, GT/YOLO bbox ve 4×128 test düzenini kullanır.
+iSAID tahminleri insan ve kontrollü SAM1-pseudo referanslarına karşı; SAMRS
+tahminleri yayımlanan SAM1-pseudo referansına karşı değerlendirilir.
+
+Durum: `in_progress_canonical_matched`
+
 ### `teacher_reference_bias_v1`
 
 İlk 4×32 protokollü eşlenmiş deneydir. V2'nin tarihsel öncülü olarak

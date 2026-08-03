@@ -18,7 +18,7 @@ etiketlerine kıyasla ne kadar değişir?
 - Segmenterler: SAM1 ViT-H, SAM2.1 Hiera Large, SAM3
 - Bbox istemleri: GT bbox ve YOLO bbox
 - Detector: YOLO26x
-- Detector tekrarları: seed `42`, `123`, `2026`
+- Detector tekrarı: sabit seed `42`
 - Test kümesi: veri seti başına `512` görüntü
 - Alt gruplar: her biri tam `128` görüntü
 - Ana maske granülaritesi: uçak örneği düzeyi
@@ -147,13 +147,13 @@ GT-bbox koşulundaki Overall instance IoU:
 | Aynı iSAID görüntülerinde SAM1 pseudo | 1,000 | 0,827 | 0,795 |
 | SAMRS resmi SAM1 pseudo | 0,991 | 0,781 | 0,611 |
 
-YOLO-bbox koşulundaki üç-seed ortalama Overall instance IoU:
+YOLO-bbox koşulundaki sabit seed 42 Overall instance IoU:
 
 | Referans | SAM1 | SAM2 | SAM3 |
 |---|---:|---:|---:|
-| iSAID insan | 0,594 | 0,571 | 0,596 |
-| Aynı iSAID görüntülerinde SAM1 pseudo | 0,869 | 0,747 | 0,721 |
-| SAMRS resmi SAM1 pseudo | 0,814 | 0,679 | 0,537 |
+| iSAID insan | 0,597 | 0,574 | 0,595 |
+| Aynı iSAID görüntülerinde SAM1 pseudo | 0,873 | 0,750 | 0,721 |
+| SAMRS resmi SAM1 pseudo | 0,813 | 0,679 | 0,537 |
 
 Aynı iSAID tahminleri insan yerine kontrollü SAM1 pseudo referansla
 ölçüldüğünde GT-bbox IoU artışı SAM1/SAM2/SAM3 için sırasıyla
@@ -162,12 +162,12 @@ Aynı iSAID tahminleri insan yerine kontrollü SAM1 pseudo referansla
 Kontrollü pseudo referans doğrudan SAM1 GT-bbox çıktısından üretildiği için
 SAM1'in `1,000` satırı bağımsız başarı değil, kimlik kontrolüdür.
 
-Detector üç-seed ortalamaları:
+Sabit seed 42 detector sonuçları:
 
 | Veri seti | BBox mAP50 | BBox mAP75 | BBox mAP90 | BBox mAP50-95 |
 |---|---:|---:|---:|---:|
-| iSAID plane | 0,923 | 0,846 | 0,546 | 0,764 |
-| SAMRS SOTA plane | 0,918 | 0,808 | 0,212 | 0,671 |
+| iSAID plane | 0,920 | 0,847 | 0,545 | 0,762 |
+| SAMRS SOTA plane | 0,913 | 0,797 | 0,209 | 0,665 |
 
 Rapor üretimi:
 
@@ -183,10 +183,10 @@ metrik kullanılmaz.
 
 ## Yerel Inference ve Büyük Dosyalar
 
-Altı eğitilmiş YOLO26x `best.pt` ağırlığı ve iki yeniden üretim paketi Git LFS
-ile depolanır. RTX 4060 8 GB VRAM için detector batch `1` ve SAM `float16`
-kullanan ayrı çalışma profili de vardır. Canonical rapor protokolü
-değiştirilmemiştir.
+Kanonik raporlar yalnız seed 42 ağırlıklarını kullanır. Önceki seed 123 ve 2026
+ağırlıkları tarihsel yeniden üretilebilirlik için Git LFS'de tutulur, ancak bu
+raporların hiçbir ortalamasına girmez. RTX 4060 8 GB VRAM için detector batch
+`1` ve SAM `float16` kullanan ayrı çalışma profili de vardır.
 
 Kurulum, model boyutları, SAM indirme, private test görüntüsü aktarımı ve tam
 inference komutları:

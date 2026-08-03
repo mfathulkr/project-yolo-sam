@@ -10,7 +10,8 @@ bulunur.
 
 | Study | Durum | Amaç |
 |---|---|---|
-| [`teacher_reference_bias_v2_512`](studies/teacher_reference_bias_v2_512/README.md) | Tamamlandı, canonical | Dört alt grupta 128'er, Overall'da 512 görüntüyle iSAID insan/SAM1-pseudo ve SAMRS SOTA SAM1-pseudo referanslarını eşlenmiş protokolde ölçer. |
+| [`teacher_reference_bias_v2_512`](studies/teacher_reference_bias_v2_512/README.md) | Tamamlandı, canonical | Sabit seed 42 detector ile dört alt grupta 128'er, Overall'da 512 plane görüntüsünü iSAID insan/SAM1-pseudo ve SAMRS SOTA SAM1-pseudo referanslarında ölçer. |
+| [`teacher_reference_bias_small_vehicle_v1_512`](studies/teacher_reference_bias_small_vehicle_v1_512/README.md) | Devam ediyor, canonical eşlenmiş protokol | Plane deneyinin yalnız hedef sınıfı small-vehicle olacak şekilde birebir eşlenmiş tekrarıdır; veri, model, seed ve rapor sözleşmesi aynıdır. |
 | [`teacher_reference_bias_v1`](studies/teacher_reference_bias_v1/README.md) | Tarihsel | İlk 4×32 teacher-reference-bias deneyini ve altı sayfalık taslağı değiştirilemez öncül olarak korur. |
 | [`isaid_vehicle_study`](studies/isaid_vehicle_study/README.md) | Tarihsel | iSAID small/large vehicle birleşik maskelerinde eski pipeline karşılaştırmasını korur. |
 | [`samrs_sota_plane_study`](studies/samrs_sota_plane_study/README.md) | Tarihsel | İlk SAMRS SOTA plane deneyini ve eski sunum çıktısını korur. |
@@ -99,8 +100,8 @@ pip install -r requirements.txt
 ```
 
 Harici/gated SAM checkpoint dosyaları Git'e eklenmez. Canonical v2
-çalışmasında eğitilmiş YOLO ağırlıkları ve yeniden üretim bundle'ları Git LFS
-ile tutulur. Yerel inference kurulumu:
+ve small-vehicle çalışmalarında eğitilmiş YOLO ağırlıkları ile yeniden üretim
+bundle'ları Git LFS ile tutulur. Yerel inference kurulumu:
 [LOCAL_INFERENCE.md](studies/teacher_reference_bias_v2_512/docs/LOCAL_INFERENCE.md).
 
 ## Testler
@@ -118,6 +119,15 @@ Canonical teacher-reference-bias v2 study:
 PYTHONPATH=src:studies/teacher_reference_bias_v2_512/src \
   .venv/bin/python -m unittest discover \
   -s studies/teacher_reference_bias_v2_512/tests -p 'test_*.py' -v
+```
+
+Small-vehicle eşlenmiş study:
+
+```bash
+PYTHONPATH=src:studies/teacher_reference_bias_small_vehicle_v1_512/src \
+  .venv/bin/python -m unittest discover \
+  -s studies/teacher_reference_bias_small_vehicle_v1_512/tests \
+  -p 'test_*.py' -v
 ```
 
 ## Canonical Study Kullanımı

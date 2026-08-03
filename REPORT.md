@@ -48,14 +48,22 @@ studies/teacher_reference_bias_v2_512/results/analysis/manifest.json
 
 - Eşlenmiş iSAID ve SAMRS SOTA protokolü 512 test görüntüsüne genişletildi.
 - Her veri setinde dört alt grubun her birinde tam 128 görüntü var.
-- SAM1, SAM2 ve SAM3 için GT-bbox ve üç seed'li YOLO-bbox koşulları kullanılır.
+- SAM1, SAM2 ve SAM3 için GT-bbox ve sabit seed 42 YOLO-bbox koşulları
+  kullanılır.
 - iSAID insan referansı, aynı tahminlere ait kontrollü SAM1-pseudo referansı
   ve SAMRS resmi SAM1-pseudo referansı ayrı raporlanır.
 - Üç renkli full-metric MD/DOCX/PDF belgesi üretildi ve doğrulandı.
-- Altı YOLO eğitimi/testi, 24 SAM tahmin koşulu ve 24 değerlendirme
-  manifesti eksiksiz tamamlandı.
-- Canonical analiz 175.284 instance satırı ve 180 aggregate satırı içeriyor.
+- İki seed 42 YOLO eğitimi/testi, 12 SAM tahmin koşulu ve ilgili human/pseudo
+  değerlendirme manifestleri eksiksiz tamamlandı.
+- Canonical analiz 87.642 instance satırı ve 90 aggregate satırı içeriyor.
 - Tarihsel çalışmalar kendi study klasörlerinde korunuyor.
+
+Plane ile aynı protokolün small-vehicle hedef eşleniği ayrı çalışmada devam
+ediyor:
+
+```text
+studies/teacher_reference_bias_small_vehicle_v1_512/
+```
 
 Ana kontrollü bulgu: aynı iSAID tahminleri insan yerine SAM1 pseudo
 referansla ölçüldüğünde GT-bbox IoU artışı SAM1/SAM2/SAM3 için sırasıyla

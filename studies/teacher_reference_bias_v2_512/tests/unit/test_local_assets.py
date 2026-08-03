@@ -16,8 +16,57 @@ assert SPEC is not None and SPEC.loader is not None
 ASSETS = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(ASSETS)
 
+BUNDLE_MODULE_PATH = (
+    Path(__file__).resolve().parents[2] / "scripts" / "build_portable_bundles.py"
+)
+BUNDLE_SPEC = importlib.util.spec_from_file_location(
+    "build_portable_bundles", BUNDLE_MODULE_PATH
+)
+assert BUNDLE_SPEC is not None and BUNDLE_SPEC.loader is not None
+BUNDLES = importlib.util.module_from_spec(BUNDLE_SPEC)
+BUNDLE_SPEC.loader.exec_module(BUNDLES)
+
 
 class LocalAssetTests(unittest.TestCase):
+    def test_portable_metadata_bundle_rejects_images_and_caches(self) -> None:
+        self.assertFalse(
+            BUNDLES.metadata_file_allowed(Path("prepared/test/images/scene.png"))
+        )
+        self.assertFalse(
+            BUNDLES.metadata_file_allowed(Path("prepared/train/labels.cache"))
+        )
+        self.assertTrue(
+            BUNDLES.metadata_file_allowed(
+                Path("prepared/test/_annotations.coco.json")
+            )
+        )
+
+    def test_portable_results_bundle_is_seed_42_only(self) -> None:
+        self.assertFalse(
+            BUNDLES.result_file_allowed(Path("results/train/weights/best.pt"))
+        )
+        self.assertFalse(
+            BUNDLES.result_file_allowed(
+                Path("results/detectors/example/seed_123/evaluation/metrics.json")
+            )
+        )
+        self.assertFalse(
+            BUNDLES.result_file_allowed(Path("results/train_detached.log"))
+        )
+        self.assertFalse(
+            BUNDLES.result_file_allowed(
+                Path("results/finalization/manifest.json")
+            )
+        )
+        self.assertTrue(
+            BUNDLES.result_file_allowed(
+                Path("results/detectors/example/seed_42/evaluation/metrics.json")
+            )
+        )
+        self.assertTrue(
+            BUNDLES.result_file_allowed(Path("results/analysis/aggregates.csv"))
+        )
+
     def test_detects_lfs_pointer(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             path = Path(temp_dir) / "asset.pt"

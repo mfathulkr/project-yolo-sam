@@ -61,11 +61,9 @@ kümesinin sonucudur.
 
 ## Detector
 
-Her veri setinde YOLO26x üç bağımsız seed ile baştan eğitilir:
-
-- 42
-- 123
-- 2026
+Her veri setinde YOLO26x sabit seed `42` ile baştan eğitilir. Bu bildiri
+protokolü seed varyansını ölçmez; iki veri setinde de aynı deterministik seed'i
+kullanarak hesap yükünü sınırlar.
 
 İki veri setinde de aynı `yolo26x` başlangıç ağırlığı, 1024×1024 giriş,
 100 epok üst sınırı, batch 12 ve patience 30 kullanılır.

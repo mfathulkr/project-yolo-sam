@@ -5,8 +5,10 @@ yerel bilgisayarda çalıştırmak için gereken varlıkları ve komutları aç�
 
 ## GitHub'a Gönderilenler
 
-- iSAID plane için üç YOLO26x `best.pt`: toplam yaklaşık 339 MiB.
-- SAMRS SOTA plane için üç YOLO26x `best.pt`: toplam yaklaşık 339 MiB.
+- Kanonik raporda kullanılan iSAID plane seed 42 YOLO26x `best.pt`.
+- Kanonik raporda kullanılan SAMRS SOTA plane seed 42 YOLO26x `best.pt`.
+- Seed 123 ve 2026 ağırlıkları yalnız tarihsel yeniden üretilebilirlik için
+  tutulur; güncel rapor hesaplarına girmez.
 - Canonical tahmin, değerlendirme, analiz ve audit paketi: yaklaşık 102 MiB.
 - Görüntü içermeyen prepared metadata/anotasyon paketi: yaklaşık 8 MiB.
 - Bütün kod, config, test ve final raporlar.
@@ -170,8 +172,8 @@ PYTHONPATH=src:studies/teacher_reference_bias_v2_512/src \
   --split test --device 0 --force
 ```
 
-SAMRS için dataset config'i `samrs_sota_plane.yaml` yapılır. Üç seed ve üç
-SAM modeli aynı komut şablonuyla sırayla çalıştırılabilir.
+SAMRS için dataset config'i `samrs_sota_plane.yaml` yapılır. Sabit seed 42 ve
+üç SAM modeli aynı komut şablonuyla sırayla çalıştırılabilir.
 
 ## Bellek Notları
 

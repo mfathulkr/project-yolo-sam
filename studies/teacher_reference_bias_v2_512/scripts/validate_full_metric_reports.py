@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import re
 import subprocess
 import zipfile
 from pathlib import Path
@@ -62,7 +63,10 @@ EXPECTED_DATASET_INSTANCES = {
     "isaid_plane": 5_447,
     "samrs_sota_plane": 3_713,
 }
-EXPECTED_SEEDS = {42, 123, 2026}
+PROTOCOL = yaml.safe_load(
+    (STUDY_ROOT / "configs" / "protocol.yaml").read_text(encoding="utf-8")
+)
+EXPECTED_SEEDS = {int(seed) for seed in PROTOCOL["detector_seeds"]}
 
 
 def metric_mean(value: object) -> float:
@@ -145,8 +149,13 @@ def validate_detector_table(report_root: Path) -> None:
         raise AssertionError(f"{path}: unexpected columns {tuple(frame.columns)}")
     if len(frame) != 1 or int(frame.iloc[0]["Images"]) != 512:
         raise AssertionError(f"{path}: expected one 512-image detector row")
-    if "(3 seed)" not in str(frame.iloc[0]["Detector"]):
-        raise AssertionError(f"{path}: detector summary is not three-seed")
+    expected_label = (
+        f"(seed {next(iter(EXPECTED_SEEDS))})"
+        if len(EXPECTED_SEEDS) == 1
+        else f"({len(EXPECTED_SEEDS)} seed)"
+    )
+    if expected_label not in str(frame.iloc[0]["Detector"]):
+        raise AssertionError(f"{path}: detector summary has the wrong seed scope")
     for column in EXPECTED_DETECTOR_COLUMNS[2:]:
         metric_mean(frame.iloc[0][column])
 
@@ -268,6 +277,15 @@ def validate_rendered_documents(report_root: Path) -> None:
 
 def completed_manifest_count(pattern: str, expected: int) -> None:
     paths = sorted((STUDY_ROOT / "results").glob(pattern))
+    paths = [
+        path
+        for path in paths
+        if all(
+            int(match.group(1)) in EXPECTED_SEEDS
+            for part in path.parts
+            if (match := re.match(r"seed_(\d+)(?:_|$)", part)) is not None
+        )
+    ]
     if len(paths) != expected:
         raise AssertionError(
             f"{pattern}: expected {expected} manifests, found {len(paths)}"
@@ -383,9 +401,11 @@ def validate_analysis_outputs() -> None:
         analysis_root / "canonical_instance_metrics.csv",
         dtype={"detector_seed": "Int64"},
     )
+    conditions_per_reference = 3 * (1 + len(EXPECTED_SEEDS))
     expected_canonical_rows = (
-        2 * 12 * EXPECTED_DATASET_INSTANCES["isaid_plane"]
-        + 12 * EXPECTED_DATASET_INSTANCES["samrs_sota_plane"]
+        2 * conditions_per_reference * EXPECTED_DATASET_INSTANCES["isaid_plane"]
+        + conditions_per_reference
+        * EXPECTED_DATASET_INSTANCES["samrs_sota_plane"]
     )
     if len(canonical) != expected_canonical_rows:
         raise AssertionError(
@@ -404,13 +424,14 @@ def validate_analysis_outputs() -> None:
         raise AssertionError("Canonical instance metrics contain duplicate keys")
     expected_reference_rows = {
         ("isaid_plane", "human"): (
-            12 * EXPECTED_DATASET_INSTANCES["isaid_plane"]
+            conditions_per_reference * EXPECTED_DATASET_INSTANCES["isaid_plane"]
         ),
         ("isaid_plane", "pseudo_sam1"): (
-            12 * EXPECTED_DATASET_INSTANCES["isaid_plane"]
+            conditions_per_reference * EXPECTED_DATASET_INSTANCES["isaid_plane"]
         ),
         ("samrs_sota_plane", "pseudo_sam1"): (
-            12 * EXPECTED_DATASET_INSTANCES["samrs_sota_plane"]
+            conditions_per_reference
+            * EXPECTED_DATASET_INSTANCES["samrs_sota_plane"]
         ),
     }
     actual_reference_rows = {
@@ -437,9 +458,10 @@ def validate_analysis_outputs() -> None:
             )
 
     training = pd.read_csv(analysis_root / "training_health_audit.csv")
-    if len(training) != 6:
+    expected_detector_runs = 2 * len(EXPECTED_SEEDS)
+    if len(training) != expected_detector_runs:
         raise AssertionError(
-            f"Expected six detector trainings, found {len(training)}"
+            f"Expected {expected_detector_runs} detector trainings, found {len(training)}"
         )
     for dataset_id, frame in training.groupby("dataset_id"):
         if set(frame["seed"].astype(int)) != EXPECTED_SEEDS:
@@ -478,9 +500,9 @@ def validate_analysis_outputs() -> None:
     detectors = pd.read_csv(
         analysis_root / "detector_metrics_by_seed.csv"
     )
-    if len(detectors) != 6:
+    if len(detectors) != expected_detector_runs:
         raise AssertionError(
-            f"Expected six detector test rows, found {len(detectors)}"
+            f"Expected {expected_detector_runs} detector test rows, found {len(detectors)}"
         )
     if set(detectors["images"].astype(int)) != {512}:
         raise AssertionError("Detector test rows are not all 512 images")
@@ -566,19 +588,21 @@ def validate_analysis_outputs() -> None:
     unmatched = predictions[
         predictions["row_kind"] == "unmatched_detector"
     ]
-    if len(matched) != 24:
+    expected_matched_files = 2 * conditions_per_reference
+    if len(matched) != expected_matched_files:
         raise AssertionError(
-            f"Expected 24 matched prediction files, found {len(matched)}"
+            f"Expected {expected_matched_files} matched prediction files, found {len(matched)}"
         )
-    if len(unmatched) != 18:
+    expected_unmatched_files = 2 * 3 * len(EXPECTED_SEEDS)
+    if len(unmatched) != expected_unmatched_files:
         raise AssertionError(
-            f"Expected 18 unmatched-detector files, found {len(unmatched)}"
+            f"Expected {expected_unmatched_files} unmatched-detector files, found {len(unmatched)}"
         )
     for dataset_id, expected_instances in EXPECTED_DATASET_INSTANCES.items():
         frame = matched[matched["dataset_id"] == dataset_id]
-        if len(frame) != 12:
+        if len(frame) != conditions_per_reference:
             raise AssertionError(
-                f"{dataset_id}: expected 12 matched conditions, found {len(frame)}"
+                f"{dataset_id}: expected {conditions_per_reference} matched conditions, found {len(frame)}"
             )
         for column in ("total_rows", "unique_instance_ids"):
             if set(frame[column].astype(int)) != {expected_instances}:
@@ -609,9 +633,10 @@ def validate_analysis_outputs() -> None:
             )
 
     aggregates = pd.read_csv(analysis_root / "aggregate_metrics.csv")
-    if len(aggregates) != 180:
+    expected_aggregates = 3 * 5 * conditions_per_reference
+    if len(aggregates) != expected_aggregates:
         raise AssertionError(
-            f"Expected 180 aggregate rows, found {len(aggregates)}"
+            f"Expected {expected_aggregates} aggregate rows, found {len(aggregates)}"
         )
     for dataset_id, expected_instances in EXPECTED_DATASET_INSTANCES.items():
         test_root = STUDY_ROOT / "data" / "prepared" / dataset_id / "test"
@@ -649,17 +674,21 @@ def validate_analysis_outputs() -> None:
                     f"count {expected_count}, found {actual_counts}"
                 )
 
-    completed_manifest_count("detectors/*/seed_*/manifest.json", 6)
+    completed_manifest_count(
+        "detectors/*/seed_*/manifest.json", expected_detector_runs
+    )
     completed_manifest_count(
         "detectors/*/seed_*/evaluation/test/manifest.json",
-        6,
+        expected_detector_runs,
     )
     completed_manifest_count("predictions/*/*/gt_bbox/manifest.json", 6)
     completed_manifest_count(
         "predictions/*/*/yolo_bbox/seed_*/manifest.json",
-        18,
+        expected_unmatched_files,
     )
-    completed_manifest_count("evaluation/**/manifest.json", 24)
+    completed_manifest_count(
+        "evaluation/**/manifest.json", 6 * (1 + len(EXPECTED_SEEDS))
+    )
 
 
 def main() -> None:

@@ -13,6 +13,7 @@ EXPECTED_STUDIES = {
     "landcover_building_study",
     "samrs_sota_plane_study",
     "semantic_drone_car_study",
+    "teacher_reference_bias_small_vehicle_v1_512",
     "teacher_reference_bias_v1",
     "teacher_reference_bias_v2_512",
 }
@@ -106,9 +107,13 @@ class RepositoryLayoutTest(unittest.TestCase):
             self.assertTrue((REPO_ROOT / relative).is_file(), relative)
 
     def test_active_study_owns_plan_method_and_qa_documents(self) -> None:
-        docs = STUDIES_ROOT / "teacher_reference_bias_v2_512" / "docs"
-        for name in ("EXPERIMENT_PLAN.md", "METHOD.md", "QA_CHECKLIST.md"):
-            self.assertTrue((docs / name).is_file(), name)
+        for study in (
+            "teacher_reference_bias_v2_512",
+            "teacher_reference_bias_small_vehicle_v1_512",
+        ):
+            docs = STUDIES_ROOT / study / "docs"
+            for name in ("EXPERIMENT_PLAN.md", "METHOD.md", "QA_CHECKLIST.md"):
+                self.assertTrue((docs / name).is_file(), f"{study}/{name}")
 
     def test_retired_package_name_is_not_imported(self) -> None:
         offenders = []

@@ -1,54 +1,28 @@
 {
   "schema_version": 1,
   "study_id": "teacher_reference_bias_v2_512",
+  "detector_seed": 42,
+  "contains_dataset_images": false,
   "lfs_assets": [
     {
       "path": "studies/teacher_reference_bias_v2_512/results/detectors/isaid_plane/seed_42/train/weights/best.pt",
       "bytes": 118403493,
-      "sha256": "b70051ecfd605b4c78598b3b91c16202ed5f71e0d8fbe811916e61d8dec09528",
-      "role": "iSAID plane YOLO26x seed 42"
-    },
-    {
-      "path": "studies/teacher_reference_bias_v2_512/results/detectors/isaid_plane/seed_123/train/weights/best.pt",
-      "bytes": 118403237,
-      "sha256": "67ea72e2d00fabf8b97de0cf4cb851aface4b7ba508c7bc53b843b0e04fbbf2a",
-      "role": "iSAID plane YOLO26x seed 123"
-    },
-    {
-      "path": "studies/teacher_reference_bias_v2_512/results/detectors/isaid_plane/seed_2026/train/weights/best.pt",
-      "bytes": 118403557,
-      "sha256": "ee996833e4c15b5325bfc494ab066e4f8a9a258f8ac3866551ae1cadf0f55f7c",
-      "role": "iSAID plane YOLO26x seed 2026"
+      "sha256": "b70051ecfd605b4c78598b3b91c16202ed5f71e0d8fbe811916e61d8dec09528"
     },
     {
       "path": "studies/teacher_reference_bias_v2_512/results/detectors/samrs_sota_plane/seed_42/train/weights/best.pt",
       "bytes": 118403557,
-      "sha256": "3c599a90e473a2760cab804b2f4ce3f6e971227dcd24f328f77358f94482673f",
-      "role": "SAMRS SOTA plane YOLO26x seed 42"
-    },
-    {
-      "path": "studies/teacher_reference_bias_v2_512/results/detectors/samrs_sota_plane/seed_123/train/weights/best.pt",
-      "bytes": 118403557,
-      "sha256": "a3c316308091976063220add949ade30020075fd3b5efdc360eb5c3f3556aed3",
-      "role": "SAMRS SOTA plane YOLO26x seed 123"
-    },
-    {
-      "path": "studies/teacher_reference_bias_v2_512/results/detectors/samrs_sota_plane/seed_2026/train/weights/best.pt",
-      "bytes": 118401189,
-      "sha256": "fbdb4b733a4f1b5086cf6ea79509353fbce9a21fb5ea13bd1d7c0a0560043e0c",
-      "role": "SAMRS SOTA plane YOLO26x seed 2026"
+      "sha256": "3c599a90e473a2760cab804b2f4ce3f6e971227dcd24f328f77358f94482673f"
     },
     {
       "path": "studies/teacher_reference_bias_v2_512/bundles/canonical_results_without_weights.tar.gz",
-      "bytes": 106153870,
-      "sha256": "e063c2a99b88b71168ca985311d14bf2a9ea1049dbcce3f49fab75906c2b5e24",
-      "role": "Canonical predictions, evaluations, analyses, detector outputs and audits"
+      "bytes": 44495380,
+      "sha256": "19b9b8a7d3bf46148e7891eec86d8135d456eb5843b648d8e54a1b9ff7917f1c"
     },
     {
       "path": "studies/teacher_reference_bias_v2_512/bundles/prepared_metadata_without_images.tar.gz",
-      "bytes": 8296518,
-      "sha256": "6365d534188a99f3b6d0169f2727680594b80bae96d5e916f6f9c126115b457f",
-      "role": "Prepared split metadata, annotations and detector labels without third-party images"
+      "bytes": 7854540,
+      "sha256": "ad27a463f1b52b4d612a7910ee0bb5d72467b6a08db4534397145ec98b85c80a"
     }
   ],
   "not_distributed": [
@@ -62,11 +36,7 @@
     },
     {
       "path": "models/sam3_hf/",
-      "reason": "Gated facebook/sam3 checkpoint and individual file size above GitHub Free LFS limit."
-    },
-    {
-      "path": "~/.cache/huggingface/hub/models--facebook--sam*/",
-      "reason": "Official SAM checkpoints are downloaded from pinned Hugging Face revisions."
+      "reason": "Gated SAM3 checkpoint is not redistributed."
     }
   ]
 }

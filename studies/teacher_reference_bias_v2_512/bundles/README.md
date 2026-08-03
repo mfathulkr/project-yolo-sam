@@ -15,7 +15,7 @@ Paketler:
 - `prepared_metadata_without_images.tar.gz`: hazırlanmış split yapısı,
   COCO anotasyonları, metadata ve YOLO label dosyaları. Üçüncü taraf görüntüler
   pakete dahil değildir.
-- Altı `best.pt`: iSAID plane ve SAMRS SOTA plane için üçer seed ile
+- İki `best.pt`: iSAID plane ve SAMRS SOTA plane için sabit `seed 42` ile
   eğitilmiş YOLO26x detector ağırlıklarıdır. Ağırlıklar paket içinde
   kopyalanmaz; doğrudan `results/detectors/.../weights/best.pt` yollarında
   LFS ile tutulur.

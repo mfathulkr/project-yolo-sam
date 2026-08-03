@@ -37,10 +37,25 @@ studies/teacher_reference_bias_v2_512/scripts/study.py
 ```
 
 Bu çalışma iki veri setinde de `plane`, 1024×1024 giriş, 512 test görüntüsü,
-dört eşit 128 görüntülük alt grup, SAM1/SAM2/SAM3, GT bbox ve üç YOLO seed'i
+dört eşit 128 görüntülük alt grup, SAM1/SAM2/SAM3, GT bbox ve sabit seed 42 YOLO
 kullanır. iSAID için insan ve kontrollü SAM1-pseudo referans raporları ayrı
 üretilir. Canonical analiz yalnız bu study’nin `results/analysis/` dizinini
 okur.
+
+## Small-Vehicle Eşlenmiş Çalışma
+
+```text
+studies/teacher_reference_bias_small_vehicle_v1_512/
+```
+
+Durum: `in_progress_canonical_matched`
+
+Plane canonical deneyinin hedef sınıf eşleniğidir. iSAID `Small_Vehicle` ve
+SAMRS SOTA `small-vehicle` üzerinde aynı 1024×1024 giriş, 512 test görüntüsü,
+4×128 alt grup, sabit seed 42 detector, SAM1/SAM2/SAM3 ve GT/YOLO bbox
+koşullarını kullanır. Sonuçları tarihsel `isaid_vehicle_study` ile
+karıştırılmaz; o çalışma birleşik small/large vehicle hedefi ve farklı ölçüm
+mantığı kullanır.
 
 ## Teacher Reference Bias v1
 

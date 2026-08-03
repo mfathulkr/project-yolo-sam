@@ -1675,3 +1675,160 @@ Basit sonuç:
 > bütün canonical makine çıktılarını GitHub'dan çekebilir. Gerçek görüntüler
 > lisans nedeniyle private aktarılır; 8 GB GPU profili modelleri sırayla ve
 > düşük bellekle çalıştırır.
+
+### 2026-08-03 - Sabit seed 42 plane raporları ve small-vehicle deney başlangıcı
+
+Yapılanlar:
+
+- Bildiri kapsamındaki detector protokolü iki veri setinde de yalnız sabit
+  seed `42` kullanacak biçimde donduruldu.
+- Üç plane full-metric raporu yalnız seed 42 detector ve YOLO-bbox sonuçlarıyla
+  yeniden üretildi; MD, renkli DOCX, renkli PDF, tablo ve hash manifestleri
+  doğrulandı.
+- Small-vehicle çalışması plane protokolünün hedef-sınıf eşleniği olarak ayrı
+  `teacher_reference_bias_small_vehicle_v1_512` study klasöründe oluşturuldu.
+- SAMRS SOTA `small-vehicle` final split'i kaynak sahne sızıntısı olmadan 512
+  görüntü ve tam `4×128` strata ile hazırlandı. Testte 7.659 küçük araç örneği
+  bulunuyor.
+- Small-vehicle kodunda plane protokolünden sapma kontrol edildi; protokol
+  dosyaları çalışma kimliği dışında aynı ve 38 test başarılı.
+- SAMRS için SAM1 ve SAM2 GT-bbox çıkarımları tamamlandı; SAM2 değerlendirme
+  dosyaları yazıldı. SAM3 çıkarımı, SAM1 değerlendirmesi ve seed 42 YOLO26x
+  eğitimi sürüyor.
+- iSAID `Small_Vehicle` master corpus hazırlığı başlatıldı; tamamlanınca alan
+  eşiği dondurulup final `4×128` split oluşturulacak.
+
+Kalite notu:
+
+- Kopyalanmış dokümanlardaki eski plane ve üç-seed ifadeleri temizleniyor.
+- Small-vehicle QA checklist'i tamamlanmamış işleri yanlışlıkla bitmiş
+  göstermeyecek biçimde sıfırlandı.
+- Rapor scope metni eğitim görüntüsü sayılarını prepared metadata'dan dinamik
+  okuyacak şekilde değiştirildi; eski plane sayılarını small-vehicle raporuna
+  taşıyan sabit metin kaldırıldı.
+
+Basit sonuç:
+
+> Plane raporları artık istenen tek seed protokolünü gösteriyor. Small-vehicle
+> deneyi aynı 1024 çözünürlük, 512 test görüntüsü, 4×128 strata, üç SAM modeli,
+> GT/YOLO bbox ve aynı metrik sözleşmesiyle yürütülüyor.
+
+Bir sonraki adım:
+
+- iSAID final split'ini hazırlayıp veri QA kapılarını geçirmek.
+- İki seed 42 detector eğitimini ve bütün GT/YOLO bbox çıkarımlarını bitirmek.
+- iSAID insan, iSAID SAM1 pseudo ve SAMRS pseudo için üç full-metric raporu
+  üretip sayfa, metrik, hash ve görsel QA kontrollerini tamamlamak.
+
+### 2026-08-03 - Small-vehicle veri kapısı ve dense-sahne dayanıklılığı
+
+Yapılanlar:
+
+- iSAID `Small_Vehicle` master havuzu resmi insan polygonlarından tamamlandı.
+- Model sonuçlarına bakılmadan sabitlenen `0,0018463134765625` alan eşiğiyle
+  31 kaynak sahneden tam 512 test görüntüsü ve `4×128` strata oluşturuldu.
+- Final iSAID train/validation/test splitleri 5.930/1.353/512 görüntü ve
+  359.927/71.275/12.051 instance içeriyor; kaynak sahne kesişimleri sıfır.
+- SAMRS final splitinin 7.824/1.567/512 görüntü ve
+  304.414/49.792/7.659 instance içerdiği yeniden doğrulandı.
+- iSAID SAM2 GT-bbox çıkarımı bütün 12.051 instance ile tamamlandı; SAM1 ve
+  SAM3 GT-bbox çıkarımları başlatıldı.
+- Çok yoğun bir iSAID sahnesinde SAM1'in tüm kutuları tek GPU batch'ine
+  alması OOM üretti. Ortak SAM1/SAM2 wrapper'ı kutu sırasını ve instance
+  sayısını koruyarak en fazla 16 kutuluk hesap parçaları kullanacak şekilde
+  düzeltildi; ilgili birim testleri geçti ve SAM1 koşusu temizden başlatıldı.
+- SAMRS ve iSAID YOLO26x eğitimleri sabit seed 42 ile ayrı GPU'larda sürüyor.
+  iSAID eğitiminin ilk başlatmasındaki fiziksel GPU eşleme sorunu
+  `CUDA_VISIBLE_DEVICES` ile izole edilerek aynı protokol değiştirilmeden
+  giderildi.
+
+Basit sonuç:
+
+> İki veri seti de 512 görüntü ve dört eşit alt grup sözleşmesini karşılıyor.
+> Dense sahnelerde hiçbir küçük araç atlanmıyor; GPU belleği yalnız hesaplama
+> batch'leri küçültülerek kontrol ediliyor.
+
+### 2026-08-03 - Kesinti sonrası tek-seed koşularının güvenli devamı
+
+Yapılanlar:
+
+- Detector komutuna yarım kalmış bir `last.pt` kontrol noktasını aynı çalışma
+  dizininde sürdüren açık `--resume` seçeneği eklendi; `--resume` ile
+  `--force` birlikte kullanılamıyor.
+- SAMRS SOTA small-vehicle YOLO26x eğitiminin seed `42` kontrol noktası
+  doğrulandı ve eğitim 6. epoktan devam ettirildi.
+- iSAID small-vehicle eğitiminin ilk epoku tamamlanmadan kesilmiş eski koşusu
+  temizlenerek aynı protokolle seed `42` eğitimine baştan başlandı.
+- iSAID için SAM1, SAM2 ve SAM3 GT-bbox tahminleri 512 görüntüdeki 12.051
+  instance'ın tamamıyla üretildi. İnsan ve SAM1-pseudo referanslarına karşı
+  çift değerlendirmeler RAM sınırı gözetilerek sıraya alındı.
+- Değerlendirme sırasında görüntü veya instance örneklemesi yapılmıyor;
+  yalnız yüzde 95 güven aralıkları için sabit seed `42` ile 10.000 bootstrap
+  tekrarından yararlanılıyor.
+
+Basit sonuç:
+
+> Hesaplama kesintisi deney protokolünü değiştirmedi ve tamamlanmış çıktılar
+> kaybedilmedi. İki detector da tek seed `42` ile ilerliyor; segmentasyon
+> değerlendirmeleri bütün 12.051 iSAID küçük araç örneğini kapsıyor.
+
+### 2026-08-03 - Yoğun detector validation için bellek güvenliği
+
+Yapılanlar:
+
+- Ultralytics detection trainer'ın validation batch'ini varsayılan olarak
+  eğitim batch'inin iki katına (`12 → 24`) çıkardığı doğrulandı.
+- Yoğun small-vehicle batch'lerinde bu davranışın çok büyük
+  `TaskAlignedAssigner` matrisleri ürettiği ve validation'ı CPU fallback'e
+  taşıdığı ölçüldü.
+- Eğitim batch'ini ve optimizasyonu değiştirmeden validation batch'ini 12'de
+  tutan `DenseInstanceDetectionTrainer` eklendi.
+- Düzeltmenin yalnız validation batch'ini yarıya indirdiğini ve train batch'ini
+  değiştirmediğini doğrulayan iki birim test eklendi; small-vehicle paketinin
+  40 testi de geçti.
+- iSAID 1. epok, SAMRS 7. epok checkpoint sınırında tamamlandıktan sonra iki
+  koşu da yarım optimizer adımı kullanmadan yeni trainer ile sırasıyla 2. ve
+  8. epoktan sürdürüldü.
+- iSAID SAM1/SAM2/SAM3 GT-bbox çift değerlendirmelerinin her birinde 24.102
+  instance-metrik ve 1.024 görüntü-union satırı bulunduğu, NaN veya eksik
+  instance olmadığı doğrulandı.
+
+Basit sonuç:
+
+> Validation artık aynı 1.353/1.567 görüntüyü daha küçük hesaplama parçalarında
+> işler. Model eğitimi, etiketler ve COCO metrikleri değişmez; yoğun sahnelerin
+> geçici RAM kullanımı ve validation süresi düşer.
+
+### 2026-08-03 - Tek-seed taşınabilir paket ve bağımsız eğitim süreçleri
+
+Yapılanlar:
+
+- iSAID ve SAMRS small-vehicle detector eğitimleri farklı fiziksel GPU'larda,
+  terminal veya Codex oturumu kapansa da devam eden bağımsız süreçlere alındı.
+- SAMRS sekizinci epok doğrulaması `Precision 0,797`, `Recall 0,767`,
+  `mAP50 0,779` ve `mAP50-95 0,400` ile tamamlandıktan sonra dokuzuncu epok
+  kontrol noktasından sürdürüldü.
+- Plane canonical sonuç paketi yeniden üretildi. Eski seed 123/2026 dosyaları,
+  checkpoint kopyaları, eğitim logları ve veri seti görüntüleri arşivden
+  çıkarıldı.
+- Plane manifesti artık yalnız iki seed 42 `best.pt`, canonical sonuç arşivi
+  ve görüntüsüz metadata arşivini listeliyor; dört varlığın SHA-256 kontrolü
+  geçti.
+- Hem plane hem small-vehicle paket üreticisine eski seed ve log sızıntısını
+  engelleyen filtreler ve birim testleri eklendi.
+
+Basit sonuç:
+
+> Plane çalışmasının taşınabilir kopyası artık raporlarla aynı tek-seed
+> sözleşmesine sahip. Small-vehicle eğitimleri kullanıcı oturumundan bağımsız
+> biçimde ilerliyor ve tamamlanınca aynı paket kapılarından geçecek.
+
+Ek güvence:
+
+- İki dataset worker'ı detector manifesti tamamlanınca gerçek detector testi,
+  SAM1/SAM2/SAM3 YOLO-bbox çıkarımları ve değerlendirmeleri otomatik
+  çalıştıracak biçimde başlatıldı.
+- Ayrı finalizer iki worker'ı bekliyor; analiz, figür, üç full-metric belge,
+  rapor validator'ı, bundle üretimi ve hash kontrolünü sırasıyla çalıştıracak.
+- Worker ve finalizer durum dosyaları orchestration kaydıdır; canonical
+  bilimsel sonuç arşivinden açıkça dışlanır.

@@ -1,0 +1,11 @@
+dataset_id: samrs_sota_small_vehicle_master
+version: SAMRS-SOTA-DOTA2.0-2023
+profile_id: samrs_sota
+raw_root: datasets/samrs/raw/sota
+prepared_root: studies/teacher_reference_bias_small_vehicle_v1_512/data/master/samrs_sota_small_vehicle
+reference_type: pseudo_sam1
+target_category: small-vehicle
+source_url: https://github.com/ViTAE-Transformer/SAMRS
+license_name: SAMRS dataset terms
+annotation_format: samrs_pickle_instances
+archive_sha256: bbae2fb7f81b09dae3146dde2df406db1641716a8d7b3204dbafcabf8f00c706

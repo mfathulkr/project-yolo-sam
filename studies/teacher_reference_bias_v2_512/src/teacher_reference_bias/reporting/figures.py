@@ -383,7 +383,7 @@ def detector_seed_figure(
     axis.set_ylabel("COCO bbox AP")
     axis.grid(axis="y", color="#DDDDDD", linewidth=0.6)
     axis.legend(frameon=False)
-    axis.set_title("YOLO detector sonuçları: üç seed ortalaması ± standart sapma")
+    axis.set_title("YOLO detector sonuçları: sabit seed 42")
     figure.tight_layout()
     return _save_figure(figure, output_path)
 

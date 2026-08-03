@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 import re
 import textwrap
@@ -91,6 +92,7 @@ class ReportSpec:
     scope_bullets: tuple[str, ...]
     context_bullets: tuple[str, ...]
     discussion_bullets: tuple[str, ...]
+    target_label: str = "uçak"
 
 
 def sha256_file(path: Path) -> str:
@@ -128,9 +130,16 @@ def numeric_value(value: object) -> float | None:
 
 
 def _format_metric(mean: float, std: float | None = None) -> str:
-    if std is None:
+    if std is None or not math.isfinite(std):
         return f"{mean:.3f}"
     return f"{mean:.3f} ± {std:.3f}"
+
+
+def _seed_note(seed_ids: tuple[int, ...]) -> str:
+    if len(seed_ids) == 1:
+        return f"sabit seed {seed_ids[0]} sonucudur"
+    joined = ", ".join(str(seed) for seed in seed_ids)
+    return f"seed {joined} ortalaması ± standart sapmasıdır"
 
 
 def build_segmentation_table(
@@ -151,6 +160,7 @@ def build_segmentation_table(
         )
 
     rows: list[dict[str, object]] = []
+    yolo_seed_sets: list[tuple[int, ...]] = []
     for model in ("sam1", "sam2", "sam3"):
         for bbox_source in ("gt_bbox", "yolo_bbox"):
             pipeline = selected[
@@ -170,12 +180,15 @@ def build_segmentation_table(
                         f"Expected one GT-bbox row, found {len(pipeline)}"
                     )
             else:
-                seeds = set(pipeline["detector_seed"].dropna().astype(int))
-                if len(pipeline) != 3 or seed_count != 3 or seeds != {42, 123, 2026}:
+                seeds = tuple(
+                    sorted(pipeline["detector_seed"].dropna().astype(int).unique())
+                )
+                if not seeds or len(pipeline) != seed_count or len(pipeline) != len(seeds):
                     raise ValueError(
-                        "Expected YOLO-bbox seeds {42, 123, 2026}, "
-                        f"found {sorted(seeds)} in {len(pipeline)} rows"
+                        "Expected one aggregate row per selected YOLO-bbox seed, "
+                        f"found {list(seeds)} in {len(pipeline)} rows"
                     )
+                yolo_seed_sets.append(seeds)
 
             counts = pipeline["instance_count"].astype(int).unique()
             scenes = pipeline["source_scene_count"].astype(int).unique()
@@ -195,7 +208,7 @@ def build_segmentation_table(
                 mean = float(pipeline[metric_name].mean())
                 std = (
                     float(pipeline[metric_name].std(ddof=1))
-                    if bbox_source == "yolo_bbox"
+                    if bbox_source == "yolo_bbox" and len(pipeline) > 1
                     else None
                 )
                 row[display_name] = _format_metric(mean, std)
@@ -208,6 +221,9 @@ def build_segmentation_table(
             f"Inconsistent instance counts for {dataset_id}/{reference_type}/{stratum}"
         )
     table.attrs["instance_count"] = int(instance_counts[0])
+    if not yolo_seed_sets or len(set(yolo_seed_sets)) != 1:
+        raise ValueError("YOLO-bbox pipelines do not use one consistent seed set")
+    table.attrs["detector_seeds"] = yolo_seed_sets[0]
     return table
 
 
@@ -216,15 +232,15 @@ def segmentation_table_note(
     section: ReferenceSection,
     stratum: str,
     frame: pd.DataFrame,
+    target_label: str = "uçak",
 ) -> str:
     image_count = IMAGE_COUNTS[stratum]
     instance_count = int(frame.attrs["instance_count"])
     formatted_instance_count = f"{instance_count:,}".replace(",", ".")
     return (
         f"Referans: {section.title}. Bu tablo {image_count} görüntüdeki "
-        f"{formatted_instance_count} uçak örneğini kapsar. "
-        "YOLO bbox değerleri üç "
-        "seed ortalaması ± standart sapmadır."
+        f"{formatted_instance_count} {target_label} örneğini kapsar. "
+        f"YOLO bbox değerleri {_seed_note(tuple(frame.attrs['detector_seeds']))}."
     )
 
 
@@ -237,6 +253,13 @@ def build_detector_table(
             f"Expected one detector summary for {dataset_id}, found {len(selected)}"
         )
     row = selected.iloc[0]
+    seed_ids = tuple(
+        int(value)
+        for value in str(row.get("seed_ids", "")).split(",")
+        if value.strip()
+    )
+    if not seed_ids:
+        raise ValueError(f"Detector seed ids are missing for {dataset_id}")
     mapping = (
         ("bbox_AP50", "BBox mAP50"),
         ("bbox_AP75", "BBox mAP75"),
@@ -250,15 +273,25 @@ def build_detector_table(
         ("recall_at_bbox_iou90", "BBox Recall@0.90"),
     )
     output: dict[str, object] = {
-        "Detector": f"YOLO26x ({int(row['seed_count'])} seed)",
+        "Detector": (
+            f"YOLO26x (seed {seed_ids[0]})"
+            if len(seed_ids) == 1
+            else f"YOLO26x ({len(seed_ids)} seed)"
+        ),
         "Images": 512,
     }
     for source_prefix, display_name in mapping:
         output[display_name] = _format_metric(
             float(row[f"{source_prefix}_mean"]),
-            float(row[f"{source_prefix}_std"]),
+            (
+                float(row[f"{source_prefix}_std"])
+                if len(seed_ids) > 1
+                else None
+            ),
         )
-    return pd.DataFrame([output])
+    table = pd.DataFrame([output])
+    table.attrs["detector_seeds"] = seed_ids
+    return table
 
 
 def build_isaid_reference_effect_table(
@@ -324,29 +357,32 @@ def build_samrs_shared_reference_table(
     return pd.DataFrame(rows)
 
 
-def metric_bullets() -> tuple[str, ...]:
+def metric_bullets(
+    target_label: str = "uçak",
+    detector_seeds: tuple[int, ...] = (42,),
+) -> tuple[str, ...]:
     return (
         "TP, modelin doğru biçimde nesne olarak işaretlediği pikseldir. FP, nesne olmadığı hâlde nesne diye işaretlenen; FN ise nesne olduğu hâlde kaçırılan pikseldir.",
         "IoU = TP / (TP + FP + FN). Tahmin ve referans maskenin ortak alanını birleşim alanına böler; 1 kusursuz, 0 hiç örtüşme yok demektir.",
         "Dice = 2TP / (2TP + FP + FN). IoU ile aynı davranışı farklı ölçekle ifade eder.",
         "Precision = TP / (TP + FP). Modelin boyadığı piksellerin ne kadarının gerçekten nesne olduğunu gösterir; fazla alan boyamak precision değerini düşürür.",
         "Recall = TP / (TP + FN). Gerçek nesne piksellerinin ne kadarının yakalandığını gösterir; eksik maske recall değerini düşürür.",
-        "Dört ortalama maske metriği nesne örneği düzeyinde (instance-level) önce her uçak için hesaplanır, sonra bütün uçaklar eşit ağırlıkla ortalanır. Büyük uçaklar küçük uçakların sonucunu perdelemez.",
-        "IoU ≥ 0.50/0.75/0.90 sütunları, ilgili IoU eşiğini geçen uçak maskelerinin oranıdır. Bunlar mAP değildir ve raporda mAP gibi adlandırılmaz.",
-        "YOLO'nun kaçırdığı bir gerçek uçak, YOLO-bbox maske tablosunda boş tahmin olarak değerlendirilir ve o örneğin maske skorları sıfır olur. Herhangi bir gerçek uçakla eşleşmeyen yanlış pozitif YOLO kutuları ise instance maske ortalamasına sahte bir referans örneği olarak eklenmez; bunların etkisi detector Precision, Recall ve mAP değerlerinde ölçülür.",
-        "Maske tabloları her GT uçak örneğini değerlendirir; YOLO'nun eşleştiremediği GT örnekleri de boş tahmin ve sıfır skorla hesaba katılır. Bu değerlendirme gerçek COCO segmentation AP ile aynı değildir. Confidence sırasındaki bütün maskeleri ve yanlış pozitifleri kullanan uçtan uca COCO mask AP bu raporda ayrıca çalıştırılmadığı için IoU eşik oranları AP veya mAP diye yeniden adlandırılmamıştır.",
+        f"Dört ortalama maske metriği nesne örneği düzeyinde (instance-level) önce her {target_label} için hesaplanır, sonra bütün örnekler eşit ağırlıkla ortalanır. Büyük nesneler küçük nesnelerin sonucunu perdelemez.",
+        f"IoU ≥ 0.50/0.75/0.90 sütunları, ilgili IoU eşiğini geçen {target_label} maskelerinin oranıdır. Bunlar mAP değildir ve raporda mAP gibi adlandırılmaz.",
+        f"YOLO'nun kaçırdığı bir gerçek {target_label}, YOLO-bbox maske tablosunda boş tahmin olarak değerlendirilir ve o örneğin maske skorları sıfır olur. Herhangi bir gerçek nesneyle eşleşmeyen yanlış pozitif YOLO kutuları ise instance maske ortalamasına sahte bir referans örneği olarak eklenmez; bunların etkisi detector Precision, Recall ve mAP değerlerinde ölçülür.",
+        f"Maske tabloları her GT {target_label} örneğini değerlendirir; YOLO'nun eşleştiremediği GT örnekleri de boş tahmin ve sıfır skorla hesaba katılır. Bu değerlendirme gerçek COCO segmentation AP ile aynı değildir. Confidence sırasındaki bütün maskeleri ve yanlış pozitifleri kullanan uçtan uca COCO mask AP bu raporda ayrıca çalıştırılmadığı için IoU eşik oranları AP veya mAP diye yeniden adlandırılmamıştır.",
         "Overall tablosu 512 görüntüyü, diğer tabloların her biri 128 görüntüyü kapsar.",
-        "GT-bbox satırları tek sabit koşuldur. YOLO-bbox satırlarındaki değerler üç ayrı YOLO eğitiminin ortalaması ± standart sapmasıdır.",
+        f"GT-bbox satırları tek sabit koşuldur. YOLO-bbox satırlarındaki değerler {_seed_note(detector_seeds)}.",
     )
 
 
-def detector_bullets() -> tuple[str, ...]:
+def detector_bullets(detector_seeds: tuple[int, ...] = (42,)) -> tuple[str, ...]:
     return (
         "Bu tablo yalnız YOLO detector kutularını değerlendirir; burada ölçülen bbox başarısıdır, maske başarısı değildir.",
         "BBox mAP50/mAP75/mAP90, tahmin kutusunun GT kutuyla sırasıyla en az 0,50/0,75/0,90 IoU yaptığı eşiklerde confidence sıralaması boyunca hesaplanan gerçek average precision değeridir.",
         "BBox mAP50-95, 0,50 ile 0,95 arasındaki on bbox IoU eşiğinin AP ortalamasıdır.",
         "BBox Precision ve Recall değerleri, doğrulama kümesinde seçilip testten önce sabitlenen güven eşiğinde hesaplanır.",
-        "Tablodaki değerler üç ayrı YOLO eğitiminin ortalaması ± standart sapmasıdır.",
+        f"Tablodaki değerler {_seed_note(detector_seeds)}.",
     )
 
 
@@ -549,6 +585,7 @@ def build_docx(
     comparison_note: str | None,
     qualitative_examples: tuple[tuple[str, Path], ...],
 ) -> None:
+    detector_seeds = tuple(detector_table.attrs["detector_seeds"])
     document = Document()
     _configure_docx(document)
 
@@ -557,12 +594,15 @@ def build_docx(
     document.add_heading("Scope", level=1)
     _add_docx_bullets(document, spec.scope_bullets)
     document.add_heading("Metric Logic", level=1)
-    _add_docx_bullets(document, metric_bullets())
+    _add_docx_bullets(
+        document,
+        metric_bullets(spec.target_label, detector_seeds),
+    )
     document.add_heading("Dataset Context", level=1)
     _add_docx_bullets(document, spec.context_bullets)
 
     document.add_heading("YOLO Detector BBox Metrics", level=1)
-    _add_docx_bullets(document, detector_bullets())
+    _add_docx_bullets(document, detector_bullets(detector_seeds))
     _add_docx_table(document, detector_table)
 
     document.add_heading("Segmentation Tables", level=1)
@@ -583,6 +623,7 @@ def build_docx(
                     section=section,
                     stratum=stratum,
                     frame=frame,
+                    target_label=spec.target_label,
                 ),
             )
 
@@ -594,7 +635,7 @@ def build_docx(
     document.add_heading("Qualitative Examples", level=1)
     document.add_paragraph(
         "Her sayfa bir overlap × mask-area grubundan tek görüntüyü gösterir. "
-        "Görüntüdeki bütün GT uçak kutuları modele ayrı istemler olarak "
+        f"Görüntüdeki bütün GT {spec.target_label} kutuları modele ayrı istemler olarak "
         "verilmiş, üretilen instance maskeleri yalnız görsel sunum için "
         "birleştirilmiştir. Tablolar instance-level kalır. Yeşil TP, turuncu "
         "FP ve pembe FN pikselleridir."
@@ -723,13 +764,17 @@ def build_pdf(
     comparison_note: str | None,
     qualitative_examples: tuple[tuple[str, Path], ...],
 ) -> None:
+    detector_seeds = tuple(detector_table.attrs["detector_seeds"])
     with PdfPages(output_path) as pdf:
         _add_pdf_text_pages(
             pdf,
             title=spec.title,
             sections=(
                 ("Scope", spec.scope_bullets),
-                ("Metric Logic", metric_bullets()),
+                (
+                    "Metric Logic",
+                    metric_bullets(spec.target_label, detector_seeds),
+                ),
                 ("Dataset Context", spec.context_bullets),
             ),
         )
@@ -739,8 +784,7 @@ def build_pdf(
             title="YOLO Detector BBox Metrics",
             note=(
                 "Not: Bu tablo yalnız YOLO detector bbox başarısını gösterir; "
-                "maske metrikleri değildir. Değerler üç bağımsız eğitimin "
-                "ortalaması ± standart sapmasıdır."
+                f"maske metrikleri değildir. Değerler {_seed_note(detector_seeds)}."
             ),
         )
         for section in spec.reference_sections:
@@ -754,6 +798,7 @@ def build_pdf(
                         section=section,
                         stratum=stratum,
                         frame=frame,
+                        target_label=spec.target_label,
                     ),
                 )
         if comparison_table is not None and comparison_note is not None:
@@ -795,6 +840,7 @@ def build_markdown(
     comparison_note: str | None,
     qualitative_examples: tuple[tuple[str, Path], ...],
 ) -> None:
+    detector_seeds = tuple(detector_table.attrs["detector_seeds"])
     def relative_image(path: Path) -> str:
         return Path(os.path.relpath(path, output_path.parent)).as_posix()
 
@@ -807,7 +853,10 @@ def build_markdown(
         "",
         "## Metric Logic",
         "",
-        *[f"- {bullet}" for bullet in metric_bullets()],
+        *[
+            f"- {bullet}"
+            for bullet in metric_bullets(spec.target_label, detector_seeds)
+        ],
         "",
         "## Dataset Context",
         "",
@@ -815,7 +864,7 @@ def build_markdown(
         "",
         "## YOLO Detector BBox Metrics",
         "",
-        *[f"- {bullet}" for bullet in detector_bullets()],
+        *[f"- {bullet}" for bullet in detector_bullets(detector_seeds)],
         "",
         _markdown_table(detector_table),
         "",
@@ -832,6 +881,7 @@ def build_markdown(
                         section=section,
                         stratum=stratum,
                         frame=frame,
+                        target_label=spec.target_label,
                     ),
                     "",
                     _markdown_table(frame),
@@ -854,7 +904,7 @@ def build_markdown(
             "## Qualitative Examples",
             "",
             "Her sayfa bir gruptan tek görüntüyü gösterir. Görüntüdeki bütün "
-            "GT uçak kutuları modele ayrı istemler olarak verilmiş ve "
+            f"GT {spec.target_label} kutuları modele ayrı istemler olarak verilmiş ve "
             "instance maskeleri yalnız bu görsel için birleştirilmiştir. "
             "Tablolar instance-level kalır. Yeşil TP, turuncu FP ve pembe FN "
             "piksellerini gösterir.",

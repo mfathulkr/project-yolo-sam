@@ -111,16 +111,16 @@ Her veri setindeki koşullar:
 
 | Model | GT bbox | YOLO bbox |
 |---|---:|---:|
-| SAM1 | 1 sabit koşul | 3 detector seed |
-| SAM2 | 1 sabit koşul | 3 detector seed |
-| SAM3 | 1 sabit koşul | 3 detector seed |
+| SAM1 | 1 sabit koşul | seed 42 |
+| SAM2 | 1 sabit koşul | seed 42 |
+| SAM3 | 1 sabit koşul | seed 42 |
 
-Her veri setinde 3 GT-bbox ve 9 YOLO-bbox tahmin koşulu vardır.
+Her veri setinde 3 GT-bbox ve 3 YOLO-bbox tahmin koşulu vardır.
 
 ### 5.1 Detector Protokolü
 
 - Mimari: YOLO26x
-- Seed: `42`, `123`, `2026`
+- Seed: `42`
 - Başlangıç ağırlığı: aynı `models/yolo/yolo26x.pt`
 - Giriş: `1024×1024`
 - Üst sınır: 100 epok
@@ -217,7 +217,7 @@ oranları mask AP diye yeniden adlandırılmaz.
 ## 8. İstatistiksel Analiz
 
 - GT-bbox koşulları tek sabit çalışma olarak raporlanır
-- YOLO-bbox koşulları üç seed ortalaması ± standart sapması olarak raporlanır
+- YOLO-bbox koşulları sabit seed 42 sonucu olarak raporlanır
 - IoU belirsizliği kaynak sahne kümeli 10.000 bootstrap ile hesaplanır
 - Model çiftleri aynı instance üzerinde eşlenir
 - İnsan-pseudo enflasyonu aynı instance ve tahmin üzerinde hesaplanır
@@ -264,8 +264,8 @@ Deney ancak aşağıdakilerin tamamı sağlandığında bitmiş sayılır:
 - Altı detector eğitimi ve altı gerçek COCO bbox testi
 - 24 tahmin manifesti
 - 24 değerlendirme manifesti
-- 175.284 benzersiz canonical instance-metric satırı
-- 180 aggregate satırı
+- 87.642 benzersiz canonical instance-metric satırı
+- 90 aggregate satırı
 - Eksik/tekrarlı instance anahtarı sıfır
 - Bütün maske metrikleri sonlu ve `[0,1]` içinde
 - Validation confidence ile test/SAM confidence birebir aynı

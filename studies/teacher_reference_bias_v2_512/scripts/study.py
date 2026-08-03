@@ -828,17 +828,17 @@ def evaluate_command(args: argparse.Namespace) -> int:
 def analyze_command(args: argparse.Namespace) -> int:
     protocol_path = project_path(args.protocol)
     protocol = load_matched_study_config(protocol_path)
-    run_script(
-        "compile_matched_study_results.py",
-        [
+    command_args = [
             "--study-root",
             str(study_root(protocol)),
             "--bootstrap-samples",
             str(args.bootstrap_samples or protocol.evaluation["bootstrap_samples"]),
             "--bootstrap-seed",
             str(protocol.split_seed),
-        ],
-    )
+        ]
+    for seed in protocol.detector_seeds:
+        command_args.extend(["--detector-seed", str(seed)])
+    run_script("compile_matched_study_results.py", command_args)
     return 0
 
 

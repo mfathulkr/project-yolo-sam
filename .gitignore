@@ -23,5 +23,6 @@ models/*
 datasets/*
 
 studies/*/data/prepared/
+studies/*/data/master/
 studies/*/results/
 studies/*/bundles/private_*

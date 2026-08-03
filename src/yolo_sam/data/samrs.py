@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import pickle
 import random
 import shutil
@@ -355,7 +356,10 @@ def copy_image_as_jpg_or_png(source: Path, destination: Path, image_format: str)
     ext = image_format.lower().lstrip(".")
     source_ext = source.suffix.lower().lstrip(".")
     if source_ext == ext or ({source_ext, ext} <= {"jpg", "jpeg"}):
-        shutil.copy2(source, destination)
+        try:
+            os.link(source, destination)
+        except OSError:
+            shutil.copy2(source, destination)
         return width, height
     if ext in {"jpg", "jpeg"}:
         cv2.imwrite(str(destination), image, [cv2.IMWRITE_JPEG_QUALITY, 95])
