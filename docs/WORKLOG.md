@@ -1832,3 +1832,52 @@ Ek güvence:
   rapor validator'ı, bundle üretimi ve hash kontrolünü sırasıyla çalıştıracak.
 - Worker ve finalizer durum dosyaları orchestration kaydıdır; canonical
   bilimsel sonuç arşivinden açıkça dışlanır.
+
+### 2026-08-04 - Small-vehicle eşlenmiş deney tamamlandı
+
+Yapılanlar:
+
+- iSAID ve SAMRS SOTA small-vehicle YOLO26x eğitimleri yalnız sabit seed `42`
+  ile tamamlandı. iSAID 100 epoch çalıştı; SAMRS patience 30 ile 69. epoch'ta
+  erken durdu.
+- Validation üzerinde seçilen confidence eşikleri donduruldu ve 512 görüntülü
+  test kümelerinde gerçek COCO bbox metrikleri hesaplandı. iSAID/SAMRS
+  mAP50-95 değerleri sırasıyla `0,346 / 0,502` oldu.
+- İki veri setinde SAM1, SAM2 ve SAM3 için GT-bbox ve YOLO-bbox çıkarımları
+  tamamlandı. iSAID tahminleri hem insan hem SAM1 pseudo referansına karşı,
+  SAMRS tahminleri yayımlanan SAM1 pseudo referansına karşı değerlendirildi.
+- Kanonik analizde 190.566 instance satırı ve 90 aggregate satırı üretildi.
+  Her pipeline 512 görüntüyü, her alt grup 128 görüntüyü kapsıyor; eksik,
+  yinelenen veya sonlu olmayan metrik bulunmadı.
+- iSAID insan, iSAID SAM1 pseudo ve SAMRS SOTA pseudo için üç full-metric
+  belge MD, renkli DOCX ve renkli PDF olarak üretildi. PDF'ler 14/14/13
+  sayfadır ve bütün sayfalar görsel olarak incelendi.
+- Nitel görsellerin tek instance seçmediği doğrulandı: seçilen sahnedeki tüm
+  GT kutuları ayrı istem olarak işleniyor, tüm referans ve tahmin maskeleri
+  birleşik görünümde sunuluyor.
+- Rapor validator'ı tek başına çalışabilecek biçimde kaynak yolunu kuruyor;
+  resume edilmiş detector koşularında base model ile resume checkpoint
+  provenance'ını ayrı doğruluyor.
+- Canonical sonuç paketinden raster eğitim/validation görselleri çıkarıldı.
+  Sonuç ve metadata paketleri ağırlık, log, cache ve özel veri seti görüntüsü
+  içermiyor; dört LFS varlığının SHA-256 strict kontrolü geçti.
+
+Final Overall instance IoU:
+
+| Referans ve bbox | SAM1 | SAM2 | SAM3 |
+|---|---:|---:|---:|
+| iSAID insan, GT bbox | 0,658 | 0,645 | 0,370 |
+| iSAID SAM1 pseudo, GT bbox | 1,000 | 0,749 | 0,419 |
+| SAMRS SAM1 pseudo, GT bbox | 0,998 | 0,846 | 0,685 |
+| iSAID insan, YOLO bbox | 0,478 | 0,461 | 0,299 |
+| iSAID SAM1 pseudo, YOLO bbox | 0,655 | 0,550 | 0,341 |
+| SAMRS SAM1 pseudo, YOLO bbox | 0,782 | 0,707 | 0,560 |
+
+Basit sonuç:
+
+> Aynı iSAID GT-bbox tahminleri insan yerine SAM1 pseudo referansla
+> ölçüldüğünde SAM1/SAM2/SAM3 IoU değerleri `+0,342 / +0,103 / +0,049`
+> değişti. Model sırası small-vehicle sınıfında aynı kaldı; ancak referansı
+> üreten SAM1'in skor artışı açık biçimde daha büyüktü. Bu, plane deneyindeki
+> teacher-reference bias bulgusunu ikinci sınıfta mutlak skor enflasyonu
+> açısından tekrarlar.

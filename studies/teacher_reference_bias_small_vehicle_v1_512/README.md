@@ -36,10 +36,43 @@ Train/validation/test kaynak sahne kesişimleri iki veri setinde de sıfırdır.
    çıktısından dondurulan kontrollü pseudo referans
 3. `samrs_sota_small_vehicle`: yayımlanan SAM1 kaynaklı SAMRS pseudo maskeleri
 
-Her rapor MD, renkli DOCX ve renkli PDF olarak üretilir. Her belgede bir
+Her rapor MD, renkli DOCX ve renkli PDF olarak üretildi. Her belgede bir
 detector tablosu, Overall ve dört alt grup tablosu, dört nitel örnek ve dinamik
 Discussion bölümü bulunur. RemoteSAM, RingMoSAM, proxy mAP ve tanımlanmamış
 başka metrikler deney matrisine girmez.
+
+Final raporlar:
+
+- [iSAID insan referansı](reports/full_metrics/isaid_small_vehicle_human/isaid_small_vehicle_human_full_metric_document_colored.pdf)
+- [iSAID SAM1 pseudo referansı](reports/full_metrics/isaid_small_vehicle_pseudo_sam1/isaid_small_vehicle_pseudo_sam1_full_metric_document_colored.pdf)
+- [SAMRS SOTA small vehicle](reports/full_metrics/samrs_sota_small_vehicle/samrs_sota_small_vehicle_full_metric_document_colored.pdf)
+
+## Final Sonuçlar
+
+Overall instance IoU değerleri:
+
+| Referans ve bbox | SAM1 | SAM2 | SAM3 |
+|---|---:|---:|---:|
+| iSAID insan, GT bbox | 0,658 | 0,645 | 0,370 |
+| iSAID SAM1 pseudo, GT bbox | 1,000 | 0,749 | 0,419 |
+| SAMRS SAM1 pseudo, GT bbox | 0,998 | 0,846 | 0,685 |
+| iSAID insan, YOLO bbox | 0,478 | 0,461 | 0,299 |
+| iSAID SAM1 pseudo, YOLO bbox | 0,655 | 0,550 | 0,341 |
+| SAMRS SAM1 pseudo, YOLO bbox | 0,782 | 0,707 | 0,560 |
+
+Aynı iSAID GT-bbox tahminleri insan yerine SAM1 pseudo referansla
+değerlendirildiğinde SAM1/SAM2/SAM3 IoU değişimleri sırasıyla
+`+0,342 / +0,103 / +0,049` oldu. Small-vehicle koşulunda model sırası her iki
+referansta da `SAM1 > SAM2 > SAM3` kaldı; yani burada kanıt sıralama
+değişiminden değil, özellikle referans üreticisi SAM1 lehine oluşan skor
+enflasyonundan gelir.
+
+Seed 42 detector test sonuçları:
+
+| Veri seti | BBox mAP50 | BBox mAP75 | BBox mAP90 | BBox mAP50-95 |
+|---|---:|---:|---:|---:|
+| iSAID Small Vehicle | 0,609 | 0,358 | 0,021 | 0,346 |
+| SAMRS SOTA Small Vehicle | 0,819 | 0,534 | 0,072 | 0,502 |
 
 ## Dizinler
 

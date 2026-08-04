@@ -12,10 +12,102 @@ from teacher_reference_bias.reporting.full_metric_document import (
     build_qualitative_examples,
     build_segmentation_table,
     numeric_value,
+    ranking_comparison_sentence,
 )
+from teacher_reference_bias.validation import validate_detector_base_provenance
 
 
 class FullMetricDocumentTest(unittest.TestCase):
+    def test_ranking_comparison_does_not_claim_change_when_order_is_same(
+        self,
+    ) -> None:
+        sentence = ranking_comparison_sentence(
+            "SAM1 > SAM2 > SAM3",
+            "SAM1 > SAM2 > SAM3",
+        )
+
+        self.assertIn("her iki referansta da", sentence)
+        self.assertIn("skor düzeylerindeki değişim", sentence)
+        self.assertNotIn("sıralamadaki değişim", sentence)
+
+    def test_ranking_comparison_flags_real_order_change(self) -> None:
+        sentence = ranking_comparison_sentence(
+            "SAM1 > SAM2 > SAM3",
+            "SAM2 > SAM1 > SAM3",
+        )
+
+        self.assertIn("sıralamadaki değişim", sentence)
+        self.assertIn("SAM2 > SAM1 > SAM3", sentence)
+
+    def test_detector_provenance_accepts_fresh_base_model(self) -> None:
+        validate_detector_base_provenance(
+            training_args={"model": "/repo/models/yolo/yolo26x.pt"},
+            training_manifest={
+                "inputs": {"base_weights": "/repo/models/yolo/yolo26x.pt"},
+                "parameters": {
+                    "base_weights": "models/yolo/yolo26x.pt",
+                    "resume": False,
+                },
+            },
+            expected_base_model="models/yolo/yolo26x.pt",
+        )
+
+    def test_detector_provenance_accepts_matching_resume_checkpoint(self) -> None:
+        checkpoint = "/repo/results/detector/seed_42/train/weights/last.pt"
+        validate_detector_base_provenance(
+            training_args={"model": checkpoint, "resume": checkpoint},
+            training_manifest={
+                "inputs": {
+                    "base_weights": "/repo/models/yolo/yolo26x.pt",
+                    "resume_checkpoint": checkpoint,
+                },
+                "parameters": {
+                    "base_weights": "models/yolo/yolo26x.pt",
+                    "resume": True,
+                },
+            },
+            expected_base_model="models/yolo/yolo26x.pt",
+        )
+
+    def test_detector_provenance_rejects_wrong_declared_base(self) -> None:
+        checkpoint = "/repo/results/detector/seed_42/train/weights/last.pt"
+        with self.assertRaisesRegex(ValueError, "does not declare yolo26x.pt"):
+            validate_detector_base_provenance(
+                training_args={"model": checkpoint, "resume": checkpoint},
+                training_manifest={
+                    "inputs": {
+                        "base_weights": "/repo/models/yolo/yolo26n.pt",
+                        "resume_checkpoint": checkpoint,
+                    },
+                    "parameters": {
+                        "base_weights": "models/yolo/yolo26n.pt",
+                        "resume": True,
+                    },
+                },
+                expected_base_model="models/yolo/yolo26x.pt",
+            )
+
+    def test_detector_provenance_rejects_unrelated_resume_checkpoint(self) -> None:
+        checkpoint = "/repo/results/detector/seed_42/train/weights/last.pt"
+        with self.assertRaisesRegex(ValueError, "paths disagree"):
+            validate_detector_base_provenance(
+                training_args={
+                    "model": checkpoint,
+                    "resume": "/repo/other/weights/last.pt",
+                },
+                training_manifest={
+                    "inputs": {
+                        "base_weights": "/repo/models/yolo/yolo26x.pt",
+                        "resume_checkpoint": checkpoint,
+                    },
+                    "parameters": {
+                        "base_weights": "models/yolo/yolo26x.pt",
+                        "resume": True,
+                    },
+                },
+                expected_base_model="models/yolo/yolo26x.pt",
+            )
+
     def test_numeric_value_accepts_mean_std_display(self) -> None:
         self.assertEqual(numeric_value("0.812 ± 0.017"), 0.812)
         self.assertIsNone(numeric_value("+0.350"))

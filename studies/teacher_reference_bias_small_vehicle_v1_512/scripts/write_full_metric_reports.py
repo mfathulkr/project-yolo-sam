@@ -19,6 +19,7 @@ from teacher_reference_bias.reporting.full_metric_document import (  # noqa: E40
     ReportSpec,
     build_isaid_reference_effect_table,
     build_samrs_shared_reference_table,
+    ranking_comparison_sentence,
     write_report,
 )
 
@@ -422,10 +423,10 @@ def isaid_pseudo_spec(aggregates: pd.DataFrame) -> ReportSpec:
             f"GT-bbox model sıralamasının lideri insan referansında {human_best_model} "
             f"({human_best_value:.3f}), SAM1 pseudo referansında {pseudo_best_model} "
             f"({pseudo_best_value:.3f}) olmuştur.",
-            "Tam GT-bbox sıralaması insan referansında "
-            f"{_rank_order(human_gt)}, SAM1 pseudo referansında "
-            f"{_rank_order(gt)} biçimindedir; görülen değişim pseudo referansın "
-            "model seçimini etkileyebileceği riskini gösterir.",
+            ranking_comparison_sentence(
+                _rank_order(human_gt),
+                _rank_order(gt),
+            ),
             "Bu sıralamalar tablo nokta tahminleridir; birbirine yakın insan-referanslı skorlar tek başına istatistiksel üstünlük iddiası değildir.",
             "GT bbox yerine YOLO bbox kullanıldığında pseudo-referanslı Overall IoU kaybı SAM1/SAM2/SAM3 için sırasıyla "
             f"{_triple(_gt_to_yolo_loss(gt, yolo))} olmuştur.",

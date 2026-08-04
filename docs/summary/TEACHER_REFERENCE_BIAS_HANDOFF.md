@@ -35,10 +35,10 @@ kendisinin referans yapılmasından doğan kimlik kontrolüdür. Bulgumuz, model
 üretimli referansların test ground truth'u gibi kullanılmasının ölçümü
 üretici modele doğru kaydırabildiğidir.
 
-Plane çalışması tamamlandı. Aynı hipotezin sınıfa özgü olmadığını sınamak için
-protokol şimdi `small-vehicle` sınıfında birebir tekrarlanıyor. Veri hazırlama
-ve bütün GT-bbox SAM koşulları tamamlandı; iki seed-42 YOLO26x detector eğitimi
-ve ardından gelecek YOLO-bbox koşulları henüz çalışıyor.
+Plane çalışması ve aynı protokolün `small-vehicle` sınıfındaki birebir tekrarı
+tamamlandı. İki çalışmada da veri hazırlama, seed-42 YOLO26x eğitimi, GT/YOLO
+bbox ile SAM1/SAM2/SAM3 çıkarımı, instance değerlendirmesi, raporlama ve
+taşınabilirlik QA kapıları geçti.
 
 ## 2. Çalışmanın Ortaya Çıkışı
 
@@ -171,13 +171,13 @@ Her klasörde Markdown, renkli DOCX, renkli PDF, tablo CSV'leri, görseller ve
 hash manifesti vardır. Raporlar yalnız sabit YOLO seed `42` kullanılarak
 yeniden üretildi.
 
-### 6.2 Devam eden small-vehicle tekrarı
+### 6.2 Tamamlanan small-vehicle tekrarı
 
 Klasör:
 
 - `studies/teacher_reference_bias_small_vehicle_v1_512/`
 
-Üretilecek üç full-metric rapor:
+Üretilen üç full-metric rapor:
 
 - `reports/full_metrics/isaid_small_vehicle_human/`
 - `reports/full_metrics/isaid_small_vehicle_pseudo_sam1/`
@@ -373,10 +373,9 @@ SAMRS SOTA Small Vehicle:
 - Train/validation/test kaynak sahne kesişimi sıfırdır.
 - Test tam `4×128` strata içerir.
 
-### 10.2 GT-bbox segmentasyon tamamlandı
+### 10.2 Final segmentasyon sonuçları
 
-Henüz full-metric rapora dönüştürülmemiş, fakat satır ve instance QA'sı geçmiş
-Overall IoU değerleri:
+GT-bbox Overall instance IoU değerleri:
 
 | Referans | SAM1 | SAM2 | SAM3 |
 |---|---:|---:|---:|
@@ -384,25 +383,34 @@ Overall IoU değerleri:
 | Aynı iSAID görüntülerinde SAM1 pseudo | 1,000 | 0,749 | 0,419 |
 | SAMRS resmi SAM1 pseudo | 0,998 | 0,846 | 0,685 |
 
-Bu ara sonuç bile küçük araçta da güçlü referans duyarlılığı olduğunu
-gösteriyor. Özellikle SAM1'in pseudo referanstaki `1,000` değeri yine kimlik
-kontrolüdür. Nihai iddia, YOLO-bbox koşulları ve istatistiksel analiz
-tamamlandıktan sonra yazılmalıdır.
+YOLO-bbox Overall instance IoU değerleri:
 
-### 10.3 Aktif detector eğitimleri
+| Referans | SAM1 | SAM2 | SAM3 |
+|---|---:|---:|---:|
+| iSAID insan | 0,478 | 0,461 | 0,299 |
+| Aynı iSAID görüntülerinde SAM1 pseudo | 0,655 | 0,550 | 0,341 |
+| SAMRS resmi SAM1 pseudo | 0,782 | 0,707 | 0,560 |
 
-4 Ağustos 2026 tarihli anlık durum:
+Aynı iSAID GT-bbox tahminleri insan yerine SAM1 pseudo referansla ölçülünce
+SAM1/SAM2/SAM3 için IoU değişimi `+0,342 / +0,103 / +0,049` oldu. Model
+sırası her iki referansta da `SAM1 > SAM2 > SAM3` kaldı. Dolayısıyla bu
+sınıftaki kanıt, sıralama değişiminden değil, referans üreticisi SAM1 lehine
+çok daha büyük skor artışından gelir. SAM1'in pseudo referanstaki `1,000`
+değeri yine bağımsız başarı değil kimlik kontrolüdür.
 
-- iSAID small vehicle YOLO26x: seed 42, 79 tamamlanmış epoch,
-  en iyi validation mAP50-95 yaklaşık `0,33355` ve en iyi epoch 79.
-- SAMRS small vehicle YOLO26x: seed 42, 68 tamamlanmış epoch,
-  en iyi validation mAP50-95 yaklaşık `0,44472` ve en iyi epoch 39.
-- SAMRS, yeni iyileşme olmazsa patience 30 nedeniyle yaklaşık 69. epoch'ta
-  erken duracaktır.
-- iSAID en fazla 100. epoch'a kadar devam edebilir.
+### 10.3 Final detector sonuçları
 
-Bu sayılar validation sonuçlarıdır; final test detector metriği değildir ve
-bildiri tablosuna doğrudan yazılmamalıdır.
+- iSAID small vehicle YOLO26x seed 42 eğitimi 100 epoch tamamladı; en iyi
+  validation mAP50-95 `0,33355`, en iyi epoch 79'dur.
+- SAMRS small vehicle YOLO26x seed 42 eğitimi 69. epoch'ta erken durdu; en iyi
+  validation mAP50-95 `0,44472`, en iyi epoch 39'dur.
+
+512 görüntülük test kümelerindeki gerçek COCO bbox sonuçları:
+
+| Veri seti | mAP50 | mAP75 | mAP90 | mAP50-95 |
+|---|---:|---:|---:|---:|
+| iSAID small vehicle | 0,609 | 0,358 | 0,021 | 0,346 |
+| SAMRS SOTA small vehicle | 0,819 | 0,534 | 0,072 | 0,502 |
 
 ### 10.4 Neden eğitim uzun sürüyor?
 
@@ -482,23 +490,24 @@ Worker giriş noktaları:
 Bu dosyalar
 `studies/teacher_reference_bias_small_vehicle_v1_512/` köküne göredir.
 
-## 13. Kalan Zorunlu İşler
+## 13. Tamamlanma Durumu
 
-Çalışma henüz tamamlandı sayılmaz. Kalanlar:
+Deneysel çalışma tamamlandı:
 
-1. İki seed-42 YOLO26x eğitiminin doğal biçimde tamamlanması
-2. Validation confidence seçimi ve test detector değerlendirmesi
-3. İki veri setinde SAM1/SAM2/SAM3 YOLO-bbox çıkarımı
-4. iSAID insan, iSAID pseudo ve SAMRS pseudo değerlendirmelerinin tamamlanması
-5. Kanonik analiz ve bootstrap istatistiklerinin üretilmesi
-6. Üç full-metric MD/DOCX/PDF raporun oluşturulması
-7. PDF'lerde tablo, Türkçe metin, sayfa ve nitel görsel QA
-8. Her nitel görselde bütün instance kutu/maskelerinin görünür olduğunun
-   kontrolü
-9. Rapor validator, bundle hash ve bütün testlerin yeniden çalıştırılması
-10. Final sonuçların README, QA checklist ve WORKLOG'a yazılması
-11. `best.pt`, rapor, audit ve taşınabilir paketlerin Git LFS ile commit/push
-    edilmesi
+1. İki seed-42 YOLO26x eğitimi ve validation confidence seçimi tamamlandı.
+2. İki veri setinde detector testi ile bütün GT/YOLO-bbox SAM koşulları
+   tamamlandı.
+3. Kanonik analiz 190.566 instance satırı ve 90 aggregate satırıyla üretildi.
+4. Üç full-metric rapor MD, renkli DOCX ve renkli PDF olarak üretildi.
+5. PDF'ler 14/14/13 sayfa olarak görsel denetimden geçti; dört nitel örnekte
+   bütün instance kutuları ve birleşik maskeler gösteriliyor.
+6. Rapor validator'ı, protokol eşitliği, manifest, hash ve taşınabilir paket
+   kontrolleri geçti.
+7. `best.pt`, raporlar, auditler ve görüntüsüz aktarım paketleri Git LFS/Git
+   kapsamına alındı.
+
+Bundan sonraki iş deney çalıştırmak değil, tamamlanan kanıtları altı sayfalık
+bildiri anlatısına dönüştürmek ve gerekirse ek ablation tasarlamaktır.
 
 ## 14. Yerel Codex'in Önce Okuması Gereken Dosyalar
 
@@ -516,7 +525,7 @@ Plane kanonik çalışma:
 3. `studies/teacher_reference_bias_v2_512/docs/METHOD.md`
 4. `studies/teacher_reference_bias_v2_512/docs/QA_CHECKLIST.md`
 
-Small-vehicle devam çalışması:
+Small-vehicle tamamlanmış çalışma:
 
 1. `studies/teacher_reference_bias_small_vehicle_v1_512/README.md`
 2. `studies/teacher_reference_bias_small_vehicle_v1_512/docs/EXPERIMENT_PLAN.md`
@@ -548,20 +557,23 @@ Small-vehicle eşleniği:
 Yerel 8 GB VRAM ortamında detector inference batch `1`, SAM inference ise
 gerektiğinde `float16` ve küçük bbox compute batch ile çalıştırılmalıdır.
 Training sonuçlarını yeniden üretmek zorunlu değildir; `best.pt` ağırlıkları
-final push'ta LFS ile taşınacaktır.
+Git LFS ile taşınır.
 
 ## 16. Şu Anda Savunulabilen Ana Çıkarım
 
-Plane deneyinden şu sonuç güvenle söylenebilir:
+İki hedef sınıf birlikte şu sonucu destekliyor:
 
 > Aynı iSAID görüntüsü, aynı bbox ve aynı SAM tahmini yalnızca insan maskesi
 > yerine SAM1 pseudo maskesine karşı ölçüldüğünde bütün modellerin skoru
-> yükselmiş, en büyük artışı SAM1 almış ve model sıralaması değişmiştir. Bu,
-> model üretimli test referansının tarafsız ground truth olmadığını gösterir.
+> yükselmiş ve en büyük artışı SAM1 almıştır. Plane koşulunda model sırası da
+> değişmiş, small-vehicle koşulunda ise sıra korunmuştur. Bu, model üretimli
+> test referansının tarafsız ground truth olmadığını gösterir.
 
-Small-vehicle GT-bbox ara sonuçları aynı yönde güçlü işaret veriyor. Ancak
-bildiride "iki sınıfta tam tekrarlandı" demek için YOLO-bbox koşulları, final
-analiz ve üç rapor tamamlanmalıdır.
+Plane koşulunda model sıralaması da değişti. Small-vehicle koşulunda sıralama
+değişmedi, fakat SAM1'in referans değişiminden aldığı `+0,342` IoU artışı
+SAM2'nin `+0,103` ve SAM3'ün `+0,049` artışından çok daha büyüktü. Böylece
+teacher-reference bias iki farklı hedef sınıfta mutlak skor enflasyonu olarak
+tekrarlandı; sıralama değişiminin ise her sınıfta zorunlu olmadığı görüldü.
 
 ## 17. Muhtemel Bildiri İskeleti
 
@@ -596,4 +608,3 @@ Yerel Codex'e şu çerçeve verilebilir:
 > ekleme, test setinden model/confidence seçme ve farklı seed sonuçlarını
 > ortalama. Önce mevcut manifest, rapor ve Git LFS varlıklarını doğrula; sonra
 > bildiri anlatısını bu kanıtlara dayanarak geliştir.
-

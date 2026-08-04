@@ -129,6 +129,26 @@ def numeric_value(value: object) -> float | None:
     return number if 0.0 <= number <= 1.0 else None
 
 
+def ranking_comparison_sentence(
+    human_rank: str,
+    pseudo_rank: str,
+) -> str:
+    """Describe reference sensitivity without claiming a nonexistent rank change."""
+    if human_rank == pseudo_rank:
+        return (
+            "Tam GT-bbox sıralaması her iki referansta da "
+            f"{human_rank} biçiminde korunmuştur; buna rağmen skor "
+            "düzeylerindeki değişim pseudo referansın ölçülen başarı "
+            "büyüklüğünü etkilediğini gösterir."
+        )
+    return (
+        "Tam GT-bbox sıralaması insan referansında "
+        f"{human_rank}, SAM1 pseudo referansında {pseudo_rank} biçimindedir; "
+        "sıralamadaki değişim pseudo referansın model seçimini "
+        "etkileyebileceği riskini gösterir."
+    )
+
+
 def _format_metric(mean: float, std: float | None = None) -> str:
     if std is None or not math.isfinite(std):
         return f"{mean:.3f}"

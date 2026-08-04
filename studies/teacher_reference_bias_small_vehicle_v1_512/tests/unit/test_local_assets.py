@@ -54,6 +54,14 @@ class LocalAssetTests(unittest.TestCase):
             BUNDLES.result_file_allowed(Path("results/train_detached.log"))
         )
         self.assertFalse(
+            BUNDLES.result_file_allowed(Path("results/train/train_batch0.jpg"))
+        )
+        self.assertFalse(
+            BUNDLES.result_file_allowed(
+                Path("results/figures/private_qualitative.png")
+            )
+        )
+        self.assertFalse(
             BUNDLES.result_file_allowed(
                 Path("results/post_training/example/manifest.json")
             )

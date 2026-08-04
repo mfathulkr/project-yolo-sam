@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "study_id": "teacher_reference_bias_small_vehicle_v1_512",
+  "dataset_id": "isaid_small_vehicle",
+  "report_format": "legacy_samrs_full_metric_colored",
+  "inputs": {
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/results/analysis/aggregate_metrics.csv": "832f52c5bf529d7f300e6a4d0e37d6e8f3cde3670b3caa1649f4bd1c0debc4aa",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/results/analysis/detector_seed_summary.csv": "a1566db61bcec38b5924b9b673d370ca3d8c1bc20db82efc9c6d4be9a0985561",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/results/figures/isaid_small_vehicle_pseudo_sam1_gt_bbox_qualitative.png": "6e9d4ff8d5ab8556565b2e31e5b6babca5fe5a466629ab362985876e8fedc013"
+  },
+  "outputs": {
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/isaid_small_vehicle_pseudo_sam1_full_metric_document.md": "c7442db63926e8a6f43af63ae4a6beb43b44879216ec7cf66b288d1976b51b4a",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/isaid_small_vehicle_pseudo_sam1_full_metric_document_colored.docx": "4f02c8d848c32a7d66dabd733e2a9a39225ffa0664420db440d031add4bebd4e",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/isaid_small_vehicle_pseudo_sam1_full_metric_document_colored.pdf": "32007a8616ef6b90478cb4b77ac97356e44808c9c10084a47fab45c4905905fa",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/tables/detector_summary.csv": "764bc28ba678961f448e8608cbf783b0036f93dc36805bd312dbf495356830dd",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/tables/pseudo_sam1__no_overlap__high_mask_area.csv": "a3c2b5b29ab6dfc4be47348654c7826cff6fffae38ea81c3883a0ce3b048dbfa",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/tables/pseudo_sam1__no_overlap__low_mask_area.csv": "e3237e10aeec95c5135dc7e756c7a4a884b75cb8f52869a81a2ef505f292237f",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/tables/pseudo_sam1__overall.csv": "780e0c2990370b5dc423a11bf99962afedb1751d222c392353e390d0793cfc93",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/tables/pseudo_sam1__overlap__high_mask_area.csv": "91c620ff492eac5655f223766249d4d7a81684d391ff7be8409da66eb375a82b",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/tables/pseudo_sam1__overlap__low_mask_area.csv": "dac81279fc0cb9d56acb3636d328a6997109aba0c353f42c27dcaab3223b711d",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/tables/reference_sensitivity.csv": "60ed5834459f0ae643c83e38a3024f03383e276c6ff5eb0345f73dc32be9cdaf",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/qualitative/no_overlap__low_mask_area.png": "5baf9e08e6d15d475f05f3b4dc138ba3c9be78f055d62c6ec8291686ea17ccc3",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/qualitative/no_overlap__high_mask_area.png": "1e229bfcecf57f3ec006e0be5e7cd58587eb0cb45bb453de6c6a95e7e89d1108",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/qualitative/overlap__low_mask_area.png": "5944918e14833ca51106288567420a9999c1696e7c81be6ea0f3a627fb5bba49",
+    "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/qualitative/overlap__high_mask_area.png": "58954cb05ff1fef359e288824425bc0c4fc1ffcc63e7737b0cd5f261cfa8e206"
+  },
+  "strata": [
+    "overall",
+    "no_overlap__low_mask_area",
+    "no_overlap__high_mask_area",
+    "overlap__low_mask_area",
+    "overlap__high_mask_area"
+  ],
+  "reference_sections": [
+    "pseudo_sam1"
+  ]
+}

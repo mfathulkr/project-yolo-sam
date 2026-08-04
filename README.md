@@ -11,7 +11,7 @@ bulunur.
 | Study | Durum | Amaç |
 |---|---|---|
 | [`teacher_reference_bias_v2_512`](studies/teacher_reference_bias_v2_512/README.md) | Tamamlandı, canonical | Sabit seed 42 detector ile dört alt grupta 128'er, Overall'da 512 plane görüntüsünü iSAID insan/SAM1-pseudo ve SAMRS SOTA SAM1-pseudo referanslarında ölçer. |
-| [`teacher_reference_bias_small_vehicle_v1_512`](studies/teacher_reference_bias_small_vehicle_v1_512/README.md) | Devam ediyor, canonical eşlenmiş protokol | Plane deneyinin yalnız hedef sınıfı small-vehicle olacak şekilde birebir eşlenmiş tekrarıdır; veri, model, seed ve rapor sözleşmesi aynıdır. |
+| [`teacher_reference_bias_small_vehicle_v1_512`](studies/teacher_reference_bias_small_vehicle_v1_512/README.md) | Tamamlandı, canonical eşlenmiş protokol | Plane deneyinin yalnız hedef sınıfı small-vehicle olacak şekilde birebir eşlenmiş tekrarıdır; veri, model, seed ve rapor sözleşmesi aynıdır. |
 | [`teacher_reference_bias_v1`](studies/teacher_reference_bias_v1/README.md) | Tarihsel | İlk 4×32 teacher-reference-bias deneyini ve altı sayfalık taslağı değiştirilemez öncül olarak korur. |
 | [`isaid_vehicle_study`](studies/isaid_vehicle_study/README.md) | Tarihsel | iSAID small/large vehicle birleşik maskelerinde eski pipeline karşılaştırmasını korur. |
 | [`samrs_sota_plane_study`](studies/samrs_sota_plane_study/README.md) | Tarihsel | İlk SAMRS SOTA plane deneyini ve eski sunum çıktısını korur. |
@@ -67,6 +67,28 @@ Final raporlar:
 - [iSAID insan referansı](studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/isaid_plane_human_full_metric_document_colored.pdf)
 - [iSAID SAM1 pseudo referansı](studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_pseudo_sam1/isaid_plane_pseudo_sam1_full_metric_document_colored.pdf)
 - [SAMRS SOTA plane](studies/teacher_reference_bias_v2_512/reports/full_metrics/samrs_sota_plane/samrs_sota_plane_full_metric_document_colored.pdf)
+
+## Canonical Small-Vehicle Sonuçları
+
+İkinci hedef sınıf tekrarı da 512 görüntü ve sabit seed 42 ile tamamlandı.
+GT-bbox koşulundaki Overall instance IoU:
+
+| Referans | SAM1 | SAM2 | SAM3 |
+|---|---:|---:|---:|
+| iSAID insan | 0,658 | 0,645 | 0,370 |
+| iSAID SAM1 pseudo | 1,000 | 0,749 | 0,419 |
+| SAMRS SAM1 pseudo | 0,998 | 0,846 | 0,685 |
+
+Aynı iSAID tahminlerinde insan referansından SAM1 pseudo referansa geçiş
+`+0,342 / +0,103 / +0,049` IoU değişimi üretti. Model sırası bu sınıfta
+değişmedi; buna rağmen referans üreticisi SAM1'in artışı açık biçimde en
+büyüktür.
+
+Final raporlar:
+
+- [iSAID small vehicle insan referansı](studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_human/isaid_small_vehicle_human_full_metric_document_colored.pdf)
+- [iSAID small vehicle SAM1 pseudo referansı](studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/isaid_small_vehicle_pseudo_sam1_full_metric_document_colored.pdf)
+- [SAMRS SOTA small vehicle](studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/samrs_sota_small_vehicle/samrs_sota_small_vehicle_full_metric_document_colored.pdf)
 
 ## Dizin Yapısı
 

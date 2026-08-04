@@ -15,6 +15,16 @@ RESULTS_ARCHIVE = BUNDLE_ROOT / "canonical_results_without_weights.tar.gz"
 METADATA_ARCHIVE = BUNDLE_ROOT / "prepared_metadata_without_images.tar.gz"
 MANIFEST_PATH = BUNDLE_ROOT / "manifest.json"
 DATASET_IDS = ("isaid_small_vehicle", "samrs_sota_small_vehicle")
+RASTER_IMAGE_SUFFIXES = {
+    ".bmp",
+    ".gif",
+    ".jpeg",
+    ".jpg",
+    ".png",
+    ".tif",
+    ".tiff",
+    ".webp",
+}
 
 
 def sha256_file(path: Path) -> str:
@@ -55,6 +65,8 @@ def write_deterministic_tar_gz(output: Path, files: Iterable[Path]) -> None:
 
 def result_file_allowed(path: Path) -> bool:
     if path.suffix == ".pt" or "weights" in path.parts:
+        return False
+    if path.suffix.lower() in RASTER_IMAGE_SUFFIXES:
         return False
     if path.name.endswith(".log") or path.suffix == ".cache":
         return False

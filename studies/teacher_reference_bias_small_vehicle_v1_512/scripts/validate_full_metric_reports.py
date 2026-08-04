@@ -5,6 +5,7 @@ import json
 import math
 import re
 import subprocess
+import sys
 import zipfile
 from pathlib import Path
 
@@ -12,8 +13,15 @@ import pandas as pd
 import yaml
 from docx import Document
 
-
 STUDY_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = STUDY_ROOT.parents[1]
+for source_root in (STUDY_ROOT / "src", REPO_ROOT / "src"):
+    if str(source_root) not in sys.path:
+        sys.path.insert(0, str(source_root))
+
+from teacher_reference_bias.validation import validate_detector_base_provenance
+
+
 REPORT_ROOT = STUDY_ROOT / "reports" / "full_metrics"
 REPORTS = (
     "isaid_small_vehicle_human",
@@ -517,10 +525,21 @@ def validate_analysis_outputs() -> None:
                     f"{dataset_id}/seed_{row.seed}: unexpected training args "
                     f"{actual_training_args}"
                 )
-            if Path(str(args.get("model", ""))).name != "yolo26x.pt":
-                raise AssertionError(
-                    f"{dataset_id}/seed_{row.seed}: wrong detector base model"
+            detector_manifest_path = args_path.parent.parent / "manifest.json"
+            detector_manifest = json.loads(
+                detector_manifest_path.read_text(encoding="utf-8")
+            )
+            try:
+                validate_detector_base_provenance(
+                    training_args=args,
+                    training_manifest=detector_manifest,
+                    expected_base_model=PROTOCOL["detector"]["base_weights"],
                 )
+            except ValueError as error:
+                raise AssertionError(
+                    f"{dataset_id}/seed_{row.seed}: wrong detector base model: "
+                    f"{error}"
+                ) from error
     final_finite = training["final_core_metrics_finite"].map(
         lambda value: str(value).strip().lower() == "true"
     )
