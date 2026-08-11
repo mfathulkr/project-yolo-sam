@@ -1,0 +1,7 @@
+Model,BBox,Human IoU,Reference IoU,IoU Farkı
+SAM1,GT bbox,0.653,0.795,+0.142
+SAM1,YOLO bbox,0.597,0.747,+0.150
+SAM2,GT bbox,0.629,0.793,+0.164
+SAM2,YOLO bbox,0.574,0.744,+0.170
+SAM3,GT bbox,0.655,1.000,+0.345
+SAM3,YOLO bbox,0.595,0.858,+0.264

@@ -1,0 +1,197 @@
+\documentclass{elektr}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	urlcolor=black,
+	citecolor=blue}
+\usepackage[all]{xy,xypic}
+\usepackage{amsfonts,amssymb,amsmath,amsgen,amsopn,amsbsy,theorem,graphicx,epsfig}
+\usepackage{eufrak,amscd,bezier,latexsym,mathrsfs,eurosym,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{cleveref,multirow}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[pagewise]{lineno}
+\linenumbers
+
+\yil{}
+\vol{}
+\fpage{}
+\lpage{}
+\doi{}
+
+\title{
+Manuscript template: Full title must be in sentence case \\
+\textcolor{red}{\footnotesize The first page should contain the full title in sentence case (e.g., Multiplication modules with Krull dimension)}
+}
+
+
+\author[AUTHOR and AUTHOR]{
+	\textbf{First AUTHOR$^{1,}$\thanks{elektrik@tubitak.gov.tr}~, Second AUTHOR$^{1,2}$}\\
+	\textcolor{red}{The full names (last names fully capitalised) and affiliations (in English) of all authors**}\\
+	$^{1}$First Department, First Faculty, First University, First City, First Country\\ 	First AUTHOR: \url{https://orcid.org/0000-0001-2345-6789} \\
+	$^{2}$Second Department With a Long Name, Second Faculty With a Long Name, Second University,\\ Second City, Second Country\\ Second AUTHOR: \url{https://orcid.org/0000-0001-2345-6785}\\
+	\textcolor{red}{**Before writing the affiliations, please check the ``Author Affiliations" section}\\
+	\textcolor{red}{in the Publishing Policy given on the journal’s website}\\ [1.8em]
+
+\rec{...}
+\acc{...}
+\finv{...}
+}
+
+
+\input{elksty.tex}
+
+
+\setcounter{page}{1}
+
+\begin{document}
+
+	\maketitle
+
+
+	\begin{abstract}
+		% YAZILACAK: 300 kelimeden kısa olacak. Problem, kontrollü tasarım,
+		% iki ana sayısal bulgu ve dengeli sonuç tek paragrafta verilecek.
+		% Ana sayılar: 2 x 512 görüntü, 17,498 instance; YOLO teacher advantage
+		% Plane 0.113--0.138, Small Vehicle 0.179--0.299; SAM3 Small Vehicle
+		% empty-reference rate 44.4%. Abstract içinde citation kullanılmayacak.
+
+		\keywords{remote sensing, instance segmentation, pseudo labels, reference standard bias, segment anything model}
+	\end{abstract}
+
+\section*{Introduction}  \label{sec:intro}
+% YAZILACAK: Remote-sensing küçük nesne segmentasyonunun önemi ve pahalı
+% piksel anotasyonu. SAM/SAMRS ile ölçeklenebilir annotation motivasyonu.
+% Sorun: test referansını üreten model ile aday model bağımsız değilse ortak
+% hata biçimi skoru şişirebilir. Bu, klasik train/test leakage'den çok ölçüm
+% bağımlılığıdır. Son paragrafta üç katkı maddesi verilecek.
+
+\section*{Literature Review} \label{sec:literature}
+
+\subsection*{Model-generated annotations in remote sensing}
+% YAZILACAK: iSAID'ın bağımsız uzman maskeleri; SAMRS'nin detection kutularını
+% SAM1 H-box prompt ile maskeye dönüştürmesi ve esas olarak pretraining amacı;
+% SOPSeg'in small-object magnification ve edge-aware refinement bulguları.
+% SAMST ve ReSAM'in ham pseudo maskeyi filtreleme/requery ile eğitimde
+% iyileştirmesi; evaluation reference ile training signal ayrımı.
+% Kaynaklar: \cite{zamir2019isaid,wang2023samrs,wang2025sopseg,
+% yin2025samst,subhani2026resam}.
+
+\subsection*{Imperfect and circular reference standards}
+% YAZILACAK: Tıpta imperfect reference standard bias; Commowick et al.'ın
+% kendi maskesini içeren consensus ile uzman değerlendirmeyi circular sayıp
+% leave-one-out kullanması; AI-assisted annotation için blinded QA gereği;
+% Hu et al.'ın tek gold standard olmadan çoklu uzman paneli testi.
+% Kaynaklar: \cite{chikere2019nogold,commowick2021msseg,dreizin2023aicl,
+% hu2025multiexpert}.
+
+\subsection*{Self-bias in machine-generated benchmarks}
+% YAZILACAK: SILENCER ve LLM-generated translation benchmark çalışmalarında
+% benchmark üreticisinin kendi testinde avantaj kazanması. Bizde evaluator
+% matematiksel IoU; yanlılık judge modelden değil referans maskeden geliyor.
+% Kaynaklar: \cite{yuan2025silencer,xu2025translationbias,xu2024pride}.
+
+\section*{Materials and Methods} \label{sec:methods}
+
+\subsection*{Research questions and hypotheses}
+% YAZILACAK: RQ1--RQ5 ve H1--H4 kısa biçimde. Ana hipotez her öğretmenin
+% kendi pseudo referansında avantaj kazanması ve etkinin YOLO bbox'ta sürmesi.
+
+\subsection*{Datasets, targets, and stratified sampling}
+% YAZILACAK: iSAID Plane: 512 görüntü, 44 sahne, 5,447 instance.
+% Small Vehicle: 512 görüntü, 31 sahne, 12,051 instance. Dört tabaka:
+% no-overlap/overlap x low/high mask area; her tabakada 128 görüntü.
+% Table 1: ../assets/tables/table_1_experimental_design.tex
+
+\subsection*{Models, detector, and prompts}
+% YAZILACAK: SAM1 ViT-H, SAM2.1 Hiera-Large, SAM3 frozen checkpoints.
+% İki istem: human GT bbox ve seed-42 YOLO bbox. Detector AP değerleri
+% segmentation IoU'dan ayrı control olarak raporlanacak.
+
+\subsection*{Human and model-generated references}
+% YAZILACAK: Human, SAM1, SAM2, SAM3 referansları. Üç pseudo referans aynı
+% human GT bbox ile üretildi. Empty maskeler silinmedi. GT diagonal hücreler
+% identity control; ana bağımsız olmayan ama non-identical kontrol YOLO bbox.
+
+\subsection*{Metrics and statistical analysis}
+% YAZILACAK: instance-macro IoU ana metrik. Dice, precision, recall ve threshold
+% success tamamlayıcı. Paired pseudo-minus-human delta; 10,000 tekrar
+% source-scene-clustered bootstrap 95% CI; ranking, teacher advantage,
+% reference-human agreement ve empty-mask rate.
+
+\subsection*{Reproducibility and quality control}
+% YAZILACAK: frozen prediction provenance, checkpoint versions, seed 42,
+% manifest/hash dosyaları ve public code/artifact yapısı.
+
+\section*{Results} \label{sec:results}
+
+\subsection*{Detector control and human-reference baseline}
+% YAZILACAK: Plane detector bbox AP50=0.920, Small Vehicle bbox AP50=0.609.
+% Human-reference model sıralamaları ve GT/YOLO farkı. Detector tablosu
+% supplement'te: ../assets/tables/table_6_detector_control.tex
+
+\subsection*{Identity control and cross-reference model matrix}
+% YAZILACAK: GT diagonal 1.0 tautological identity control olarak açıklanacak.
+% Figure 2 model-reference matrix ana görsel olacak; diagonal başarı iddiası
+% kurulmayacak. ../assets/figures/figure_2_model_reference_iou_matrix.pdf
+
+\subsection*{Self-reference effect under YOLO-box prompting}
+% YAZILACAK: Her pseudo referansta kendi öğretmeni birinci. Teacher advantage:
+% Plane SAM1/SAM2/SAM3 = 0.138/0.119/0.113; Small Vehicle =
+% 0.210/0.179/0.299. Paired delta ve CI Figure 3/Table 3 ile verilecek.
+
+\subsection*{Stratified robustness}
+% YAZILACAK: Etkinin overlap/no-overlap ve low/high mask-area tabakalarında
+% sürüp sürmediği. Figure 5 veya supplement Table S1 kullanılacak.
+
+\subsection*{Reference integrity and failure modes}
+% YAZILACAK: Human agreement ve empty masks. SAM3 Small Vehicle:
+% 5,345/12,051 = 44.4% empty. Figure 4 ana kaynak; yüksek self-score'un
+% independent accuracy kanıtı olmadığı açıkça yazılacak.
+
+\section*{Discussion} \label{sec:discussion}
+
+\subsection*{Interpretation of reference-dependent performance}
+% YAZILACAK: Pseudo referansla yüksek agreement, insan doğruluğu değildir.
+% Ortak boundary, empty-mask, over/under-segmentation hata biçimleri aynı
+% model ailesine avantaj sağlayabilir.
+
+\subsection*{Training utility versus evaluation validity}
+% YAZILACAK: Pseudo maskeler pretraining/weak supervision için yararlı olabilir.
+% Çalışmanın sonucu SAMRS'nin yararsızlığı değil, model üretimli maskenin
+% bağımsız test referansı gibi kullanılmasının riskidir.
+
+\subsection*{Recommended evaluation protocol}
+% YAZILACAK: küçük blinded human audit, teacher provenance, empty/failure rate,
+% cross-teacher matrix, heterojen consensus ve consensus üyesi değerlendirilirken
+% leave-one-model-out.
+
+\subsection*{Limitations}
+% YAZILACAK: iki sınıf, tek remote-sensing veri ailesi, tek detector seed,
+% GT-box ile pseudo üretim, human inter-rater maskelerinin bulunmaması ve
+% yeni dört-referans küpünde boundary IoU hesaplanmaması.
+
+\section*{Conclusion} \label{sec:conclusion}
+% YAZILACAK: Üç cümle. Referans üreticisi ranking'i değiştirebilir; etki
+% YOLO promptta sürer; model üretimli referanslarda bağımsız insan doğrulaması
+% ve reference-bias audit gerekir.
+
+\section*{Acknowledgment and/or disclaimers, if any}
+Please provide detailed acknowledgments for any contributions or support received during the research. This includes funding sources, institutional support, and any individuals or organizations that assisted with the research.
+
+The contribution information and the list of authors provided in the manuscript should be consistent with the details entered into the CRediT taxonomy. Please ensure that the details in this section exactly match the author contributions provided during the submission process.
+
+Individuals who participated in the development of a manuscript but do not qualify as an author should also be acknowledged in the Acknowledgments section.
+
+\section*{\textcolor{red}{Pre-print server/online repository}}
+If this manuscript been previously posted to a pre-print server or other online repository, please provide links to these repositories here.
+
+\section*{Conflict of interest, if any}
+All authors should also disclose any conflict of interest that may have influenced either the conduct or the presentation of the research.
+\bibliographystyle{elsarticle-num}
+
+% Loading bibliography database
+\bibliography{ref.bib}
+
+\end{document}

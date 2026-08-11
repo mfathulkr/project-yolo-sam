@@ -15,18 +15,45 @@ Bu kayıt sonuç dosyalarının yerine geçmez. Ayrıntılı teknik kararlar pla
 
 ## Güncel Durum
 
-**Tarih:** 2026-07-27
+**Tarih:** 2026-08-11
 **Aktif aşama:** Tamamlandı
-**Genel durum:** Çalışma-temelli repository refactor'ı ve üç seed'li eşlenmiş
-iSAID/SAMRS plane v2 deneyi tamamlandı. Her veri setinde dört alt grup 128'er,
-Overall 512 görüntü içeriyor. iSAID insan referansı, aynı iSAID tahminlerinin
-kontrollü SAM1 pseudo referansı ve SAMRS resmi SAM1 pseudo referansı için üç
-ayrı eski-format full metric MD/DOCX/PDF üretildi. Altı detector eğitimi, 24
-segmentasyon koşulu, 175.284 instance satırı, 180 aggregate satırı, rapor
-hash kontrolleri, görsel QA, 88 test ve 63 kayıtlık taşıma denetimi geçti.
-Eski çalışmalar kendi `studies/` klasörlerinde kayıpsız korunuyor.
+**Genel durum:** Canonical iSAID Plane ve Small Vehicle deneyleri SAM2 ve SAM3
+pseudo referanslarıyla genişletildi. Aynı frozen SAM1/SAM2/SAM3 tahminleri
+human, pseudo-SAM1, pseudo-SAM2 ve pseudo-SAM3 referanslarında çapraz ölçüldü.
+Dört yeni full-metric rapor, öğretmen karşılaştırma raporu, güncel literatür
+incelemesi, `elektr` Overleaf iskeleti ve yayın tablo/figür paketi tamamlandı.
+Uçtan uca validator ile 62 test ve 2 alt test geçti.
 
 ## Son Çalışmalar
+
+### 2026-08-11 - Çok öğretmenli pseudo referans uzantısı tamamlandı
+
+Yapılanlar:
+
+- iSAID Plane ve Small Vehicle için SAM2/SAM3 GT-bbox pseudo referansları
+  oluşturuldu; mevcut SAM1 referansı ve human referansla ortak matrise alındı.
+- Dört adet 14 sayfalık full-metric PDF ve 10 sayfalık SAM1/SAM2/SAM3
+  karşılaştırma PDF'si üretildi.
+- Remote sensing, medical imaging, imperfect reference standards, circular
+  evaluation ve model-generated benchmark self-bias literatürü incelendi.
+- Kullanıcının `elektr` şablonunu koruyan Overleaf bölüm planı ile 7 tablo ve
+  7 figürden oluşan yayın paketi hazırlandı.
+
+Doğrulananlar:
+
+- 1.024 görüntü ve 17.498 instance üzerinde 419.952 çapraz metrik satırı var.
+- Her pseudo referans YOLO bbox koşulunda kendi öğretmenini birinci sıraladı.
+- Small Vehicle SAM3 pseudo referansındaki 5.345/12.051 boş maske gizlenmedi;
+  rapor ve ana figürlerde açıkça gösterildi.
+- Dört full-metric PDF sayfa/render, DOCX bütünlük, hash/manifest ve metin
+  kontrollerinden geçti; 62 test ve 2 alt test başarılı oldu.
+
+Basit sonuç:
+
+> Pseudo maskenin üreticisi değiştiğinde aynı sabit tahminlerin skorları ve
+> model sırası değişiyor. Bu etki yalnız SAM1'e özgü değil; her üç öğretmen
+> kendi referansında avantaj kazanıyor. Pseudo etiket eğitimde yararlı olabilir,
+> fakat bağımsız test ground truth'u gibi kullanılması ölçüm yanlılığı yaratıyor.
 
 ### 2026-07-27 - Nitel görseller bütün instance'ları gösterecek biçimde düzeltildi
 

@@ -14,6 +14,7 @@ EXPECTED_STUDIES = {
     "samrs_sota_plane_study",
     "semantic_drone_car_study",
     "teacher_reference_bias_small_vehicle_v1_512",
+    "teacher_reference_bias_multiteacher_v1_512",
     "teacher_reference_bias_v1",
     "teacher_reference_bias_v2_512",
 }
@@ -36,6 +37,18 @@ EXPECTED_REPORTS = (
     "isaid_plane_pseudo_sam1_full_metric_document_colored.pdf",
     "studies/teacher_reference_bias_v2_512/reports/full_metrics/"
     "samrs_sota_plane/samrs_sota_plane_full_metric_document_colored.pdf",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/"
+    "isaid_plane_pseudo_sam2/isaid_plane_pseudo_sam2_full_metric_document_colored.pdf",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/"
+    "isaid_plane_pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document_colored.pdf",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/"
+    "isaid_small_vehicle_pseudo_sam2/"
+    "isaid_small_vehicle_pseudo_sam2_full_metric_document_colored.pdf",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/"
+    "isaid_small_vehicle_pseudo_sam3/"
+    "isaid_small_vehicle_pseudo_sam3_full_metric_document_colored.pdf",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/teacher_comparison/"
+    "sam_teacher_pseudo_reference_comparison_colored.pdf",
 )
 
 FOREIGN_STUDY_REFERENCE = re.compile(r"studies/([A-Za-z0-9_]+)")

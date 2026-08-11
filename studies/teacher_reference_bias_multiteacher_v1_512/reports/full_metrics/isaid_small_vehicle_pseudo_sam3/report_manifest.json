@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "study_id": "teacher_reference_bias_multiteacher_v1_512",
+  "dataset_id": "isaid_small_vehicle",
+  "report_format": "legacy_samrs_full_metric_colored",
+  "inputs": {
+    "studies/teacher_reference_bias_multiteacher_v1_512/results/analysis/aggregate_metrics.csv": "1d212ecf4db150860bf94e3952844bb5fe35f81f3014d84db883b56f3c948057",
+    "studies/teacher_reference_bias_multiteacher_v1_512/results/analysis/detector_seed_summary.csv": "7da21813c39326d0f2d9e51ff1a01ddbf7b9d47b60fed779271f763c2ed3bdac",
+    "studies/teacher_reference_bias_multiteacher_v1_512/results/figures/isaid_small_vehicle_pseudo_sam3_gt_bbox_qualitative.png": "658296404e5ce432dff16315d227fde10f5502c0d44220bb59314e8720f214a8",
+    "studies/teacher_reference_bias_multiteacher_v1_512/results/analysis/paired_reference_effects.csv": "62165ac22bc45a586cb0459c37e8e513943f674562accd87297eff162515c31e"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/isaid_small_vehicle_pseudo_sam3_full_metric_document.md": "1e25bc83df7b81b88ad3531361ee10a6f365266212f151219590e0e2c5fae46e",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/isaid_small_vehicle_pseudo_sam3_full_metric_document_colored.docx": "847dc4f81f25f8ff9398bffa6c7e2def061b762c76966e2fd87278882e722aeb",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/isaid_small_vehicle_pseudo_sam3_full_metric_document_colored.pdf": "4c7840010a76473fd645e92437d665daffb4357f952c8cdc0ff4cbfdd9b66514",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/tables/detector_summary.csv": "764bc28ba678961f448e8608cbf783b0036f93dc36805bd312dbf495356830dd",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/tables/pseudo_sam3__no_overlap__high_mask_area.csv": "34c253ab2550e1618322f92354b27b6dfb29ef2a7fabbfeb46372f36386a4e61",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/tables/pseudo_sam3__no_overlap__low_mask_area.csv": "00658e9747f86dd5c2c5153fa42f1a4a5bf0a34bac93a9ac60c07799abb55f9e",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/tables/pseudo_sam3__overall.csv": "41efb1e36b3095aca6557b1c193fd3aac3088dfe6bd75e52006170be83537189",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/tables/pseudo_sam3__overlap__high_mask_area.csv": "c5a2e3cf33be19542fb346039d34f85886eef287a48d29b1ef8ef26081302b37",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/tables/pseudo_sam3__overlap__low_mask_area.csv": "19834cf4be273011fc4af043381dbc17a30ad5ec3a38a5cb88b7a8b2a1f7cadf",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/tables/reference_sensitivity.csv": "350c5816d9950cf7fb5ad622ad8bd3d8650cd386b5d0b527560b9b415d8a0a59",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/qualitative/no_overlap__low_mask_area.png": "0beeb5a2e6b4a324a1a45704c7fe857f1cb966fd78eee20ea9925bf2fa026798",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/qualitative/no_overlap__high_mask_area.png": "9560305014098f0428f60f99fa574bc8208fb4b5826972fb7cd80fa088cb60d7",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/qualitative/overlap__low_mask_area.png": "0073608cb53bb9b27ae829da3e04e36dc068db853bd9476d49336ce48bd96d7e",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3/qualitative/overlap__high_mask_area.png": "f0146165a33f0d4bfe1651bc59dea67e25bd3867e84b86611dd2c2d1c848ef16"
+  },
+  "strata": [
+    "overall",
+    "no_overlap__low_mask_area",
+    "no_overlap__high_mask_area",
+    "overlap__low_mask_area",
+    "overlap__high_mask_area"
+  ],
+  "reference_sections": [
+    "pseudo_sam3"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "study_id": "teacher_reference_bias_multiteacher_v1_512",
+  "dataset_id": "isaid_plane",
+  "report_format": "legacy_samrs_full_metric_colored",
+  "inputs": {
+    "studies/teacher_reference_bias_multiteacher_v1_512/results/analysis/aggregate_metrics.csv": "1d212ecf4db150860bf94e3952844bb5fe35f81f3014d84db883b56f3c948057",
+    "studies/teacher_reference_bias_multiteacher_v1_512/results/analysis/detector_seed_summary.csv": "7da21813c39326d0f2d9e51ff1a01ddbf7b9d47b60fed779271f763c2ed3bdac",
+    "studies/teacher_reference_bias_multiteacher_v1_512/results/figures/isaid_plane_pseudo_sam3_gt_bbox_qualitative.png": "de98185b6db3ba17924bf601d572345c31602c9e8511cca84d99d09c83989f3f",
+    "studies/teacher_reference_bias_multiteacher_v1_512/results/analysis/paired_reference_effects.csv": "62165ac22bc45a586cb0459c37e8e513943f674562accd87297eff162515c31e"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document.md": "fd029413c397802d2fd5f7122cecfbf236d95cbf79def0f3c92b20087f69fa25",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document_colored.docx": "bf4ff5967ead79ee405e287182eb7a4ae6780b8a5a42a3edcf014514825e6a35",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document_colored.pdf": "93434fa77a20cb3f10199e91ca194fcd62923186a8972c8e618bbfa37c92b56c",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/tables/detector_summary.csv": "32d631cba66511f40822244b70f5df677656945f8b13a96723fa658a67671bb6",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/tables/pseudo_sam3__no_overlap__high_mask_area.csv": "da18db74d3a11ad8888a28ea762c4e39e9debe12d643c95e305e2f930996d725",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/tables/pseudo_sam3__no_overlap__low_mask_area.csv": "9a355329397e648bd305049c4a95852e556860a68f7b33415f77f20b47e8cbee",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/tables/pseudo_sam3__overall.csv": "55192a29f2c5a68791e96e12ffc0550ed945065cd57f4ba24586c134c15e43b6",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/tables/pseudo_sam3__overlap__high_mask_area.csv": "48d2d823b6ffece3d4cd175ddb0ea0b6acabb14a55c9afcc3935b8102ecf7efa",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/tables/pseudo_sam3__overlap__low_mask_area.csv": "2936f93e4c9323d8bf097321cd3653e2df7017c53d4edd94893392c31adc57a8",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/tables/reference_sensitivity.csv": "3f247826136d65d6d7c14bdfd5f5c0ddb0ab078254f5aa06707f0f1ee25a25bb",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/qualitative/no_overlap__low_mask_area.png": "a3987185406e912da95458a6884b30e54bdb800a1c9efa166458c7a4a87eac56",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/qualitative/no_overlap__high_mask_area.png": "1d619fb0e92f4f1069d4bcc9ea6f6515b2128dfce922b256940654095cb20abf",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/qualitative/overlap__low_mask_area.png": "b62df88651e277bf85eb8bc721d09db48c389f52c47df17f7a486625e43cf3ed",
+    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3/qualitative/overlap__high_mask_area.png": "0e54c6cab98fc4a3263ddbd6e8cc8230fcc22de751d319debad9d69fabb1beaf"
+  },
+  "strata": [
+    "overall",
+    "no_overlap__low_mask_area",
+    "no_overlap__high_mask_area",
+    "overlap__low_mask_area",
+    "overlap__high_mask_area"
+  ],
+  "reference_sections": [
+    "pseudo_sam3"
+  ]
+}
