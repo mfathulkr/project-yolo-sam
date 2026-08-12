@@ -2,9 +2,9 @@
   "schema_version": 1,
   "status": "completed",
   "dataset_id": "samrs_sota_plane",
-  "master_prepared_root": "studies/teacher_reference_bias_v1/data/prepared/samrs_sota_plane",
-  "master_content_manifest": "studies/teacher_reference_bias_v1/data/prepared/samrs_sota_plane/content_manifest.json",
-  "master_content_manifest_sha256": "59ba198851ea8b7cd4d8fe4408df78f72b1ef29e988cf301176f660dc90d6d8c",
+  "master_prepared_root": "studies/teacher_reference_bias_paper/experiments/samrs_plane/data/master",
+  "master_content_manifest": "studies/teacher_reference_bias_paper/experiments/samrs_plane/data/master/content_manifest.json",
+  "master_content_manifest_sha256": "3af5e8e01b0f1cc0cf6af84eadc34ccf7b70af84947834cafc231ab8fc595ccb",
   "area_threshold": 0.011932373046875,
   "target_per_stratum": 128,
   "test_scene_pool_coverage": {

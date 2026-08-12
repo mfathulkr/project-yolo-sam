@@ -80,15 +80,14 @@ Bildiri yazım varlıkları:
 
 | Study | Durum | Amaç |
 |---|---|---|
-| [`teacher_reference_bias_v1`](studies/teacher_reference_bias_v1/README.md) | Tarihsel | İlk 4×32 öncül deney; güncel bildirinin kanonik kanıtı değildir. |
 | [`isaid_vehicle_study`](studies/isaid_vehicle_study/README.md) | Tarihsel | iSAID birleşik small/large vehicle ve eski model/prompt karşılaştırmaları. |
 | [`samrs_sota_plane_study`](studies/samrs_sota_plane_study/README.md) | Tarihsel | İlk SAMRS SOTA plane çalışması ve eski sunum raporu. |
 | [`semantic_drone_car_study`](studies/semantic_drone_car_study/README.md) | Planlandı | Semantic Drone car hazırlığı. |
 | [`landcover_building_study`](studies/landcover_building_study/README.md) | Eksik legacy | Landcover.ai building hazırlığı. |
 
-Önceki üç parçalı teacher-bias çalışma ağacı silinmemiştir; yalnız aktif
-kökten kaldırılıp kanonik çalışma içindeki `archives/pre_unification/` altında
-korunmuştur. Taşıma dosya boyutu, inode ve SHA-256 ile doğrulanmıştır.
+Önceki teacher-bias paketleri, kanonik dört deney ve raporların hash zinciri
+doğrulandıktan sonra depodan kaldırılmıştır. Taşıma geçmişi Git geçmişi ve
+kanonik çalışmadaki migration manifestleriyle izlenebilir.
 
 ## Dizin Yapısı
 

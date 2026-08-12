@@ -16,7 +16,7 @@ pipeline'larını karşılaştıran tarihsel deneydir.
 
 Eski çalışma; iSAID ile aynı split, bbox, sınıf ve örnekleme protokolünü
 kullanmadığı için yeni bildiride nicel kanıt olarak kullanılmaz. Geçerli kanıt
-`teacher_reference_bias_v1` çalışmasındaki eşlenmiş deneydir.
+`teacher_reference_bias_paper/experiments/samrs_plane` eşlenmiş deneyidir.
 
 ## Dizinler
 
@@ -42,4 +42,5 @@ reports/samrs_sota_plane_full_metric_document_colored.pdf
 ```
 
 Bu komut yalnız eski study çıktısını kontrol eder. Güncel eşlenmiş SAMRS
-kanıtı `studies/teacher_reference_bias_v1/` altındadır.
+kanıtı `studies/teacher_reference_bias_paper/experiments/samrs_plane/`
+altındadır.

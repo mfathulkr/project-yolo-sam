@@ -2,9 +2,9 @@
   "schema_version": 1,
   "status": "completed",
   "dataset_id": "isaid_plane",
-  "master_prepared_root": "studies/teacher_reference_bias_v1/data/prepared/isaid_plane",
-  "master_content_manifest": "studies/teacher_reference_bias_v1/data/prepared/isaid_plane/content_manifest.json",
-  "master_content_manifest_sha256": "021a41907e2692e75e4d11845f8527ddb53499949496fe189a6e6cd562ba7c11",
+  "master_prepared_root": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/master",
+  "master_content_manifest": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/master/content_manifest.json",
+  "master_content_manifest_sha256": "2d8798a21285f37863e9319157e565ad62433f39e99bc3945f5bb604de91e8b7",
   "area_threshold": 0.0167140960693359,
   "target_per_stratum": 128,
   "test_scene_pool_coverage": {

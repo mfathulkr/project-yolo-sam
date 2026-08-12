@@ -21,28 +21,13 @@ Ana giriş:
 studies/teacher_reference_bias_paper/scripts/study.py
 ```
 
-## Birleştirme Öncesi Teacher-Bias Kökleri
+## Kaldırılan Teacher-Bias Kopyaları
 
-Önceki Plane, Small Vehicle ve multi-teacher klasörleri artık ayrı kanonik
-study değildir. İçerikleri silinmedi; aşağıdaki arşive taşındı:
-
-```text
-studies/teacher_reference_bias_paper/archives/pre_unification/legacy_roots/
-```
-
-Aktif kod, config, rapor ve dokümantasyon bu eski yollara bağlı değildir.
-Taşıma bütünlüğü `docs/MIGRATION_MANIFEST.json` ile doğrulanmıştır.
-
-## Teacher Reference Bias V1
-
-```text
-studies/teacher_reference_bias_v1/
-```
-
-Durum: `completed_superseded`
-
-İlk 4×32 protokol ve altı sayfalık tarihsel taslak korunur. Güncel dört
-deneylik çalışmanın kanıtına otomatik karıştırılmaz.
+Önceki Plane, Small Vehicle, multi-teacher ve `teacher_reference_bias_v1`
+paketleri kanonik dört deney doğrulandıktan sonra kaldırıldı. Aktif kod,
+config, rapor ve dokümantasyon bu eski yollara bağlı değildir. Taşıma geçmişi
+Git geçmişinde ve `teacher_reference_bias_paper/docs/MIGRATION_MANIFEST.json`
+dosyasında kayıtlıdır.
 
 ## iSAID Vehicle Study
 
@@ -74,8 +59,8 @@ paper study içindedir.
 - `semantic_drone_car_study`: planlandı, tamamlanmış sonuç yok.
 - `landcover_building_study`: eksik tarihsel hazırlık.
 
-## Arşiv Politikası
+## Kopya Politikası
 
-Arşiv, aktif bilimsel kaynak değildir. Eski mutlak yollar ve tarihsel manifest
-kayıtları yalnız provenance amacıyla arşiv içinde kalabilir. Yeni analiz veya
-rapor, arşivdeki dosyayı çalışma zamanı girdisi olarak kullanamaz.
+Kanonik çalışma içinde `archives/` veya ayrı bir eski teacher-bias paketi
+tutulmaz. Türetilmiş eski çıktılar Git geçmişinden alınabilir; aktif sonuçların
+tek sahibi `studies/teacher_reference_bias_paper/` dizinidir.

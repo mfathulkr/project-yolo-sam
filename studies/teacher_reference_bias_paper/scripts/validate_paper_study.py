@@ -125,6 +125,28 @@ def validate_prepared(experiment_id: str) -> str:
         raise ValueError("master_prepared_root tanımlı değil")
     master_manifest_path = dataset.master_prepared_root / "content_manifest.json"
     assert_file(master_manifest_path)
+    provenance_path = source.prepared_root / "master_provenance.json"
+    assert_file(provenance_path)
+    provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+    recorded_root = Path(str(provenance["master_prepared_root"]))
+    if not recorded_root.is_absolute():
+        recorded_root = REPO_ROOT / recorded_root
+    if recorded_root.resolve() != dataset.master_prepared_root.resolve():
+        raise ValueError("master_provenance canonical master kökünü göstermiyor")
+    recorded_manifest = Path(str(provenance["master_content_manifest"]))
+    if not recorded_manifest.is_absolute():
+        recorded_manifest = REPO_ROOT / recorded_manifest
+    if recorded_manifest.resolve() != master_manifest_path.resolve():
+        raise ValueError(
+            "master_provenance canonical master content manifest yolunu göstermiyor"
+        )
+    expected_master_hash = str(provenance["master_content_manifest_sha256"])
+    actual_master_hash = sha256_file(master_manifest_path)
+    if expected_master_hash != actual_master_hash:
+        raise ValueError(
+            "master_provenance content manifest SHA-256 uyuşmuyor: "
+            f"{expected_master_hash} != {actual_master_hash}"
+        )
     master_manifest = json.loads(master_manifest_path.read_text(encoding="utf-8"))
     if tuple(master_manifest.get("splits", ())) != (
         "train",
@@ -482,6 +504,14 @@ def validate_paper_outputs() -> str:
 
 
 def validate_active_paths() -> str:
+    retired_paths = [
+        REPO_ROOT / "studies" / "teacher_reference_bias_v1",
+        STUDY_ROOT / "archives",
+        *(source.root / "archives" for source in DATASETS.values()),
+    ]
+    for retired in retired_paths:
+        if retired.exists():
+            raise ValueError(f"Emekliye ayrılmış kopya hâlâ mevcut: {retired}")
     forbidden = (
         "teacher_reference_bias_v2_512",
         "teacher_reference_bias_small_vehicle_v1_512",
@@ -506,8 +536,6 @@ def validate_active_paths() -> str:
             if path.name in {
                 "MIGRATION_MANIFEST.json",
                 "RUN_MANIFEST_MIGRATION_AUDIT.json",
-                "migrate_legacy_layout.py",
-                "repair_migrated_run_manifests.py",
                 "QA_REPORT.json",
                 "QA_REPORT.md",
                 "validate_paper_study.py",

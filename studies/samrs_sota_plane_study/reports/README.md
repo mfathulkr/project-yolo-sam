@@ -2,10 +2,10 @@
 
 > **Durum: `invalid_for_paper_evidence` / legacy.** Bu klasör ilk, eşlenmemiş
 > SAMRS deneyini korur. Source-scene-safe split, iki veri setinde aynı plane
-> sınıfı, üç YOLO seed'i ve bağımsız insan referansı kontrollerini kullanan
-> otoritatif çalışma `teacher_reference_bias_v1`'dir. Güncel giriş noktaları
+> sınıfı, seed 42 ve çapraz referans kontrollerini kullanan otoritatif çalışma
+> `teacher_reference_bias_paper`'dır. Güncel giriş noktaları
 > için kök `README.md`, `docs/LEGACY_STATUS.md` ve
-> `paper_teacher_reference_bias/` kullanılmalıdır.
+> `studies/teacher_reference_bias_paper/` kullanılmalıdır.
 
 Bu klasör SAMRS/SOTA `plane` deneyi için ayrıldı. Eski iSAID vehicle çalışmasına karışmaması için veri, sonuç ve rapor path'leri `samrs_sota_plane` adıyla tutulur.
 

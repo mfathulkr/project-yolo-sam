@@ -4,7 +4,7 @@
   "dataset_id": "isaid_small_vehicle",
   "master_prepared_root": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/master",
   "master_content_manifest": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/master/content_manifest.json",
-  "master_content_manifest_sha256": "e72a6d8f76d7b29832fda1907a17a1a9418e48ada9bd6421c064241b671e4676",
+  "master_content_manifest_sha256": "957a0312c038b1a1235b3dbcce79798a0337b77e8dca31bdc27ee4d45ee8230d",
   "area_threshold": 0.0018463134765625,
   "target_per_stratum": 128,
   "test_scene_pool_coverage": {

@@ -42,8 +42,7 @@ studies/teacher_reference_bias_paper/
 ├── docs/                     # Ortak yöntem, QA ve handoff
 ├── scripts/                  # Orchestration ve üretim komutları
 ├── src/                      # Bu araştırma sorusuna özgü kod
-├── tests/
-└── archives/pre_unification/ # Taşıma öncesi kayıtlar
+└── tests/
 ```
 
 Her deney şu sözleşmeyi kullanır:
@@ -51,14 +50,14 @@ Her deney şu sözleşmeyi kullanır:
 ```text
 experiments/<experiment_id>/
 ├── README.md
-├── configs/
+├── config.yaml              # Eşlenmiş 512 görüntülük deney configi
+├── master_config.yaml       # Tam aday havuzu hazırlama configi
 ├── data/                     # master/prepared veri ve manifestler
 ├── docs/                     # Deneye özgü yöntem ve tekrar üretim
-├── results/                  # detector, prediction, reference, evaluation
-├── figures/
 ├── results/
 │   ├── analysis/             # canonical metric cube ve özet CSV'ler
 │   ├── detector/
+│   ├── figures/
 │   ├── predictions/
 │   └── references/
 └── reports/
@@ -66,10 +65,9 @@ experiments/<experiment_id>/
     └── cross_analysis/
 ```
 
-Birleştirme öncesindeki üç teacher-bias kökü aktif `studies/` listesinden
-kaldırılmıştır. Küçük kod/doküman kayıtları ile yerel sonuç geçmişleri
-`archives/pre_unification/legacy_roots/` altında korunur; aktif script ve
-configler bu yollardan çalışma zamanı girdisi okuyamaz.
+Birleştirme öncesindeki teacher-bias kökleri ve kopya arşivler kaldırılmıştır.
+Aktif script ve configler yalnız kanonik dört deney yolunu kullanır; tarihsel
+dosyalara ihtiyaç duyulursa Git geçmişi kullanılır.
 
 ## Deney Sahipliği
 

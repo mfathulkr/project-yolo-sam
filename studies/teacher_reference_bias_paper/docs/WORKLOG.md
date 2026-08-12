@@ -20,6 +20,9 @@
 - 52 companion metadata dosyası ve 36 run manifesti repository-relative yollara geçirildi; özgün manifest hashleri `RUN_MANIFEST_MIGRATION_AUDIT.json` içinde korunuyor.
 - Validator 36 çalışma manifestinin giriş/çıkış hashlerini, 80 maske tablosunu ve 16 detector tablosunu kaynak artifact'lara karşı strict doğruluyor.
 - Bağımsız denetim bulguları kapatıldı: eski yollar, eksik Plane master zinciri, bozuk master config varsayılanları, lock dosyaları, 8 GB CLI ve Overleaf bağımlılık açıklaması düzeltildi.
+- İkinci kabul denetiminde SAMRS referans/prediction cardinality'leri, model ayrışması, iki ayrı YOLO checkpoint'i ve train/validation/test kaynak-sahne ayrıklığı tekrar doğrulandı.
+- Eski `teacher_reference_bias_v1` paketi ile paper study içindeki kopya arşiv kaldırıldı; rapor üreticisi artık eski raporu arşivlemek yerine deterministik olarak yeniler.
+- Kök test keşfi yalnız aktif kodu çalıştıracak biçimde sadeleştirildi; master provenance regresyon testiyle birlikte tam test takımı `78 passed` sonucuna ulaştı.
 
 ## Nihai QA Sonucu
 

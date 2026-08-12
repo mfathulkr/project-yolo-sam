@@ -34,7 +34,6 @@ studies/*/bundles/private_*
 /studies/teacher_reference_bias_paper/experiments/*/data/prepared/**/images/
 /studies/teacher_reference_bias_paper/experiments/*/data/prepared/**/labels/
 /studies/teacher_reference_bias_paper/experiments/*/data/prepared/**/*.cache
-/studies/teacher_reference_bias_paper/experiments/*/archives/
 
 # Detector training intermediates are reproducible from the config and data.
 # Keep only the canonical best checkpoint plus manifests/evaluation outputs.
@@ -45,9 +44,3 @@ studies/*/bundles/private_*
 !/studies/teacher_reference_bias_paper/experiments/*/results/detector/*/train/args.yaml
 /studies/teacher_reference_bias_paper/experiments/*/results/detector/**/*.log
 /studies/teacher_reference_bias_paper/experiments/*/results/detector/**/resume_inputs/
-
-# Preserve the small pre-unification source/document record, not the 1.2 GB
-# historical result archive.
-/studies/teacher_reference_bias_paper/archives/pre_unification/*
-!/studies/teacher_reference_bias_paper/archives/pre_unification/legacy_roots/
-!/studies/teacher_reference_bias_paper/archives/pre_unification/legacy_roots/**

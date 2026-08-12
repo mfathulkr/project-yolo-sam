@@ -274,22 +274,10 @@ def report_spec(
     )
 
 
-def archive_existing_report(source: ExperimentSource, reference_type: str) -> None:
+def reset_existing_report(source: ExperimentSource, reference_type: str) -> None:
     output_dir = source.reports_root / "full_metrics" / reference_type
-    if not output_dir.exists():
-        return
-    archive_dir = (
-        source.root
-        / "archives"
-        / "pre_unification"
-        / "reports"
-        / reference_type
-    )
-    if archive_dir.exists():
+    if output_dir.exists():
         shutil.rmtree(output_dir)
-        return
-    archive_dir.parent.mkdir(parents=True, exist_ok=True)
-    output_dir.rename(archive_dir)
 
 
 def write_one(source: ExperimentSource, reference_type: str) -> Path:
@@ -304,7 +292,7 @@ def write_one(source: ExperimentSource, reference_type: str) -> Path:
         reference_type=reference_type,
     )
     baseline = source.reference_types[0]
-    archive_existing_report(source, reference_type)
+    reset_existing_report(source, reference_type)
     output = write_report(
         spec=spec,
         output_dir=source.reports_root / "full_metrics" / reference_type,

@@ -14,7 +14,6 @@ EXPECTED_STUDIES = {
     "samrs_sota_plane_study",
     "semantic_drone_car_study",
     "teacher_reference_bias_paper",
-    "teacher_reference_bias_v1",
 }
 
 PAPER_STUDY = STUDIES_ROOT / "teacher_reference_bias_paper"
@@ -45,12 +44,6 @@ EXPECTED_REPORTS = (
     "isaid_vehicle_full_metric_document_colored.pdf",
     "studies/samrs_sota_plane_study/reports/"
     "samrs_sota_plane_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_v1/reports/paper/"
-    "teacher_reference_bias_paper_6pages.pdf",
-    "studies/teacher_reference_bias_v1/reports/full_metrics/"
-    "isaid_plane/isaid_plane_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_v1/reports/full_metrics/"
-    "samrs_sota_plane/samrs_sota_plane_full_metric_document_colored.pdf",
     "studies/teacher_reference_bias_paper/analysis/"
     "main_cross_analysis_colored.pdf",
 )
@@ -58,22 +51,7 @@ EXPECTED_REPORTS = (
 FOREIGN_STUDY_REFERENCE = re.compile(r"studies/([A-Za-z0-9_]+)")
 REFERENCE_SCAN_SUFFIXES = {".json", ".py", ".toml", ".yaml", ".yml"}
 REFERENCE_SCAN_DIRS = ("configs", "scripts", "src")
-REFERENCE_AUDIT_ALLOWLIST = {
-    (
-        "teacher_reference_bias_v1",
-        "scripts/snapshot_study_state.py",
-    ),
-    # V2 preparation consumes the SHA-256-pinned v1 tile corpus, never its
-    # weights, predictions, metrics, or reports.
-    (
-        "teacher_reference_bias_v2_512",
-        "configs/datasets/isaid_plane.yaml",
-    ),
-    (
-        "teacher_reference_bias_v2_512",
-        "configs/datasets/samrs_sota_plane.yaml",
-    ),
-}
+REFERENCE_AUDIT_ALLOWLIST: set[tuple[str, str]] = set()
 
 
 def is_external_or_generated(path: Path) -> bool:
@@ -106,6 +84,12 @@ class RepositoryLayoutTest(unittest.TestCase):
         ):
             self.assertFalse((REPO_ROOT / name).exists(), name)
         self.assertEqual(list(REPO_ROOT.glob("presentation_*")), [])
+        self.assertFalse((STUDIES_ROOT / "teacher_reference_bias_v1").exists())
+        self.assertFalse((PAPER_STUDY / "archives").exists())
+        for experiment_id in PAPER_EXPERIMENT_REFERENCES:
+            self.assertFalse(
+                (PAPER_STUDY / "experiments" / experiment_id / "archives").exists()
+            )
 
     def test_placeholder_files_are_absent(self) -> None:
         placeholders = [

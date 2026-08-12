@@ -4,7 +4,7 @@
   "dataset_id": "samrs_sota_small_vehicle",
   "master_prepared_root": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/data/master",
   "master_content_manifest": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/data/master/content_manifest.json",
-  "master_content_manifest_sha256": "00822130012857277f30cc253857b76bb8f7d869594fbabd0d8f9c980e9b7017",
+  "master_content_manifest_sha256": "26a3a799be668cd6a0dca0f6bc0489a57949a93c65e10c3bef930234616a3ecd",
   "area_threshold": 0.0065670013427734,
   "target_per_stratum": 128,
   "test_scene_pool_coverage": {

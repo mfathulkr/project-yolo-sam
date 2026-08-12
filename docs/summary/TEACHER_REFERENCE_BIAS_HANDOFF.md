@@ -12,9 +12,9 @@ bildiri varlıkları, hamdan yeniden hazırlama zinciri ve strict otomatik QA te
 studies/teacher_reference_bias_paper/
 ```
 
-Eski Plane, Small Vehicle ve multi-teacher kökleri aktif çalışma değildir.
-İçerikleri kayıpsız olarak kanonik çalışmanın
-`archives/pre_unification/legacy_roots/` dizininde korunur.
+Eski Plane, Small Vehicle, multi-teacher ve v1 kopyaları kanonik çalışma
+doğrulandıktan sonra kaldırıldı. Aktif bilimsel dosyaların tek sahibi aşağıdaki
+paper study dizinidir; tarihsel kopyalara yalnız Git geçmişinden ulaşılır.
 
 ## Bilimsel Soru
 
