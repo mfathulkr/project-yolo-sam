@@ -1,0 +1,24 @@
+{
+  "bbox_source": "gt_bbox",
+  "dataset": {
+    "area_threshold": 0.0018463134765625,
+    "dataset_id": "isaid_small_vehicle",
+    "profile_id": "isaid",
+    "reference_type": "human",
+    "target_category": "Small_Vehicle",
+    "version": "official_release"
+  },
+  "image_size": 1024,
+  "model": "sam2",
+  "model_config": {
+    "checkpoint_sha256": "dc407dce21301fd94abb395c5099b4f2c455fdc8a8f261ac3d0ea6d4cd197230",
+    "mask_threshold": 0.0,
+    "model_id": "facebook/sam2.1-hiera-large",
+    "revision": "665f8e2ad61cf5f53d65644ff27c8ee525124610",
+    "torch_dtype": "float32"
+  },
+  "schema": "bbox_segmentation_effective_v1",
+  "split": "test",
+  "stage": "gt_bbox_segmentation",
+  "study_id": "teacher_reference_bias_small_vehicle_v1_512"
+}

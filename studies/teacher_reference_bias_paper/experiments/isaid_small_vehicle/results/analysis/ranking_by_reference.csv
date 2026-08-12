@@ -1,0 +1,9 @@
+dataset_id,bbox_source,reference_type,baseline_reference,ranking,rank_changes_vs_baseline,top_model,top_mean_iou
+isaid_small_vehicle,gt_bbox,human,human,SAM3 > SAM1 > SAM2,0,SAM3,0.6984536768089755
+isaid_small_vehicle,gt_bbox,pseudo_sam1,human,SAM1 > SAM3 > SAM2,2,SAM1,0.9984233673554062
+isaid_small_vehicle,gt_bbox,pseudo_sam2,human,SAM2 > SAM3 > SAM1,3,SAM2,1.0
+isaid_small_vehicle,gt_bbox,pseudo_sam3,human,SAM3 > SAM2 > SAM1,2,SAM3,1.0
+isaid_small_vehicle,yolo_bbox,human,human,SAM3 > SAM1 > SAM2,0,SAM3,0.49117899206420795
+isaid_small_vehicle,yolo_bbox,pseudo_sam1,human,SAM1 > SAM3 > SAM2,2,SAM1,0.6537127931714821
+isaid_small_vehicle,yolo_bbox,pseudo_sam2,human,SAM2 > SAM3 > SAM1,3,SAM2,0.6236493885723984
+isaid_small_vehicle,yolo_bbox,pseudo_sam3,human,SAM3 > SAM1 > SAM2,0,SAM3,0.6332161372943202

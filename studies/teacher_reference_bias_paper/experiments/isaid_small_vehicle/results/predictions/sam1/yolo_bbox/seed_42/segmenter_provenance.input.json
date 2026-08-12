@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T14:22:50.007078+00:00",
+  "status": "pass",
+  "protocol": "studies/teacher_reference_bias_paper/configs/protocol.yaml",
+  "protocol_sha256": "847331a5cca49e28dbaeaa87f58b7cfaa51a98dd28725c974756ab2d66f5957a",
+  "models": [
+    {
+      "model": "sam1",
+      "model_id": "facebook/sam-vit-huge",
+      "revision": "87aecf0df4ce6b30cd7de76e87673c49644bdf67",
+      "snapshot_path": "/home/ssyzai/.cache/huggingface/hub/models--facebook--sam-vit-huge/snapshots/87aecf0df4ce6b30cd7de76e87673c49644bdf67",
+      "checkpoint_path": "/home/ssyzai/.cache/huggingface/hub/models--facebook--sam-vit-huge/snapshots/87aecf0df4ce6b30cd7de76e87673c49644bdf67/model.safetensors",
+      "checkpoint_bytes": 2564432288,
+      "expected_sha256": "edfb0462392541fca9af44ff039bfb32dbd0c939997f3abb77a26e23af7afd7c",
+      "actual_sha256": "edfb0462392541fca9af44ff039bfb32dbd0c939997f3abb77a26e23af7afd7c",
+      "configuration_files": [
+        {
+          "path": "config.json",
+          "bytes": 6569,
+          "sha256": "5ee4455a3a2a8b3728a739e6c2e4a1bf6920c83b2177affeb623fa8ec7d4ad82"
+        },
+        {
+          "path": "preprocessor_config.json",
+          "bytes": 466,
+          "sha256": "225545a743c654e3c495ec6f545a0eaba57c8ba3fbbd8483b3cb1c0fc58db517"
+        }
+      ],
+      "configuration_tree_sha256": "720b6ec288e64a77c79f91f5b5868cceeae25b4d585d074c75ffff229456e112",
+      "passed": true
+    },
+    {
+      "model": "sam2",
+      "model_id": "facebook/sam2.1-hiera-large",
+      "revision": "665f8e2ad61cf5f53d65644ff27c8ee525124610",
+      "snapshot_path": "/home/ssyzai/.cache/huggingface/hub/models--facebook--sam2.1-hiera-large/snapshots/665f8e2ad61cf5f53d65644ff27c8ee525124610",
+      "checkpoint_path": "/home/ssyzai/.cache/huggingface/hub/models--facebook--sam2.1-hiera-large/snapshots/665f8e2ad61cf5f53d65644ff27c8ee525124610/model.safetensors",
+      "checkpoint_bytes": 897897416,
+      "expected_sha256": "dc407dce21301fd94abb395c5099b4f2c455fdc8a8f261ac3d0ea6d4cd197230",
+      "actual_sha256": "dc407dce21301fd94abb395c5099b4f2c455fdc8a8f261ac3d0ea6d4cd197230",
+      "configuration_files": [
+        {
+          "path": "config.json",
+          "bytes": 5705,
+          "sha256": "00446988cf4d617118d2d347eabe2c46aebed744628facdd540508be30b69ec3"
+        },
+        {
+          "path": "preprocessor_config.json",
+          "bytes": 683,
+          "sha256": "6ebf229ee259368ce4a8d4f2fe893a72b053023710853e257253939e601f583d"
+        },
+        {
+          "path": "processor_config.json",
+          "bytes": 95,
+          "sha256": "f8a68e865cfad115c1c2763f3d93eca7b1c622da06da2a9273eb437fb2389b6d"
+        }
+      ],
+      "configuration_tree_sha256": "c8d0dec638bbc5ae610e09d313b3c9444de780f241fc8c169f42ad235a55be56",
+      "passed": true
+    },
+    {
+      "model": "sam3",
+      "model_id": "sam3-local",
+      "inference_interface": "sam3_tracker_pvs",
+      "box_batch_size": 128,
+      "revision": "local_checkpoint",
+      "snapshot_path": "models/sam3_hf",
+      "checkpoint_path": "models/sam3_hf/model.safetensors",
+      "checkpoint_bytes": 3439938512,
+      "expected_sha256": "6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a",
+      "actual_sha256": "6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a",
+      "configuration_files": [
+        {
+          "path": "config.json",
+          "bytes": 25843,
+          "sha256": "4616385e4b21f2e5e22c875b65679185cbccfa95de42542b9166f7dc3d57160f"
+        },
+        {
+          "path": "merges.txt",
+          "bytes": 524619,
+          "sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a"
+        },
+        {
+          "path": "processor_config.json",
+          "bytes": 1712,
+          "sha256": "6420cf2671fa9309ea95bc0144a8b9861666d1c5f43c8db09e410dacda974fce"
+        },
+        {
+          "path": "special_tokens_map.json",
+          "bytes": 588,
+          "sha256": "2cdb3b8331a60c92fc1e55a13e9fd61fd2293c5a51275fdcccd62b780052530e"
+        },
+        {
+          "path": "tokenizer.json",
+          "bytes": 3642073,
+          "sha256": "6d9109cc838977f3ca94a379eec36aecc7c807e1785cd729660ca2fc0171fb35"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 799,
+          "sha256": "39670ad98457fe8f14ca59f6bb74591e9fc850974380a63993e5b8ffc865baa2"
+        },
+        {
+          "path": "vocab.json",
+          "bytes": 862328,
+          "sha256": "5047b556ce86ccaf6aa22b3ffccfc52d391ea4accdab9c2f2407da5b742d4363"
+        }
+      ],
+      "configuration_tree_sha256": "c95a22863afc3d4714cd653047fdc47dfe73048341f62c41e43058e8124d32b1",
+      "passed": true
+    }
+  ]
+}

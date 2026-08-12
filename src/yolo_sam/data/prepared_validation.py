@@ -126,7 +126,9 @@ def _build_file_tree_manifest(
         "schema_version": 1,
         "status": "completed",
         "scope": scope,
-        "dataset_root": str(dataset_root),
+        # Manifest dosyası veri kümesi kökünde tutulur; mutlak makine yolu
+        # taşınabilir değildir ve içerik doğrulaması için gerekli değildir.
+        "dataset_root": ".",
         "splits": list(splits),
         "file_count": len(entries),
         "total_bytes": total_bytes,

@@ -1,0 +1,24 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "created_at_utc": "2026-08-12T11:52:40.274537+00:00",
+  "experiment_id": "samrs_small_vehicle",
+  "dataset_id": "samrs_sota_small_vehicle",
+  "reference_type": "pseudo_sam2",
+  "teacher": "sam2",
+  "teacher_prompt_type": "gt_bbox",
+  "teacher_inference_interface": "native_bbox_prompt",
+  "construction": "frozen_gt_bbox_prediction_identity",
+  "instance_count": 7659,
+  "empty_reference_count": 0,
+  "empty_reference_rate": 0.0,
+  "known_positive_empty_reference_policy": "score_zero",
+  "inputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/gt_bbox/predictions.jsonl": "0a7cec5b8092b25cbe80d43411a81b80de949a57ce8e410f953242dacad836f1",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/gt_bbox/manifest.json": "5f6acf8c2fa04dde6a5eadfe9a600ed0048e9bd0f19c80719dd37f9b6ee6b6ec"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/pseudo_sam2.jsonl": "5986bd7b4a2764b331b95c952e983ab3456388b37bbc8661e1a04df5cbf00b65"
+  },
+  "scientific_role": "coverage-aware identity control for the matching GT-bbox teacher; not independent ground truth"
+}

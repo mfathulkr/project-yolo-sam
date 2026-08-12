@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "dataset_id": "isaid_small_vehicle",
+  "master_prepared_root": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/master",
+  "master_content_manifest": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/master/content_manifest.json",
+  "master_content_manifest_sha256": "e72a6d8f76d7b29832fda1907a17a1a9418e48ada9bd6421c064241b671e4676",
+  "area_threshold": 0.0018463134765625,
+  "target_per_stratum": 128,
+  "test_scene_pool_coverage": {
+    "no_overlap__low_mask_area": 177,
+    "no_overlap__high_mask_area": 128,
+    "overlap__low_mask_area": 128,
+    "overlap__high_mask_area": 251
+  },
+  "selected_test_counts": {
+    "no_overlap__low_mask_area": 128,
+    "no_overlap__high_mask_area": 128,
+    "overlap__low_mask_area": 128,
+    "overlap__high_mask_area": 128
+  },
+  "selected_test_scene_count": 31,
+  "source_scene_overlap": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "split_summaries": {
+    "train": {
+      "images": 5930,
+      "annotations": 359927
+    },
+    "validation": {
+      "images": 1353,
+      "annotations": 71275
+    },
+    "test": {
+      "images": 512,
+      "annotations": 12051
+    }
+  }
+}

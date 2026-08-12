@@ -10,6 +10,7 @@ __pycache__/
 .ipynb_checkpoints/
 Thumbs.db
 .DS_Store
+.writer.lock
 
 tmp_smoke/
 tmp_sam3_smoke/
@@ -26,3 +27,27 @@ studies/*/data/prepared/
 studies/*/data/master/
 studies/*/results/
 studies/*/bundles/private_*
+
+# Canonical teacher-reference-bias paper study: keep portable metadata and
+# scientific outputs, but never version prepared raster/label trees.
+/studies/teacher_reference_bias_paper/experiments/*/data/master/
+/studies/teacher_reference_bias_paper/experiments/*/data/prepared/**/images/
+/studies/teacher_reference_bias_paper/experiments/*/data/prepared/**/labels/
+/studies/teacher_reference_bias_paper/experiments/*/data/prepared/**/*.cache
+/studies/teacher_reference_bias_paper/experiments/*/archives/
+
+# Detector training intermediates are reproducible from the config and data.
+# Keep only the canonical best checkpoint plus manifests/evaluation outputs.
+/studies/teacher_reference_bias_paper/experiments/*/results/detector/*/train/**
+!/studies/teacher_reference_bias_paper/experiments/*/results/detector/*/train/weights/
+!/studies/teacher_reference_bias_paper/experiments/*/results/detector/*/train/weights/best.pt
+!/studies/teacher_reference_bias_paper/experiments/*/results/detector/*/train/results.csv
+!/studies/teacher_reference_bias_paper/experiments/*/results/detector/*/train/args.yaml
+/studies/teacher_reference_bias_paper/experiments/*/results/detector/**/*.log
+/studies/teacher_reference_bias_paper/experiments/*/results/detector/**/resume_inputs/
+
+# Preserve the small pre-unification source/document record, not the 1.2 GB
+# historical result archive.
+/studies/teacher_reference_bias_paper/archives/pre_unification/*
+!/studies/teacher_reference_bias_paper/archives/pre_unification/legacy_roots/
+!/studies/teacher_reference_bias_paper/archives/pre_unification/legacy_roots/**

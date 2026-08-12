@@ -1,7 +1,0 @@
-Model,BBox,Human IoU,SAM1 Pseudo IoU,IoU Artışı
-SAM1,GT bbox,0.653,1.000,+0.347
-SAM1,YOLO bbox,0.597,0.873,+0.276
-SAM2,GT bbox,0.629,0.827,+0.198
-SAM2,YOLO bbox,0.574,0.750,+0.177
-SAM3,GT bbox,0.655,0.795,+0.140
-SAM3,YOLO bbox,0.595,0.721,+0.126

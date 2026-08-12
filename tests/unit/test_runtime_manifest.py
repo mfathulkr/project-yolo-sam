@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -11,6 +12,7 @@ from yolo_sam.runtime.manifest import (
     environment_snapshot,
     finish_run_manifest,
     new_run_manifest,
+    validate_completed_run_manifest,
 )
 
 
@@ -126,6 +128,187 @@ class RuntimeManifestTest(unittest.TestCase):
         )
         self.assertEqual(finished["input_drift"], ["source"])
         self.assertEqual(finished["input_fingerprint_capture"], "start")
+
+    def test_completed_manifest_allows_only_explicit_changed_inputs(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            source = root / "mutable-provenance.json"
+            output = root / "result.txt"
+            manifest_path = root / "manifest.json"
+            source.write_text('{"version": 1}\n', encoding="utf-8")
+            output.write_text("result\n", encoding="utf-8")
+            manifest = new_run_manifest(
+                project_root=Path(__file__).resolve().parents[2],
+                run_id="test-run",
+                stage="test",
+                config_hash="a" * 64,
+                inputs={"segmenter_provenance": str(source)},
+                parameters={},
+            )
+            manifest["outputs"] = {"result": str(output)}
+            finish_run_manifest(manifest, status="completed")
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            source.write_text('{"version": 2}\n', encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "Current input fingerprint mismatch"):
+                validate_completed_run_manifest(manifest_path)
+            validated = validate_completed_run_manifest(
+                manifest_path,
+                allow_changed_input_names=frozenset({"segmenter_provenance"}),
+            )
+
+        self.assertEqual(validated["run_id"], "test-run")
+
+    def test_completed_manifest_resolves_repository_relative_paths(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            (root / ".git").mkdir()
+            source = root / "data" / "source.txt"
+            output = root / "results" / "result.txt"
+            manifest_path = root / "results" / "run" / "manifest.json"
+            source.parent.mkdir()
+            output.parent.mkdir()
+            manifest_path.parent.mkdir()
+            source.write_text("source\n", encoding="utf-8")
+            output.write_text("result\n", encoding="utf-8")
+            manifest = new_run_manifest(
+                project_root=Path(__file__).resolve().parents[2],
+                run_id="portable-run",
+                stage="test",
+                config_hash="a" * 64,
+                inputs={"source": str(source)},
+                parameters={},
+            )
+            manifest["outputs"] = {"result": str(output)}
+            finish_run_manifest(manifest, status="completed")
+            manifest["inputs"]["source"] = "data/source.txt"
+            manifest["outputs"]["result"] = "results/result.txt"
+            for group, name, relative in (
+                ("input_file_fingerprints", "source", "data/source.txt"),
+                ("input_file_fingerprints_at_finish", "source", "data/source.txt"),
+                ("output_file_fingerprints", "result", "results/result.txt"),
+            ):
+                manifest[group][name]["path"] = relative
+            manifest["path_base"] = "repository_root"
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+            validated = validate_completed_run_manifest(manifest_path)
+
+        self.assertEqual(validated["run_id"], "portable-run")
+
+    def test_completed_manifest_never_exempts_changed_outputs(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            source = root / "mutable-provenance.json"
+            output = root / "result.txt"
+            manifest_path = root / "manifest.json"
+            source.write_text("source\n", encoding="utf-8")
+            output.write_text("before\n", encoding="utf-8")
+            manifest = new_run_manifest(
+                project_root=Path(__file__).resolve().parents[2],
+                run_id="test-run",
+                stage="test",
+                config_hash="a" * 64,
+                inputs={"segmenter_provenance": str(source)},
+                parameters={},
+            )
+            manifest["outputs"] = {"segmenter_provenance": str(output)}
+            finish_run_manifest(manifest, status="completed")
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            output.write_text("after\n", encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "Current output fingerprint mismatch"):
+                validate_completed_run_manifest(
+                    manifest_path,
+                    allow_changed_input_names=frozenset({"segmenter_provenance"}),
+                )
+
+    def test_completed_manifest_accepts_only_declared_runtime_input_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            source = root / "resume.pt"
+            output = root / "result.txt"
+            manifest_path = root / "manifest.json"
+            source.write_text("before\n", encoding="utf-8")
+            output.write_text("result\n", encoding="utf-8")
+            manifest = new_run_manifest(
+                project_root=Path(__file__).resolve().parents[2],
+                run_id="resume-run",
+                stage="test",
+                config_hash="a" * 64,
+                inputs={"resume_checkpoint": str(source)},
+                parameters={},
+                expected_input_drift=("resume_checkpoint",),
+            )
+            source.write_text("after\n", encoding="utf-8")
+            manifest["outputs"] = {"result": str(output)}
+            finish_run_manifest(manifest, status="completed")
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+            validated = validate_completed_run_manifest(manifest_path)
+
+        self.assertEqual(validated["input_drift"], ["resume_checkpoint"])
+        self.assertEqual(validated["expected_input_drift"], ["resume_checkpoint"])
+
+    def test_completed_manifest_rejects_undeclared_runtime_input_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            source = root / "source.txt"
+            output = root / "result.txt"
+            manifest_path = root / "manifest.json"
+            source.write_text("before\n", encoding="utf-8")
+            output.write_text("result\n", encoding="utf-8")
+            manifest = new_run_manifest(
+                project_root=Path(__file__).resolve().parents[2],
+                run_id="drift-run",
+                stage="test",
+                config_hash="a" * 64,
+                inputs={"source": str(source)},
+                parameters={},
+            )
+            source.write_text("after\n", encoding="utf-8")
+            manifest["outputs"] = {"result": str(output)}
+            finish_run_manifest(manifest, status="completed")
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "Run inputs changed"):
+                validate_completed_run_manifest(manifest_path)
+
+    def test_completed_manifest_rejects_unknown_expected_drift_input(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            source = root / "source.txt"
+            output = root / "result.txt"
+            manifest_path = root / "manifest.json"
+            source.write_text("source\n", encoding="utf-8")
+            output.write_text("result\n", encoding="utf-8")
+            manifest = new_run_manifest(
+                project_root=Path(__file__).resolve().parents[2],
+                run_id="invalid-loaded-run",
+                stage="test",
+                config_hash="a" * 64,
+                inputs={"source": str(source)},
+                parameters={},
+            )
+            manifest["expected_input_drift"] = ["resume_checkpoint"]
+            manifest["outputs"] = {"result": str(output)}
+            finish_run_manifest(manifest, status="completed")
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "declared inputs"):
+                validate_completed_run_manifest(manifest_path)
+
+    def test_new_manifest_rejects_unknown_expected_drift_input(self) -> None:
+        with self.assertRaisesRegex(ValueError, "declared inputs"):
+            new_run_manifest(
+                project_root=Path(__file__).resolve().parents[2],
+                run_id="invalid-run",
+                stage="test",
+                config_hash="a" * 64,
+                inputs={},
+                parameters={},
+                expected_input_drift=("resume_checkpoint",),
+            )
 
 
 if __name__ == "__main__":

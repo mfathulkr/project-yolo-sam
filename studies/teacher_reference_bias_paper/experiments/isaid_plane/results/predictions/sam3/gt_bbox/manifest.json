@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "run_id": "teacher_reference_bias_v2_512-isaid_plane-sam3-gt-bbox-0f665a3c4897",
+  "stage": "gt_bbox_segmentation",
+  "status": "completed",
+  "started_at_utc": "2026-08-11T15:46:58.256042+00:00",
+  "finished_at_utc": "2026-08-11T15:51:33.338254+00:00",
+  "config_hash": "0f665a3c48971702e4e76231dfe3c99fe51544c703a87172d8d2fc6b2adc5f4e",
+  "inputs": {
+    "dataset_config": "studies/teacher_reference_bias_paper/experiments/isaid_plane/config.yaml",
+    "annotation_path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/test/_annotations.coco.json",
+    "images_root": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/test/images",
+    "prepared_content_manifest": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/content_manifest.json",
+    "segmenter_provenance": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/segmenter_provenance.input.json",
+    "effective_config": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/effective_config.input.json"
+  },
+  "input_file_fingerprints": {
+    "dataset_config": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/config.yaml",
+      "bytes": 590,
+      "sha256": "f2aa8fbeeeb78a283728bf7c9af91e8776a1bab5d9d06ac6282c48006da67314"
+    },
+    "annotation_path": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/test/_annotations.coco.json",
+      "bytes": 3175772,
+      "sha256": "1c332c028ae9f8452aee2daf6bb906e9ba0aa7e8c33268e4158293500a35eab5"
+    },
+    "prepared_content_manifest": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/content_manifest.json",
+      "bytes": 785330,
+      "sha256": "4e3447a63d84d0e485480696e93a842bb588e652a555944bb7c0cfab6819c6bd"
+    },
+    "segmenter_provenance": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/segmenter_provenance.input.json",
+      "bytes": 4704,
+      "sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    "effective_config": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/effective_config.input.json",
+      "bytes": 795,
+      "sha256": "e53056c160c99cc33ec4f2bb87c9a33240e461ef59140edf87826bffd830eac6"
+    }
+  },
+  "input_fingerprint_capture": "start",
+  "input_file_fingerprints_at_finish": {
+    "dataset_config": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/config.yaml",
+      "bytes": 590,
+      "sha256": "f2aa8fbeeeb78a283728bf7c9af91e8776a1bab5d9d06ac6282c48006da67314"
+    },
+    "annotation_path": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/test/_annotations.coco.json",
+      "bytes": 3175772,
+      "sha256": "1c332c028ae9f8452aee2daf6bb906e9ba0aa7e8c33268e4158293500a35eab5"
+    },
+    "prepared_content_manifest": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/content_manifest.json",
+      "bytes": 785330,
+      "sha256": "4e3447a63d84d0e485480696e93a842bb588e652a555944bb7c0cfab6819c6bd"
+    },
+    "segmenter_provenance": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/segmenter_provenance.input.json",
+      "bytes": 4704,
+      "sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    "effective_config": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/effective_config.input.json",
+      "bytes": 795,
+      "sha256": "e53056c160c99cc33ec4f2bb87c9a33240e461ef59140edf87826bffd830eac6"
+    }
+  },
+  "input_drift": [],
+  "expected_input_drift": [],
+  "parameters": {
+    "model": "sam3",
+    "model_config": {
+      "model_id": "sam3-local",
+      "model_dir": "models/sam3_hf",
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_sha256": "6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a",
+      "inference_interface": "sam3_tracker_pvs",
+      "torch_dtype": "float32",
+      "mask_threshold": 0.0,
+      "box_batch_size": 128
+    },
+    "split": "test",
+    "device": "cuda:0",
+    "prompt_type": "gt_bbox"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.4.4",
+      "opencv-python": "4.13.0.92",
+      "pandas": "3.0.2",
+      "Pillow": "12.2.0",
+      "matplotlib": "3.10.9",
+      "pycocotools": "2.0.11",
+      "python-docx": "1.2.0",
+      "PyYAML": "6.0.3",
+      "safetensors": "0.7.0",
+      "scipy": "1.17.1",
+      "torch": "2.11.0",
+      "transformers": "5.6.2",
+      "ultralytics": "8.4.41"
+    },
+    "cuda": {
+      "available": true,
+      "device_count": 1,
+      "torch_cuda_version": "13.0",
+      "devices": [
+        "NVIDIA RTX A6000"
+      ]
+    },
+    "environment_variables": {
+      "CUDA_VISIBLE_DEVICES": "0",
+      "PYTORCH_ALLOC_CONF": "backend:cudaMallocAsync"
+    },
+    "git": {
+      "head": "59f4b1620af3ada96558ee8b93e8ea2bbb2826fd",
+      "branch": "main",
+      "dirty": true
+    },
+    "source_tree": {
+      "sha256": "185e10ce7a7a55273461eaced785cc666f98c294a8ab2ca498b5d06b01a6b663",
+      "file_count": 215
+    }
+  },
+  "error": null,
+  "config_hash_scope": "bbox_segmentation_effective_v1",
+  "outputs": {
+    "predictions": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/predictions.jsonl",
+    "prediction_count": 5447
+  },
+  "output_file_fingerprints": {
+    "predictions": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/predictions.jsonl",
+      "bytes": 5217848,
+      "sha256": "251abb4ec9d49ecc611103af5350033250c3504aa40ee11a6fd752dc1c579b73"
+    }
+  },
+  "paper_study_layout_migration": {
+    "schema_version": 1,
+    "migration_id": "teacher_reference_bias_paper_unification_v1",
+    "migrated_at_utc": "2026-08-12T13:00:50.285874+00:00",
+    "reason": "repository_layout_only_no_model_rerun",
+    "original_manifest_sha256": "e7ddeafe5a2f304733a684881254257d61f97dec20eca956ca439f8c293b1593",
+    "path_base": "repository_root",
+    "fingerprint_refresh_count": 6
+  },
+  "path_base": "repository_root"
+}

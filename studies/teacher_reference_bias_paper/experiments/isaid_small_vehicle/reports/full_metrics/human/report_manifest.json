@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "status": "completed",
+  "study_id": "teacher_reference_bias_paper",
+  "dataset_id": "isaid_small_vehicle",
+  "report_format": "legacy_samrs_full_metric_colored",
+  "inputs": {
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/aggregate_metrics.csv": "120ccd79d72e80bfba28f0fcc98c738d616e4a8d6ae6dc6d3704ffa255c810ef",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/detector_summary.csv": "9d59b8409f8d837397b172cf558f560c337eaab32fa0fe4feac50c7b5dced2da",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/human_gt_bbox_qualitative.png": "70e512a1c6c734fdf049277864ae696608160887b40db2552f609957c6c16417",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/manifest.json": "91c2b665840449397a891be7eeff2fed3cdee4a30c98f9e6fdedd48dfc1786be",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_reference_effects.csv": "5883857675b274047838e1698593ff5e5147144a05525f51450c5af62cf229a6",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/manifest.json": "6f6bf7967d37ab8be3c73b72a24412a9a75a48c8b8bff17443200832e11ba6d5"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/isaid_small_vehicle_human_full_metric_document.md": "04b02f40d3dc3af627519d6bf0934570325db5065a8b8e47c258e5b7729bf2a8",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/isaid_small_vehicle_human_full_metric_document_colored.docx": "851239271366374bf5030a15ca86a2bf901e51f531d5cb89b20e9f8eb4798979",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/isaid_small_vehicle_human_full_metric_document_colored.pdf": "854e704506f6f7c522cbf379d0d59fada75ac72ba9cc507ade38abfcd3fbd97a",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/detector_summary.csv": "764bc28ba678961f448e8608cbf783b0036f93dc36805bd312dbf495356830dd",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__no_overlap__high_mask_area.csv": "4509698bb0046e8571fb6ac4d849b18c5dbc8d2eb4adfdc268e909d52b6392f5",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__no_overlap__low_mask_area.csv": "cac1cac2b6d82a860e8eb734088d45ec823e54e3e05e46cfc4b2a1dfc20df203",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__overall.csv": "6831ef16947a9fe3639bebaf14365701de42cbeaef9227898d446da0276b783e",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__overlap__high_mask_area.csv": "d6f8576fe2ade2c2427b7d9b065ed2075c4d24649ede7d113229884f1a5c2c70",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__overlap__low_mask_area.csv": "caab888dc69b90dda0cd613f0504abaab2c45e90bb1c9cb579b83c8e2a412f84",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/no_overlap__low_mask_area.png": "8b2218c063b5aeeaaea50410c943eb6c37f4d7ae1d0a25cc0ab607082a34da7f",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/no_overlap__high_mask_area.png": "169fbab7a29cf7f8ac83ae2004af1bafb1afedea5127f014da9c54524d2e9217",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/overlap__low_mask_area.png": "2753cc509e6225f20b8df9e7e70a4057f4e9ecef50ecde8544a3fdba702f1245",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/overlap__high_mask_area.png": "a54596b2fa6c44f977aecd00dc76c65589e87c5216c2760aa26c4b6d992cbdbe"
+  },
+  "strata": [
+    "overall",
+    "no_overlap__low_mask_area",
+    "no_overlap__high_mask_area",
+    "overlap__low_mask_area",
+    "overlap__high_mask_area"
+  ],
+  "reference_sections": [
+    "human"
+  ]
+}

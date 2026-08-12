@@ -1,4 +1,11 @@
-studies/teacher_reference_bias_v2_512/results/detectors/**/weights/best.pt filter=lfs diff=lfs merge=lfs -text
-studies/teacher_reference_bias_v2_512/bundles/*.tar.gz filter=lfs diff=lfs merge=lfs -text
-studies/teacher_reference_bias_small_vehicle_v1_512/results/detectors/**/weights/best.pt filter=lfs diff=lfs merge=lfs -text
-studies/teacher_reference_bias_small_vehicle_v1_512/bundles/*.tar.gz filter=lfs diff=lfs merge=lfs -text
+# Portable canonical detector checkpoints.
+studies/teacher_reference_bias_paper/experiments/*/results/detector/**/weights/best.pt filter=lfs diff=lfs merge=lfs -text
+
+# Large but scientifically necessary machine-readable outputs.
+studies/teacher_reference_bias_paper/experiments/*/results/**/*.jsonl filter=lfs diff=lfs merge=lfs -text
+studies/teacher_reference_bias_paper/experiments/*/results/analysis/canonical_instance_metrics.csv filter=lfs diff=lfs merge=lfs -text
+studies/teacher_reference_bias_paper/experiments/*/results/detector/**/detections_coco.json filter=lfs diff=lfs merge=lfs -text
+
+# Prepared raster images and YOLO labels are ignored, while portable COCO
+# annotations remain available for evaluation and are stored through LFS.
+studies/teacher_reference_bias_paper/experiments/*/data/prepared/**/_annotations.coco.json filter=lfs diff=lfs merge=lfs -text

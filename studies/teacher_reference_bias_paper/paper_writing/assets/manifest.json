@@ -1,0 +1,199 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "scope": "four_experiments_no_cross_dataset_pooling",
+  "inputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/aggregate_metrics.csv",
+      "bytes": 28268,
+      "sha256": "20c3393688464645bfee087d93df8b29d6b4f7f902c333519a55d79e2cd28c7c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/paired_reference_effects.csv",
+      "bytes": 2891,
+      "sha256": "16de40c1c5914cb3ae6b0c28239169cecbb87c9828010876a5eb75d580d88d6a"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/reference_agreement.csv",
+      "bytes": 408,
+      "sha256": "5cf9ef37aada56e1602a17140ed26c2dc1e5692d0e1c168f096bee9622bddcd6"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/detector_summary.csv",
+      "bytes": 776,
+      "sha256": "02dfb7ad73cd9ccb885b4a1bce1c21e5ac7928aebd75e5d4fecfc58283c0371c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/aggregate_metrics.csv",
+      "bytes": 29794,
+      "sha256": "120ccd79d72e80bfba28f0fcc98c738d616e4a8d6ae6dc6d3704ffa255c810ef"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_reference_effects.csv",
+      "bytes": 3082,
+      "sha256": "5883857675b274047838e1698593ff5e5147144a05525f51450c5af62cf229a6"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/reference_agreement.csv",
+      "bytes": 463,
+      "sha256": "d73df154695eb7f02215d52ae22108571303efa4334e4b41ce16c1549a000660"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/detector_summary.csv",
+      "bytes": 789,
+      "sha256": "9d59b8409f8d837397b172cf558f560c337eaab32fa0fe4feac50c7b5dced2da"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/aggregate_metrics.csv",
+      "bytes": 29825,
+      "sha256": "dbd99298a060cdd0ad8e753c656fd1882944ef94145eccd00611a975ec785cae"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/paired_reference_effects.csv",
+      "bytes": 3476,
+      "sha256": "3d0fb69847ecd5e23a4b0cbcc81da4c3e8c7fc0038dcd221625080d14f05d376"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/reference_agreement.csv",
+      "bytes": 533,
+      "sha256": "56f23e6d8c00c4f8d0cd0cc1d7be41aff643d048f45f8519263d6452566b354a"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/detector_summary.csv",
+      "bytes": 783,
+      "sha256": "f94fce0d59ccee3b3b9eadf90ca0496e407adfa34d7ddffbe177dbda0434a67e"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/aggregate_metrics.csv",
+      "bytes": 30712,
+      "sha256": "2945ba429e06152677f1a5157ef7fdd27c87017db2bc897e8418303b1f38c304"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/paired_reference_effects.csv",
+      "bytes": 3655,
+      "sha256": "cd45bd69073a56327143e17894dde981c506c60307c1d3ab300cfb1507d4b079"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/reference_agreement.csv",
+      "bytes": 581,
+      "sha256": "bcddc48cc560e57826223389e3df43aa9172709f136167ffa3a6dce8940b5a0c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/detector_summary.csv",
+      "bytes": 791,
+      "sha256": "f159a0aa33fa1f568f29c561dea44c7290371f3f8b15be241ecda89b4f052768"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_1_study_design.png",
+      "bytes": 213791,
+      "sha256": "0fb915200366f1b4bdb04efe3cf3138c2d37ddae7256991547bc55e1894a1406"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_1_study_design.pdf",
+      "bytes": 30975,
+      "sha256": "c9582f0b34ee2e7e6f4586ecd891f975cf739cad4cae9719a205c4c67a59d68b"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_2_model_reference_iou_matrix.png",
+      "bytes": 316609,
+      "sha256": "341434dda7fbd134687692d257864c931f9cb4470e218961a02b6f2f9f769c1c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_2_model_reference_iou_matrix.pdf",
+      "bytes": 38951,
+      "sha256": "fe4113e6827601f43bc1c797e470708a65d7143516e427377d6415ba0be85aa4"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_3_isaid_reference_effect_with_ci.png",
+      "bytes": 117623,
+      "sha256": "fc70e2d05d83f3caab23c50300ce7e9ab477ce769e99c868b0fc2d03048885f3"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_3_isaid_reference_effect_with_ci.pdf",
+      "bytes": 27114,
+      "sha256": "a79f421fd3f94e3cdc4980dbbf2230148ad7e3e3cdfd0e72304c980ba02fe4dd"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_4_samrs_reference_integrity.png",
+      "bytes": 128945,
+      "sha256": "84ce33dbfd7407de2fb09c10be2c2fa2a15ecaaec40589b947b851e7086f7896"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_4_samrs_reference_integrity.pdf",
+      "bytes": 29477,
+      "sha256": "f316c6038ce87262ab5f84eeb5d63e8435a3fdc650488b6aae6ed1293ab43dc0"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_5_stratified_self_reference_effect.png",
+      "bytes": 306550,
+      "sha256": "d7c09389e035e38ed15137feb2ed66eee39669d0c8419b0e27952a8198d6dbba"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/figures/figure_5_stratified_self_reference_effect.pdf",
+      "bytes": 28900,
+      "sha256": "164fdc57567595d4a3dc0e066c2388b1825e1d208c0f1a03471e9c7b1af2692f"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_1_experimental_design.csv",
+      "bytes": 316,
+      "sha256": "3536d96795f0d65a36b350ddb03e469430c7a8b7e1a1f30a7cbcfad71c7257e7"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_1_experimental_design.tex",
+      "bytes": 460,
+      "sha256": "34078bb5dbc80846684b0bc6d2d7f12c4fa65fc5e3e5b04daf61f32469580d91"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_2_baseline_reference_results.csv",
+      "bytes": 894,
+      "sha256": "783129b6d3c8ffdb55777df3057e99ee1be975049d5e00601993ff364d1e85f5"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_2_baseline_reference_results.tex",
+      "bytes": 1635,
+      "sha256": "ea7860499d579f3ce87b6860af8300c63deea832e120cddf423f39051f1a5995"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_3_own_reference_effect.csv",
+      "bytes": 864,
+      "sha256": "12e3e36f4611bd25a66495c45070d3dc94c91bdd15461a86975418f18fa143e8"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_3_own_reference_effect.tex",
+      "bytes": 1725,
+      "sha256": "07c757f031c77711cd80b6e9a4c8a48c2716ddc01ee5b23a4d972b8a511bfafb"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_4_samrs_reference_integrity.csv",
+      "bytes": 217,
+      "sha256": "43a068622bab391b7b1a8d27ea28c2fd55dbdbdda471a28a25b7c8de7d9c61ac"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_4_samrs_reference_integrity.tex",
+      "bytes": 329,
+      "sha256": "bee0e66461811a3e28a63426b9cc2bb69f464eb78be4c456561dc7576bb599b5"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_5_detector_control.csv",
+      "bytes": 382,
+      "sha256": "86051b78f4421efcdcf68e9c6f4382170229e8f209f71b42b3776029f41a6b2c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_5_detector_control.tex",
+      "bytes": 772,
+      "sha256": "fad43e91fe7df4fa62de7d42298d17f5ccaa1e5a45ce42de18308f7b638476aa"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_s1_stratified_reference_effect.csv",
+      "bytes": 3566,
+      "sha256": "51485419d7e579d4949834518121cbb09f335a8ab19ae0c297c41e2e05285a89"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/paper_writing/assets/tables/table_s1_stratified_reference_effect.tex",
+      "bytes": 5963,
+      "sha256": "d4c29972d0a6d5d130e090273845a3e5323cf61aba3c3b7bee695ebf9a22adee"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "dataset_root": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared",
+  "passed": true,
+  "split_summaries": {
+    "train": {
+      "images": 1571,
+      "positive_images": 1252,
+      "negative_images": 319,
+      "annotations": 8558,
+      "source_scenes": 377
+    },
+    "validation": {
+      "images": 321,
+      "positive_images": 249,
+      "negative_images": 72,
+      "annotations": 1110,
+      "source_scenes": 82
+    },
+    "test": {
+      "images": 512,
+      "positive_images": 512,
+      "negative_images": 0,
+      "annotations": 5447,
+      "source_scenes": 44
+    }
+  },
+  "findings": []
+}

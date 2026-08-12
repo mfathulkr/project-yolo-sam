@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "inputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/aggregate_metrics.csv",
+      "bytes": 30712,
+      "sha256": "2945ba429e06152677f1a5157ef7fdd27c87017db2bc897e8418303b1f38c304"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/paired_reference_effects.csv",
+      "bytes": 3655,
+      "sha256": "cd45bd69073a56327143e17894dde981c506c60307c1d3ab300cfb1507d4b079"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/ranking_by_reference.csv",
+      "bytes": 1054,
+      "sha256": "a2d6d97e22f77b47a96230c23613072948e10a692d34b69422ad399d5ce2c162"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/teacher_advantage.csv",
+      "bytes": 1033,
+      "sha256": "dc23ae8e982168e6e586b7379edc279fc5efd606fa3b4b51acb933748c0e9c1e"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/reference_agreement.csv",
+      "bytes": 581,
+      "sha256": "bcddc48cc560e57826223389e3df43aa9172709f136167ffa3a6dce8940b5a0c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/reference_empty_stats.csv",
+      "bytes": 135,
+      "sha256": "12ec3200c38206e66c2bff64fa03370192ba745ffd845fdde092d5ab19f2cae1"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/cross_analysis/samrs_small_vehicle_cross_reference_analysis.md",
+      "bytes": 7513,
+      "sha256": "755aa5cf9c616b9ab061138ad8e03b020672814e8b77c11b2463ee0a44dce0b0"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/cross_analysis/samrs_small_vehicle_cross_reference_analysis_colored.docx",
+      "bytes": 282068,
+      "sha256": "c485dba6809d96150c92368f6e3aace80e2463f0edbb816e1f10735b6754af56"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/cross_analysis/samrs_small_vehicle_cross_reference_analysis_colored.pdf",
+      "bytes": 70329,
+      "sha256": "69fb7245955842e8350455f176a02b3a06d079e3921908b8f075694c5c1a66bd"
+    }
+  ]
+}

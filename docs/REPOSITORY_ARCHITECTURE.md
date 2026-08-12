@@ -1,208 +1,122 @@
 # Repository Architecture
 
-## Amaç
+## Temel Kural
 
-Bu depo birden fazla uzaktan algılama deneyini barındırır. Dizin yapısının
-temel kuralı şudur:
+Bir dosya yalnız bir araştırma çalışmasında kullanılıyorsa o çalışmanın
+altında; birden fazla çalışmada aynı sözleşmeyle kullanılıyorsa kökteki ortak
+katmanda bulunur. Config, hazırlanmış veri, prediction, analiz ve raporların
+hangi bilimsel sonuca ait olduğu dizinden anlaşılmalıdır.
 
-> Bir dosya yalnız bir çalışmada kullanılıyorsa o çalışmanın altında; birden
-> fazla çalışmada gerçekten aynı davranışla kullanılıyorsa kökteki ortak
-> katmanda bulunur.
-
-Bu ayrım yalnız görünür düzen için değildir. Config, hazırlanmış veri, çalışma
-çıktısı, rapor ve yeniden üretim komutlarının hangi bilimsel sonuca ait
-olduğunu açıkça belirler.
-
-## Kök Dizin Sözleşmesi
-
-Kökte yalnız aşağıdaki ortak bileşenler bulunabilir:
+## Kök Dizinler
 
 | Dizin | Sorumluluk |
 |---|---|
-| `src/yolo_sam/` | Veri setinden ve araştırma sorusundan bağımsız ortak YOLO/SAM kodu |
-| `tools/` | Birden fazla çalışmanın çağırdığı ortak bakım ve çalıştırma araçları |
-| `datasets/` | Birden fazla çalışma tarafından kullanılan değiştirilemez ham veri kaynakları |
-| `models/` | Ortak model ağırlıkları ve yerel model cache'leri |
-| `external_models/` | Vendored harici model kaynak kodları |
-| `docs/` | Depo mimarisi, ortak durum ve çalışma günlüğü |
-| `studies/` | Her deney çalışmasının bütün sahipliğini taşıyan dizin |
-| `tests/` | Yalnız ortak kütüphane davranışını sınayan testler |
+| `src/yolo_sam/` | Veri setinden ve araştırma sorusundan bağımsız YOLO/SAM kodu |
+| `tools/` | Birden fazla çalışmanın kullandığı bakım ve model araçları |
+| `datasets/` | Paylaşılan, değiştirilemez ham veri kaynakları |
+| `models/` | Ortak başlangıç checkpointleri ve yerel model cache'leri |
+| `external_models/` | Harici model kaynak kodları |
+| `docs/` | Depo mimarisi, ortak durum ve worklog |
+| `studies/` | Araştırma sorusu bazında bütün çalışma sahipliği |
+| `tests/` | Ortak kütüphane davranışı testleri |
 
-Kökte `artifacts/`, `results/`, `runs/`, `data/` veya `presentation_*`
-bulunmaz. Bu adlar çalışma sahipliğini gizlediği için kullanımdan
-kaldırılmıştır.
+Kökte genel `artifacts/`, `results/`, `runs/`, `data/` veya
+`presentation_*` klasörü tutulmaz.
 
-## Study Sözleşmesi
-
-Tamamlanmış bir çalışma mümkün olduğunda şu yapıyı kullanır:
+## Kanonik Bildiri Çalışması
 
 ```text
-studies/<study_id>/
+studies/teacher_reference_bias_paper/
+├── README.md
+├── configs/                  # Dört deney için ortak protokol
+├── experiments/
+│   ├── isaid_plane/
+│   ├── isaid_small_vehicle/
+│   ├── samrs_plane/
+│   └── samrs_small_vehicle/
+├── analysis/                 # Dört deney arası ana analiz
+├── paper_writing/
+│   ├── assets/               # Beş figür ve altı tablo
+│   └── overleaf/             # Elektr şablonu ve BibTeX
+├── literature_review/
+├── docs/                     # Ortak yöntem, QA ve handoff
+├── scripts/                  # Orchestration ve üretim komutları
+├── src/                      # Bu araştırma sorusuna özgü kod
+├── tests/
+└── archives/pre_unification/ # Taşıma öncesi kayıtlar
+```
+
+Her deney şu sözleşmeyi kullanır:
+
+```text
+experiments/<experiment_id>/
 ├── README.md
 ├── configs/
-├── data/
-│   └── prepared/
-├── docs/
-├── reports/
+├── data/                     # master/prepared veri ve manifestler
+├── docs/                     # Deneye özgü yöntem ve tekrar üretim
+├── results/                  # detector, prediction, reference, evaluation
+├── figures/
 ├── results/
-├── scripts/
-├── src/
-└── tests/
+│   ├── analysis/             # canonical metric cube ve özet CSV'ler
+│   ├── detector/
+│   ├── predictions/
+│   └── references/
+└── reports/
+    ├── full_metrics/<reference>/
+    └── cross_analysis/
 ```
 
-- `README.md`: Araştırma sorusu, durum, kapsam, ana sonuç ve yeniden üretim
-  komutları.
-- `configs/`: Yalnız o çalışmaya ait protokol ve veri seti configleri.
-- `data/prepared/`: Çalışmanın ürettiği train/validation/test türevleri.
-- `docs/`: Deney planı, literatür, walkthrough ve yeniden üretilebilirlik eki.
-- `reports/`: Markdown, DOCX, PDF ve rapora ait görseller.
-- `results/`: Prediction, evaluation, detector run, audit ve manifestler.
-- `scripts/`: Yalnız o çalışma için anlamlı komutlar.
-- `src/`: Araştırma sorusuna veya veri eşlemesine özel Python paketi.
-- `tests/`: O çalışmanın protokol ve raporlama testleri.
+Birleştirme öncesindeki üç teacher-bias kökü aktif `studies/` listesinden
+kaldırılmıştır. Küçük kod/doküman kayıtları ile yerel sonuç geçmişleri
+`archives/pre_unification/legacy_roots/` altında korunur; aktif script ve
+configler bu yollardan çalışma zamanı girdisi okuyamaz.
 
-Bir çalışmada kullanılmayan alt dizin boş tutulmaz.
+## Deney Sahipliği
 
-Boş dizini Git'te tutmak için `.gitkeep` veya `.keep` kullanılmaz. Gerçek bir
-dosya üretildiğinde dizin doğal olarak oluşur; kullanılmayan dizin silinir.
-
-Bir çalışmanın `configs/`, `scripts/` ve `src/` dosyaları başka bir
-`studies/<study_id>/results` yolunu çalışma zamanı girdisi olarak kullanamaz.
-V2 veri hazırlayıcı, v1'in doğrulanmış tam tile havuzunu yalnız başlangıç
-kaynağı olarak kullanır; kaynak içerik hash ile sabitlenir ve hiçbir detector,
-tahmin veya metrik sonucu aktarılmaz. Geçmiş çalışmaların geçerlilik durumunu
-kaydeden `teacher_reference_bias_v1/scripts/snapshot_study_state.py` deney
-girdisi okumayan belgelenmiş denetim istisnasıdır.
-
-## Çalışmalar
-
-### `teacher_reference_bias_v2_512`
-
-Tamamlanmış canonical ve bildiri niteliğindeki eşlenmiş deneydir. Her veri setinde dört
-alt grupta 128'er, Overall'da 512 görüntü kullanır. Aynı iSAID plane
-tahminlerini hem resmi insan maskeleri hem SAM1 üretimli pseudo maskeler
-karşısında ölçer; SAMRS SOTA'yı ayrı bir SAM1-pseudo referans koşulu olarak
-inceler.
-
-Durum: `completed_canonical`
-
-### `teacher_reference_bias_small_vehicle_v1_512`
-
-Plane canonical deneyinin yalnız hedef sınıfı küçük araç olacak biçimde
-eşlenmiş tekrarıdır. İki veri setinde de aynı 1024×1024 giriş, sabit seed 42
-YOLO26x detector, SAM1/SAM2/SAM3, GT/YOLO bbox ve 4×128 test düzenini kullanır.
-iSAID tahminleri insan ve kontrollü SAM1-pseudo referanslarına karşı; SAMRS
-tahminleri yayımlanan SAM1-pseudo referansına karşı değerlendirilir.
-
-Durum: `in_progress_canonical_matched`
-
-### `teacher_reference_bias_v1`
-
-İlk 4×32 protokollü eşlenmiş deneydir. V2'nin tarihsel öncülü olarak
-değiştirilmeden korunur ve güncel bildiri kanıtına otomatik karıştırılmaz.
-
-Durum: `completed_superseded`
-
-### `isaid_vehicle_study`
-
-İlk tarihsel çalışmadır. iSAID `Small_Vehicle + Large_Vehicle` birleşik
-maskeleri üzerinde çeşitli detection/segmentation pipeline'larını karşılaştırır.
-Kendi araştırma sorusu için korunur; eşlenmiş teacher-bias deneyinin kanıtı
-değildir.
-
-Durum: `historical_context_only`
-
-### `samrs_sota_plane_study`
-
-SAMRS SOTA plane pseudo-maskeleri üzerinde yapılan ikinci tarihsel çalışmadır.
-Pseudo-reference yanlılığı araştırma sorusunu doğurması bakımından değerlidir;
-ancak eski protokol eşlenmemiş olduğu için bildiri kanıtı olarak kullanılmaz.
-
-Durum: `invalid_for_paper_evidence`
-
-### `semantic_drone_car_study`
-
-Semantic Drone car deneyi için hazırlanmış config ve handoff notlarını tutar.
-Tamamlanmış sonuç yoktur.
-
-Durum: `planned`
-
-### `landcover_building_study`
-
-Eski landcover.ai building configini ve ilgili hazırlama kodunu tarihsel olarak
-tutar. Tamamlanmış ve doğrulanmış çalışma olarak sunulmaz.
-
-Durum: `legacy_incomplete`
-
-## Veri Sahipliği
+- `data/master`: Deneye özgü tam aday havuzu.
+- `data/prepared`: Dondurulmuş train/validation/test türevi.
+- `results/detector`: Yalnız o hedef için eğitilmiş YOLO ve bbox çıktıları.
+- `results/predictions`: Model, bbox kaynağı ve seed koşulu tahminleri.
+- `results/references`: Değerlendirme referans maskeleri.
+- `results/analysis`: Instance düzeyi metrik küpü ve türetilmiş istatistikler.
+- `reports`: İnsan tarafından okunacak MD, DOCX, PDF ve rapor tabloları.
 
 Ham iSAID ve SAMRS kaynakları birden fazla çalışmada kullanıldığı için
-`datasets/` altındadır:
+`datasets/` altındadır. Eğitilmiş detector `best.pt` dosyaları deneye özgüdür
+ve Git LFS ile ilgili deney altında tutulur.
 
-```text
-datasets/
-├── isaid/
-│   ├── raw/
-│   └── downloads/
-└── samrs/
-    └── raw/
-```
+## Rapor Sözleşmesi
 
-Çalışma tarafından dönüştürülen tile, label, RLE, split ve metadata dosyaları
-ilgili `studies/<study_id>/data/prepared/` altında bulunur. Ham veriye
-çalışma çıktısı yazılmaz.
+Tam metrik raporlar tarihsel SAMRS raporunun okunaklı sayfa biçimini korur:
 
-## Model Sahipliği
-
-Birden fazla çalışmada kullanılan YOLO başlangıç ağırlıkları:
-
-```text
-models/yolo/yolo26n.pt
-models/yolo/yolo26x.pt
-```
-
-SAM ve tarihsel çalışmalarda kullanılan diğer model cache/checkpointleri de
-ortak `models/` altında kalır. Eğitilmiş detector ağırlıkları ise çalışmaya
-özgüdür ve ilgili `results/detectors/` altında bulunur.
-
-## Sonuç ve Rapor Sahipliği
-
-Her sonuç, onu üreten çalışmanın `results/` dizinine yazılır. Bir rapor yalnız
-aynı çalışmanın `results/` ve `data/prepared/` kaynaklarını okuyabilir.
-
-Tarihsel raporlar silinmez. Bilimsel geçerlilik statüsü çalışma README'sinde
-ve kökteki `docs/LEGACY_STATUS.md` dosyasında açıkça yazılır.
-
-Teacher-reference-bias çalışmasının veri seti başına tam metrik belgeleri,
-tarihsel SAMRS raporunun okunaklı sayfa yapısını kullanır:
-
-- Her tablo ayrı yatay sayfadadır.
-- İlk sütun tek bir `Pipeline` adıdır.
-- `Images` örnek kapsamını gösterir.
-- Maske tablolarında yalnız `Avg IoU`, `Avg Dice`, `Avg Precision`,
-  `Avg Recall` ve açıkça adlandırılmış `IoU ≥ 0.50/0.75/0.90` geçme oranları
-  bulunur.
-- Maske eşik oranları mAP olarak adlandırılmaz.
-- Gerçek BBox mAP, Precision ve Recall yalnız YOLO detector tablosunda yer
-  alır.
-- `n`, `Sahne`, `Tekrar`, `Boundary IoU` ve uydurma `mAP proxy` sütunları
-  sunum tablolarında kullanılmaz.
-- Nitel örneklerin dört overlap × mask-area grubu ayrı ve okunaklı sayfalarda
-  gösterilir.
+- `Overall` ve dört overlap × mask-area tablosu ayrı yatay sayfalardadır.
+- Maske tablolarında Avg IoU, Dice, Precision, Recall ve açık IoU eşik geçme
+  oranları bulunur; bunlar mAP diye adlandırılmaz.
+- Gerçek bbox Precision, Recall ve AP değerleri yalnız YOLO detector tablosunda
+  yer alır.
+- Nitel sayfalarda seçilen görüntüdeki bütün hedef instance'lar çizilir.
+- Aynı model ve referansın GT-bbox diagonalı kimlik kontrolü olarak etiketlenir.
 
 ## Taşıma Güvencesi
 
-2026-07-26 tarihli mimari geçişte 63 kaynak ağaç taşınmadan önce ve sonra
-dosya bazında SHA-256 ile doğrulanmıştır:
+Birleştirme dosyaları taşınmadan önce ve sonra boyut, inode ve SHA-256 ile
+doğrulandı. Kanıt:
 
 ```text
-docs/migration/study_layout_20260726_pre.json
-docs/migration/study_layout_20260726_post.json
+studies/teacher_reference_bias_paper/docs/MIGRATION_MANIFEST.json
 ```
 
-Bu manifestler dosya sayısını, toplam byte miktarını ve içerik ağaç hash'ini
-saklar. Final doğrulama 63 kaydın 56'sını `verified_current`, özgün taşıma
-hash'i daha önce doğrulanıp sonradan bilinçli olarak yeniden üretilen 7
-değişebilir rapor/manifest ağacını
-`historically_verified_then_regenerated` olarak kaydetmiştir. Üst durum
-`verified_with_regenerated_mutable_outputs` değeridir.
+Önceki 26 Temmuz 2026 depo geçişinin tarihsel manifestleri
+`docs/migration/` altında korunur.
+
+## Yeni Geliştirme Kuralı
+
+1. Yeni araştırma sorusu yeni bir `studies/<study_id>/` açar.
+2. Yalnız hedef sınıf/veri seti değişen aynı bildiri protokolü, mevcut paper
+   study altında yeni `experiments/<id>/` olur.
+3. Kod ancak en az iki bağımsız çalışma tarafından aynı sözleşmeyle
+   kullanılıyorsa `src/yolo_sam/` içine taşınır.
+4. Tarihsel sonuç yolları aktif runtime girdisi olamaz.
+5. Tamamlanmış deney README, manifest, rapor ve otomatik QA kontrolüne sahip
+   olmalıdır.
+6. Boş klasör ve `.gitkeep` tutulmaz; çıktı gerektiğinde klasör oluşturulur.

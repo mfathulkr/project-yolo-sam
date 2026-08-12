@@ -1,0 +1,2 @@
+Detector,Images,BBox mAP50,BBox mAP75,BBox mAP90,BBox mAP50-95,BBox Precision@0.50,BBox Recall@0.50,BBox Precision@0.75,BBox Recall@0.75,BBox Precision@0.90,BBox Recall@0.90
+YOLO26x (seed 42),512,0.819,0.534,0.072,0.502,0.720,0.824,0.529,0.605,0.131,0.150

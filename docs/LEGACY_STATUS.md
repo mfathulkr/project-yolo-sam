@@ -1,63 +1,39 @@
 # Study ve Legacy Durumu
 
-## Amaç
-
-Bu belge güncel teacher-reference-bias çalışmasını, önceki tarihsel
-deneyleri ve henüz tamamlanmamış hazırlıkları birbirinden ayırır. “Legacy”
-silinmiş veya değersiz demek değildir; güncel bildirinin canonical kanıtına
-dahil edilmeyen tarihsel çalışma demektir.
-
-## Otoritatif Çalışma
+## Kanonik Çalışma
 
 ```text
-studies/teacher_reference_bias_v2_512/
+studies/teacher_reference_bias_paper/
 ```
 
-Durum: `completed_canonical`
+Durum: `completed_canonical_paper_study`
 
-Ana bileşenler:
+Bu çalışma dört eşlenmiş deneyi içerir: iSAID Plane, iSAID Small Vehicle,
+SAMRS Plane ve SAMRS Small Vehicle. Dört deney de 512 görüntü, 4×128 tabaka,
+seed 42 YOLO, frozen SAM1/SAM2/SAM3 ve GT/YOLO bbox koşullarını kullanır.
+iSAID deneyleri bağımsız insan referansına sahiptir. SAMRS yayımlanmış
+referansları SAM1 kökenli olduğu için destekleyici provenance/affinity
+kontrolüdür.
+
+Ana giriş:
 
 ```text
-studies/teacher_reference_bias_v2_512/
-├── README.md
-├── configs/
-├── data/prepared/
-├── docs/
-├── reports/
-├── results/
-├── scripts/
-├── src/teacher_reference_bias/
-└── tests/
+studies/teacher_reference_bias_paper/scripts/study.py
 ```
 
-Ana kullanıcı girişi:
+## Birleştirme Öncesi Teacher-Bias Kökleri
+
+Önceki Plane, Small Vehicle ve multi-teacher klasörleri artık ayrı kanonik
+study değildir. İçerikleri silinmedi; aşağıdaki arşive taşındı:
 
 ```text
-studies/teacher_reference_bias_v2_512/scripts/study.py
+studies/teacher_reference_bias_paper/archives/pre_unification/legacy_roots/
 ```
 
-Bu çalışma iki veri setinde de `plane`, 1024×1024 giriş, 512 test görüntüsü,
-dört eşit 128 görüntülük alt grup, SAM1/SAM2/SAM3, GT bbox ve sabit seed 42 YOLO
-kullanır. iSAID için insan ve kontrollü SAM1-pseudo referans raporları ayrı
-üretilir. Canonical analiz yalnız bu study’nin `results/analysis/` dizinini
-okur.
+Aktif kod, config, rapor ve dokümantasyon bu eski yollara bağlı değildir.
+Taşıma bütünlüğü `docs/MIGRATION_MANIFEST.json` ile doğrulanmıştır.
 
-## Small-Vehicle Eşlenmiş Çalışma
-
-```text
-studies/teacher_reference_bias_small_vehicle_v1_512/
-```
-
-Durum: `in_progress_canonical_matched`
-
-Plane canonical deneyinin hedef sınıf eşleniğidir. iSAID `Small_Vehicle` ve
-SAMRS SOTA `small-vehicle` üzerinde aynı 1024×1024 giriş, 512 test görüntüsü,
-4×128 alt grup, sabit seed 42 detector, SAM1/SAM2/SAM3 ve GT/YOLO bbox
-koşullarını kullanır. Sonuçları tarihsel `isaid_vehicle_study` ile
-karıştırılmaz; o çalışma birleşik small/large vehicle hedefi ve farklı ölçüm
-mantığı kullanır.
-
-## Teacher Reference Bias v1
+## Teacher Reference Bias V1
 
 ```text
 studies/teacher_reference_bias_v1/
@@ -65,9 +41,8 @@ studies/teacher_reference_bias_v1/
 
 Durum: `completed_superseded`
 
-İlk 4×32 eşlenmiş deney ve altı sayfalık taslak tarihsel kayıt olarak
-korunur. Daha geniş v2 protokolü tamamlandığı için güncel kanıt olarak v2
-kullanılır.
+İlk 4×32 protokol ve altı sayfalık tarihsel taslak korunur. Güncel dört
+deneylik çalışmanın kanıtına otomatik karıştırılmaz.
 
 ## iSAID Vehicle Study
 
@@ -77,17 +52,10 @@ studies/isaid_vehicle_study/
 
 Durum: `historical_context_only`
 
-İçerik:
-
-- iSAID `Small_Vehicle + Large_Vehicle` birleşik hedefi,
-- SAM2, SAM3, RemoteSAM, RingMo-SAM ve eski text/hybrid pipeline'ları,
-- eski image-level union metrikleri,
-- renkli DOCX/PDF ve sunum çıktıları,
-- ilgili config, script, hazırlanmış veri ve pipeline sonuçları.
-
-Bu çalışma kendi tarihsel sorusu için korunur. Güncel bildiriyle aynı hedef
-sınıfa, örnekleme protokolüne veya evaluation granularity'ye sahip olmadığı
-için teacher-reference-bias tablosuna eklenmez.
+Birleşik `Small_Vehicle + Large_Vehicle`, eski RemoteSAM/RingMo-SAM ve
+text/hybrid karşılaştırmalarını korur. Hedef, granularity ve örnekleme
+protokolü farklı olduğu için teacher-reference-bias bildirisinin kanıtı
+değildir.
 
 ## SAMRS SOTA Plane Study
 
@@ -95,92 +63,19 @@ için teacher-reference-bias tablosuna eklenmez.
 studies/samrs_sota_plane_study/
 ```
 
-Durum: `invalid_for_paper_evidence`
+Durum: `historical_context_only`
 
-Bu ilk SAMRS çalışması araştırma sorusunu ortaya çıkarması bakımından
-değerlidir. Ancak:
+Araştırma sorusunu ortaya çıkaran ilk SAMRS çalışmasıdır. Eski eşlenmemiş
+protokolü nedeniyle güncel kanıt olarak kullanılmaz; kanonik SAMRS tekrarları
+paper study içindedir.
 
-- iSAID ile eşlenmiş source-scene-safe split kullanmadı,
-- bazı bbox'lar pseudo-maskeden türetildi,
-- üç seed'li ortak detector protokolüne sahip değildi,
-- pseudo referansı başlangıçta bağımsız ground truth gibi yorumladı.
+## Diğer Çalışmalar
 
-Bu nedenle eski rapor ve sonuçlar silinmez fakat güncel bildirinin kanıtı
-sayılmaz.
+- `semantic_drone_car_study`: planlandı, tamamlanmış sonuç yok.
+- `landcover_building_study`: eksik tarihsel hazırlık.
 
-### Veri kimliği düzeltmesi
+## Arşiv Politikası
 
-İlk incelemedeki “yerel veri SOTA değil” şüphesi sonraki exhaustive audit ile
-yanlışlandı. Resmi SOTA-RBB arşivinde:
-
-- 17.555 dosya,
-- 615.407 instance,
-- numeric class ID,
-- RBox ve RHBox geometrileri
-
-karşılaştırıldı ve kaynak resmi SAMRS SOTA-RBB olarak doğrulandı. Tarihsel
-çalışmanın bilimsel sınırlılığı veri kimliği değil, eşlenmemiş protokoldür.
-
-## Semantic Drone Car Study
-
-```text
-studies/semantic_drone_car_study/
-```
-
-Durum: `planned`
-
-Config, veri adaptörü ve handoff notu vardır; tamamlanmış detector,
-segmentation sonucu veya final rapor yoktur.
-
-## Landcover Building Study
-
-```text
-studies/landcover_building_study/
-```
-
-Durum: `legacy_incomplete`
-
-Eski landcover.ai building configi, hazırlama kodu ve yardımcı scriptleri
-korunur. Tamamlanmış ve doğrulanmış bir study olarak sunulmaz.
-
-## Ortak Kod
-
-Çalışmaya özgü olmayan ortak kod:
-
-```text
-src/yolo_sam/
-tools/
-```
-
-`src/sam3_bbox_study/` adı kaldırılmıştır. Bu ad eski bir deneyi çağrıştırdığı
-ve artık ortak kullanılan kodun sahipliğini yanlış anlattığı için ortak paket
-`yolo_sam` olarak yeniden adlandırılmıştır.
-
-Harici model kaynakları ve ortak checkpointler:
-
-```text
-external_models/
-models/
-```
-
-## Değiştirilemez Tarihsel Kayıtlar
-
-Eski mutlak yollar aşağıdaki dosyalarda bilinçli olarak kalabilir:
-
-- `docs/migration/*_pre.json`: taşıma öncesi konum kanıtı,
-- `results/audits/**/originals/`: byte düzeyinde özgün manifest arşivleri,
-- eski `ARTIFACT_MANIFEST.csv` ve QA belgeleri.
-
-Bu dosyalar aktif runtime configi değildir. Geçmiş provenance'ı değiştirmemek
-için yeniden yazılmaz.
-
-## Yeni Geliştirme Kuralı
-
-1. Yeni araştırma sorusu yeni bir `studies/<study_id>/` klasörü açar.
-2. Config, prepared data, sonuç, rapor ve study-specific kod aynı study
-   altında kalır.
-3. Kod ancak en az iki çalışma tarafından aynı sözleşmeyle kullanılıyorsa
-   `src/yolo_sam/` içine taşınır.
-4. Yeni çalışma tarihsel study sonuçlarını canonical girdi olarak kullanmaz.
-5. Her tamamlanmış çalışma kendi README, manifest ve doğrulama komutuna sahip
-   olur.
+Arşiv, aktif bilimsel kaynak değildir. Eski mutlak yollar ve tarihsel manifest
+kayıtları yalnız provenance amacıyla arşiv içinde kalabilir. Yeni analiz veya
+rapor, arşivdeki dosyayı çalışma zamanı girdisi olarak kullanamaz.

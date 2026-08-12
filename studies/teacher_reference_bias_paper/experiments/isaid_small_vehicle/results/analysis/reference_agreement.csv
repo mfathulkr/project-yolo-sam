@@ -1,0 +1,7 @@
+dataset_id,reference_a,reference_b,mean_instance_iou,instance_count
+isaid_small_vehicle,human,pseudo_sam1,0.6575328910593564,12051
+isaid_small_vehicle,human,pseudo_sam2,0.645225889234348,12051
+isaid_small_vehicle,human,pseudo_sam3,0.6984536768089755,12051
+isaid_small_vehicle,pseudo_sam1,pseudo_sam2,0.7485399968750714,12051
+isaid_small_vehicle,pseudo_sam1,pseudo_sam3,0.7656401185479796,12051
+isaid_small_vehicle,pseudo_sam2,pseudo_sam3,0.7707251750189499,12051

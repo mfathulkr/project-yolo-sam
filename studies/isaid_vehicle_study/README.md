@@ -2,7 +2,14 @@
 
 ## Durum
 
-`historical_context_only`
+`historical_context_only_sam3_bbox_invalid`
+
+> **Geçersizlik uyarısı:** Bu tarihsel çalışmadaki `SAM3 GT bbox`,
+> `SAM3 YOLO bbox` ve text+bbox hybrid hatları belirli-instance PVS yerine PCS
+> visual-exemplar arayüzüyle üretilmiştir. Bu SAM3 satırları güncel model
+> karşılaştırması veya bbox-segmentation kanıtı olarak kullanılmamalıdır.
+> Düzeltilmiş SAM3 PVS ve teacher-reference-bias sonuçları tek kanonik çalışma
+> olan `studies/teacher_reference_bias_paper/` altındadır.
 
 Bu çalışma iSAID üzerindeki `Small_Vehicle` ve `Large_Vehicle` sınıflarını
 tek bir `vehicle` hedefinde birleştirerek YOLO bbox ve farklı segmentation

@@ -1,0 +1,13 @@
+experiment_root: studies/teacher_reference_bias_paper/experiments/isaid_plane
+dataset_id: isaid_plane_master
+version: official_release
+profile_id: isaid
+raw_root: datasets/isaid/raw
+prepared_root: studies/teacher_reference_bias_paper/experiments/isaid_plane/data/master
+area_threshold: null
+reference_type: human
+target_category: plane
+source_url: https://captain-whu.github.io/iSAID/
+license_name: iSAID dataset terms
+annotation_format: coco_instance_segmentation
+archive_sha256: null

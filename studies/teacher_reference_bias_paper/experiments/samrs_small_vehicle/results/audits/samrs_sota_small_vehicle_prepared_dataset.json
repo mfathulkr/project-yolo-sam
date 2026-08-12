@@ -1,0 +1,28 @@
+{
+  "dataset_root": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/data/prepared",
+  "passed": true,
+  "split_summaries": {
+    "train": {
+      "images": 7824,
+      "positive_images": 6321,
+      "negative_images": 1503,
+      "annotations": 304414,
+      "source_scenes": 1444
+    },
+    "validation": {
+      "images": 1567,
+      "positive_images": 1305,
+      "negative_images": 262,
+      "annotations": 49792,
+      "source_scenes": 308
+    },
+    "test": {
+      "images": 512,
+      "positive_images": 512,
+      "negative_images": 0,
+      "annotations": 7659,
+      "source_scenes": 17
+    }
+  },
+  "findings": []
+}

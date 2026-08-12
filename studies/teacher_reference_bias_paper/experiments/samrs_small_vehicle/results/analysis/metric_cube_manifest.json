@@ -1,0 +1,51 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "created_at_utc": "2026-08-12T11:53:20.790900+00:00",
+  "experiment_id": "samrs_small_vehicle",
+  "dataset_id": "samrs_sota_small_vehicle",
+  "models": [
+    "sam1",
+    "sam2",
+    "sam3"
+  ],
+  "bbox_sources": [
+    "gt_bbox",
+    "yolo_bbox"
+  ],
+  "reference_types": [
+    "published_samrs_reference",
+    "reproduced_pseudo_sam1",
+    "pseudo_sam2",
+    "pseudo_sam3"
+  ],
+  "instance_count": 7659,
+  "metric_row_count": 183816,
+  "metric_definition": "instance_equal_weight_rle_exact",
+  "known_positive_empty_reference_policy": "score_zero",
+  "boundary_iou": "not_evaluated_not_reported",
+  "inputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/data/prepared/test/_annotations.coco.json": "d13d27c7e1da6cd21849ee9be09883d14df4c14859fa2ee82802bb70d5dbda6f",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/gt_bbox/manifest.json": "fb33717e0abb74b958427dc98ec725a2d24178aedb7d99d7f1cfd927fe424618",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/gt_bbox/predictions.jsonl": "949cf6c503a6d2a639c078e38794814130f2177795e861afc327f6957a7a14de",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/yolo_bbox/seed_42/manifest.json": "bfd7ca9abacc603d0b04275de415e31922862172b668cd65d1c102a32822bd1d",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/yolo_bbox/seed_42/predictions.jsonl": "5a396a9ea12d06a9a0f3c338decc660f3355fe7154901a740f3c38e221ca9f99",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/gt_bbox/manifest.json": "5f6acf8c2fa04dde6a5eadfe9a600ed0048e9bd0f19c80719dd37f9b6ee6b6ec",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/gt_bbox/predictions.jsonl": "0a7cec5b8092b25cbe80d43411a81b80de949a57ce8e410f953242dacad836f1",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/yolo_bbox/seed_42/manifest.json": "f72e5005afa114a2317ef1b4297a85077867062dcf234495eaec8ec0e19a8c97",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/yolo_bbox/seed_42/predictions.jsonl": "9e2821f3ff515d96efed5e8ec8a3b4ef392146fa631ad1d08b6f638c3f1affd3",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/gt_bbox/manifest.json": "e8810e49a720c38a2f0487fe2f5339ee97ade81a02a19f443100ba5bb1c030fa",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/gt_bbox/predictions.jsonl": "b2dfec1b5753d000581963475c3ca8b4c422ea4e0d06a18f56b100afc51088bf",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/yolo_bbox/seed_42/manifest.json": "cb1442e3a00103b17efd67224d722b46f435ae274109d5a16806b460b713f8d8",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/yolo_bbox/seed_42/predictions.jsonl": "691433e0368430134ef27398ff2029908292e7c3f30455f1ed10b45197067f9e",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/pseudo_sam2.jsonl": "5986bd7b4a2764b331b95c952e983ab3456388b37bbc8661e1a04df5cbf00b65",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/pseudo_sam2.manifest.json": "8c1eea72865d437b1b77486d543dceb8676e9d8d4e27bcb6b4443cac88de8c4e",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/pseudo_sam3.jsonl": "ce1be102ba9afa901d0c48a37664008ebc0eeb84adaaa2e052ce39bd3ec1bd85",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/pseudo_sam3.manifest.json": "a0d77719f3094d2aa54891ef0200599286bfb5629fdd303ebd3936ab15ce22cc",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/reproduced_pseudo_sam1.jsonl": "4ddcec29ef88741e407a004b16c613fc05fc169b4740250d67d23cfe9ba0b2f9",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/reproduced_pseudo_sam1.manifest.json": "488a4bd0844afab35cd74999c33662cab84342948e6c32f84b751e621c2d7254"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/canonical_instance_metrics.csv": "83bf5b36fcf014faba95c14fb0c3ad3e62789705e661fb79330dcb953772a342"
+  }
+}

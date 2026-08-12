@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "run_id": "teacher_reference_bias_v2_512-isaid_plane-yolo-seed-42",
+  "stage": "train_detector",
+  "status": "completed",
+  "started_at_utc": "2026-07-26T20:04:09.487461+00:00",
+  "finished_at_utc": "2026-07-26T23:06:29.690268+00:00",
+  "config_hash": "8acd61cfaf2552ab8498055e90bc1e7ba4b944979aacfc48c884feac07aefe2d",
+  "inputs": {
+    "dataset_config": "studies/teacher_reference_bias_paper/experiments/isaid_plane/config.yaml",
+    "data_yaml": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/data.yaml",
+    "detector_training_content_manifest": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/detector_training_content_manifest.json",
+    "base_weights": "models/yolo/yolo26x.pt"
+  },
+  "input_file_fingerprints": {
+    "dataset_config": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/config.yaml",
+      "bytes": 590,
+      "sha256": "f2aa8fbeeeb78a283728bf7c9af91e8776a1bab5d9d06ac6282c48006da67314"
+    },
+    "data_yaml": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/data.yaml",
+      "bytes": 61,
+      "sha256": "8c8d26d163c98c9422def42492720f2f709fdb15bb17ceb37a82f9059e8d31a8"
+    },
+    "detector_training_content_manifest": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/detector_training_content_manifest.json",
+      "bytes": 618352,
+      "sha256": "e77e727ee78aa7bbfddd5ba1cf1b4d86c47a583f7ad2254f31147d8dfc02389a"
+    },
+    "base_weights": {
+      "path": "models/yolo/yolo26x.pt",
+      "bytes": 118667365,
+      "sha256": "9fdd44a31c504547ffb81d2c6d9e6dac3493c8eaa8b0398d3f43bae6c7003e92"
+    }
+  },
+  "input_fingerprint_capture": "start",
+  "input_file_fingerprints_at_finish": {
+    "dataset_config": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/config.yaml",
+      "bytes": 590,
+      "sha256": "f2aa8fbeeeb78a283728bf7c9af91e8776a1bab5d9d06ac6282c48006da67314"
+    },
+    "data_yaml": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/data.yaml",
+      "bytes": 61,
+      "sha256": "8c8d26d163c98c9422def42492720f2f709fdb15bb17ceb37a82f9059e8d31a8"
+    },
+    "detector_training_content_manifest": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/detector_training_content_manifest.json",
+      "bytes": 618352,
+      "sha256": "e77e727ee78aa7bbfddd5ba1cf1b4d86c47a583f7ad2254f31147d8dfc02389a"
+    },
+    "base_weights": {
+      "path": "models/yolo/yolo26x.pt",
+      "bytes": 118667365,
+      "sha256": "9fdd44a31c504547ffb81d2c6d9e6dac3493c8eaa8b0398d3f43bae6c7003e92"
+    }
+  },
+  "input_drift": [],
+  "parameters": {
+    "architecture": "yolo26x",
+    "base_weights": "models/yolo/yolo26x.pt",
+    "epochs": 100,
+    "batch": 12,
+    "patience": 30,
+    "optimizer": "auto",
+    "confidence_threshold": 0.2,
+    "evaluation_confidence_threshold": 0.001,
+    "nms_iou_threshold": 0.7,
+    "max_detections": 500,
+    "negative_ratio": 0.25,
+    "min_instance_area": 8,
+    "image_size": 1024,
+    "seed": 42,
+    "device": "0",
+    "workers": 2
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.4.4",
+      "opencv-python": "4.13.0.92",
+      "pandas": "3.0.2",
+      "Pillow": "12.2.0",
+      "matplotlib": "3.10.9",
+      "pycocotools": "2.0.11",
+      "python-docx": "1.2.0",
+      "PyYAML": "6.0.3",
+      "safetensors": "0.7.0",
+      "scipy": "1.17.1",
+      "torch": "2.11.0",
+      "transformers": "5.6.2",
+      "ultralytics": "8.4.41"
+    },
+    "cuda": {
+      "available": true,
+      "device_count": 1,
+      "torch_cuda_version": "13.0",
+      "devices": [
+        "NVIDIA RTX A6000"
+      ]
+    },
+    "environment_variables": {
+      "CUDA_VISIBLE_DEVICES": "0",
+      "PYTORCH_ALLOC_CONF": "backend:cudaMallocAsync"
+    },
+    "git": {
+      "head": "4127eb8631a41476ad2030f6f03cea90bd832905",
+      "branch": "main",
+      "dirty": true
+    }
+  },
+  "error": null,
+  "outputs": {
+    "best_weights": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/train/weights/best.pt",
+    "results_csv": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/train/results.csv",
+    "args_yaml": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/train/args.yaml"
+  },
+  "output_file_fingerprints": {
+    "best_weights": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/train/weights/best.pt",
+      "bytes": 118403493,
+      "sha256": "b70051ecfd605b4c78598b3b91c16202ed5f71e0d8fbe811916e61d8dec09528"
+    },
+    "results_csv": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/train/results.csv",
+      "bytes": 12076,
+      "sha256": "52350054f1fa66df624925a39fe5ebf7e1a811834e63b632a6149685c0f30601"
+    },
+    "args_yaml": {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/train/args.yaml",
+      "bytes": 1802,
+      "sha256": "acdae6fbef1b6892c19f3a48048f852ce6cf2413fb4dfaa3e3df04bcf2a29a82"
+    }
+  },
+  "paper_study_layout_migration": {
+    "schema_version": 1,
+    "migration_id": "teacher_reference_bias_paper_unification_v1",
+    "migrated_at_utc": "2026-08-12T13:00:50.028932+00:00",
+    "reason": "repository_layout_only_no_model_rerun",
+    "original_manifest_sha256": "a05301e012ce6f6e9c37fd6093f9760cfc3ff7c93c3f2b3e462d4bd96bbe83c3",
+    "path_base": "repository_root",
+    "fingerprint_refresh_count": 7
+  },
+  "path_base": "repository_root"
+}

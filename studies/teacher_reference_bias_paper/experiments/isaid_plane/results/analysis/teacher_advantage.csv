@@ -1,0 +1,7 @@
+dataset_id,bbox_source,reference_type,teacher,teacher_score,other_models_mean,teacher_advantage,identity_control
+isaid_plane,gt_bbox,pseudo_sam1,sam1,1.0,0.823672665249054,0.17632733475094597,True
+isaid_plane,gt_bbox,pseudo_sam2,sam2,1.0,0.8054984597600404,0.19450154023995958,True
+isaid_plane,gt_bbox,pseudo_sam3,sam3,1.0,0.8018523473010594,0.19814765269894064,True
+isaid_plane,yolo_bbox,pseudo_sam1,sam1,0.8732656277959695,0.7457465703880986,0.12751905740787095,False
+isaid_plane,yolo_bbox,pseudo_sam2,sam2,0.852569827201717,0.7255053385741165,0.12706448862760056,False
+isaid_plane,yolo_bbox,pseudo_sam3,sam3,0.8625673810055644,0.7239955487973193,0.1385718322082451,False

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "dataset_id": "samrs_sota_plane",
+  "release": "SAMRS-SOTA-DOTA2.0-2023",
+  "source_project": "https://github.com/ViTAE-Transformer/SAMRS",
+  "source_paper": "https://arxiv.org/abs/2305.02034",
+  "local_archive_sha256": "bbae2fb7f81b09dae3146dde2df406db1641716a8d7b3204dbafcabf8f00c706",
+  "target_category": "plane",
+  "reference_type": "published_pseudo_sam1",
+  "reference_independence": false,
+  "teacher_family": "SAM1",
+  "teacher_backbone_reported": "ViT-H",
+  "teacher_exact_checkpoint_sha256": null,
+  "teacher_exact_code_revision": null,
+  "prompt_source": "published_detection_annotations",
+  "prompt_geometry": "bbox derived from the published oriented detection annotation",
+  "mask_postprocessing_exact_parameters": null,
+  "bbox_source_in_this_study": "original_detection_annotation",
+  "stratification_area_source": "published SAMRS pseudo instance masks",
+  "known_unknowns": [
+    "The exact teacher checkpoint hash is not encoded in the downloaded archive.",
+    "The exact per-instance generation runtime and postprocessing parameters are not locally recoverable."
+  ],
+  "interpretation": "This reference is suitable for measuring agreement with the published SAMRS mask product, but it is not independent human ground truth for ranking SAM-family models."
+}

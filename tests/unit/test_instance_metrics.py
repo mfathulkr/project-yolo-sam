@@ -11,6 +11,7 @@ from yolo_sam.evaluation.instance_metrics import (
     evaluate_prediction_references,
     reference_inflation_rows,
 )
+from yolo_sam.evaluation.lazy_references import LazyMaskReferences
 from yolo_sam.evaluation.statistics import (
     clustered_bootstrap_mean,
     clustered_inflation_interval,
@@ -19,6 +20,32 @@ from yolo_sam.evaluation.statistics import (
 
 
 class InstanceMetricsTest(unittest.TestCase):
+    def test_lazy_reference_store_decodes_only_requested_mask(self) -> None:
+        decoded: list[str] = []
+
+        def decode(value: str) -> np.ndarray:
+            decoded.append(value)
+            return np.asarray([[value == "positive"]], dtype=bool)
+
+        references = LazyMaskReferences(
+            {"instance-a": "positive", "instance-b": "negative"},
+            decode,
+        )
+
+        self.assertEqual(len(references), 2)
+        self.assertEqual(set(references), {"instance-a", "instance-b"})
+        self.assertEqual(decoded, [])
+        self.assertTrue(references.mask("instance-a")[0, 0])
+        self.assertEqual(decoded, ["positive"])
+
+    def test_lazy_reference_store_rejects_non_image_mask(self) -> None:
+        references = LazyMaskReferences(
+            {"instance": "encoded"},
+            lambda _: np.zeros((1, 1, 1), dtype=bool),
+        )
+        with self.assertRaisesRegex(ValueError, "must be 2-D"):
+            references.mask("instance")
+
     def test_binary_metrics_use_pixel_confusion_counts(self) -> None:
         reference = np.zeros((4, 4), dtype=bool)
         prediction = np.zeros((4, 4), dtype=bool)
@@ -43,6 +70,20 @@ class InstanceMetricsTest(unittest.TestCase):
         self.assertEqual(metrics.iou, 0.0)
         self.assertEqual(metrics.precision, 0.0)
         self.assertEqual(metrics.recall, 0.0)
+
+    def test_empty_pseudo_reference_for_known_instance_is_not_success(self) -> None:
+        prediction = np.zeros((3, 3), dtype=bool)
+        reference = np.zeros_like(prediction)
+        metrics = binary_mask_metrics(
+            prediction,
+            reference,
+            known_positive_instance=True,
+        )
+        self.assertEqual(metrics.iou, 0.0)
+        self.assertEqual(metrics.dice, 0.0)
+        self.assertEqual(metrics.precision, 0.0)
+        self.assertEqual(metrics.recall, 0.0)
+        self.assertEqual(metrics.boundary_iou, 0.0)
 
     def test_aggregate_success_rates_are_not_called_map(self) -> None:
         rows = [

@@ -1,0 +1,9 @@
+dataset_id,bbox_source,reference_type,baseline_reference,ranking,rank_changes_vs_baseline,top_model,top_mean_iou
+samrs_sota_plane,gt_bbox,published_samrs_reference,published_samrs_reference,SAM1 > SAM3 > SAM2,0,SAM1,0.9906331615819841
+samrs_sota_plane,gt_bbox,reproduced_pseudo_sam1,published_samrs_reference,SAM1 > SAM3 > SAM2,0,SAM1,1.0
+samrs_sota_plane,gt_bbox,pseudo_sam2,published_samrs_reference,SAM2 > SAM1 > SAM3,3,SAM2,1.0
+samrs_sota_plane,gt_bbox,pseudo_sam3,published_samrs_reference,SAM3 > SAM1 > SAM2,2,SAM3,1.0
+samrs_sota_plane,yolo_bbox,published_samrs_reference,published_samrs_reference,SAM1 > SAM3 > SAM2,0,SAM1,0.8126515326974005
+samrs_sota_plane,yolo_bbox,reproduced_pseudo_sam1,published_samrs_reference,SAM1 > SAM3 > SAM2,0,SAM1,0.8180486049978571
+samrs_sota_plane,yolo_bbox,pseudo_sam2,published_samrs_reference,SAM2 > SAM1 > SAM3,3,SAM2,0.7848432046874624
+samrs_sota_plane,yolo_bbox,pseudo_sam3,published_samrs_reference,SAM3 > SAM1 > SAM2,2,SAM3,0.7993324359416268

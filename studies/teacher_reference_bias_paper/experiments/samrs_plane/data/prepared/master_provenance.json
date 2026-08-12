@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "dataset_id": "samrs_sota_plane",
+  "master_prepared_root": "studies/teacher_reference_bias_v1/data/prepared/samrs_sota_plane",
+  "master_content_manifest": "studies/teacher_reference_bias_v1/data/prepared/samrs_sota_plane/content_manifest.json",
+  "master_content_manifest_sha256": "59ba198851ea8b7cd4d8fe4408df78f72b1ef29e988cf301176f660dc90d6d8c",
+  "area_threshold": 0.011932373046875,
+  "target_per_stratum": 128,
+  "test_scene_pool_coverage": {
+    "no_overlap__low_mask_area": 182,
+    "no_overlap__high_mask_area": 128,
+    "overlap__low_mask_area": 128,
+    "overlap__high_mask_area": 183
+  },
+  "selected_test_counts": {
+    "no_overlap__low_mask_area": 128,
+    "no_overlap__high_mask_area": 128,
+    "overlap__low_mask_area": 128,
+    "overlap__high_mask_area": 128
+  },
+  "selected_test_scene_count": 24,
+  "source_scene_overlap": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "split_summaries": {
+    "train": {
+      "images": 2191,
+      "annotations": 12855
+    },
+    "validation": {
+      "images": 481,
+      "annotations": 2419
+    },
+    "test": {
+      "images": 512,
+      "annotations": 3713
+    }
+  }
+}

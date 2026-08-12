@@ -1,0 +1,76 @@
+# Runtime-only profile for a single 8 GB NVIDIA GPU.
+# Canonical reports continue to use protocol.yaml (float32, detector batch 12).
+study_id: teacher_reference_bias_v2_512
+image_size: 1024
+
+split_fractions:
+  train: 0.70
+  validation: 0.15
+  test: 0.15
+split_seed: 42
+
+detector_seeds:
+  - 42
+  - 123
+  - 2026
+
+detector:
+  architecture: yolo26x
+  base_weights: models/yolo/yolo26x.pt
+  epochs: 100
+  batch: 1
+  patience: 30
+  optimizer: auto
+  confidence_threshold: 0.20
+  evaluation_confidence_threshold: 0.001
+  nms_iou_threshold: 0.70
+  max_detections: 500
+  negative_ratio: 0.25
+  min_instance_area: 8
+
+segmenters:
+  - sam1
+  - sam2
+  - sam3
+
+segmenter_configs:
+  sam1:
+    model_id: facebook/sam-vit-huge
+    revision: 87aecf0df4ce6b30cd7de76e87673c49644bdf67
+    checkpoint_sha256: edfb0462392541fca9af44ff039bfb32dbd0c939997f3abb77a26e23af7afd7c
+    torch_dtype: float16
+    mask_threshold: 0.0
+  sam2:
+    model_id: facebook/sam2.1-hiera-large
+    revision: 665f8e2ad61cf5f53d65644ff27c8ee525124610
+    checkpoint_sha256: dc407dce21301fd94abb395c5099b4f2c455fdc8a8f261ac3d0ea6d4cd197230
+    torch_dtype: float16
+    mask_threshold: 0.0
+  sam3:
+    model_id: sam3-local
+    model_dir: models/sam3_hf
+    checkpoint_file: model.safetensors
+    checkpoint_sha256: 6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a
+    inference_interface: sam3_tracker_pvs
+    torch_dtype: float16
+    mask_threshold: 0.0
+    box_batch_size: 8
+
+bbox_sources:
+  - original_detection_annotation
+  - yolo_prediction
+
+evaluation:
+  primary_granularity: instance
+  secondary_granularity: image_union
+  yolo_instance_match_iou: 0.50
+  overlap_threshold: 0.001
+  area_reference: dataset_native_reference
+  area_threshold: dataset_fixed
+  success_thresholds:
+    - 0.50
+    - 0.75
+    - 0.90
+  bootstrap_samples: 10000
+  confidence_level: 0.95
+  max_per_stratum: 128

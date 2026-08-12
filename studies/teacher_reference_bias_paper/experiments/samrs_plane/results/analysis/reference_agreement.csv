@@ -1,0 +1,7 @@
+dataset_id,reference_a,reference_b,mean_instance_iou,instance_count
+samrs_sota_plane,published_samrs_reference,reproduced_pseudo_sam1,0.9906331615819841,3713
+samrs_sota_plane,published_samrs_reference,pseudo_sam2,0.7807864023206073,3713
+samrs_sota_plane,published_samrs_reference,pseudo_sam3,0.8076199844210971,3713
+samrs_sota_plane,reproduced_pseudo_sam1,pseudo_sam2,0.7850188621341495,3713
+samrs_sota_plane,reproduced_pseudo_sam1,pseudo_sam3,0.8125812472731347,3713
+samrs_sota_plane,pseudo_sam2,pseudo_sam3,0.7507231316148086,3713

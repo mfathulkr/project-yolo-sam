@@ -2,77 +2,59 @@
 
 ## Otoritatif Çalışma
 
-Tamamlanmış canonical ve bildiri düzeyindeki çalışma:
-
 ```text
-studies/teacher_reference_bias_v2_512/
+studies/teacher_reference_bias_paper/
 ```
 
-Ana çalışma README’si:
+Bu çalışma dört kanonik deneyi tek protokolde toplar:
 
-```text
-studies/teacher_reference_bias_v2_512/README.md
-```
+- iSAID Plane: human + SAM1/SAM2/SAM3 pseudo referans.
+- iSAID Small Vehicle: human + SAM1/SAM2/SAM3 pseudo referans.
+- SAMRS Plane: published + reproduced SAM1 + SAM2/SAM3 pseudo referans.
+- SAMRS Small Vehicle: published + reproduced SAM1 + SAM2/SAM3 pseudo
+  referans.
+
+Her deney 512 görüntü, 4×128 tabaka, frozen SAM1/SAM2/SAM3, GT bbox ve seed
+42 YOLO bbox koşullarını kapsar.
 
 ## Ana Çıktılar
 
 ```text
-studies/teacher_reference_bias_v2_512/reports/full_metrics/
-├── isaid_plane_human/
-│   ├── isaid_plane_human_full_metric_document.md
-│   ├── isaid_plane_human_full_metric_document_colored.docx
-│   └── isaid_plane_human_full_metric_document_colored.pdf
-├── isaid_plane_pseudo_sam1/
-│   ├── isaid_plane_pseudo_sam1_full_metric_document.md
-│   ├── isaid_plane_pseudo_sam1_full_metric_document_colored.docx
-│   └── isaid_plane_pseudo_sam1_full_metric_document_colored.pdf
-└── samrs_sota_plane/
-    ├── samrs_sota_plane_full_metric_document.md
-    ├── samrs_sota_plane_full_metric_document_colored.docx
-    └── samrs_sota_plane_full_metric_document_colored.pdf
+studies/teacher_reference_bias_paper/
+├── analysis/main_cross_analysis_colored.pdf
+├── experiments/<id>/reports/full_metrics/<reference>/
+├── experiments/<id>/reports/cross_analysis/
+├── paper_writing/assets/
+├── paper_writing/overleaf/
+├── literature_review/
+└── docs/QA_REPORT.md
 ```
 
-Canonical makine-okunabilir sonuç:
+Toplam 16 full-metric MD/DOCX/PDF, 4 deney çapraz analiz MD/DOCX/PDF ve bir
+dört-deney ana analiz MD/DOCX/PDF vardır.
 
-```text
-studies/teacher_reference_bias_v2_512/results/analysis/
+## Ana Bulgular
+
+iSAID YOLO-bbox koşulunda aynı modelin kendi pseudo referansına geçişi Plane
+için SAM1/SAM2/SAM3'te `+0,276 / +0,279 / +0,224`, Small Vehicle için
+`+0,176 / +0,163 / +0,142` eşlenmiş instance IoU artışı oluşturdu. Altı %95
+güven aralığının tamamı sıfırın üzerindedir.
+
+SAMRS published/reproduced-SAM1 referans uyumu Plane'de `0,990633`, Small
+Vehicle'da `0,998338`dir. SAMRS referansı insan ground truth olmadığı için bu
+bulgu bağımsız doğruluk değil, SAM1 kökeni ve model-reference affinity kanıtı
+olarak yorumlanır.
+
+## Doğrulama
+
+```bash
+.venv/bin/python studies/teacher_reference_bias_paper/scripts/validate_paper_study.py
+.venv/bin/pytest -q studies/teacher_reference_bias_paper/tests
 ```
 
-Yeniden üretilebilirlik manifesti:
+Yöntem, tekrar üretim ve devir ayrıntıları:
 
-```text
-studies/teacher_reference_bias_v2_512/results/analysis/manifest.json
-```
-
-## Durum
-
-- Eşlenmiş iSAID ve SAMRS SOTA protokolü 512 test görüntüsüne genişletildi.
-- Her veri setinde dört alt grubun her birinde tam 128 görüntü var.
-- SAM1, SAM2 ve SAM3 için GT-bbox ve sabit seed 42 YOLO-bbox koşulları
-  kullanılır.
-- iSAID insan referansı, aynı tahminlere ait kontrollü SAM1-pseudo referansı
-  ve SAMRS resmi SAM1-pseudo referansı ayrı raporlanır.
-- Üç renkli full-metric MD/DOCX/PDF belgesi üretildi ve doğrulandı.
-- İki seed 42 YOLO eğitimi/testi, 12 SAM tahmin koşulu ve ilgili human/pseudo
-  değerlendirme manifestleri eksiksiz tamamlandı.
-- Canonical analiz 87.642 instance satırı ve 90 aggregate satırı içeriyor.
-- Tarihsel çalışmalar kendi study klasörlerinde korunuyor.
-
-Plane ile aynı protokolün small-vehicle hedef eşleniği ayrı çalışmada devam
-ediyor:
-
-```text
-studies/teacher_reference_bias_small_vehicle_v1_512/
-```
-
-Ana kontrollü bulgu: aynı iSAID tahminleri insan yerine SAM1 pseudo
-referansla ölçüldüğünde GT-bbox IoU artışı SAM1/SAM2/SAM3 için sırasıyla
-`+0,347 / +0,198 / +0,140` oldu ve model sırası değişti.
-
-Refactor ve doğrulama ayrıntıları:
-
-```text
-docs/WORKLOG.md
-docs/REFACTOR_PLAN.md
-docs/LEGACY_STATUS.md
-```
+- `studies/teacher_reference_bias_paper/docs/SCIENTIFIC_PROTOCOL.md`
+- `studies/teacher_reference_bias_paper/docs/REPRODUCIBILITY.md`
+- `studies/teacher_reference_bias_paper/docs/HANDOFF.md`
+- `docs/summary/TEACHER_REFERENCE_BIAS_HANDOFF.md`

@@ -1,0 +1,51 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "created_at_utc": "2026-08-12T11:53:12.386032+00:00",
+  "experiment_id": "samrs_plane",
+  "dataset_id": "samrs_sota_plane",
+  "models": [
+    "sam1",
+    "sam2",
+    "sam3"
+  ],
+  "bbox_sources": [
+    "gt_bbox",
+    "yolo_bbox"
+  ],
+  "reference_types": [
+    "published_samrs_reference",
+    "reproduced_pseudo_sam1",
+    "pseudo_sam2",
+    "pseudo_sam3"
+  ],
+  "instance_count": 3713,
+  "metric_row_count": 89112,
+  "metric_definition": "instance_equal_weight_rle_exact",
+  "known_positive_empty_reference_policy": "score_zero",
+  "boundary_iou": "not_evaluated_not_reported",
+  "inputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/data/prepared/test/_annotations.coco.json": "426889b6eb36880ffb02ce3c8b4e32bd3c1e82ea4be6792ec3adaa990f8c961a",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/gt_bbox/manifest.json": "86c15a0306c42c02a1493e3cee2316ad88d429680fbb6a7ca22810137773bf0b",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/gt_bbox/predictions.jsonl": "a662fb99009ca2f303a702d5cc91f2bc4592c29fb4e6fdfab27aed25fae19539",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/yolo_bbox/seed_42/manifest.json": "72e15d10259cba53eeb079c6cb4546edb7ae62f8dc8a6f5649ba3e34da6390b1",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/yolo_bbox/seed_42/predictions.jsonl": "27280751208fdd040e8b00a3cb5d8d6d6e36e3de33425c281ca5efd0b0d2ff27",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/gt_bbox/manifest.json": "97300bf9110c376268af9e76f3789e38e6356ce30ff0825dca1bff44663e0617",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/gt_bbox/predictions.jsonl": "e72d8d1012f21dbd40da60d753955121a45bb567ea6aa3719163200bc6596e25",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/yolo_bbox/seed_42/manifest.json": "03a1f1e5fc9f7127bba5831b8efa0a69aefb76c887abec66d36a7f1126da3050",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/yolo_bbox/seed_42/predictions.jsonl": "3ad505c0b4e0e61d17f5c8c8828bf439534e754e43341354591d353ec63ad45c",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/gt_bbox/manifest.json": "d51ba42d0368f9d4f740a207474c2c7b5e366b0e09e8004233db583c8415ff29",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/gt_bbox/predictions.jsonl": "e71c86dfa79eeeac5d02069de7766a4279a83284263604983755292eb4103f9c",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/yolo_bbox/seed_42/manifest.json": "7de144121482906595a077efe03bf366e9822d9cd1890b861b5bd7c21a917d09",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/yolo_bbox/seed_42/predictions.jsonl": "75be5d2a097ff854d5ebd6b1bd878a4158d8e33d8a386ab314529bcf31d653b7",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/pseudo_sam2.jsonl": "a93a25044b8f41017f58d40fde13412a51335197848a00dc3ef398e03e013fe7",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/pseudo_sam2.manifest.json": "7a13ef3461066bd4351b750d3c489d93efa462ca8765d216e30118d5ebe7ba19",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/pseudo_sam3.jsonl": "b99a4b2b74e4a8610e73a3be80228e9205c577b959f51541597ef040d81393c5",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/pseudo_sam3.manifest.json": "98dd353d048cc914596633436a265093c81393c575a1ec23dec07179463883e7",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/reproduced_pseudo_sam1.jsonl": "9cbce260b497de59c3d52d35493c8b67bcc164506fadc4bb085699069cfcd4ab",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/reproduced_pseudo_sam1.manifest.json": "f927307ceaa31d4ca69adcec0d83e7fdb65b326bf556f5afca5e695af076724a"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/canonical_instance_metrics.csv": "19e92d6925e5da0439a4d950b62cbf595acbd4c68886693d856a49a53d6ade65"
+  }
+}

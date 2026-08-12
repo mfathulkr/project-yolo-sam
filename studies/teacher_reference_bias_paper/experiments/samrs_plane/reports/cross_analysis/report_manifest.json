@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "inputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/aggregate_metrics.csv",
+      "bytes": 29825,
+      "sha256": "dbd99298a060cdd0ad8e753c656fd1882944ef94145eccd00611a975ec785cae"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/paired_reference_effects.csv",
+      "bytes": 3476,
+      "sha256": "3d0fb69847ecd5e23a4b0cbcc81da4c3e8c7fc0038dcd221625080d14f05d376"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/ranking_by_reference.csv",
+      "bytes": 990,
+      "sha256": "0497ec5ff5aafc7b6b7add4e70bacd170c2ce6e989ec469b35fbaca6097757aa"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/teacher_advantage.csv",
+      "bytes": 969,
+      "sha256": "b83187c1933124f6ac251b17223d4bfa5098e9846cedbea7ba68d5c769ce38c9"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/reference_agreement.csv",
+      "bytes": 533,
+      "sha256": "56f23e6d8c00c4f8d0cd0cc1d7be41aff643d048f45f8519263d6452566b354a"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/reference_empty_stats.csv",
+      "bytes": 135,
+      "sha256": "12ec3200c38206e66c2bff64fa03370192ba745ffd845fdde092d5ab19f2cae1"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/cross_analysis/samrs_plane_cross_reference_analysis.md",
+      "bytes": 7496,
+      "sha256": "c9e37d3e1f31fb61b6934b6b72cd7f60bbccb5078998498df4498e70d515af62"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/cross_analysis/samrs_plane_cross_reference_analysis_colored.docx",
+      "bytes": 280289,
+      "sha256": "c3a4956799cd8098b4636c50dac9c1ffc619d82b114ab01d525e0ebf4ee36268"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/cross_analysis/samrs_plane_cross_reference_analysis_colored.pdf",
+      "bytes": 70906,
+      "sha256": "8fba1a71cbd399ffcc402dde16591f1c4ec02c3dfa545f6561e147a8bca27f12"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Model,BBox,Temel Referans IoU,Reference IoU,IoU Farkı
+SAM1,GT bbox,0.653,1.000,+0.347
+SAM1,YOLO bbox,0.597,0.873,+0.276
+SAM2,GT bbox,0.629,0.827,+0.198
+SAM2,YOLO bbox,0.574,0.750,+0.177
+SAM3,GT bbox,0.700,0.820,+0.120
+SAM3,YOLO bbox,0.638,0.741,+0.103

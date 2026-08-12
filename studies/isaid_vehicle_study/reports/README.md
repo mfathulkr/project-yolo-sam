@@ -1,10 +1,16 @@
 # iSAID Vehicle SAM3/SAM2 Study
 
+> **Historical invalidation:** `SAM3 YOLO bbox`, `SAM3 GT bbox` ve SAM3
+> text+bbox hybrid çıktıları gerçek belirli-instance bbox istemi yerine PCS
+> visual-exemplar arayüzünü kullanmıştır. Bu satırlar bilimsel karşılaştırma
+> için geçersizdir. Rapor yalnız deney geçmişi ve eski düzen referansı olarak
+> korunur.
+
 This folder contains the final iSAID vehicle segmentation comparison artifacts.
 
 ## Main Artifacts
 
-- `isaid_vehicle_full_metric_document_colored.pdf`: final PDF report for review.
+- `isaid_vehicle_full_metric_document_colored.pdf`: invalidation uyarısı içeren tarihsel PDF.
 - `isaid_vehicle_full_metric_document_colored.docx`: editable DOCX version of the same report.
 - `isaid_vehicle_full_metric_document.md`: Markdown source generated from the metric tables.
 - `tables/full_metric_document/`: CSV tables used by the full metric document.

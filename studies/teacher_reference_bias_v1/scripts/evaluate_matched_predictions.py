@@ -26,8 +26,10 @@ from yolo_sam.evaluation.instance_metrics import (
 )
 from yolo_sam.evaluation.statistics import clustered_inflation_interval
 from yolo_sam.runtime.manifest import (
+    acquire_run_lock,
     finish_run_manifest,
     new_run_manifest,
+    validate_completed_run_output,
     write_run_manifest,
 )
 from yolo_sam.segmentation.runner import decode_binary_mask
@@ -205,7 +207,11 @@ def image_union_rows(
             )
         exemplar = image_predictions[0]
         for reference_type, reference in references.items():
-            metrics = binary_mask_metrics(prediction_union, reference)
+            metrics = binary_mask_metrics(
+                prediction_union,
+                reference,
+                known_positive_instance=True,
+            )
             rows.append(
                 {
                     "run_id": exemplar["run_id"],
@@ -303,11 +309,27 @@ def run_evaluation(args: argparse.Namespace) -> dict[str, str]:
 
 def main() -> None:
     args = parse_args()
+    prediction_manifest_path = args.predictions.parent / "manifest.json"
+    prediction_manifest = validate_completed_run_output(
+        prediction_manifest_path,
+        output_name="predictions",
+        output_path=args.predictions,
+    )
+    if args.unmatched_predictions is not None:
+        validate_completed_run_output(
+            prediction_manifest_path,
+            output_name="unmatched_detector_predictions",
+            output_path=args.unmatched_predictions,
+        )
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    writer_lock = acquire_run_lock(
+        args.output_dir / ".evaluation_writer.lock"
+    )
     manifest_path = args.output_dir / "manifest.json"
     inputs = {
         "coco": str(args.coco.resolve()),
         "predictions": str(args.predictions.resolve()),
+        "prediction_manifest": str(prediction_manifest_path.resolve()),
     }
     if args.pseudo_references is not None:
         inputs["pseudo_references"] = str(
@@ -327,14 +349,23 @@ def main() -> None:
         config_hash=args.config_hash,
         inputs=inputs,
         parameters={
+            "metric_schema_version": 2,
             "dataset_id": args.dataset_id,
             "coco_reference_type": args.coco_reference_type,
+            "primary_granularity": "instance",
+            "secondary_granularity": "image_union",
+            "instance_weighting": "equal",
+            "known_positive_empty_reference_policy": "score_zero",
             "bootstrap_samples": args.bootstrap_samples,
             "bootstrap_seed": args.bootstrap_seed,
             "has_pseudo_reference": args.pseudo_references is not None,
             "has_unmatched_predictions": (
                 args.unmatched_predictions is not None
             ),
+            "upstream_prediction_run_id": prediction_manifest.get("run_id"),
+            "metric_granularity": "instance_equal_weight_macro",
+            "known_positive_empty_reference_policy": "score_zero",
+            "image_union_role": "secondary_diagnostic",
         },
     )
     write_run_manifest(manifest_path, manifest)
@@ -343,9 +374,11 @@ def main() -> None:
     except Exception as exc:
         finish_run_manifest(manifest, status="failed", error=str(exc))
         write_run_manifest(manifest_path, manifest)
+        writer_lock.close()
         raise
     finish_run_manifest(manifest, status="completed")
     write_run_manifest(manifest_path, manifest)
+    writer_lock.close()
     print(args.output_dir)
 
 

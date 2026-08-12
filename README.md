@@ -1,118 +1,113 @@
 # Remote Sensing YOLO-SAM Studies
 
 Bu depo, detection ile promptlanan SAM tabanlı uzaktan algılama
-segmentasyon çalışmalarını içerir. Her deney kendi config, hazırlanmış veri,
-script, sonuç, rapor ve testleriyle `studies/` altında bağımsız tutulur.
-Kökte yalnız birden fazla çalışmanın gerçekten paylaştığı kod ve kaynaklar
-bulunur.
+segmentasyon çalışmalarını içerir. Ortak YOLO/SAM kodu kökte, araştırma
+sorusuna özgü config, veri türevi, sonuç ve raporlar `studies/` altındadır.
 
-## Çalışmalar
+## Kanonik Bildiri Çalışması
+
+Güncel ve otoritatif çalışma:
+
+[`studies/teacher_reference_bias_paper/`](studies/teacher_reference_bias_paper/README.md)
+
+Bu çalışma aynı protokol altında dört deneyi birleştirir:
+
+| Deney | Veri seti | Hedef | Referanslar |
+|---|---|---|---|
+| `isaid_plane` | iSAID | Plane | Human, SAM1, SAM2, SAM3 pseudo |
+| `isaid_small_vehicle` | iSAID | Small Vehicle | Human, SAM1, SAM2, SAM3 pseudo |
+| `samrs_plane` | SAMRS SOTA | Plane | Published SAMRS, reproduced SAM1, SAM2, SAM3 pseudo |
+| `samrs_small_vehicle` | SAMRS SOTA | Small Vehicle | Published SAMRS, reproduced SAM1, SAM2, SAM3 pseudo |
+
+Her deney 512 test görüntüsü kullanır. Dört
+`overlap/no-overlap × low/high mask area` tabakasının her birinde 128 görüntü
+vardır. Frozen SAM1, SAM2 ve SAM3 tahminleri hem GT bbox hem seed 42 ile
+eğitilmiş YOLO bbox istemleriyle değerlendirilir.
+
+Çalışmanın ana sorusu, bir model tarafından üretilen pseudo maskelerin
+bağımsız test referansı gibi kullanılmasının aynı modele ölçüm avantajı verip
+vermediğidir. Ana kanıt iSAID'in insan anotasyonlarıdır. SAMRS yayımlanmış
+maskeleri SAM1 ile üretildiği için bağımsız doğruluk kanıtı değil, referans
+kökeni ve model-referans yakınlığı için destekleyici kontroldür.
+
+## Ana Bulgular
+
+iSAID YOLO-bbox koşulunda, model kendi pseudo referansıyla ölçüldüğünde aynı
+instance üzerindeki ortalama IoU artışları şöyledir:
+
+| Hedef | SAM1 | SAM2 | SAM3 |
+|---|---:|---:|---:|
+| Plane | +0,276 | +0,279 | +0,224 |
+| Small Vehicle | +0,176 | +0,163 | +0,142 |
+
+Altı artışın kaynak-sahne kümeli %95 bootstrap güven aralığı da sıfırın
+üzerindedir. GT-bbox diagonalındaki `1,0` değerleri başarı sonucu değil, aynı
+maskenin kendisiyle karşılaştırıldığı kimlik kontrolleridir.
+
+SAMRS yayımlanmış referansı ile aynı protokolle yeniden üretilen SAM1
+referansının ortalama instance IoU'su Plane için `0,990633`, Small Vehicle için
+`0,998338`dir. Bu sonuç yayımlanmış SAMRS referansının SAM1 kökeniyle
+uyumludur; insan ground truth yerine geçmez.
+
+Ana karşılaştırma:
+[main_cross_analysis_colored.pdf](studies/teacher_reference_bias_paper/analysis/main_cross_analysis_colored.pdf)
+
+## Raporlar
+
+Her deneyde dört referans için ayrı, eski okunaklı biçimle üretilmiş tam metrik
+MD/DOCX/PDF ve bir çapraz analiz MD/DOCX/PDF bulunur:
+
+```text
+studies/teacher_reference_bias_paper/experiments/<experiment_id>/reports/
+├── full_metrics/<reference>/
+└── cross_analysis/
+```
+
+Toplam 16 tam metrik PDF ve 4 deney çapraz analiz PDF'si vardır. Tam metrik
+raporlar `Overall` ile dört overlap × mask-area tablosunu, gerçek YOLO bbox
+metriklerini ve seçilen görüntüdeki bütün hedef instance'ları gösteren nitel
+örnekleri içerir.
+
+Bildiri yazım varlıkları:
+
+- [Bildiri yapısı](studies/teacher_reference_bias_paper/paper_writing/PAPER_STRUCTURE.md)
+- [Overleaf iskeleti](studies/teacher_reference_bias_paper/paper_writing/overleaf/main.tex)
+- [Figür ve tablolar](studies/teacher_reference_bias_paper/paper_writing/assets/)
+- [Literatür incelemesi](studies/teacher_reference_bias_paper/literature_review/LITERATURE_REVIEW.md)
+- [Arama denetimi](studies/teacher_reference_bias_paper/literature_review/SEARCH_AUDIT.md)
+
+## Diğer Çalışmalar
 
 | Study | Durum | Amaç |
 |---|---|---|
-| [`teacher_reference_bias_v2_512`](studies/teacher_reference_bias_v2_512/README.md) | Tamamlandı, canonical | Sabit seed 42 detector ile dört alt grupta 128'er, Overall'da 512 plane görüntüsünü iSAID insan/SAM1-pseudo ve SAMRS SOTA SAM1-pseudo referanslarında ölçer. |
-| [`teacher_reference_bias_small_vehicle_v1_512`](studies/teacher_reference_bias_small_vehicle_v1_512/README.md) | Tamamlandı, canonical eşlenmiş protokol | Plane deneyinin yalnız hedef sınıfı small-vehicle olacak şekilde birebir eşlenmiş tekrarıdır; veri, model, seed ve rapor sözleşmesi aynıdır. |
-| [`teacher_reference_bias_v1`](studies/teacher_reference_bias_v1/README.md) | Tarihsel | İlk 4×32 teacher-reference-bias deneyini ve altı sayfalık taslağı değiştirilemez öncül olarak korur. |
-| [`isaid_vehicle_study`](studies/isaid_vehicle_study/README.md) | Tarihsel | iSAID small/large vehicle birleşik maskelerinde eski pipeline karşılaştırmasını korur. |
-| [`samrs_sota_plane_study`](studies/samrs_sota_plane_study/README.md) | Tarihsel | İlk SAMRS SOTA plane deneyini ve eski sunum çıktısını korur. |
-| [`semantic_drone_car_study`](studies/semantic_drone_car_study/README.md) | Planlandı | Semantic Drone car deneyi için config ve handoff içeriğini tutar. |
-| [`landcover_building_study`](studies/landcover_building_study/README.md) | Eksik legacy | Eski landcover.ai building hazırlığını tarihsel olarak tutar. |
+| [`teacher_reference_bias_v1`](studies/teacher_reference_bias_v1/README.md) | Tarihsel | İlk 4×32 öncül deney; güncel bildirinin kanonik kanıtı değildir. |
+| [`isaid_vehicle_study`](studies/isaid_vehicle_study/README.md) | Tarihsel | iSAID birleşik small/large vehicle ve eski model/prompt karşılaştırmaları. |
+| [`samrs_sota_plane_study`](studies/samrs_sota_plane_study/README.md) | Tarihsel | İlk SAMRS SOTA plane çalışması ve eski sunum raporu. |
+| [`semantic_drone_car_study`](studies/semantic_drone_car_study/README.md) | Planlandı | Semantic Drone car hazırlığı. |
+| [`landcover_building_study`](studies/landcover_building_study/README.md) | Eksik legacy | Landcover.ai building hazırlığı. |
 
-Tarihsel iSAID ve SAMRS çalışmaları silinmemiştir. Ancak eşlenmemiş
-protokolleri nedeniyle teacher-reference-bias bildirisine kanıt olarak
-karıştırılmazlar.
-
-## Tarihsel V1 Sonuçları
-
-İlk teacher-reference-bias çalışmasının ana bulgusu, aynı tahminlerin bağımsız
-iSAID insan maskesi yerine SAM1 üretimli pseudo maskeye karşı ölçülmesinin
-skorları belirgin biçimde yükseltmesidir:
-
-| Model | İnsan IoU | SAM1 pseudo IoU | IoU enflasyonu |
-|---|---:|---:|---:|
-| SAM1 | 0,648 | 0,998 | +0,350 |
-| SAM2 | 0,580 | 0,806 | +0,225 |
-| SAM3 | 0,540 | 0,723 | +0,184 |
-
-Bu sonuç pseudo-maskelerin eğitim için değersiz olduğunu söylemez. Sonuç,
-teacher üretimli maskelerin bağımsız test ground truth'u gibi
-yorumlanmaması gerektiğini gösterir.
-
-V1 tarihsel çıktıları:
-
-- [Altı sayfalık bildiri](studies/teacher_reference_bias_v1/reports/paper/teacher_reference_bias_paper_6pages.pdf)
-- [iSAID tam metrik PDF](studies/teacher_reference_bias_v1/reports/full_metrics/isaid_plane/isaid_plane_full_metric_document_colored.pdf)
-- [SAMRS SOTA tam metrik PDF](studies/teacher_reference_bias_v1/reports/full_metrics/samrs_sota_plane/samrs_sota_plane_full_metric_document_colored.pdf)
-- [Canonical analiz](studies/teacher_reference_bias_v1/results/analysis/)
-
-## Canonical V2 Sonuçları
-
-512 görüntülük canonical v2 çalışması tamamlandı. GT-bbox koşulundaki Overall
-instance IoU:
-
-| Referans | SAM1 | SAM2 | SAM3 |
-|---|---:|---:|---:|
-| iSAID insan | 0,653 | 0,629 | 0,655 |
-| iSAID SAM1 pseudo | 1,000 | 0,827 | 0,795 |
-| SAMRS SAM1 pseudo | 0,991 | 0,781 | 0,611 |
-
-Aynı iSAID tahminlerinde yalnız referans insan maskesinden SAM1 pseudo
-maskesine değiştirildiğinde IoU artışı `+0,347 / +0,198 / +0,140` oldu.
-İnsan referansındaki `SAM3 > SAM1 > SAM2` sırası pseudo referansta
-`SAM1 > SAM2 > SAM3` olarak değişti. SAM1 pseudo satırındaki `1,000`,
-kontrollü kimlik testidir; bağımsız segmentasyon başarısı değildir.
-
-Final raporlar:
-
-- [iSAID insan referansı](studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human/isaid_plane_human_full_metric_document_colored.pdf)
-- [iSAID SAM1 pseudo referansı](studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_pseudo_sam1/isaid_plane_pseudo_sam1_full_metric_document_colored.pdf)
-- [SAMRS SOTA plane](studies/teacher_reference_bias_v2_512/reports/full_metrics/samrs_sota_plane/samrs_sota_plane_full_metric_document_colored.pdf)
-
-## Canonical Small-Vehicle Sonuçları
-
-İkinci hedef sınıf tekrarı da 512 görüntü ve sabit seed 42 ile tamamlandı.
-GT-bbox koşulundaki Overall instance IoU:
-
-| Referans | SAM1 | SAM2 | SAM3 |
-|---|---:|---:|---:|
-| iSAID insan | 0,658 | 0,645 | 0,370 |
-| iSAID SAM1 pseudo | 1,000 | 0,749 | 0,419 |
-| SAMRS SAM1 pseudo | 0,998 | 0,846 | 0,685 |
-
-Aynı iSAID tahminlerinde insan referansından SAM1 pseudo referansa geçiş
-`+0,342 / +0,103 / +0,049` IoU değişimi üretti. Model sırası bu sınıfta
-değişmedi; buna rağmen referans üreticisi SAM1'in artışı açık biçimde en
-büyüktür.
-
-Final raporlar:
-
-- [iSAID small vehicle insan referansı](studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_human/isaid_small_vehicle_human_full_metric_document_colored.pdf)
-- [iSAID small vehicle SAM1 pseudo referansı](studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1/isaid_small_vehicle_pseudo_sam1_full_metric_document_colored.pdf)
-- [SAMRS SOTA small vehicle](studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/samrs_sota_small_vehicle/samrs_sota_small_vehicle_full_metric_document_colored.pdf)
+Önceki üç parçalı teacher-bias çalışma ağacı silinmemiştir; yalnız aktif
+kökten kaldırılıp kanonik çalışma içindeki `archives/pre_unification/` altında
+korunmuştur. Taşıma dosya boyutu, inode ve SHA-256 ile doğrulanmıştır.
 
 ## Dizin Yapısı
 
 ```text
 .
 ├── datasets/                 # Paylaşılan değiştirilemez ham veri
-├── docs/                     # Depo mimarisi, refactor ve worklog
+├── docs/                     # Depo mimarisi ve ortak çalışma günlüğü
 ├── external_models/          # Harici model kaynak kodları
-├── models/                   # Paylaşılan checkpoint ve başlangıç ağırlıkları
+├── models/                   # Paylaşılan başlangıç ağırlıkları/cache
 ├── src/yolo_sam/             # Çalışmadan bağımsız ortak kütüphane
-├── studies/                  # Her deney için bağımsız çalışma alanı
+├── studies/                  # Araştırma sorusu bazında çalışma alanları
 ├── tests/                    # Ortak kod testleri
-└── tools/                    # Ortak bakım ve pipeline araçları
+└── tools/                    # Ortak bakım araçları
 ```
 
-Sahiplik kuralı:
+Bir dosya yalnız bir deneyde kullanılıyorsa ilgili çalışma altında; birden
+fazla deneyde aynı davranışla kullanılıyorsa ortak kök katmanda bulunur.
 
-> Bir dosya yalnız bir deneyde kullanılıyorsa ilgili study altında; birden
-> fazla deneyde aynı davranışla kullanılıyorsa ortak kök katmanda bulunur.
-
-Ayrıntılı sözleşme:
-[docs/REPOSITORY_ARCHITECTURE.md](docs/REPOSITORY_ARCHITECTURE.md)
-
-## Kurulum
+## Kurulum ve Doğrulama
 
 ```bash
 python -m venv .venv
@@ -121,65 +116,20 @@ pip install -r requirements.txt
 .venv/bin/python tools/models/setup_external_models.py
 ```
 
-Harici/gated SAM checkpoint dosyaları Git'e eklenmez. Canonical v2
-ve small-vehicle çalışmalarında eğitilmiş YOLO ağırlıkları ile yeniden üretim
-bundle'ları Git LFS ile tutulur. Yerel inference kurulumu:
-[LOCAL_INFERENCE.md](studies/teacher_reference_bias_v2_512/docs/LOCAL_INFERENCE.md).
-
-## Testler
-
-Ortak kütüphane:
+Kanonik çalışma komutları:
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m unittest discover \
-  -s tests -p 'test_*.py' -v
+.venv/bin/python studies/teacher_reference_bias_paper/scripts/study.py --help
+.venv/bin/python studies/teacher_reference_bias_paper/scripts/validate_paper_study.py
+.venv/bin/pytest -q studies/teacher_reference_bias_paper/tests
 ```
 
-Canonical teacher-reference-bias v2 study:
+Tam sıra ve model/checkpoint ayrıntıları:
+[REPRODUCIBILITY.md](studies/teacher_reference_bias_paper/docs/REPRODUCIBILITY.md)
 
-```bash
-PYTHONPATH=src:studies/teacher_reference_bias_v2_512/src \
-  .venv/bin/python -m unittest discover \
-  -s studies/teacher_reference_bias_v2_512/tests -p 'test_*.py' -v
-```
-
-Small-vehicle eşlenmiş study:
-
-```bash
-PYTHONPATH=src:studies/teacher_reference_bias_small_vehicle_v1_512/src \
-  .venv/bin/python -m unittest discover \
-  -s studies/teacher_reference_bias_small_vehicle_v1_512/tests \
-  -p 'test_*.py' -v
-```
-
-## Canonical Study Kullanımı
-
-Ana CLI ve bütün tekrar üretim komutları study README’sindedir:
-
-```bash
-.venv/bin/python \
-  studies/teacher_reference_bias_v2_512/scripts/study.py --help
-```
-
-Tam metrik belgeleri:
-
-```bash
-.venv/bin/python \
-  studies/teacher_reference_bias_v2_512/scripts/write_full_metric_reports.py
-```
-
-Final bütünlük kontrolü:
-
-```bash
-.venv/bin/python \
-  studies/teacher_reference_bias_v2_512/scripts/validate_full_metric_reports.py
-```
-
-## Dokümantasyon
+## Ortak Dokümantasyon
 
 - [Repository Architecture](docs/REPOSITORY_ARCHITECTURE.md)
-- [Refactor Plan](docs/REFACTOR_PLAN.md)
-- [Canonical Deney Planı](studies/teacher_reference_bias_v2_512/docs/EXPERIMENT_PLAN.md)
 - [Legacy Status](docs/LEGACY_STATUS.md)
 - [Worklog](docs/WORKLOG.md)
-- [Migration Manifests](docs/migration/)
+- [Güncel devir özeti](docs/summary/TEACHER_REFERENCE_BIAS_HANDOFF.md)

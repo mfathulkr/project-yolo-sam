@@ -1,3 +1,10 @@
+"""SAM3 PCS text/visual-exemplar wrapper.
+
+This module is not a specific-instance bbox segmenter. Bbox-only pipelines
+must use :mod:`yolo_sam.models.sam3_tracker_local` through the segmentation
+factory.
+"""
+
 from __future__ import annotations
 
 from dataclasses import dataclass

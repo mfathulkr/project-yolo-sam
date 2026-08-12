@@ -1,0 +1,9 @@
+dataset_id,bbox_source,reference_type,baseline_reference,ranking,rank_changes_vs_baseline,top_model,top_mean_iou
+isaid_plane,gt_bbox,human,human,SAM3 > SAM1 > SAM2,0,SAM3,0.6998762300765591
+isaid_plane,gt_bbox,pseudo_sam1,human,SAM1 > SAM2 > SAM3,3,SAM1,1.0
+isaid_plane,gt_bbox,pseudo_sam2,human,SAM2 > SAM1 > SAM3,2,SAM2,1.0
+isaid_plane,gt_bbox,pseudo_sam3,human,SAM3 > SAM1 > SAM2,0,SAM3,1.0
+isaid_plane,yolo_bbox,human,human,SAM3 > SAM1 > SAM2,0,SAM3,0.6383571654262823
+isaid_plane,yolo_bbox,pseudo_sam1,human,SAM1 > SAM2 > SAM3,3,SAM1,0.8732656277959695
+isaid_plane,yolo_bbox,pseudo_sam2,human,SAM2 > SAM1 > SAM3,2,SAM2,0.852569827201717
+isaid_plane,yolo_bbox,pseudo_sam3,human,SAM3 > SAM1 > SAM2,0,SAM3,0.8625673810055644

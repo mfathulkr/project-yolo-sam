@@ -1,0 +1,588 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "created_at_utc": "2026-08-12T11:46:36.172437+00:00",
+  "method": "sha256_before_atomic_rename_then_inode_and_size_verification",
+  "moves": [
+    {
+      "source": "studies/teacher_reference_bias_v2_512/data/prepared/isaid_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared",
+      "role": "prepared_data",
+      "file_count": 4822,
+      "total_bytes": 2686391206,
+      "tree_sha256": "15dbb1bc715e7d72b5e9877585c675c180de70d1b5ac612648634fd2f3d2b3b0",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/data/prepared/samrs_sota_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_plane/data/prepared",
+      "role": "prepared_data",
+      "file_count": 6382,
+      "total_bytes": 4803254852,
+      "tree_sha256": "f737d54f09497acd28168f081f793ed55ff3912a0e3bcdb747f767cf7d56081a",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/data/prepared/isaid_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/prepared",
+      "role": "prepared_data",
+      "file_count": 15604,
+      "total_bytes": 10272927757,
+      "tree_sha256": "8452ad9b6a1562c0989c72c499eaf79ed44e7587f457f3eb39cf5c5ce710dfdd",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/data/prepared/samrs_sota_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/data/prepared",
+      "role": "prepared_data",
+      "file_count": 19820,
+      "total_bytes": 17763739269,
+      "tree_sha256": "9084bb0fc2461da6924d03d59addf57965f835a3af3eeeef46df64957b30de40",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/data/master/isaid_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/master",
+      "role": "master_data",
+      "file_count": 16802,
+      "total_bytes": 11187608952,
+      "tree_sha256": "a2ba2f4c2ce25f4e14b6abee9521affc115d5605d944d220f78f43a13b3a9992",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/data/master/samrs_sota_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/data/master",
+      "role": "master_data",
+      "file_count": 20581,
+      "total_bytes": 18640474137,
+      "tree_sha256": "22e22e62cfd7f7e2af9c94f139b9083fbf486b1d598f50df7496828d490fd36c",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v1/data/prepared/isaid_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/master",
+      "role": "master_data",
+      "file_count": 5331,
+      "total_bytes": 3003845952,
+      "tree_sha256": "4e648d52883ccb07205193beda6b9bd1805dd6a50c659e28fb149183915e9ce7",
+      "fingerprint_scope": "portable_content_manifest_train_validation_test_pool_test",
+      "migration_method": "atomic_rename_then_relative_compatibility_symlink",
+      "verification": "post_move_full_content_manifest_including_test_pool"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v1/data/prepared/samrs_sota_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_plane/data/master",
+      "role": "master_data",
+      "file_count": 6914,
+      "total_bytes": 5236245847,
+      "tree_sha256": "5451feb5ad9ebba361beaa6e90281baaf982e0aedb24c260ef3af99d822778ca",
+      "fingerprint_scope": "portable_content_manifest_train_validation_test_pool_test",
+      "migration_method": "atomic_rename_then_relative_compatibility_symlink",
+      "verification": "post_move_full_content_manifest_including_test_pool"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/detectors/isaid_plane/seed_42",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42",
+      "role": "canonical_detector_seed_42",
+      "file_count": 31,
+      "total_bytes": 130009952,
+      "tree_sha256": "013ab1335a6ef0dfe6e65ac0cffc3d615c17231b81c7019cd9c237a8a6aba6a7",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/predictions/isaid_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions",
+      "role": "frozen_predictions",
+      "file_count": 33,
+      "total_bytes": 33381516,
+      "tree_sha256": "dfe8c341d36a5f2ba3e03f3b11716929966b008c0356873365042ead41a8cae5",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/evaluation/isaid_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/archives/pre_unification/evaluation",
+      "role": "legacy_evaluation",
+      "file_count": 42,
+      "total_bytes": 31807718,
+      "tree_sha256": "e2edc053a3d6cf0f62642f93883d70e1471f364a79c686e0444dda0baef919b1",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/dataset_audits/isaid_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/audits/raw_dataset",
+      "role": "dataset_audit",
+      "file_count": 2,
+      "total_bytes": 3579,
+      "tree_sha256": "681b6773653443bea239dd2bf1e4fdb5d8d514b4afb12bb5b789cc11b6dce217",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/detectors/samrs_sota_plane/seed_42",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/detector/seed_42",
+      "role": "canonical_detector_seed_42",
+      "file_count": 31,
+      "total_bytes": 131291540,
+      "tree_sha256": "c000a08af5571456cb8dca7ab90418a9939958ba81ae2293e09e232b8e7fccd1",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/predictions/samrs_sota_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions",
+      "role": "frozen_predictions",
+      "file_count": 33,
+      "total_bytes": 23377566,
+      "tree_sha256": "7665cfdbf9c0a6fa0bcd6d55d269cca4e7960c578f7caa2d0fdbbb7eabaf87a7",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/evaluation/samrs_sota_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_plane/archives/pre_unification/evaluation",
+      "role": "legacy_evaluation",
+      "file_count": 30,
+      "total_bytes": 8306795,
+      "tree_sha256": "24a7bd78a5c0cd551a626f4d499ee004765b1c1cf78fff6b9c70ed6541027cfd",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/dataset_audits/samrs_sota_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/audits/raw_dataset",
+      "role": "dataset_audit",
+      "file_count": 2,
+      "total_bytes": 8068,
+      "tree_sha256": "5844aa4cf86d69ff1266e4bc21cf4e2ce32cd474e574edea25eb74ecbfd800ca",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/detectors/isaid_small_vehicle/seed_42",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/detector/seed_42",
+      "role": "canonical_detector_seed_42",
+      "file_count": 35,
+      "total_bytes": 319672768,
+      "tree_sha256": "9f386679893935693f71bb65ffcc3451f71b2165ee6e5a3bee32b18606bdb922",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/predictions/isaid_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions",
+      "role": "frozen_predictions",
+      "file_count": 33,
+      "total_bytes": 70722079,
+      "tree_sha256": "b583152730dd85a8a87cdbe9791c934e81a16120adcba3a3923654fd96d68427",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/evaluation/isaid_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/archives/pre_unification/evaluation",
+      "role": "legacy_evaluation",
+      "file_count": 42,
+      "total_bytes": 73727248,
+      "tree_sha256": "5a2bcf6a9f99d9dfd7fb1b1421bc920775b7ffc5a91d8b2d1259b25948e014c0",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/dataset_audits/isaid_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/audits/raw_dataset",
+      "role": "dataset_audit",
+      "file_count": 2,
+      "total_bytes": 3577,
+      "tree_sha256": "8525ec811a4405863ab7e2521b4d39d34a1f5ab6fd5c17773669aa11d3609b0b",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/detectors/samrs_sota_small_vehicle/seed_42",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/detector/seed_42",
+      "role": "canonical_detector_seed_42",
+      "file_count": 31,
+      "total_bytes": 285322815,
+      "tree_sha256": "71d7a31eb86e159dd5edc66fa57652fd0cc5ccac942110b8637285fa8a79131c",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/predictions/samrs_sota_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions",
+      "role": "frozen_predictions",
+      "file_count": 33,
+      "total_bytes": 42398511,
+      "tree_sha256": "071b6e271d9ca0805d2607777115fb9c7310b2bd278aa8e7128a3db6a6580e78",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/evaluation/samrs_sota_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/archives/pre_unification/evaluation",
+      "role": "legacy_evaluation",
+      "file_count": 30,
+      "total_bytes": 17819395,
+      "tree_sha256": "62d63ecc0e4320bcabdd536ecaf5681a9b20508352d14ada78ef828ffb013d90",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/dataset_audits/samrs_sota_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/audits/raw_dataset",
+      "role": "dataset_audit",
+      "file_count": 2,
+      "total_bytes": 8068,
+      "tree_sha256": "5844aa4cf86d69ff1266e4bc21cf4e2ce32cd474e574edea25eb74ecbfd800ca",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/references/isaid_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/archives/pre_unification/references",
+      "role": "legacy_reference",
+      "file_count": 3,
+      "total_bytes": 5043243,
+      "tree_sha256": "cc8054a5a5fc9b370f9c839dbc3453e2eff6d40b13c0cef80408b29bd1fd63dd",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/references/isaid_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/archives/pre_unification/references",
+      "role": "legacy_reference",
+      "file_count": 3,
+      "total_bytes": 8157401,
+      "tree_sha256": "044874d8ae53a212d5db4aa6fee47cdbf7b5d2a45fe4f4800afb6b33acb5e68d",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_human",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/human",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 9224691,
+      "tree_sha256": "3a8174ff334041fea63eddf232998df2d05869a4c183193d5b039d1d2eeecb70",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/reports/full_metrics/isaid_plane_pseudo_sam1",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam1",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 8726176,
+      "tree_sha256": "3b1bf7b7efe9cb033059470e47181ddf4425febc8663afb24a975aed106630e1",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/reports/full_metrics/samrs_sota_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/published_samrs_reference",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 8287204,
+      "tree_sha256": "1f41f874097845162c2875978a0c17f9367d7ce22049a33d395d598b4f132f51",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_human",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 7887148,
+      "tree_sha256": "e164e53ce05d6f8c5c6008f5cf71eafc2d7f3ffadb5d78b765110b5567c8c0df",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam1",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/pseudo_sam1",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 9339243,
+      "tree_sha256": "3a1999b981b3a6598c0b03399c9a5c64e44bc763187856f33675e7e45fb33859",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/reports/full_metrics/samrs_sota_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/published_samrs_reference",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 9963723,
+      "tree_sha256": "7a6bbc1bea8bfc90c6116f8871d6ffd7ac69c493cd06a1651df4efb73596b14e",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/results/references/isaid_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/archives/pre_unification/multiteacher_references",
+      "role": "legacy_reference",
+      "file_count": 4,
+      "total_bytes": 13356716,
+      "tree_sha256": "51f5aac4f012aebd7af60eb131f3dc3327da8248de6eef9a9da3dff567c834e9",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/results/evaluation/isaid_plane",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/archives/pre_unification/multiteacher_evaluation",
+      "role": "legacy_evaluation",
+      "file_count": 12,
+      "total_bytes": 20545954,
+      "tree_sha256": "f1a4a463e66e0f624257234a4ea28e795ea9e0bb848e44402170a69592611fba",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam2",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam2",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 8647881,
+      "tree_sha256": "b92309a6dc1f3f2950bf4a91c417032256e757a21585b1613b8c598c7e1a9df6",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_plane_pseudo_sam3",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 8572347,
+      "tree_sha256": "5826374533a3160f1e8e2fd86b070f99288a9e312bf57457bc6539917d45b4a5",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/results/references/isaid_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/archives/pre_unification/multiteacher_references",
+      "role": "legacy_reference",
+      "file_count": 4,
+      "total_bytes": 23574718,
+      "tree_sha256": "76771b6b444f171ea4e0e54bbe9da6ed845c20e86676d30b047dc0186e35c649",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/results/evaluation/isaid_small_vehicle",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/archives/pre_unification/multiteacher_evaluation",
+      "role": "legacy_evaluation",
+      "file_count": 12,
+      "total_bytes": 49612270,
+      "tree_sha256": "b9af8ff54d572e10fe776f5981555e92d29fbfe42a545f1c871571962e586972",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam2",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/pseudo_sam2",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 9033842,
+      "tree_sha256": "d34ea98b30fd646754eb3452550c1d9ce61911e5c109faf8071570c0c47672d7",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/isaid_small_vehicle_pseudo_sam3",
+      "destination": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/pseudo_sam3",
+      "role": "full_metric_report",
+      "file_count": 15,
+      "total_bytes": 8276124,
+      "tree_sha256": "ac0b4169acf686dec5c01ab919206d8be33e6b1f124e6c5d86a5241bdddc5a32",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/analysis",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/results/analysis",
+      "role": "legacy_combined_analysis",
+      "file_count": 23,
+      "total_bytes": 53458492,
+      "tree_sha256": "79b88679acf0fc00d32aa28fb21b3a9bfa199009b15d26a8fc406e61f479176c",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/figures",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/results/figures",
+      "role": "legacy_combined_figures",
+      "file_count": 9,
+      "total_bytes": 6099882,
+      "tree_sha256": "412ff89bd603a4a20d572ddffaae703233646dd10682c4c79220ec175cd1855b",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/historical_noncanonical_seeds",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/results/historical_noncanonical_seeds",
+      "role": "noncanonical_seed_archive",
+      "file_count": 99,
+      "total_bytes": 98656270,
+      "tree_sha256": "8e59a88e0817c4bb99604746629db40a63fff0de91a92663afa53e3e07aa3aab",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/detectors/isaid_plane/seed_123",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/detectors/isaid_plane/seed_123",
+      "role": "noncanonical_detector_seed",
+      "file_count": 31,
+      "total_bytes": 129588301,
+      "tree_sha256": "723c92636a809f0a1625f153f569ac9b9c14c4b71b408cabff0bfb655d39ec2f",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/detectors/isaid_plane/seed_2026",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/detectors/isaid_plane/seed_2026",
+      "role": "noncanonical_detector_seed",
+      "file_count": 31,
+      "total_bytes": 130282257,
+      "tree_sha256": "3b55d016ea6c9ac9f39bd1000b6ef161a3062e0a3595fc944b27e8acfbffdaf0",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/detectors/samrs_sota_plane/seed_123",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/detectors/samrs_sota_plane/seed_123",
+      "role": "noncanonical_detector_seed",
+      "file_count": 31,
+      "total_bytes": 131601989,
+      "tree_sha256": "701ca348c5b21e22dd65159af43f14b3631015b6c36db907ef7180fe5ffb0027",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/detectors/samrs_sota_plane/seed_2026",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/detectors/samrs_sota_plane/seed_2026",
+      "role": "noncanonical_detector_seed",
+      "file_count": 31,
+      "total_bytes": 131317109,
+      "tree_sha256": "4f1450d36972cd30adf92218338819310428f99942036e581e843a956b899149",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/audits",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/results/audits",
+      "role": "legacy_audits",
+      "file_count": 3,
+      "total_bytes": 6198,
+      "tree_sha256": "ab6a6d4f8189d38be29a4b25fcca414ac8aefe014508f14797340b2f8aae4952",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/smoke",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/results/smoke",
+      "role": "legacy_smoke",
+      "file_count": 1,
+      "total_bytes": 521,
+      "tree_sha256": "8e8fe89e08de1bde2fa39a0ba61417a0e3ea83c41f2e187570cb15076b655d21",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/results/preflight.json",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/results/preflight.json",
+      "role": "legacy_preflight",
+      "file_count": 1,
+      "total_bytes": 7450,
+      "tree_sha256": "71f11c109e0536a506c7f6302646e0f68cf34a9a776af48e7d991caa670aac4d",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_v2_512/bundles",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/plane_pair/bundles",
+      "role": "legacy_bundle",
+      "file_count": 4,
+      "total_bytes": 52352428,
+      "tree_sha256": "be28a0ff34be117e0e34c5967e063c3c343dcf072e8e75eac3ab8f94f7d09cbf",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/analysis",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/small_vehicle_pair/results/analysis",
+      "role": "legacy_combined_analysis",
+      "file_count": 23,
+      "total_bytes": 124337695,
+      "tree_sha256": "a0f0498c2088387ca57fec0217534a8e5b0de0be0b567bfa531d64288b3ce19b",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/figures",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/small_vehicle_pair/results/figures",
+      "role": "legacy_combined_figures",
+      "file_count": 9,
+      "total_bytes": 6012584,
+      "tree_sha256": "92c1902b30b9f1870da8f9e1d2cdc89dfceb203d5fdba4d5852a0b33f8b84b50",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/audits",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/small_vehicle_pair/results/audits",
+      "role": "legacy_audits",
+      "file_count": 4,
+      "total_bytes": 6694,
+      "tree_sha256": "92a25443d50ec1a9df69395f6c7561dff7ca2db9bf808db4bb3d5ad2c461918f",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/smoke",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/small_vehicle_pair/results/smoke",
+      "role": "legacy_smoke",
+      "file_count": 1,
+      "total_bytes": 525,
+      "tree_sha256": "3fc66932c9b715977d7a71fd543b9393dd9c78c788a728597086f0aaa12835dc",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/post_training",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/small_vehicle_pair/results/post_training",
+      "role": "legacy_worker_state",
+      "file_count": 4,
+      "total_bytes": 759935,
+      "tree_sha256": "8de639551bbcef05c77a68b82da67a0e7338bc5d219656458a60078eae71702b",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/finalization",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/small_vehicle_pair/results/finalization",
+      "role": "legacy_worker_state",
+      "file_count": 2,
+      "total_bytes": 186530,
+      "tree_sha256": "8c9f308ff96112c0bba78c0ea1ee9492854bf7716bf20cffc138e204420cda4a",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/results/preflight.json",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/small_vehicle_pair/results/preflight.json",
+      "role": "legacy_preflight",
+      "file_count": 1,
+      "total_bytes": 7486,
+      "tree_sha256": "25b993f4c0592548ccc41ba95669589544bb621be8365593798eb783e2673e8f",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_small_vehicle_v1_512/bundles",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/small_vehicle_pair/bundles",
+      "role": "legacy_bundle",
+      "file_count": 3,
+      "total_bytes": 82328447,
+      "tree_sha256": "bf6d723aed82a8d19645301a29effd942a628bbab28a9102aaad6881875cea02",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/results/analysis",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/multiteacher/results/analysis",
+      "role": "legacy_combined_analysis",
+      "file_count": 8,
+      "total_bytes": 233513795,
+      "tree_sha256": "b6d8b65de54e5254815d5f9c5abf0ae20df3603c1cfff612bf7b3a786ac05f89",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/results/figures",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/multiteacher/results/figures",
+      "role": "legacy_combined_figures",
+      "file_count": 7,
+      "total_bytes": 7814351,
+      "tree_sha256": "622c2a14bf6affb4f420e31f2a6238a8523338a416415a37e4d77b39ae8738db",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/reports/teacher_comparison",
+      "destination": "studies/teacher_reference_bias_paper/archives/pre_unification/multiteacher/reports/teacher_comparison",
+      "role": "legacy_comparison_report",
+      "file_count": 4,
+      "total_bytes": 668607,
+      "tree_sha256": "5f5472b7e453910fd2fe4f1b67a477a9699ca9f8343a99d3904ea514acbc9741",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/paper/assets",
+      "destination": "studies/teacher_reference_bias_paper/paper_writing/assets",
+      "role": "paper_assets",
+      "file_count": 29,
+      "total_bytes": 19155999,
+      "tree_sha256": "882deea4dbf320771f1a3391a0bf655de388ea615b85d9ddba2788391653cad2",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    },
+    {
+      "source": "studies/teacher_reference_bias_multiteacher_v1_512/paper/overleaf",
+      "destination": "studies/teacher_reference_bias_paper/paper_writing/overleaf",
+      "role": "overleaf_source",
+      "file_count": 2,
+      "total_bytes": 24775,
+      "tree_sha256": "3dc824eeed55fcaea3a18d6776b12cee185e17d836b5e0bddd33c77123ef4628",
+      "verification": "same_inode_and_size_after_atomic_rename"
+    }
+  ]
+}

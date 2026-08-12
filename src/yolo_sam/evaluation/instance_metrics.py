@@ -85,6 +85,8 @@ def binary_mask_metrics(
     prediction: np.ndarray,
     reference: np.ndarray,
     boundary_dilation_ratio: float = 0.02,
+    *,
+    known_positive_instance: bool = False,
 ) -> BinaryMaskMetrics:
     if prediction.shape != reference.shape:
         raise ValueError(
@@ -101,6 +103,18 @@ def binary_mask_metrics(
     union = true_positive + false_positive + false_negative
     pred_pixels = true_positive + false_positive
     ref_pixels = true_positive + false_negative
+
+    if known_positive_instance and ref_pixels == 0:
+        return BinaryMaskMetrics(
+            iou=0.0,
+            dice=0.0,
+            precision=0.0,
+            recall=0.0,
+            boundary_iou=0.0,
+            true_positive_pixels=true_positive,
+            false_positive_pixels=false_positive,
+            false_negative_pixels=false_negative,
+        )
 
     pred_boundary = mask_boundary(pred, dilation_ratio=boundary_dilation_ratio)
     ref_boundary = mask_boundary(ref, dilation_ratio=boundary_dilation_ratio)
@@ -162,6 +176,7 @@ def evaluate_prediction_references(
     prediction: np.ndarray,
     references: dict[str, np.ndarray],
     boundary_dilation_ratio: float = 0.02,
+    known_positive_instance: bool = True,
 ) -> list[InstanceMetricRow]:
     if not references:
         raise ValueError("At least one reference mask is required")
@@ -171,6 +186,7 @@ def evaluate_prediction_references(
             prediction,
             reference,
             boundary_dilation_ratio=boundary_dilation_ratio,
+            known_positive_instance=known_positive_instance,
         )
         rows.append(
             InstanceMetricRow(

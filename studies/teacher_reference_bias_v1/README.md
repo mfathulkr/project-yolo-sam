@@ -1,5 +1,11 @@
 # Remote Sensing YOLO-SAM Teacher-Reference Bias Study
 
+> **Tarihsel ve superseded çalışma:** Bu 4x32 sürümdeki mevcut SAM3 tahmin ve
+> raporları, sonradan yanlış olduğu saptanan PCS visual-exemplar inference
+> yolundan üretilmiştir. Güncel bilimsel sonuç veya SAM3 karşılaştırması olarak
+> kullanılmamalıdır. Kanonik 4x128 dört-deney çalışması
+> `studies/teacher_reference_bias_paper/` altındadır.
+
 Bu repo, uzaktan algılama görüntülerinde bbox-prompted instance segmentation
 modellerini karşılaştıran yeniden üretilebilir bir araştırma çalışmasıdır.
 Aktif çalışma, SAM tarafından otomatik üretilmiş maskelerin bağımsız ground

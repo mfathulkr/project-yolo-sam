@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "dataset_id": "samrs_sota_small_vehicle",
+  "master_prepared_root": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/data/master",
+  "master_content_manifest": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/data/master/content_manifest.json",
+  "master_content_manifest_sha256": "00822130012857277f30cc253857b76bb8f7d869594fbabd0d8f9c980e9b7017",
+  "area_threshold": 0.0065670013427734,
+  "target_per_stratum": 128,
+  "test_scene_pool_coverage": {
+    "no_overlap__low_mask_area": 181,
+    "no_overlap__high_mask_area": 128,
+    "overlap__low_mask_area": 130,
+    "overlap__high_mask_area": 320
+  },
+  "selected_test_counts": {
+    "no_overlap__low_mask_area": 128,
+    "no_overlap__high_mask_area": 128,
+    "overlap__low_mask_area": 128,
+    "overlap__high_mask_area": 128
+  },
+  "selected_test_scene_count": 17,
+  "source_scene_overlap": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "split_summaries": {
+    "train": {
+      "images": 7824,
+      "annotations": 304414
+    },
+    "validation": {
+      "images": 1567,
+      "annotations": 49792
+    },
+    "test": {
+      "images": 512,
+      "annotations": 7659
+    }
+  }
+}

@@ -1,0 +1,4 @@
+train: train/images
+val: validation/images
+names:
+  0: small-vehicle

@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "status": "completed",
+  "study_id": "teacher_reference_bias_paper",
+  "dataset_id": "samrs_sota_plane",
+  "report_format": "legacy_samrs_full_metric_colored",
+  "inputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/aggregate_metrics.csv": "dbd99298a060cdd0ad8e753c656fd1882944ef94145eccd00611a975ec785cae",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/detector_summary.csv": "f94fce0d59ccee3b3b9eadf90ca0496e407adfa34d7ddffbe177dbda0434a67e",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/reproduced_pseudo_sam1_gt_bbox_qualitative.png": "950efa4b577cdf039a4099966c5f4fc45cde6fe2ff5c916ecd81be31b9c100ab",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/manifest.json": "0293864cb093bcecd1a5b6a0bef7f19a056f456b5fb604ef4abc7264f1c64e1a",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/paired_reference_effects.csv": "3d0fb69847ecd5e23a4b0cbcc81da4c3e8c7fc0038dcd221625080d14f05d376",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/manifest.json": "1393cc35f3e30eb24518e11623c471f752437396c291dba964f9765a991d4dd2"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/samrs_plane_reproduced_pseudo_sam1_full_metric_document.md": "cba7d15645dd8c4a90ab9ec1b5a67d23864118348e6a4d20b80ae06384acb139",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/samrs_plane_reproduced_pseudo_sam1_full_metric_document_colored.docx": "b5acfdb24614867883d6e89388ae6c1ca4e8e51e5120acc7ebdbf4c53caad679",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/samrs_plane_reproduced_pseudo_sam1_full_metric_document_colored.pdf": "1619fbc0bf5d407cebae58d93ba9f4fd752fe18b784525bf555dc302ea0e609a",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/tables/detector_summary.csv": "d507cdd5b33c0e0514f322fd7ed24f00f3a34ac7eee37b85eff56374f287436e",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/tables/reference_sensitivity.csv": "eacd2f15555f0d93bdefb41329b981ad0111e8bf6119e03a3696a1517de1829e",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/tables/reproduced_pseudo_sam1__no_overlap__high_mask_area.csv": "51647f6757178dac0775cee58f4570f0c63bc83e0bb6df7f2851fde47e9fdec7",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/tables/reproduced_pseudo_sam1__no_overlap__low_mask_area.csv": "5644d7b0396d3fadaf7f3b2082f1959d5f9c0d396cca1155cda4315ac6fdf26d",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/tables/reproduced_pseudo_sam1__overall.csv": "92e1e09fa55bd64910583150b0d555d1cdd56bc3c47d09729db9d773f7d50ebf",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/tables/reproduced_pseudo_sam1__overlap__high_mask_area.csv": "019cf5003eee73b47480699437485831cecd3ec2c845521a1a971f02e3f3ab54",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/tables/reproduced_pseudo_sam1__overlap__low_mask_area.csv": "0d73b9860f79c200d2bc2cb9c70ac6d195372651cd3b9919da4d599647c93a68",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/qualitative/no_overlap__low_mask_area.png": "93735d920454121ee18cdf9d37a19cfbea50115fea74da2a9043a194c3e541fd",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/qualitative/no_overlap__high_mask_area.png": "e95f4e49d12cabca8df700bbc4e8f1be4cf0489c1ac046795562bbf627b561e9",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/qualitative/overlap__low_mask_area.png": "d167ca101d18b88503cf62d981706383ce1b3e05cd8ac2ea2a19e6d2b5cf86a3",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/reports/full_metrics/reproduced_pseudo_sam1/qualitative/overlap__high_mask_area.png": "d58dd583ef985db0073951075519b7e5594020fad72b4a72dfbabd7f27cbd12d"
+  },
+  "strata": [
+    "overall",
+    "no_overlap__low_mask_area",
+    "no_overlap__high_mask_area",
+    "overlap__low_mask_area",
+    "overlap__high_mask_area"
+  ],
+  "reference_sections": [
+    "reproduced_pseudo_sam1"
+  ]
+}

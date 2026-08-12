@@ -66,6 +66,12 @@ class MatchedStudyConfig:
             raise ValueError("sam3 requires checkpoint_file provenance")
         if len(str(sam3_config.get("checkpoint_sha256", ""))) != 64:
             raise ValueError("sam3 requires a SHA-256 checkpoint hash")
+        if sam3_config.get("inference_interface") != "sam3_tracker_pvs":
+            raise ValueError("sam3 bbox inference requires sam3_tracker_pvs")
+        if float(sam3_config.get("mask_threshold", 1.0)) != 0.0:
+            raise ValueError("sam3_tracker_pvs requires a logit mask threshold of 0.0")
+        if int(sam3_config.get("box_batch_size", 0)) <= 0:
+            raise ValueError("sam3 box_batch_size must be positive")
         if BBoxSource.MASK_DERIVED in self.bbox_sources:
             raise ValueError("mask_derived bbox is forbidden in the primary matched study")
         overlap_threshold = float(self.evaluation["overlap_threshold"])

@@ -1,0 +1,90 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "experiment_id": "isaid_small_vehicle",
+  "qualitative_scope": "all_target_instances_in_selected_images",
+  "inputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/prepared/test/_annotations.coco.json",
+      "bytes": 3329891,
+      "sha256": "c4c6327bf05667a313a02ca84193356164869e34b9926b9807fd6cc49ca2e7d9"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/aggregate_metrics.csv",
+      "bytes": 29794,
+      "sha256": "120ccd79d72e80bfba28f0fcc98c738d616e4a8d6ae6dc6d3704ffa255c810ef"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/canonical_instance_metrics.csv",
+      "bytes": 115663172,
+      "sha256": "acf42fdd30169ba76ef47fa2ca1d647a03fa0dc938ba9a1ddbcd5e9306ef9c5d"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_reference_effects.csv",
+      "bytes": 3082,
+      "sha256": "5883857675b274047838e1698593ff5e5147144a05525f51450c5af62cf229a6"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam1/gt_bbox/predictions.jsonl",
+      "bytes": 8159999,
+      "sha256": "6f7cb37e1ccde25856ea04119d68ae525f58b9905e2cbb25a173be8f2a2910d6"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam2/gt_bbox/predictions.jsonl",
+      "bytes": 8247798,
+      "sha256": "86bbdf3785f8aa918d9240a0245f899fefbdf029e79253416e3c24ad9bf9d44c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam3/gt_bbox/predictions.jsonl",
+      "bytes": 8307827,
+      "sha256": "ec65463941c2843ed97c2dc82d524e50429afc737167f58de40cf65da4ede035"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/references/pseudo_sam1.jsonl",
+      "bytes": 9550384,
+      "sha256": "6c78620643f5257bb1af8b77bc7f8e5c1e3b01c0d84139109310a9f3a03e54ed"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/references/pseudo_sam2.jsonl",
+      "bytes": 9632389,
+      "sha256": "c316f1d5a644e681c05b5bc2581a63054d66ba59532d42c44c42421490f8a0c0"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/references/pseudo_sam3.jsonl",
+      "bytes": 9696246,
+      "sha256": "b8005aa912a567d29d42aa5bd9254679344dfea3e21a16136d4aa484fce7552d"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/human_gt_bbox_qualitative.png",
+      "bytes": 1612235,
+      "sha256": "70e512a1c6c734fdf049277864ae696608160887b40db2552f609957c6c16417"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/model_reference_iou_matrix.png",
+      "bytes": 143859,
+      "sha256": "4c6421ac7f3880b7559a07b9950174191d8bab26eb83cc51e35c45a12c5115eb"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/pseudo_sam1_gt_bbox_qualitative.png",
+      "bytes": 1958433,
+      "sha256": "b33cd7e3ee339eaf893fa48cc0d2af3bffcf58df298958073d330b0d4cbe016e"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/pseudo_sam2_gt_bbox_qualitative.png",
+      "bytes": 1865880,
+      "sha256": "0415ccd12c053c2f1ccd2bef0887b1a3c968e57c0883dc90c0232d4ea03ebe0e"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/pseudo_sam3_gt_bbox_qualitative.png",
+      "bytes": 1703212,
+      "sha256": "6fcab019df7a8b86b89a26be88fefdad4a5202b400f71035604714091ef1bc31"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/reference_effect_with_ci.png",
+      "bytes": 115610,
+      "sha256": "0c0835dafeaa985c537d9006b7671d6c23fd274b1ef5eaa50af16e502e859fb2"
+    }
+  ]
+}

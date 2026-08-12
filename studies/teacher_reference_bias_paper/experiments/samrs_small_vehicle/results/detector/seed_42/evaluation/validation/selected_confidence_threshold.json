@@ -1,0 +1,15 @@
+{
+  "selection_method": "max_f1",
+  "selection_iou_threshold": 0.5,
+  "selected_confidence_threshold": 0.36182695627212524,
+  "precision": 0.8052071603308353,
+  "recall": 0.8329249678663239,
+  "f1": 0.8188315662698178,
+  "true_positive": 41473,
+  "false_positive": 10033,
+  "false_negative": 8319,
+  "candidate_thresholds": 134647,
+  "dataset_id": "samrs_sota_small_vehicle",
+  "seed": 42,
+  "selection_split": "validation"
+}

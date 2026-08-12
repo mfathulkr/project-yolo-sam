@@ -5,7 +5,7 @@ from typing import Any
 
 from yolo_sam.models.sam1_local import LocalSam1ImageSegmenter
 from yolo_sam.models.sam2_local import LocalSam2ImageSegmenter
-from yolo_sam.models.sam3_local import LocalSam3ImageSegmenter
+from yolo_sam.models.sam3_tracker_local import LocalSam3TrackerImageSegmenter
 from yolo_sam.segmentation.box_segmenters import (
     BoxSegmenter,
     Sam1BoxSegmenter,
@@ -52,19 +52,25 @@ def create_box_segmenter(
             model_version=revision,
         )
     if name == "sam3":
+        inference_interface = str(config.get("inference_interface", ""))
+        if inference_interface != "sam3_tracker_pvs":
+            raise ValueError(
+                "SAM3 bbox segmentation requires "
+                "inference_interface=sam3_tracker_pvs"
+            )
         model_dir = Path(str(config["model_dir"]))
         if not model_dir.is_absolute():
             model_dir = project_root / model_dir
         return Sam3BoxSegmenter(
-            segmenter=LocalSam3ImageSegmenter(
+            segmenter=LocalSam3TrackerImageSegmenter(
                 model_dir=model_dir,
                 device=device,
                 torch_dtype=str(config["torch_dtype"]),
                 hf_token=hf_token,
             ),
             model_id=str(config["model_id"]),
-            output_prob_threshold=float(config["output_probability_threshold"]),
             mask_threshold=float(config["mask_threshold"]),
+            box_batch_size=int(config.get("box_batch_size", 16)),
             model_version=str(config["checkpoint_sha256"]),
         )
     raise ValueError(f"Unknown bbox segmenter: {name}")

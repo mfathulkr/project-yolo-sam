@@ -1,0 +1,24 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "created_at_utc": "2026-08-12T11:52:37.813964+00:00",
+  "experiment_id": "isaid_small_vehicle",
+  "dataset_id": "isaid_small_vehicle",
+  "reference_type": "pseudo_sam1",
+  "teacher": "sam1",
+  "teacher_prompt_type": "gt_bbox",
+  "teacher_inference_interface": "native_bbox_prompt",
+  "construction": "frozen_gt_bbox_prediction_identity",
+  "instance_count": 12051,
+  "empty_reference_count": 19,
+  "empty_reference_rate": 0.0015766326445938097,
+  "known_positive_empty_reference_policy": "score_zero",
+  "inputs": {
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam1/gt_bbox/predictions.jsonl": "6f7cb37e1ccde25856ea04119d68ae525f58b9905e2cbb25a173be8f2a2910d6",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam1/gt_bbox/manifest.json": "368bd7e3bd25ffe65d07369c4e8d6b85e2b1c6f7846a27aee8b2bb34e6f3f322"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/references/pseudo_sam1.jsonl": "6c78620643f5257bb1af8b77bc7f8e5c1e3b01c0d84139109310a9f3a03e54ed"
+  },
+  "scientific_role": "coverage-aware identity control for the matching GT-bbox teacher; not independent ground truth"
+}

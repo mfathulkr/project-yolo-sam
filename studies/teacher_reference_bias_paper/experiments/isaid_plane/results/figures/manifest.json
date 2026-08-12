@@ -1,0 +1,90 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "experiment_id": "isaid_plane",
+  "qualitative_scope": "all_target_instances_in_selected_images",
+  "inputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/test/_annotations.coco.json",
+      "bytes": 3175772,
+      "sha256": "1c332c028ae9f8452aee2daf6bb906e9ba0aa7e8c33268e4158293500a35eab5"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/aggregate_metrics.csv",
+      "bytes": 28268,
+      "sha256": "20c3393688464645bfee087d93df8b29d6b4f7f902c333519a55d79e2cd28c7c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/canonical_instance_metrics.csv",
+      "bytes": 46453261,
+      "sha256": "81296faf5ddb411e44a40c0dc8f7d11d8122f4e8f425d717d693e110b6bb860f"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/paired_reference_effects.csv",
+      "bytes": 2891,
+      "sha256": "16de40c1c5914cb3ae6b0c28239169cecbb87c9828010876a5eb75d580d88d6a"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/gt_bbox/predictions.jsonl",
+      "bytes": 5041611,
+      "sha256": "5c9deca36fc1a0812614b3bdf2ec2b7126bc9e0011d0bec662008ef993ff8575"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam2/gt_bbox/predictions.jsonl",
+      "bytes": 4963447,
+      "sha256": "fc654510291559e9607fa05851e57260d2b7549fe06f168bd4496316de3726e9"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/predictions.jsonl",
+      "bytes": 5217848,
+      "sha256": "251abb4ec9d49ecc611103af5350033250c3504aa40ee11a6fd752dc1c579b73"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/references/pseudo_sam1.jsonl",
+      "bytes": 5626808,
+      "sha256": "87ad1c0df13946ab183cd22e04c64d2265104c91d05a430201c540d3ea392b5c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/references/pseudo_sam2.jsonl",
+      "bytes": 5546924,
+      "sha256": "5ae920f9c6348827d54d1c196f8223ef7ef0a0e3004352618772373d1de76cd0"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/references/pseudo_sam3.jsonl",
+      "bytes": 5801331,
+      "sha256": "d5338e8b0a2dad3e70dfcc0a0d7f101de9d6f7cf414c1a9d0614e11284732ca9"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/human_gt_bbox_qualitative.png",
+      "bytes": 2045802,
+      "sha256": "c6e523aef9033918a5818c1462331ddbb0645d9bcef911c2f13e6f1abccbbce9"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/model_reference_iou_matrix.png",
+      "bytes": 145527,
+      "sha256": "6b18af1ea39b56df988a9cc13fc776e2db3e090702450c128eb92f902ffd9e4e"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/pseudo_sam1_gt_bbox_qualitative.png",
+      "bytes": 1898776,
+      "sha256": "53800a53bb247ff4f840159cdc2f1a97c7cd97a43b665ef2fe2a43ff22ae639e"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/pseudo_sam2_gt_bbox_qualitative.png",
+      "bytes": 2000455,
+      "sha256": "a2974d1d9cf577f816033ea701344d7ff598a66d19f142112e73fb57b8ad9deb"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/pseudo_sam3_gt_bbox_qualitative.png",
+      "bytes": 1839663,
+      "sha256": "ed529b9090c9310f8ae6508278a552143db04fb9775aec45540974494a3c5bce"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/reference_effect_with_ci.png",
+      "bytes": 114407,
+      "sha256": "a0bc0d38655c8ffffdcd4d85bf54848e6d7adb55412491dfafdb3ec4bd41eb23"
+    }
+  ]
+}

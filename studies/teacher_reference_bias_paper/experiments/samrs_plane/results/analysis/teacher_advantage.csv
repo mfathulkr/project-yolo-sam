@@ -1,0 +1,9 @@
+dataset_id,bbox_source,reference_type,teacher,teacher_score,other_models_mean,teacher_advantage,identity_control
+samrs_sota_plane,gt_bbox,pseudo_sam2,sam2,1.0,0.767870996874479,0.23212900312552098,True
+samrs_sota_plane,gt_bbox,pseudo_sam3,sam3,1.0,0.7816521894439716,0.21834781055602837,True
+samrs_sota_plane,gt_bbox,published_samrs_reference,sam1,0.9906331615819841,0.7942031933708522,0.1964299682111319,False
+samrs_sota_plane,gt_bbox,reproduced_pseudo_sam1,sam1,1.0,0.7988000547036421,0.20119994529635787,True
+samrs_sota_plane,yolo_bbox,pseudo_sam2,sam2,0.7848432046874624,0.6572971226366616,0.12754608205080076,False
+samrs_sota_plane,yolo_bbox,pseudo_sam3,sam3,0.7993324359416268,0.6690912712301751,0.13024116471145175,False
+samrs_sota_plane,yolo_bbox,published_samrs_reference,sam1,0.8126515326974005,0.6849187906676527,0.12773274202974783,False
+samrs_sota_plane,yolo_bbox,reproduced_pseudo_sam1,sam1,0.8180486049978571,0.6887895801654649,0.12925902483239227,False

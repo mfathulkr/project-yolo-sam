@@ -1,0 +1,90 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "experiment_id": "samrs_plane",
+  "qualitative_scope": "all_target_instances_in_selected_images",
+  "inputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/data/prepared/test/_annotations.coco.json",
+      "bytes": 2412225,
+      "sha256": "426889b6eb36880ffb02ce3c8b4e32bd3c1e82ea4be6792ec3adaa990f8c961a"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/aggregate_metrics.csv",
+      "bytes": 29825,
+      "sha256": "dbd99298a060cdd0ad8e753c656fd1882944ef94145eccd00611a975ec785cae"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/canonical_instance_metrics.csv",
+      "bytes": 33747764,
+      "sha256": "19e92d6925e5da0439a4d950b62cbf595acbd4c68886693d856a49a53d6ade65"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/paired_reference_effects.csv",
+      "bytes": 3476,
+      "sha256": "3d0fb69847ecd5e23a4b0cbcc81da4c3e8c7fc0038dcd221625080d14f05d376"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/gt_bbox/predictions.jsonl",
+      "bytes": 3582418,
+      "sha256": "a662fb99009ca2f303a702d5cc91f2bc4592c29fb4e6fdfab27aed25fae19539"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/gt_bbox/predictions.jsonl",
+      "bytes": 3540174,
+      "sha256": "e72d8d1012f21dbd40da60d753955121a45bb567ea6aa3719163200bc6596e25"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/gt_bbox/predictions.jsonl",
+      "bytes": 3738661,
+      "sha256": "e71c86dfa79eeeac5d02069de7766a4279a83284263604983755292eb4103f9c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/pseudo_sam2.jsonl",
+      "bytes": 3937633,
+      "sha256": "a93a25044b8f41017f58d40fde13412a51335197848a00dc3ef398e03e013fe7"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/pseudo_sam3.jsonl",
+      "bytes": 4136266,
+      "sha256": "b99a4b2b74e4a8610e73a3be80228e9205c577b959f51541597ef040d81393c5"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/reproduced_pseudo_sam1.jsonl",
+      "bytes": 4021533,
+      "sha256": "9cbce260b497de59c3d52d35493c8b67bcc164506fadc4bb085699069cfcd4ab"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/model_reference_iou_matrix.png",
+      "bytes": 174414,
+      "sha256": "48d0b72e7969dee5aee4565138554539d95c02d650ca0ccdee9e8cdd5c36f320"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/pseudo_sam2_gt_bbox_qualitative.png",
+      "bytes": 1633887,
+      "sha256": "bbd3d62fc95af8347ae53e9c759144775331f92570f1fbeab6dbf67d73b14d16"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/pseudo_sam3_gt_bbox_qualitative.png",
+      "bytes": 2120362,
+      "sha256": "a3b69be65ef3d48651babb9255269245d09fc776893d4a4b9b39ac0d5115187d"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/published_samrs_reference_gt_bbox_qualitative.png",
+      "bytes": 1763841,
+      "sha256": "90e8d0124e909356fd9c9ec714dddb1aa20823dab471bc931b33f85ade02cadc"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/reference_effect_with_ci.png",
+      "bytes": 104395,
+      "sha256": "a3f0bf299fe63f00f567b76a656fcd43c60cd8052de892f38c2ced6a43aa56f5"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/reproduced_pseudo_sam1_gt_bbox_qualitative.png",
+      "bytes": 1631296,
+      "sha256": "950efa4b577cdf039a4099966c5f4fc45cde6fe2ff5c916ecd81be31b9c100ab"
+    }
+  ]
+}

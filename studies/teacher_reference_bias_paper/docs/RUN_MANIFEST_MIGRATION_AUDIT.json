@@ -1,0 +1,614 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "migration_id": "teacher_reference_bias_paper_unification_v1",
+  "created_at_utc": "2026-08-12T13:11:11.515535+00:00",
+  "scope": "portable canonical run manifests and generated path metadata",
+  "scientific_effect": "none; no prediction, reference, or metric values changed",
+  "companion_file_count": 52,
+  "run_manifest_count": 36,
+  "companion_files": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "55f853a945d90e8f79e4d02eab0fdccb9f098e26e8c754b541c58ed196b3ab1a",
+      "after_sha256": "55f853a945d90e8f79e4d02eab0fdccb9f098e26e8c754b541c58ed196b3ab1a"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "d42e569f28cdba05cef3aa8241e5db26f72a1b2679c2b270f790c6b5d8fcab9e",
+      "after_sha256": "d42e569f28cdba05cef3aa8241e5db26f72a1b2679c2b270f790c6b5d8fcab9e"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam2/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "28a8275118a741a42d40f51be0243e694648f89f5a391b5a8d222091344b06ca",
+      "after_sha256": "28a8275118a741a42d40f51be0243e694648f89f5a391b5a8d222091344b06ca"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam2/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam2/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "893c06d40a7bea95f7c7328c1b27569ab512ff3e9645c7c1c18a2551a67d44af",
+      "after_sha256": "893c06d40a7bea95f7c7328c1b27569ab512ff3e9645c7c1c18a2551a67d44af"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam2/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "e53056c160c99cc33ec4f2bb87c9a33240e461ef59140edf87826bffd830eac6",
+      "after_sha256": "e53056c160c99cc33ec4f2bb87c9a33240e461ef59140edf87826bffd830eac6"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "89f0eb6edded836131a807f6f28599294515cc5b7c4b9275c3b2fed2cf74f07d",
+      "after_sha256": "89f0eb6edded836131a807f6f28599294515cc5b7c4b9275c3b2fed2cf74f07d"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/train/args.yaml",
+      "action": "validated_existing",
+      "before_sha256": "acdae6fbef1b6892c19f3a48048f852ce6cf2413fb4dfaa3e3df04bcf2a29a82",
+      "after_sha256": "acdae6fbef1b6892c19f3a48048f852ce6cf2413fb4dfaa3e3df04bcf2a29a82"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "d0a010478f32866bc9387745a7240131027e1779d73ee60100f58e48af89ce82",
+      "after_sha256": "d0a010478f32866bc9387745a7240131027e1779d73ee60100f58e48af89ce82"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "062eabaffbb1e844090ef20f19596ca719ba36128e040e38b8c782106aaa4926",
+      "after_sha256": "062eabaffbb1e844090ef20f19596ca719ba36128e040e38b8c782106aaa4926"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "c6f4e366d2d7f629f76f24f01d91a7667c1b7ddfa947651e0e53484cb3848653",
+      "after_sha256": "c6f4e366d2d7f629f76f24f01d91a7667c1b7ddfa947651e0e53484cb3848653"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "e857fd71c5da0f4e31f93e4dd8a3f7f77b4c7cc0025cfda194a756298528484c",
+      "after_sha256": "e857fd71c5da0f4e31f93e4dd8a3f7f77b4c7cc0025cfda194a756298528484c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "72d75edd9051c978e1980908496055d5ce98a7206bd879195445e115947c4ce3",
+      "after_sha256": "72d75edd9051c978e1980908496055d5ce98a7206bd879195445e115947c4ce3"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "ce85839f0fdf49928d850f5712d1ec7403b03e006403de6d47b78f6b2ce15e40",
+      "after_sha256": "ce85839f0fdf49928d850f5712d1ec7403b03e006403de6d47b78f6b2ce15e40"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee",
+      "after_sha256": "7e2e90d87e333558506cd35ba15f532d94adeec59f4847f02d0e8bcc17f23dee"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/detector/seed_42/train/args.yaml",
+      "action": "validated_existing",
+      "before_sha256": "0993b962eaddc5ef8931d369c53edbd057faddb3e67cb8da9943cc3467b5951c",
+      "after_sha256": "0993b962eaddc5ef8931d369c53edbd057faddb3e67cb8da9943cc3467b5951c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam1/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "3ff394c265b601e620b20115e9e02cb0985181165ef64058639fba702af738d6",
+      "after_sha256": "3ff394c265b601e620b20115e9e02cb0985181165ef64058639fba702af738d6"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam1/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam1/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "de01fffa86275124206ffc85f2d4461bfcc6fe9ef89daeb334af5bf3f9af47dc",
+      "after_sha256": "de01fffa86275124206ffc85f2d4461bfcc6fe9ef89daeb334af5bf3f9af47dc"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam1/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam2/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "d8bf9762df6a30f00915c01ee5b40e27bd252b3684f85f7091a49d7c85471814",
+      "after_sha256": "d8bf9762df6a30f00915c01ee5b40e27bd252b3684f85f7091a49d7c85471814"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam2/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam2/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7ec929169c3ff4d60fcf2e4c4020c90b700f8da7ba5cbc4aa0cce43563a3dc65",
+      "after_sha256": "7ec929169c3ff4d60fcf2e4c4020c90b700f8da7ba5cbc4aa0cce43563a3dc65"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam2/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam3/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "692e4a953b58a0c535cde84f7f2436f7b388551135ef039244d0d8d2c8f810e8",
+      "after_sha256": "692e4a953b58a0c535cde84f7f2436f7b388551135ef039244d0d8d2c8f810e8"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam3/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam3/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "9dff50ffce94170148e94fbdc30ea91d5cb5b59e8898ff575446da6de69840eb",
+      "after_sha256": "9dff50ffce94170148e94fbdc30ea91d5cb5b59e8898ff575446da6de69840eb"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam3/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/detector/seed_42/train/args.yaml",
+      "action": "validated_existing",
+      "before_sha256": "0bc83650d0278d49b502760b5e8bbf994b5a2c2dcb4b3189bca6fe5fae4766d9",
+      "after_sha256": "0bc83650d0278d49b502760b5e8bbf994b5a2c2dcb4b3189bca6fe5fae4766d9"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "00e18d1e49d86d19ffc542da971c2bcccc80788f8591f218a1104d63958832f4",
+      "after_sha256": "00e18d1e49d86d19ffc542da971c2bcccc80788f8591f218a1104d63958832f4"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "6451e571f26745df1dda1d28b8a53c49d0b8628004b8ca6597067c2224c0ba8e",
+      "after_sha256": "6451e571f26745df1dda1d28b8a53c49d0b8628004b8ca6597067c2224c0ba8e"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "e9f2bbcde211abda5037c6cad154fc0773967e0ce25f0bdb8be6a84734255da0",
+      "after_sha256": "e9f2bbcde211abda5037c6cad154fc0773967e0ce25f0bdb8be6a84734255da0"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7ac1af68156218bcb2e2904781a0b4e635b234f60dc6b98a1fa2c98d426f3c1c",
+      "after_sha256": "7ac1af68156218bcb2e2904781a0b4e635b234f60dc6b98a1fa2c98d426f3c1c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/gt_bbox/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "5976d52a3dee852f98e5a92075c1043767fc81b1a18ce9ef9feec8d2f19c549f",
+      "after_sha256": "5976d52a3dee852f98e5a92075c1043767fc81b1a18ce9ef9feec8d2f19c549f"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/gt_bbox/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/yolo_bbox/seed_42/effective_config.input.json",
+      "action": "validated_existing",
+      "before_sha256": "70ed4a3887f986879af9bdcc46dcaf766a7ee2bb83386adc30a4f9cf4d126402",
+      "after_sha256": "70ed4a3887f986879af9bdcc46dcaf766a7ee2bb83386adc30a4f9cf4d126402"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/yolo_bbox/seed_42/segmenter_provenance.input.json",
+      "action": "validated_existing",
+      "before_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1",
+      "after_sha256": "7d771da9cf2eb7065770edd563a24ab8346c34549b357449c82c0d89516538c1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/detector/seed_42/train/args.yaml",
+      "action": "validated_existing",
+      "before_sha256": "0f55b4e25338aa8d922f312d9fdbe3a7425f24529b8f1d890feb3c5b2f36ca11",
+      "after_sha256": "0f55b4e25338aa8d922f312d9fdbe3a7425f24529b8f1d890feb3c5b2f36ca11"
+    }
+  ],
+  "run_manifests": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/evaluation/test/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "d8a0f43b14fbda09e7f8e3cd625d5463166c8ac95b63f4f3549e9a1c44b5bfa7",
+      "after_sha256": "d8a0f43b14fbda09e7f8e3cd625d5463166c8ac95b63f4f3549e9a1c44b5bfa7",
+      "original_manifest_sha256": "42e15bdd7d731ff308d97f3c7a085bfa2362c31fa9c0993e71c27736d94df5ba",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/evaluation/validation/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "0102d0ce484046776ad0e46427fe5990edab78da8b942fb44c6e4f72e3e53969",
+      "after_sha256": "0102d0ce484046776ad0e46427fe5990edab78da8b942fb44c6e4f72e3e53969",
+      "original_manifest_sha256": "22b7ef44132e5068e7979f46b7798221c974bbdae04c80a909e909121cbb7b08",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/detector/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "91e655866d913ee38169c10ca0f041f0b98d43751ccc537f5477e5e0525b234c",
+      "after_sha256": "91e655866d913ee38169c10ca0f041f0b98d43751ccc537f5477e5e0525b234c",
+      "original_manifest_sha256": "a05301e012ce6f6e9c37fd6093f9760cfc3ff7c93c3f2b3e462d4bd96bbe83c3",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "e4c8c972e72bcd7e555a3307855f808447720b555dde46c27c6a60e2065667f6",
+      "after_sha256": "e4c8c972e72bcd7e555a3307855f808447720b555dde46c27c6a60e2065667f6",
+      "original_manifest_sha256": "f35c17681b9f1c962cb91e170aa62c5fe94c29663f4dc0a39387cadfc726362f",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "652ed32ccc12d8739086b7846f8c34bcd8fdceac6007b395963f1e47fdb40c3f",
+      "after_sha256": "652ed32ccc12d8739086b7846f8c34bcd8fdceac6007b395963f1e47fdb40c3f",
+      "original_manifest_sha256": "564d35c2a2b691596566475a8fc131a646e362f16252d23f285117bb43d0327c",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam2/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "fb69c7d1bc945fae2b92096f70bb97edafef5e408cb2b99ca8382e26ca424855",
+      "after_sha256": "fb69c7d1bc945fae2b92096f70bb97edafef5e408cb2b99ca8382e26ca424855",
+      "original_manifest_sha256": "75470f62c3b1caded615ebad2ed9193a9d07d7ee8be79c883d6d944435cf2ac3",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam2/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "39e8cdd9b45fba67bd464f36ac35becd8521f68354b5ab4d6d982f64083c4fee",
+      "after_sha256": "39e8cdd9b45fba67bd464f36ac35becd8521f68354b5ab4d6d982f64083c4fee",
+      "original_manifest_sha256": "043d82d4ed6044a5bcb2fe98ca6480940960d214fddb05f01118ca4a5691b569",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "a8b2376844e1899d62f3491f650139d53465f3039aa7493ea44b45c928b4b314",
+      "after_sha256": "a8b2376844e1899d62f3491f650139d53465f3039aa7493ea44b45c928b4b314",
+      "original_manifest_sha256": "e7ddeafe5a2f304733a684881254257d61f97dec20eca956ca439f8c293b1593",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "2302643ed983080afafdcc79bc27cc30d048fbb5cde4a1b0345fa43b9280333d",
+      "after_sha256": "2302643ed983080afafdcc79bc27cc30d048fbb5cde4a1b0345fa43b9280333d",
+      "original_manifest_sha256": "c37e9452e488e9cf294b6dea6841c21fbeb9c308129fb33f78042a6d722dc8e4",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/detector/seed_42/evaluation/test/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "36a1488013205e6b6aa171a43a1b58cec3cf67d718acaf08aed5c19a8b48eca0",
+      "after_sha256": "36a1488013205e6b6aa171a43a1b58cec3cf67d718acaf08aed5c19a8b48eca0",
+      "original_manifest_sha256": "1b103b40fe591b50736826dd7affba41c9f4903c0805beea5b8fd48260d884dd",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/detector/seed_42/evaluation/validation/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "bd1d5f6f803901f5236d44da717b5e5c84006915a1debb8fd2bcca22c4f137e6",
+      "after_sha256": "bd1d5f6f803901f5236d44da717b5e5c84006915a1debb8fd2bcca22c4f137e6",
+      "original_manifest_sha256": "3480fcf1bb8dfe2448094f09a5167fcf5dbf4c1b65c6cdf4196e41f6168b55c0",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/detector/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "ca7babeba67cac8a4671ba65e8a9be0c6dea238a837653cfca5efe0afe6deba3",
+      "after_sha256": "ca7babeba67cac8a4671ba65e8a9be0c6dea238a837653cfca5efe0afe6deba3",
+      "original_manifest_sha256": "31ef270f839ddf1c5fe7a88c0156f5e5987fa8f28e8548fc22d61e90fe0e4bed",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "d33a70140b61fea822977c6ed35d2c42843124ad3b74d8ddb08b092f273abcb6",
+      "after_sha256": "d33a70140b61fea822977c6ed35d2c42843124ad3b74d8ddb08b092f273abcb6",
+      "original_manifest_sha256": "86c15a0306c42c02a1493e3cee2316ad88d429680fbb6a7ca22810137773bf0b",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "40264105875429aa3e05f19d9027d016070f15e839a0972a5e71a5ac305211dc",
+      "after_sha256": "40264105875429aa3e05f19d9027d016070f15e839a0972a5e71a5ac305211dc",
+      "original_manifest_sha256": "72e15d10259cba53eeb079c6cb4546edb7ae62f8dc8a6f5649ba3e34da6390b1",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "fdf397edd95d1305715fc436535d3ebd8edb1b33a0baa111ef46ab5cec20653e",
+      "after_sha256": "fdf397edd95d1305715fc436535d3ebd8edb1b33a0baa111ef46ab5cec20653e",
+      "original_manifest_sha256": "97300bf9110c376268af9e76f3789e38e6356ce30ff0825dca1bff44663e0617",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "ce846c4b307ad97cbb6356ffe7bc67e6a088bd5c7d1c934d14bb781942064b52",
+      "after_sha256": "ce846c4b307ad97cbb6356ffe7bc67e6a088bd5c7d1c934d14bb781942064b52",
+      "original_manifest_sha256": "03a1f1e5fc9f7127bba5831b8efa0a69aefb76c887abec66d36a7f1126da3050",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "2d2c15e64825047485f8e6a88a897d39f567172b9cfcbcf4ea815aa0c423d10c",
+      "after_sha256": "2d2c15e64825047485f8e6a88a897d39f567172b9cfcbcf4ea815aa0c423d10c",
+      "original_manifest_sha256": "d51ba42d0368f9d4f740a207474c2c7b5e366b0e09e8004233db583c8415ff29",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam3/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "48b93b5bbc421e43ee6f20f653ea2fd648972fd3cfc2057672d9e016a0060f42",
+      "after_sha256": "48b93b5bbc421e43ee6f20f653ea2fd648972fd3cfc2057672d9e016a0060f42",
+      "original_manifest_sha256": "7de144121482906595a077efe03bf366e9822d9cd1890b861b5bd7c21a917d09",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/detector/seed_42/evaluation/test/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "beca1e36ead710ad561f6ed11b3bba37c01b361df7bc58bc42b93b42c09ae33d",
+      "after_sha256": "beca1e36ead710ad561f6ed11b3bba37c01b361df7bc58bc42b93b42c09ae33d",
+      "original_manifest_sha256": "fffa1781deaf22fd52375bdf0b832724c2af7692d4dc5e31f5abf4c327e01296",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/detector/seed_42/evaluation/validation/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "67da8a1003bfe60f69e1b0662ea1bfa0d01a2a00a05094edf47a63de6d4dd746",
+      "after_sha256": "67da8a1003bfe60f69e1b0662ea1bfa0d01a2a00a05094edf47a63de6d4dd746",
+      "original_manifest_sha256": "35b5d18c0c614a5870c74495b6ade2cbd43f605b5200e9fb28434dc09b49d95e",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/detector/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "0a82e2dffc207ef253617311bcf25dcd7e33826ab73cfe9bdcd9a382575498c0",
+      "after_sha256": "0a82e2dffc207ef253617311bcf25dcd7e33826ab73cfe9bdcd9a382575498c0",
+      "original_manifest_sha256": "2e253bb810ca5c1a53fa6d59f00298fc3e3d85c17fbfaafc05f65921ad9630a9",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam1/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "be81a7f4de4b7503db1fd60e543a2a1e1c2d897af708b60e1cb1ac05c3e48a1f",
+      "after_sha256": "be81a7f4de4b7503db1fd60e543a2a1e1c2d897af708b60e1cb1ac05c3e48a1f",
+      "original_manifest_sha256": "368bd7e3bd25ffe65d07369c4e8d6b85e2b1c6f7846a27aee8b2bb34e6f3f322",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam1/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "f18c9c8371676fb649146708f313d2d392867da77aca1d250eb1ecb0c396f7d4",
+      "after_sha256": "f18c9c8371676fb649146708f313d2d392867da77aca1d250eb1ecb0c396f7d4",
+      "original_manifest_sha256": "fef1375ad46575d868043b26f3779b45e00b1bfd68e5f24f67793daa69a9338b",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam2/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "5f84970044c753ee6ef75215ba5526fab96b6353bf789d3f147693ab49335820",
+      "after_sha256": "5f84970044c753ee6ef75215ba5526fab96b6353bf789d3f147693ab49335820",
+      "original_manifest_sha256": "19a70518ed753b6bbc2527178fd7a504138f6e12f7b656633bbeaf203f08d41d",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam2/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "ce0d039d61b27261ff2ed354fcef54f6080ef03d80cf6a002d2a7b52463fe509",
+      "after_sha256": "ce0d039d61b27261ff2ed354fcef54f6080ef03d80cf6a002d2a7b52463fe509",
+      "original_manifest_sha256": "051f867d480bbe150af32190cda4fbfdedb44c36a610f84ef55e4632075d4070",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam3/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "430aed28118e922e158fce5022e587f52dbbaddd7db915ef428df7f05a1c92e4",
+      "after_sha256": "430aed28118e922e158fce5022e587f52dbbaddd7db915ef428df7f05a1c92e4",
+      "original_manifest_sha256": "22c3e969fe3107bf5568501581f1a9c2a7b6cfeecc07c6be85c6c1054d000a9b",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/predictions/sam3/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "3e1a9ac1f5aefa37e8d66cdcda0a5868884602d08a4d2967b98cbd3224a77dc9",
+      "after_sha256": "3e1a9ac1f5aefa37e8d66cdcda0a5868884602d08a4d2967b98cbd3224a77dc9",
+      "original_manifest_sha256": "b7e6431416388874c24dc95c685b965f017262baa6c703e42b7b54741905acb1",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/detector/seed_42/evaluation/test/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "daa4b94049f38856ca0a859b455c5a918719701b2fbae3acdcfba07550ab8e11",
+      "after_sha256": "daa4b94049f38856ca0a859b455c5a918719701b2fbae3acdcfba07550ab8e11",
+      "original_manifest_sha256": "c1521b55a33a95e2d8de3e0f0d575d98ada833ebedb820bbbbfcee67250c65a2",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/detector/seed_42/evaluation/validation/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "2978215486b8ab93df95217bed163517cd1900f8b70af7a9de562eaf6cb0f34a",
+      "after_sha256": "2978215486b8ab93df95217bed163517cd1900f8b70af7a9de562eaf6cb0f34a",
+      "original_manifest_sha256": "4e6871bab017f148c4f32b01fd81a55f01533b70b2500e3a2b00c74156f53b99",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/detector/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "3cdc833d2c80a65bb751e8aeefb396dac9989473b1a6f5b1fed82643bb275bb4",
+      "after_sha256": "3cdc833d2c80a65bb751e8aeefb396dac9989473b1a6f5b1fed82643bb275bb4",
+      "original_manifest_sha256": "bf066fbb76577d5fb0115206223863bd68c8cb0d9e6a88d390a38a093cb9ea1d",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "cbb0c18e6270ee8ed86d96443d9561c4dcf7a45cd0b4d0d3ee95ceaae7cab416",
+      "after_sha256": "cbb0c18e6270ee8ed86d96443d9561c4dcf7a45cd0b4d0d3ee95ceaae7cab416",
+      "original_manifest_sha256": "fb33717e0abb74b958427dc98ec725a2d24178aedb7d99d7f1cfd927fe424618",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "374e35cb025d0878e15967b59b850496994fcb6b03ecc7766bdf2e0bcb76909e",
+      "after_sha256": "374e35cb025d0878e15967b59b850496994fcb6b03ecc7766bdf2e0bcb76909e",
+      "original_manifest_sha256": "bfd7ca9abacc603d0b04275de415e31922862172b668cd65d1c102a32822bd1d",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "d47f93ef4aa8f5ac9c5c40fb84df5e156aa8d44b8b12770c03a03444d3eeff6a",
+      "after_sha256": "d47f93ef4aa8f5ac9c5c40fb84df5e156aa8d44b8b12770c03a03444d3eeff6a",
+      "original_manifest_sha256": "5f6acf8c2fa04dde6a5eadfe9a600ed0048e9bd0f19c80719dd37f9b6ee6b6ec",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "5c74bffcbb5f1577eedbd8a4a830aa154302f87820d4edd78ee081b2b796e81a",
+      "after_sha256": "5c74bffcbb5f1577eedbd8a4a830aa154302f87820d4edd78ee081b2b796e81a",
+      "original_manifest_sha256": "f72e5005afa114a2317ef1b4297a85077867062dcf234495eaec8ec0e19a8c97",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/gt_bbox/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "caf14a87342b98597448b58b4687f9878942a586fa8bcda0d12c8d24545189d0",
+      "after_sha256": "caf14a87342b98597448b58b4687f9878942a586fa8bcda0d12c8d24545189d0",
+      "original_manifest_sha256": "e8810e49a720c38a2f0487fe2f5339ee97ade81a02a19f443100ba5bb1c030fa",
+      "fingerprint_refresh_count": 0
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/yolo_bbox/seed_42/manifest.json",
+      "action": "validated_existing",
+      "before_sha256": "3a6f73ab3c98ff52b6a9dfee43d95b7bf2007233f1035a5e788c6bab904bf804",
+      "after_sha256": "3a6f73ab3c98ff52b6a9dfee43d95b7bf2007233f1035a5e788c6bab904bf804",
+      "original_manifest_sha256": "cb1442e3a00103b17efd67224d722b46f435ae274109d5a16806b460b713f8d8",
+      "fingerprint_refresh_count": 0
+    }
+  ]
+}

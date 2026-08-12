@@ -1,0 +1,15 @@
+{
+  "selection_method": "max_f1",
+  "selection_iou_threshold": 0.5,
+  "selected_confidence_threshold": 0.7607834339141846,
+  "precision": 0.944300518134715,
+  "recall": 0.9040926002480364,
+  "f1": 0.9237592397043295,
+  "true_positive": 2187,
+  "false_positive": 129,
+  "false_negative": 232,
+  "candidate_thresholds": 8851,
+  "dataset_id": "samrs_sota_plane",
+  "seed": 42,
+  "selection_split": "validation"
+}

@@ -1,0 +1,28 @@
+{
+  "dataset_root": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/studies/teacher_reference_bias_paper/experiments/samrs_plane/data/prepared",
+  "passed": true,
+  "split_summaries": {
+    "train": {
+      "images": 2191,
+      "positive_images": 1716,
+      "negative_images": 475,
+      "annotations": 12855,
+      "source_scenes": 527
+    },
+    "validation": {
+      "images": 481,
+      "positive_images": 388,
+      "negative_images": 93,
+      "annotations": 2419,
+      "source_scenes": 113
+    },
+    "test": {
+      "images": 512,
+      "positive_images": 512,
+      "negative_images": 0,
+      "annotations": 3713,
+      "source_scenes": 24
+    }
+  },
+  "findings": []
+}

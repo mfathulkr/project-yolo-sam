@@ -1,0 +1,24 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "created_at_utc": "2026-08-12T11:52:39.197681+00:00",
+  "experiment_id": "samrs_plane",
+  "dataset_id": "samrs_sota_plane",
+  "reference_type": "reproduced_pseudo_sam1",
+  "teacher": "sam1",
+  "teacher_prompt_type": "gt_bbox",
+  "teacher_inference_interface": "native_bbox_prompt",
+  "construction": "frozen_gt_bbox_prediction_identity",
+  "instance_count": 3713,
+  "empty_reference_count": 0,
+  "empty_reference_rate": 0.0,
+  "known_positive_empty_reference_policy": "score_zero",
+  "inputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/gt_bbox/predictions.jsonl": "a662fb99009ca2f303a702d5cc91f2bc4592c29fb4e6fdfab27aed25fae19539",
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam1/gt_bbox/manifest.json": "86c15a0306c42c02a1493e3cee2316ad88d429680fbb6a7ca22810137773bf0b"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/reproduced_pseudo_sam1.jsonl": "9cbce260b497de59c3d52d35493c8b67bcc164506fadc4bb085699069cfcd4ab"
+  },
+  "scientific_role": "coverage-aware identity control for the matching GT-bbox teacher; not independent ground truth"
+}

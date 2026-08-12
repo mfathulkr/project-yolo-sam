@@ -1,0 +1,14 @@
+experiment_root: studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle
+dataset_id: isaid_small_vehicle
+version: official_release
+profile_id: isaid
+raw_root: datasets/isaid/raw
+prepared_root: studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/prepared
+master_prepared_root: studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/master
+area_threshold: 0.0018463134765625
+reference_type: human
+target_category: Small_Vehicle
+source_url: https://captain-whu.github.io/iSAID/
+license_name: iSAID dataset terms
+annotation_format: coco_instance_segmentation
+archive_sha256: null

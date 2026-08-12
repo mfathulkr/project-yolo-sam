@@ -1,0 +1,5978 @@
+[
+  {
+    "source_scene_id": "P0000",
+    "split": "train",
+    "master_tile_count": 23,
+    "no_overlap__low_mask_area_count": 14,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0001",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0013",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0019",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0021",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0022",
+    "split": "validation",
+    "master_tile_count": 17,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 10,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0023",
+    "split": "validation",
+    "master_tile_count": 17,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 17,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0025",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0027",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0032",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0036",
+    "split": "train",
+    "master_tile_count": 18,
+    "no_overlap__low_mask_area_count": 9,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 7
+  },
+  {
+    "source_scene_id": "P0038",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P0039",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0041",
+    "split": "validation",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P0042",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P0063",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0064",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0065",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0066",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0068",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0070",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0082",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0083",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0087",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0096",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0098",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0110",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0113",
+    "split": "test",
+    "master_tile_count": 22,
+    "no_overlap__low_mask_area_count": 12,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P0119",
+    "split": "validation",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P0122",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0128",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0133",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0140",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0141",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0160",
+    "split": "train",
+    "master_tile_count": 13,
+    "no_overlap__low_mask_area_count": 8,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P0161",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0162",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0167",
+    "split": "test",
+    "master_tile_count": 20,
+    "no_overlap__low_mask_area_count": 10,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0168",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P0169",
+    "split": "test",
+    "master_tile_count": 19,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 8,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P0170",
+    "split": "validation",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0171",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0172",
+    "split": "validation",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0173",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P0174",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0178",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P0179",
+    "split": "train",
+    "master_tile_count": 18,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 14
+  },
+  {
+    "source_scene_id": "P0183",
+    "split": "train",
+    "master_tile_count": 24,
+    "no_overlap__low_mask_area_count": 5,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 14
+  },
+  {
+    "source_scene_id": "P0187",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0188",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0190",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0207",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0209",
+    "split": "train",
+    "master_tile_count": 12,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 10
+  },
+  {
+    "source_scene_id": "P0210",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0213",
+    "split": "validation",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P0215",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 8,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0217",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0218",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P0219",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0220",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0221",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0223",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0227",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0233",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0248",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0249",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0250",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0251",
+    "split": "validation",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0254",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0255",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0257",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0258",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0259",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0260",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0261",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0289",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0294",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0301",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0310",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0322",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0324",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0327",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0331",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0340",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0345",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0346",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0347",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0380",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0385",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0395",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0400",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0478",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0491",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0524",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0525",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0526",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0531",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0557",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0558",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0593",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0596",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0602",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0622",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0677",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0688",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0693",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0696",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0697",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P0699",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P0728",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0730",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0737",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0754",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0780",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0781",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0783",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P0785",
+    "split": "train",
+    "master_tile_count": 12,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 10,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P0786",
+    "split": "train",
+    "master_tile_count": 12,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P0790",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0792",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0796",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0801",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0816",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0835",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0840",
+    "split": "train",
+    "master_tile_count": 11,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 11
+  },
+  {
+    "source_scene_id": "P0841",
+    "split": "train",
+    "master_tile_count": 11,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P0857",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0858",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0867",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0868",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0873",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0875",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0888",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0892",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0896",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0897",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0900",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0905",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0922",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0929",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0936",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0946",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0947",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0948",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0952",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0960",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0970",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0986",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0991",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0993",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P0998",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1003",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1009",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P10090",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1012",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1014",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1016",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P10210",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1029",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P10339",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1043",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1049",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P1055",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1059",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1060",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P10600",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1065",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1067",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1071",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1073",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P10747",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1078",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P10795",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P10808",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1088",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1089",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1090",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P10963",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1103",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P11054",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1109",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P1113",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1114",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1116",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1117",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1118",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1119",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1121",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P1122",
+    "split": "train",
+    "master_tile_count": 20,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 17,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1128",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1130",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1131",
+    "split": "train",
+    "master_tile_count": 18,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 9,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P1132",
+    "split": "train",
+    "master_tile_count": 12,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 7
+  },
+  {
+    "source_scene_id": "P1133",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P1134",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1137",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1138",
+    "split": "validation",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1139",
+    "split": "validation",
+    "master_tile_count": 17,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 12,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P1140",
+    "split": "validation",
+    "master_tile_count": 31,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 10,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 19
+  },
+  {
+    "source_scene_id": "P1141",
+    "split": "validation",
+    "master_tile_count": 15,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P1142",
+    "split": "validation",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 8,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1143",
+    "split": "train",
+    "master_tile_count": 19,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 13,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P1144",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1147",
+    "split": "train",
+    "master_tile_count": 13,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 11,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1148",
+    "split": "train",
+    "master_tile_count": 13,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 8,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P1149",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1150",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1152",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1154",
+    "split": "train",
+    "master_tile_count": 11,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 10
+  },
+  {
+    "source_scene_id": "P1155",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 9
+  },
+  {
+    "source_scene_id": "P1156",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 7
+  },
+  {
+    "source_scene_id": "P1158",
+    "split": "train",
+    "master_tile_count": 29,
+    "no_overlap__low_mask_area_count": 8,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 16
+  },
+  {
+    "source_scene_id": "P1159",
+    "split": "train",
+    "master_tile_count": 16,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 11
+  },
+  {
+    "source_scene_id": "P1161",
+    "split": "test",
+    "master_tile_count": 23,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 17,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1164",
+    "split": "test",
+    "master_tile_count": 15,
+    "no_overlap__low_mask_area_count": 8,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 6,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1165",
+    "split": "test",
+    "master_tile_count": 15,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 12,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1166",
+    "split": "test",
+    "master_tile_count": 17,
+    "no_overlap__low_mask_area_count": 10,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 7,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1167",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1168",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1170",
+    "split": "validation",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1171",
+    "split": "train",
+    "master_tile_count": 15,
+    "no_overlap__low_mask_area_count": 9,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 5,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1173",
+    "split": "train",
+    "master_tile_count": 14,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 11
+  },
+  {
+    "source_scene_id": "P1174",
+    "split": "train",
+    "master_tile_count": 23,
+    "no_overlap__low_mask_area_count": 7,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 12
+  },
+  {
+    "source_scene_id": "P1178",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 5,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1179",
+    "split": "test",
+    "master_tile_count": 22,
+    "no_overlap__low_mask_area_count": 8,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 5,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P1181",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1184",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 5,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1191",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1200",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1208",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1211",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1214",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1225",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1230",
+    "split": "validation",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1238",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1239",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1240",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1241",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1243",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1246",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1251",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1256",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1258",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1259",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1269",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1274",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P1276",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1281",
+    "split": "validation",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P1283",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1299",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1308",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1309",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1317",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1321",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1325",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1328",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1333",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1336",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1337",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1338",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1339",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1341",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1342",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1343",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1350",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1351",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1352",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1353",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1354",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1356",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1357",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1359",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1360",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1361",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1369",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1373",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1374",
+    "split": "validation",
+    "master_tile_count": 15,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P1375",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1376",
+    "split": "validation",
+    "master_tile_count": 12,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P1380",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1382",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1384",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 5,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1386",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1387",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1389",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1390",
+    "split": "train",
+    "master_tile_count": 32,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 29
+  },
+  {
+    "source_scene_id": "P1391",
+    "split": "train",
+    "master_tile_count": 31,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 7,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 19
+  },
+  {
+    "source_scene_id": "P1392",
+    "split": "train",
+    "master_tile_count": 20,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 18
+  },
+  {
+    "source_scene_id": "P1393",
+    "split": "train",
+    "master_tile_count": 17,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 11
+  },
+  {
+    "source_scene_id": "P1394",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 5,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1395",
+    "split": "train",
+    "master_tile_count": 21,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 8,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 9
+  },
+  {
+    "source_scene_id": "P1397",
+    "split": "test",
+    "master_tile_count": 38,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 33
+  },
+  {
+    "source_scene_id": "P1398",
+    "split": "train",
+    "master_tile_count": 30,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 17,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 12
+  },
+  {
+    "source_scene_id": "P1399",
+    "split": "test",
+    "master_tile_count": 50,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 12,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 36
+  },
+  {
+    "source_scene_id": "P1401",
+    "split": "train",
+    "master_tile_count": 16,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P1403",
+    "split": "train",
+    "master_tile_count": 16,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 9,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1408",
+    "split": "train",
+    "master_tile_count": 11,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 8,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1410",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1412",
+    "split": "train",
+    "master_tile_count": 10,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1413",
+    "split": "train",
+    "master_tile_count": 20,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 11
+  },
+  {
+    "source_scene_id": "P1414",
+    "split": "validation",
+    "master_tile_count": 16,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P1419",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1420",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1426",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1427",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1429",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1432",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1434",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1437",
+    "split": "train",
+    "master_tile_count": 15,
+    "no_overlap__low_mask_area_count": 13,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1440",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1443",
+    "split": "train",
+    "master_tile_count": 14,
+    "no_overlap__low_mask_area_count": 12,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1446",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1455",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1456",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1457",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1462",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1465",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1466",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1467",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1471",
+    "split": "validation",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1474",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 5,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1476",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1479",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1480",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1481",
+    "split": "train",
+    "master_tile_count": 10,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 7,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1482",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1483",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1484",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 8,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1486",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1489",
+    "split": "validation",
+    "master_tile_count": 15,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 10,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1492",
+    "split": "validation",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1493",
+    "split": "train",
+    "master_tile_count": 14,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P1495",
+    "split": "validation",
+    "master_tile_count": 16,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 9,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P1497",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P1498",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1499",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 5,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1501",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1502",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P1505",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1508",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1509",
+    "split": "train",
+    "master_tile_count": 20,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 17,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1512",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1513",
+    "split": "train",
+    "master_tile_count": 10,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P1515",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1517",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1524",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1526",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1529",
+    "split": "validation",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 9,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1535",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1540",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1541",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1545",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1547",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1551",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1552",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1555",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1560",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1562",
+    "split": "test",
+    "master_tile_count": 10,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 6,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1563",
+    "split": "train",
+    "master_tile_count": 7,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1566",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1569",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1573",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1583",
+    "split": "validation",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 5,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1584",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1585",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1586",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1591",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1594",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1598",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1599",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1600",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1601",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1604",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1607",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1609",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1610",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1617",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 8,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1618",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1636",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1640",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1641",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1646",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1647",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1649",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1656",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1659",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1660",
+    "split": "validation",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1661",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1662",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1670",
+    "split": "train",
+    "master_tile_count": 10,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 5,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P1672",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1696",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1697",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1698",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1700",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1702",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1707",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1724",
+    "split": "validation",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1725",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1736",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1738",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1739",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1741",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1742",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1743",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1744",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1745",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1747",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1748",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1753",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1757",
+    "split": "validation",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1758",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1765",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1770",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1776",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1783",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1786",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1790",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1801",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1808",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1809",
+    "split": "validation",
+    "master_tile_count": 17,
+    "no_overlap__low_mask_area_count": 5,
+    "no_overlap__high_mask_area_count": 8,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P1821",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1838",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1854",
+    "split": "test",
+    "master_tile_count": 55,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 43,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P1863",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1864",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1867",
+    "split": "train",
+    "master_tile_count": 23,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 15,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P1868",
+    "split": "test",
+    "master_tile_count": 44,
+    "no_overlap__low_mask_area_count": 29,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 10
+  },
+  {
+    "source_scene_id": "P1869",
+    "split": "test",
+    "master_tile_count": 39,
+    "no_overlap__low_mask_area_count": 9,
+    "no_overlap__high_mask_area_count": 8,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 18
+  },
+  {
+    "source_scene_id": "P1871",
+    "split": "test",
+    "master_tile_count": 47,
+    "no_overlap__low_mask_area_count": 12,
+    "no_overlap__high_mask_area_count": 13,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 18
+  },
+  {
+    "source_scene_id": "P1872",
+    "split": "train",
+    "master_tile_count": 17,
+    "no_overlap__low_mask_area_count": 5,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 9
+  },
+  {
+    "source_scene_id": "P1874",
+    "split": "train",
+    "master_tile_count": 18,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 6,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P1875",
+    "split": "train",
+    "master_tile_count": 22,
+    "no_overlap__low_mask_area_count": 8,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P1876",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1903",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1923",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1927",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1930",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1939",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1940",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1951",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1972",
+    "split": "train",
+    "master_tile_count": 22,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 10,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P1981",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P1990",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2005",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2020",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2027",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2030",
+    "split": "test",
+    "master_tile_count": 32,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 17,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 9
+  },
+  {
+    "source_scene_id": "P2036",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2073",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2091",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2093",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2138",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 9
+  },
+  {
+    "source_scene_id": "P2157",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2159",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2164",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P2167",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2181",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2197",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2201",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P2205",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2207",
+    "split": "validation",
+    "master_tile_count": 11,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 7
+  },
+  {
+    "source_scene_id": "P2210",
+    "split": "train",
+    "master_tile_count": 12,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P2211",
+    "split": "test",
+    "master_tile_count": 18,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 9,
+    "overlap__high_mask_area_count": 7
+  },
+  {
+    "source_scene_id": "P2214",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P2215",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P2217",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2218",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2219",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P2220",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2222",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2224",
+    "split": "train",
+    "master_tile_count": 12,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P2225",
+    "split": "test",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 6,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2226",
+    "split": "validation",
+    "master_tile_count": 12,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 11
+  },
+  {
+    "source_scene_id": "P2230",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P2231",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P2232",
+    "split": "validation",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P2234",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P2235",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P2236",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P2237",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P2239",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2242",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P2247",
+    "split": "validation",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P2249",
+    "split": "train",
+    "master_tile_count": 10,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2257",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2260",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2262",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2269",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2271",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2275",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2278",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2280",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2281",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2282",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2285",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2288",
+    "split": "test",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 7,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P2330",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2337",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2339",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2356",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2359",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2370",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2375",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2380",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2388",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2390",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2392",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2394",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2396",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2416",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2417",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2436",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2437",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2454",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2457",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2464",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2467",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2472",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2477",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2481",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2482",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2497",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2501",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2514",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2523",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2543",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2547",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2550",
+    "split": "validation",
+    "master_tile_count": 20,
+    "no_overlap__low_mask_area_count": 12,
+    "no_overlap__high_mask_area_count": 2,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P2551",
+    "split": "train",
+    "master_tile_count": 24,
+    "no_overlap__low_mask_area_count": 7,
+    "no_overlap__high_mask_area_count": 5,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 9
+  },
+  {
+    "source_scene_id": "P2552",
+    "split": "train",
+    "master_tile_count": 20,
+    "no_overlap__low_mask_area_count": 7,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 8
+  },
+  {
+    "source_scene_id": "P2553",
+    "split": "train",
+    "master_tile_count": 13,
+    "no_overlap__low_mask_area_count": 7,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 2,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P2554",
+    "split": "validation",
+    "master_tile_count": 16,
+    "no_overlap__low_mask_area_count": 7,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 5
+  },
+  {
+    "source_scene_id": "P2557",
+    "split": "train",
+    "master_tile_count": 18,
+    "no_overlap__low_mask_area_count": 13,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P2558",
+    "split": "train",
+    "master_tile_count": 16,
+    "no_overlap__low_mask_area_count": 10,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P2560",
+    "split": "test",
+    "master_tile_count": 19,
+    "no_overlap__low_mask_area_count": 7,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 7,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P2563",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2565",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2587",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2600",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2605",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2609",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2612",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2616",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2622",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2631",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2641",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2642",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2645",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2646",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2650",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2653",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2665",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2668",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2670",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2682",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2686",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2687",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2689",
+    "split": "test",
+    "master_tile_count": 13,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 6,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P2690",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2691",
+    "split": "train",
+    "master_tile_count": 17,
+    "no_overlap__low_mask_area_count": 13,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 4,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2692",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2695",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2702",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2712",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2714",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2721",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2724",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2725",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2729",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2741",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P2746",
+    "split": "train",
+    "master_tile_count": 8,
+    "no_overlap__low_mask_area_count": 5,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P2748",
+    "split": "train",
+    "master_tile_count": 14,
+    "no_overlap__low_mask_area_count": 7,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 3,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P2751",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2753",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2754",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2755",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2759",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2778",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P2781",
+    "split": "validation",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2787",
+    "split": "train",
+    "master_tile_count": 14,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 11,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2790",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 1
+  },
+  {
+    "source_scene_id": "P2791",
+    "split": "train",
+    "master_tile_count": 18,
+    "no_overlap__low_mask_area_count": 4,
+    "no_overlap__high_mask_area_count": 8,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P2794",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P2797",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 2
+  },
+  {
+    "source_scene_id": "P2801",
+    "split": "validation",
+    "master_tile_count": 12,
+    "no_overlap__low_mask_area_count": 6,
+    "no_overlap__high_mask_area_count": 3,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P2802",
+    "split": "train",
+    "master_tile_count": 27,
+    "no_overlap__low_mask_area_count": 7,
+    "no_overlap__high_mask_area_count": 11,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 7
+  },
+  {
+    "source_scene_id": "P2804",
+    "split": "train",
+    "master_tile_count": 11,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 4,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P2805",
+    "split": "train",
+    "master_tile_count": 9,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P2912",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3032",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3065",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3140",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3221",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3305",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3397",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3536",
+    "split": "train",
+    "master_tile_count": 13,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3596",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3810",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P3817",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4076",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4151",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4275",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4400",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4464",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4492",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4721",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4724",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4746",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4803",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4840",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P4987",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5034",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5070",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5155",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5171",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5195",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5203",
+    "split": "test",
+    "master_tile_count": 46,
+    "no_overlap__low_mask_area_count": 23,
+    "no_overlap__high_mask_area_count": 1,
+    "overlap__low_mask_area_count": 9,
+    "overlap__high_mask_area_count": 7
+  },
+  {
+    "source_scene_id": "P5334",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5337",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 2,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5512",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5580",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5720",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5728",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5733",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5760",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P5789",
+    "split": "test",
+    "master_tile_count": 39,
+    "no_overlap__low_mask_area_count": 8,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 16,
+    "overlap__high_mask_area_count": 6
+  },
+  {
+    "source_scene_id": "P5949",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 1,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P6281",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P6297",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P6301",
+    "split": "train",
+    "master_tile_count": 6,
+    "no_overlap__low_mask_area_count": 3,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 3
+  },
+  {
+    "source_scene_id": "P6484",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P6525",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P6571",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P6637",
+    "split": "test",
+    "master_tile_count": 34,
+    "no_overlap__low_mask_area_count": 11,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 9,
+    "overlap__high_mask_area_count": 4
+  },
+  {
+    "source_scene_id": "P6728",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P6898",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7092",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7371",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7442",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7476",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7487",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7584",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7588",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7746",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7763",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7860",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P7885",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P8089",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P8126",
+    "split": "validation",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P8143",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P8168",
+    "split": "train",
+    "master_tile_count": 5,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P8179",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P8204",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P8507",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P8583",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P8587",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P9018",
+    "split": "train",
+    "master_tile_count": 2,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P9086",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P9337",
+    "split": "train",
+    "master_tile_count": 4,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P9365",
+    "split": "train",
+    "master_tile_count": 1,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 1,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P9467",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P9645",
+    "split": "train",
+    "master_tile_count": 3,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 0,
+    "overlap__high_mask_area_count": 0
+  },
+  {
+    "source_scene_id": "P9847",
+    "split": "train",
+    "master_tile_count": 13,
+    "no_overlap__low_mask_area_count": 0,
+    "no_overlap__high_mask_area_count": 0,
+    "overlap__low_mask_area_count": 5,
+    "overlap__high_mask_area_count": 0
+  }
+]

@@ -1,0 +1,236 @@
+{
+  "root": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/datasets/samrs/raw/sota",
+  "profile_id": "samrs_sota",
+  "annotation_format": "samrs_pickle_instances",
+  "annotation_directory": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/datasets/samrs/raw/sota/trainval/rhbox_segs_init/ins",
+  "image_directory": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/datasets/samrs/raw/sota/trainval/images",
+  "annotation_files": 17555,
+  "image_files": 17555,
+  "instances": 615407,
+  "category_mapping": {
+    "0": [
+      "large-vehicle"
+    ],
+    "1": [
+      "swimming-pool"
+    ],
+    "2": [
+      "helicopter"
+    ],
+    "3": [
+      "bridge"
+    ],
+    "4": [
+      "plane"
+    ],
+    "5": [
+      "ship"
+    ],
+    "6": [
+      "soccer-ball-field"
+    ],
+    "7": [
+      "basketball-court"
+    ],
+    "8": [
+      "ground-track-field"
+    ],
+    "9": [
+      "small-vehicle"
+    ],
+    "10": [
+      "baseball-diamond"
+    ],
+    "11": [
+      "tennis-court"
+    ],
+    "12": [
+      "roundabout"
+    ],
+    "13": [
+      "storage-tank"
+    ],
+    "14": [
+      "harbor"
+    ],
+    "15": [
+      "container-crane"
+    ],
+    "16": [
+      "airport"
+    ],
+    "17": [
+      "helipad"
+    ]
+  },
+  "split_file_counts": {
+    "train": 16678,
+    "valid": 877
+  },
+  "source_scene_counts": {
+    "train": 2390,
+    "valid": 567
+  },
+  "findings": [
+    {
+      "code": "AUTHORITATIVE_RDET_VALIDATED",
+      "severity": "info",
+      "message": "Every instance label and original RBox/RHBox geometry matches the authoritative rotated-detection annotations.",
+      "details": {
+        "files": 17555,
+        "instances": 615407,
+        "rdet_directory": "/home/ssyzai/projects/yolo-sam/project-yolo-sam/datasets/samrs/raw/sota/trainval/rbbtxts"
+      }
+    },
+    {
+      "code": "PICKLE_CATEGORY_STRINGS_IGNORED",
+      "severity": "warning",
+      "message": "Pickle category-name strings do not describe this SOTA subset. Numeric labels and geometry were exhaustively validated against the authoritative detection annotations, whose category mapping is used.",
+      "details": {
+        "pickle_mapping": {
+          "0": [
+            "A220"
+          ],
+          "1": [
+            "A321"
+          ],
+          "2": [
+            "A330"
+          ],
+          "3": [
+            "A350"
+          ],
+          "4": [
+            "ARJ21"
+          ],
+          "5": [
+            "Baseball-Field"
+          ],
+          "6": [
+            "Basketball-Court"
+          ],
+          "7": [
+            "Boeing737"
+          ],
+          "8": [
+            "Boeing747"
+          ],
+          "9": [
+            "Boeing777"
+          ],
+          "10": [
+            "Boeing787"
+          ],
+          "11": [
+            "Bridge"
+          ],
+          "12": [
+            "Bus"
+          ],
+          "13": [
+            "C919"
+          ],
+          "14": [
+            "Cargo-Truck"
+          ],
+          "15": [
+            "Dry-Cargo-Ship"
+          ],
+          "16": [
+            "Dump-Truck"
+          ],
+          "17": [
+            "Engineering-Ship"
+          ]
+        },
+        "authoritative_mapping": {
+          "0": [
+            "large-vehicle"
+          ],
+          "1": [
+            "swimming-pool"
+          ],
+          "2": [
+            "helicopter"
+          ],
+          "3": [
+            "bridge"
+          ],
+          "4": [
+            "plane"
+          ],
+          "5": [
+            "ship"
+          ],
+          "6": [
+            "soccer-ball-field"
+          ],
+          "7": [
+            "basketball-court"
+          ],
+          "8": [
+            "ground-track-field"
+          ],
+          "9": [
+            "small-vehicle"
+          ],
+          "10": [
+            "baseball-diamond"
+          ],
+          "11": [
+            "tennis-court"
+          ],
+          "12": [
+            "roundabout"
+          ],
+          "13": [
+            "storage-tank"
+          ],
+          "14": [
+            "harbor"
+          ],
+          "15": [
+            "container-crane"
+          ],
+          "16": [
+            "airport"
+          ],
+          "17": [
+            "helipad"
+          ]
+        }
+      }
+    },
+    {
+      "code": "SOURCE_SCENE_SPLIT_LEAKAGE",
+      "severity": "warning",
+      "message": "The raw train and validation lists contain tiles from common source scenes. A source-scene-safe resplit is required.",
+      "details": {
+        "overlap_count": 535,
+        "examples": [
+          "P0000",
+          "P0011",
+          "P0019",
+          "P0020",
+          "P0021",
+          "P0022",
+          "P0023",
+          "P0036",
+          "P0041",
+          "P0047",
+          "P0063",
+          "P0064",
+          "P0065",
+          "P0066",
+          "P0082",
+          "P0111",
+          "P0113",
+          "P0136",
+          "P0141",
+          "P0167"
+        ]
+      }
+    }
+  ],
+  "passed": true
+}

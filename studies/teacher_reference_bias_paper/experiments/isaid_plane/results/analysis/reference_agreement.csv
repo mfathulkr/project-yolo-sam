@@ -1,0 +1,7 @@
+dataset_id,reference_a,reference_b,mean_instance_iou,instance_count
+isaid_plane,human,pseudo_sam1,0.6527027274564086,5447
+isaid_plane,human,pseudo_sam2,0.629222152321174,5447
+isaid_plane,human,pseudo_sam3,0.6998762300765591,5447
+isaid_plane,pseudo_sam1,pseudo_sam2,0.8273187777080351,5447
+isaid_plane,pseudo_sam1,pseudo_sam3,0.820026552790073,5447
+isaid_plane,pseudo_sam2,pseudo_sam3,0.7836781418120458,5447

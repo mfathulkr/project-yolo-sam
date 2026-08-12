@@ -1,0 +1,15 @@
+{
+  "selection_method": "max_f1",
+  "selection_iou_threshold": 0.5,
+  "selected_confidence_threshold": 0.2740148901939392,
+  "precision": 0.7358095269030257,
+  "recall": 0.6356506488951246,
+  "f1": 0.6820727447910395,
+  "true_positive": 45306,
+  "false_positive": 16267,
+  "false_negative": 25969,
+  "candidate_thresholds": 226899,
+  "dataset_id": "isaid_small_vehicle",
+  "seed": 42,
+  "selection_split": "validation"
+}

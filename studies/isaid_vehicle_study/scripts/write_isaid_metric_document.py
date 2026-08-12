@@ -61,6 +61,7 @@ SEGMENTATION_TABLES_NOTE = (
 QUALITATIVE_NOTE = "Bunlar önceki PDF'te kullanılan aynı dört seçilmiş görsel örnektir."
 
 SCOPE_BULLETS = [
+    "GEÇERSİZLİK UYARISI: Bu tarihsel rapordaki SAM3 GT bbox, SAM3 YOLO bbox ve text+bbox hybrid hatları belirli-instance PVS yerine PCS visual-exemplar arayüzüyle üretilmiştir. Bu SAM3 satırları güncel bbox-segmentation başarısı olarak kullanılmamalıdır.",
     "Veri seti: iSAID değerlendirme bölümü; `Small_Vehicle` ve `Large_Vehicle` çokgenlerinden birleştirilmiş `vehicle` sınıfı kullanıldı.",
     "Değerlendirme kümesi: 128 pozitif 1024 x 1024 görüntü parçası. Kümeler dört gruba dengelendi: örtüşme yok/var ve düşük/yüksek hedef maske alanı.",
     "Bu rapordan çıkarılan hatlar: GroundingDINO + SAM2, SegEarth-OV3 + SAM3 ve SAM3 hybrid GT bbox.",

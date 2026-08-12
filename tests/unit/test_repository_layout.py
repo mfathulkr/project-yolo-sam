@@ -13,10 +13,31 @@ EXPECTED_STUDIES = {
     "landcover_building_study",
     "samrs_sota_plane_study",
     "semantic_drone_car_study",
-    "teacher_reference_bias_small_vehicle_v1_512",
-    "teacher_reference_bias_multiteacher_v1_512",
+    "teacher_reference_bias_paper",
     "teacher_reference_bias_v1",
-    "teacher_reference_bias_v2_512",
+}
+
+PAPER_STUDY = STUDIES_ROOT / "teacher_reference_bias_paper"
+PAPER_EXPERIMENT_REFERENCES = {
+    "isaid_plane": ("human", "pseudo_sam1", "pseudo_sam2", "pseudo_sam3"),
+    "isaid_small_vehicle": (
+        "human",
+        "pseudo_sam1",
+        "pseudo_sam2",
+        "pseudo_sam3",
+    ),
+    "samrs_plane": (
+        "published_samrs_reference",
+        "reproduced_pseudo_sam1",
+        "pseudo_sam2",
+        "pseudo_sam3",
+    ),
+    "samrs_small_vehicle": (
+        "published_samrs_reference",
+        "reproduced_pseudo_sam1",
+        "pseudo_sam2",
+        "pseudo_sam3",
+    ),
 }
 
 EXPECTED_REPORTS = (
@@ -30,25 +51,8 @@ EXPECTED_REPORTS = (
     "isaid_plane/isaid_plane_full_metric_document_colored.pdf",
     "studies/teacher_reference_bias_v1/reports/full_metrics/"
     "samrs_sota_plane/samrs_sota_plane_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_v2_512/reports/full_metrics/"
-    "isaid_plane_human/isaid_plane_human_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_v2_512/reports/full_metrics/"
-    "isaid_plane_pseudo_sam1/"
-    "isaid_plane_pseudo_sam1_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_v2_512/reports/full_metrics/"
-    "samrs_sota_plane/samrs_sota_plane_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/"
-    "isaid_plane_pseudo_sam2/isaid_plane_pseudo_sam2_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/"
-    "isaid_plane_pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/"
-    "isaid_small_vehicle_pseudo_sam2/"
-    "isaid_small_vehicle_pseudo_sam2_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_multiteacher_v1_512/reports/full_metrics/"
-    "isaid_small_vehicle_pseudo_sam3/"
-    "isaid_small_vehicle_pseudo_sam3_full_metric_document_colored.pdf",
-    "studies/teacher_reference_bias_multiteacher_v1_512/reports/teacher_comparison/"
-    "sam_teacher_pseudo_reference_comparison_colored.pdf",
+    "studies/teacher_reference_bias_paper/analysis/"
+    "main_cross_analysis_colored.pdf",
 )
 
 FOREIGN_STUDY_REFERENCE = re.compile(r"studies/([A-Za-z0-9_]+)")
@@ -118,15 +122,39 @@ class RepositoryLayoutTest(unittest.TestCase):
     ) -> None:
         for relative in EXPECTED_REPORTS:
             self.assertTrue((REPO_ROOT / relative).is_file(), relative)
+        for experiment_id, references in PAPER_EXPERIMENT_REFERENCES.items():
+            reports = PAPER_STUDY / "experiments" / experiment_id / "reports"
+            for reference in references:
+                name = f"{experiment_id}_{reference}"
+                path = (
+                    reports
+                    / "full_metrics"
+                    / reference
+                    / f"{name}_full_metric_document_colored.pdf"
+                )
+                self.assertTrue(path.is_file(), str(path.relative_to(REPO_ROOT)))
+            cross = (
+                reports
+                / "cross_analysis"
+                / f"{experiment_id}_cross_reference_analysis_colored.pdf"
+            )
+            self.assertTrue(cross.is_file(), str(cross.relative_to(REPO_ROOT)))
 
     def test_active_study_owns_plan_method_and_qa_documents(self) -> None:
-        for study in (
-            "teacher_reference_bias_v2_512",
-            "teacher_reference_bias_small_vehicle_v1_512",
+        docs = PAPER_STUDY / "docs"
+        for name in (
+            "SCIENTIFIC_PROTOCOL.md",
+            "REPRODUCIBILITY.md",
+            "HANDOFF.md",
+            "QA_REPORT.md",
         ):
-            docs = STUDIES_ROOT / study / "docs"
-            for name in ("EXPERIMENT_PLAN.md", "METHOD.md", "QA_CHECKLIST.md"):
-                self.assertTrue((docs / name).is_file(), f"{study}/{name}")
+            self.assertTrue((docs / name).is_file(), name)
+        for experiment_id in PAPER_EXPERIMENT_REFERENCES:
+            experiment = PAPER_STUDY / "experiments" / experiment_id
+            self.assertTrue((experiment / "README.md").is_file())
+            self.assertTrue(
+                (experiment / "docs" / "METHOD_AND_REPRODUCIBILITY.md").is_file()
+            )
 
     def test_retired_package_name_is_not_imported(self) -> None:
         offenders = []

@@ -1,5 +1,24 @@
 # WORKLOG
 
+## 2026-08-11 - Teacher-bias tekrar üretim rehberi
+
+- Üç kanonik teacher-bias çalışma dizinine yayılan kolay karıştırılan uygulama
+  kararları tek bir açıklayıcı rehberde toplandı.
+- SAM3 PVS/PCS ayrımı, checkpoint ve işlem arayüzü; detector confidence ve
+  bbox eşleştirmesi; pseudo referans soy zinciri; boş maske, instance-macro ve
+  source-scene bootstrap kuralları açıkça sabitlendi.
+- Multi-teacher yöntem belgesi, bildiri planı, tablo/figür planı, Overleaf
+  iskeleti, çalışma README'si ve devir özeti rehbere bağlandı.
+- Uçtan uca validator yeni belge sözleşmesiyle PASS verdi; repository genel
+  testi `234 passed, 18 warnings, 2 subtests passed` sonucunu verdi. Uyarılar
+  yalnız pycocotools/NumPy deprecation uyarılarıdır.
+
+Basit sonuç:
+
+> Aynı sayıları yeniden üretmek için gereken bilimsel ve teknik kararlar artık
+> yalnız kod içinde dağınık değildir; neyin değiştirilemeyeceği ve neden
+> değiştirilemeyeceği tek belgede açıklanmıştır.
+
 ## Amaç
 
 Bu dosya, refactor ve teacher-reference bias deneyinin ilerlemesini teknik ayrıntıya boğmadan izlemek için tutulur. Her ana aşamadan sonra:
@@ -15,18 +34,93 @@ Bu kayıt sonuç dosyalarının yerine geçmez. Ayrıntılı teknik kararlar pla
 
 ## Güncel Durum
 
-**Tarih:** 2026-08-11
+**Tarih:** 2026-08-12
 **Aktif aşama:** Tamamlandı
-**Genel durum:** Canonical iSAID Plane ve Small Vehicle deneyleri SAM2 ve SAM3
-pseudo referanslarıyla genişletildi. Aynı frozen SAM1/SAM2/SAM3 tahminleri
-human, pseudo-SAM1, pseudo-SAM2 ve pseudo-SAM3 referanslarında çapraz ölçüldü.
-Dört yeni full-metric rapor, öğretmen karşılaştırma raporu, güncel literatür
-incelemesi, `elektr` Overleaf iskeleti ve yayın tablo/figür paketi tamamlandı.
-Uçtan uca validator ile 62 test ve 2 alt test geçti.
+**Genel durum:** Dört kanonik deney tek
+`studies/teacher_reference_bias_paper/` kökünde birleştirildi. SAM3 tahminleri
+`Sam3Tracker` PVS ile; human/published/SAM1/SAM2/SAM3 referansları açık
+provenance ile ayrıldı. 16 full-metric rapor, dört deney içi cross-analysis,
+ana karşılaştırma ve bildiri varlıkları üretildi. Birleşik validator ile ortak
+ve çalışma testleri geçti.
 
 ## Son Çalışmalar
 
-### 2026-08-11 - Çok öğretmenli pseudo referans uzantısı tamamlandı
+### 2026-08-11 - Literatür taraması düzeltildi ve derinleştirildi
+
+- İlk taramada atlanan Parikh, Das ve Feragen 2025 `Biased Ruler` çalışması en
+  doğrudan tıbbi görüntüleme öncülü olarak eklendi.
+- Aynı ekibin Mayıs 2026 tarihli label-bias audit devam çalışması, Nichyporuk
+  annotation-style, Vorontsov sistematik label bias ve Lad-Mueller etiket QA
+  çalışmaları taramaya ve BibTeX'e eklendi.
+- Genel “segmentasyonda otomatik referans yanlılığını ilk gösterme” iddiası
+  geri çekildi. Özgünlük remote-sensing SAM1/SAM2/SAM3 cross-teacher matrisi,
+  model ranking ve GT/YOLO bbox kontrolleriyle sınırlandı.
+- Arama sorguları, dahil etme ölçütleri ve kalan risk
+  `studies/teacher_reference_bias_multiteacher_v1_512/docs/LITERATURE_SEARCH_AUDIT.md`
+  dosyasına kaydedildi.
+
+### 2026-08-11 - Gerçek yeniden koşum, provenance ve rapor görsel QA kapanışı
+
+Yapılanlar:
+
+- Plane ve Small Vehicle çalışmalarındaki 24 kanonik SAM1/SAM2/SAM3
+  GT-bbox/YOLO-bbox inference koşulu gerçek model çıkarımıyla yeniden
+  çalıştırıldı. Geçici manifest-yamalama yaklaşımı kaldırıldı.
+- Her koşula run-local `segmenter_provenance.input.json` ve
+  `effective_config.input.json` eklendi; config hash kapsamı
+  `bbox_segmentation_effective_v1` olarak donduruldu.
+- Aynı 24 koşulun insan/SAM1 referans değerlendirmeleri yeniden çalıştırıldı.
+  Aynı çıktı dizinine eşzamanlı iki yazarı engelleyen evaluation lock eklendi.
+- Geçersiz eski SAM3 PCS çıktıları aktif sonuç yollarından çıkarılıp
+  `historical_noncanonical_seeds` altında `must_not_enter_analysis` kaydıyla
+  arşivlendi.
+- Full-metric rapor üreticisindeki sabit oranlı nitel panel kesimi kaldırıldı.
+  Panel sınırları kaynak figürden doğrulanarak algılanıyor; komşu satırın
+  görüntü şeridinin sayfaya taşması ve başlık kesilmesi giderildi.
+- Altı kanonik ve dört multiteacher full-metric MD/DOCX/PDF yeniden üretildi.
+
+Doğrulananlar:
+
+- 24 inference ve 24 evaluation manifestinin tamamı `completed`, run kimlikleri
+  benzersiz, input drift listeleri boş ve bütün çıktı SHA-256 değerleri doğru.
+- 10 full-metric PDF'nin tamamı 14 sayfa; report manifestlerindeki PDF karmaları
+  gerçek dosyalarla eşleşiyor.
+- 10 rapordaki 40 nitel sayfanın 200 paneli kaynak figürdeki doğru
+  satır/sütunla piksel düzeyinde eşleşiyor. Her sayfada üç üst ve iki alt panel
+  başlığı mevcut.
+- Tam test sonucu `234 passed, 18 warnings, 2 subtests passed`; uyarılar yalnız
+  `pycocotools`/NumPy 2 deprecation kayıtlarıdır.
+- Bağımsız denetimde saptanan üç metadata kalıntısı giderildi: geçici provenance
+  repair manifesti kaldırıldı, tarihsel arşivdeki 98 dosyanın boyut/SHA-256
+  dizini yenilendi ve iki legacy detector manifestindeki eski
+  `expected_input_drift` kaydı temizlendi. Validator bu eski drift biçimini
+  artık açıkça reddeder.
+- Aynı bağımsız ajanla yapılan yeniden denetim `98/98` arşiv kaydını, aktif
+  inference/evaluation zincirini ve rapor fingerprintlerini doğruladı; açık
+  bilimsel veya teknik hata kalmadığını bildirdi.
+
+### 2026-08-11 - SAM3 protokol hatası saptandı; eski sonuçlar geri çekildi
+
+Yapılanlar:
+
+- SAM3'te GT bbox verilmesine rağmen çok sayıda boş maske oluşması kök neden
+  analiziyle incelendi.
+- Eski kodun belirli nesne bbox istemi yerine PCS visual-exemplar semantiğini
+  kullandığı ve ek 0,5 filtresinin küçük nesne adaylarını elediği doğrulandı.
+- Doğru PVS tracker arayüzü uygulandı; bilinen pozitif instance için boş pseudo
+  referansın 1,0 değil 0,0 alacağı metrik politikası eklendi.
+- Eski SAM3 sayısal iddiaları geri çekildi; tam yeniden üretim, otomatik QA ve
+  bağımsız ajan denetimi tamamlandı.
+
+Doğrulanan ara sonuç:
+
+- PVS ile dört GT-bbox koşulunda 28.870/28.870 instance eksiksiz üretildi.
+- Gerçek RLE alanına göre boş maske, durum-alan uyuşmazlığı, bbox eşleşme hatası
+  ve kutunun tamamen dışında kalan maske sayılarının tamamı `0` çıktı.
+- Dört manifest tamamlandı; tahmin hash'leri, PVS arayüzü, `mask_threshold=0.0`,
+  `box_batch_size=128` ve kaynak-ağaç hash'i doğrulandı.
+
+### 2026-08-11 - Çok öğretmenli pseudo referans uzantısının ilk sürümü
 
 Yapılanlar:
 
@@ -43,8 +137,8 @@ Doğrulananlar:
 
 - 1.024 görüntü ve 17.498 instance üzerinde 419.952 çapraz metrik satırı var.
 - Her pseudo referans YOLO bbox koşulunda kendi öğretmenini birinci sıraladı.
-- Small Vehicle SAM3 pseudo referansındaki 5.345/12.051 boş maske gizlenmedi;
-  rapor ve ana figürlerde açıkça gösterildi.
+- Bu sürümde raporlanan SAM3 boş-maskeleri daha sonra yanlış inference arayüzüne
+  bağlandı; bu sayılar geçersizdir ve güncel sonuç olarak kullanılmamalıdır.
 - Dört full-metric PDF sayfa/render, DOCX bütünlük, hash/manifest ve metin
   kontrollerinden geçti; 62 test ve 2 alt test başarılı oldu.
 
@@ -117,7 +211,7 @@ Ana sonuç:
 
 > Aynı iSAID tahminleri insan yerine SAM1 pseudo referansla ölçüldüğünde
 > GT-bbox Overall IoU, SAM1/SAM2/SAM3 için sırasıyla
-> `+0,347 / +0,198 / +0,140` arttı. İnsan referansındaki
+> `+0,347 / +0,198 / +0,120` arttı. İnsan referansındaki
 > `SAM3 > SAM1 > SAM2` sırası pseudo referansta `SAM1 > SAM2 > SAM3`
 > oldu. Bu, pseudo referansın teacher model ve yakın mimarileri sistematik
 > biçimde avantajlı gösterebildiğini doğrudan ortaya koyuyor.
@@ -1646,7 +1740,7 @@ Doğrulananlar:
 - SAMRS GT-bbox koşullarının her biri tam 3.713 instance içeriyor.
 - İlk ara sonuçta SAMRS pseudo referansına karşı GT-bbox IoU,
   SAM1/SAM2/SAM3 için sırasıyla yaklaşık `0,991 / 0,781 / 0,612`;
-  iSAID insan referansında `0,653 / 0,629 / 0,655`.
+  iSAID insan referansında `0,653 / 0,629 / 0,700`.
 - SAMRS seed 42 test detector sonucu gerçek bbox AP50 `0,913`, AP75 `0,797`,
   AP90 `0,209` ve AP50-95 `0,665`.
 
@@ -1893,18 +1987,45 @@ Final Overall instance IoU:
 
 | Referans ve bbox | SAM1 | SAM2 | SAM3 |
 |---|---:|---:|---:|
-| iSAID insan, GT bbox | 0,658 | 0,645 | 0,370 |
-| iSAID SAM1 pseudo, GT bbox | 1,000 | 0,749 | 0,419 |
-| SAMRS SAM1 pseudo, GT bbox | 0,998 | 0,846 | 0,685 |
-| iSAID insan, YOLO bbox | 0,478 | 0,461 | 0,299 |
-| iSAID SAM1 pseudo, YOLO bbox | 0,655 | 0,550 | 0,341 |
-| SAMRS SAM1 pseudo, YOLO bbox | 0,782 | 0,707 | 0,560 |
+| iSAID insan, GT bbox | 0,658 | 0,645 | 0,698 |
+| iSAID SAM1 pseudo, GT bbox | 0,998 | 0,749 | 0,766 |
+| SAMRS SAM1 pseudo, GT bbox | 0,998 | 0,846 | 0,851 |
+| iSAID insan, YOLO bbox | 0,478 | 0,461 | 0,491 |
+| iSAID SAM1 pseudo, YOLO bbox | 0,654 | 0,549 | 0,562 |
+| SAMRS SAM1 pseudo, YOLO bbox | 0,782 | 0,707 | 0,707 |
 
 Basit sonuç:
 
 > Aynı iSAID GT-bbox tahminleri insan yerine SAM1 pseudo referansla
-> ölçüldüğünde SAM1/SAM2/SAM3 IoU değerleri `+0,342 / +0,103 / +0,049`
-> değişti. Model sırası small-vehicle sınıfında aynı kaldı; ancak referansı
-> üreten SAM1'in skor artışı açık biçimde daha büyüktü. Bu, plane deneyindeki
-> teacher-reference bias bulgusunu ikinci sınıfta mutlak skor enflasyonu
-> açısından tekrarlar.
+> ölçüldüğünde SAM1/SAM2/SAM3 IoU değerleri `+0,341 / +0,103 / +0,067`
+> değişti. İnsan referansındaki `SAM3 > SAM1 > SAM2` sırası SAM1 pseudo
+> referansta `SAM1 > SAM3 > SAM2` oldu. Bu, plane deneyindeki
+> teacher-reference bias bulgusunu ikinci sınıfta da tekrarlar.
+### 2026-08-12 - Teacher-reference-bias paper study birleştirmesi
+
+Yapılanlar:
+
+- Plane, Small Vehicle ve multi-teacher çalışma parçaları tek
+  `studies/teacher_reference_bias_paper/` kökünde birleştirildi.
+- iSAID Plane, iSAID Small Vehicle, SAMRS Plane ve SAMRS Small Vehicle için
+  veri, config, prediction, reference, analysis, figure ve report sahipliği
+  ayrı deney klasörlerine taşındı.
+- Her deneyde dört referans için 16 tam metrik MD/DOCX/PDF ve dört deney içi
+  çapraz analiz MD/DOCX/PDF üretildi.
+- Ana dört-deney analizi, beş bildiri figürü, altı tablo, Overleaf iskeleti,
+  literatür taraması ve tekrar üretim belgeleri güncellendi.
+- SAMRS published referansı insan ground truth olarak etiketlenmekten
+  çıkarıldı; SAM1 kökenli destekleyici provenance kontrolü olarak tanımlandı.
+- Nitel görsellerin seçilen görüntüdeki bütün hedef instance'ları içerdiği,
+  boş pseudo referans politikasının sıfır puanladığı ve SAM3 PVS yolunun
+  kullanıldığı otomatik olarak denetlendi.
+- Eski üç çalışma kökü içerik kaybı olmadan arşive taşındı; byte, inode ve
+  SHA-256 taşıma manifesti kaydedildi.
+- Aktif manifestlerdeki makineye özgü veri yolları taşınabilir biçime
+  çevrildi; odaklı test paketi ve birleşik validator eklendi.
+
+Basit sonuç:
+
+> Bildiride kullanılacak dört deney artık tek yerde, aynı protokol ve rapor
+> formatıyla okunabilir ve doğrulanabilir durumdadır. iSAID insan kontrolü ana
+> kanıt, SAMRS ise model üretimli referans yakınlığını destekleyen ayrı kanıttır.

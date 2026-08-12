@@ -49,9 +49,10 @@ segmenter_configs:
     model_dir: models/sam3_hf
     checkpoint_file: model.safetensors
     checkpoint_sha256: 6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a
+    inference_interface: sam3_tracker_pvs
     torch_dtype: float32
-    output_probability_threshold: 0.5
-    mask_threshold: 0.5
+    mask_threshold: 0.0
+    box_batch_size: 128
 
 bbox_sources:
   - original_detection_annotation
@@ -62,7 +63,7 @@ evaluation:
   secondary_granularity: image_union
   yolo_instance_match_iou: 0.50
   overlap_threshold: 0.001
-  area_reference: human
+  area_reference: dataset_native_reference
   area_threshold: median
   success_thresholds:
     - 0.50

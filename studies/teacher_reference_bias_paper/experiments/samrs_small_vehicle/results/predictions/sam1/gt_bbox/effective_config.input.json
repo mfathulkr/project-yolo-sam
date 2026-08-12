@@ -1,0 +1,24 @@
+{
+  "bbox_source": "gt_bbox",
+  "dataset": {
+    "area_threshold": 0.0065670013427734,
+    "dataset_id": "samrs_sota_small_vehicle",
+    "profile_id": "samrs_sota",
+    "reference_type": "pseudo_sam1",
+    "target_category": "small-vehicle",
+    "version": "SAMRS-SOTA-DOTA2.0-2023"
+  },
+  "image_size": 1024,
+  "model": "sam1",
+  "model_config": {
+    "checkpoint_sha256": "edfb0462392541fca9af44ff039bfb32dbd0c939997f3abb77a26e23af7afd7c",
+    "mask_threshold": 0.0,
+    "model_id": "facebook/sam-vit-huge",
+    "revision": "87aecf0df4ce6b30cd7de76e87673c49644bdf67",
+    "torch_dtype": "float32"
+  },
+  "schema": "bbox_segmentation_effective_v1",
+  "split": "test",
+  "stage": "gt_bbox_segmentation",
+  "study_id": "teacher_reference_bias_small_vehicle_v1_512"
+}

@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "created_at_utc": "2026-08-12T13:19:12.694829+00:00",
+  "checks": [
+    {
+      "name": "repo_root_contract",
+      "status": "PASS",
+      "detail": "/home/ssyzai/projects/yolo-sam/project-yolo-sam"
+    },
+    {
+      "name": "isaid_plane:prepared",
+      "status": "PASS",
+      "detail": "512 görüntü, 5447 instance, 44 kaynak sahne"
+    },
+    {
+      "name": "isaid_plane:predictions",
+      "status": "PASS",
+      "detail": "6 prediction kümesi tam"
+    },
+    {
+      "name": "isaid_plane:run_manifests",
+      "status": "PASS",
+      "detail": "9 strict ve taşınabilir run manifest"
+    },
+    {
+      "name": "isaid_plane:references",
+      "status": "PASS",
+      "detail": "human, pseudo_sam1, pseudo_sam2, pseudo_sam3"
+    },
+    {
+      "name": "isaid_plane:analysis",
+      "status": "PASS",
+      "detail": "130728 instance-metric satırı"
+    },
+    {
+      "name": "isaid_plane:figures",
+      "status": "PASS",
+      "detail": "4 nitel + 2 analiz figürü"
+    },
+    {
+      "name": "isaid_plane:full_reports",
+      "status": "PASS",
+      "detail": "4 full-metric MD/DOCX/PDF"
+    },
+    {
+      "name": "isaid_plane:cross_report",
+      "status": "PASS",
+      "detail": "17 sayfa"
+    },
+    {
+      "name": "isaid_small_vehicle:prepared",
+      "status": "PASS",
+      "detail": "512 görüntü, 12051 instance, 31 kaynak sahne"
+    },
+    {
+      "name": "isaid_small_vehicle:predictions",
+      "status": "PASS",
+      "detail": "6 prediction kümesi tam"
+    },
+    {
+      "name": "isaid_small_vehicle:run_manifests",
+      "status": "PASS",
+      "detail": "9 strict ve taşınabilir run manifest"
+    },
+    {
+      "name": "isaid_small_vehicle:references",
+      "status": "PASS",
+      "detail": "human, pseudo_sam1, pseudo_sam2, pseudo_sam3"
+    },
+    {
+      "name": "isaid_small_vehicle:analysis",
+      "status": "PASS",
+      "detail": "289224 instance-metric satırı"
+    },
+    {
+      "name": "isaid_small_vehicle:figures",
+      "status": "PASS",
+      "detail": "4 nitel + 2 analiz figürü"
+    },
+    {
+      "name": "isaid_small_vehicle:full_reports",
+      "status": "PASS",
+      "detail": "4 full-metric MD/DOCX/PDF"
+    },
+    {
+      "name": "isaid_small_vehicle:cross_report",
+      "status": "PASS",
+      "detail": "17 sayfa"
+    },
+    {
+      "name": "samrs_plane:prepared",
+      "status": "PASS",
+      "detail": "512 görüntü, 3713 instance, 24 kaynak sahne"
+    },
+    {
+      "name": "samrs_plane:predictions",
+      "status": "PASS",
+      "detail": "6 prediction kümesi tam"
+    },
+    {
+      "name": "samrs_plane:run_manifests",
+      "status": "PASS",
+      "detail": "9 strict ve taşınabilir run manifest"
+    },
+    {
+      "name": "samrs_plane:references",
+      "status": "PASS",
+      "detail": "published_samrs_reference, reproduced_pseudo_sam1, pseudo_sam2, pseudo_sam3"
+    },
+    {
+      "name": "samrs_plane:analysis",
+      "status": "PASS",
+      "detail": "89112 instance-metric satırı"
+    },
+    {
+      "name": "samrs_plane:figures",
+      "status": "PASS",
+      "detail": "4 nitel + 2 analiz figürü"
+    },
+    {
+      "name": "samrs_plane:full_reports",
+      "status": "PASS",
+      "detail": "4 full-metric MD/DOCX/PDF"
+    },
+    {
+      "name": "samrs_plane:cross_report",
+      "status": "PASS",
+      "detail": "17 sayfa"
+    },
+    {
+      "name": "samrs_small_vehicle:prepared",
+      "status": "PASS",
+      "detail": "512 görüntü, 7659 instance, 17 kaynak sahne"
+    },
+    {
+      "name": "samrs_small_vehicle:predictions",
+      "status": "PASS",
+      "detail": "6 prediction kümesi tam"
+    },
+    {
+      "name": "samrs_small_vehicle:run_manifests",
+      "status": "PASS",
+      "detail": "9 strict ve taşınabilir run manifest"
+    },
+    {
+      "name": "samrs_small_vehicle:references",
+      "status": "PASS",
+      "detail": "published_samrs_reference, reproduced_pseudo_sam1, pseudo_sam2, pseudo_sam3"
+    },
+    {
+      "name": "samrs_small_vehicle:analysis",
+      "status": "PASS",
+      "detail": "183816 instance-metric satırı"
+    },
+    {
+      "name": "samrs_small_vehicle:figures",
+      "status": "PASS",
+      "detail": "4 nitel + 2 analiz figürü"
+    },
+    {
+      "name": "samrs_small_vehicle:full_reports",
+      "status": "PASS",
+      "detail": "4 full-metric MD/DOCX/PDF"
+    },
+    {
+      "name": "samrs_small_vehicle:cross_report",
+      "status": "PASS",
+      "detail": "17 sayfa"
+    },
+    {
+      "name": "paper_outputs",
+      "status": "PASS",
+      "detail": "5 figür, 6 tablo, main report ve Overleaf iskeleti"
+    },
+    {
+      "name": "active_paths",
+      "status": "PASS",
+      "detail": "179 aktif metin/kod dosyası"
+    }
+  ],
+  "pass_count": 35,
+  "fail_count": 0
+}

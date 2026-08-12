@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "dataset_id": "isaid_plane",
+  "master_prepared_root": "studies/teacher_reference_bias_v1/data/prepared/isaid_plane",
+  "master_content_manifest": "studies/teacher_reference_bias_v1/data/prepared/isaid_plane/content_manifest.json",
+  "master_content_manifest_sha256": "021a41907e2692e75e4d11845f8527ddb53499949496fe189a6e6cd562ba7c11",
+  "area_threshold": 0.0167140960693359,
+  "target_per_stratum": 128,
+  "test_scene_pool_coverage": {
+    "no_overlap__low_mask_area": 213,
+    "no_overlap__high_mask_area": 132,
+    "overlap__low_mask_area": 128,
+    "overlap__high_mask_area": 152
+  },
+  "selected_test_counts": {
+    "no_overlap__low_mask_area": 128,
+    "no_overlap__high_mask_area": 128,
+    "overlap__low_mask_area": 128,
+    "overlap__high_mask_area": 128
+  },
+  "selected_test_scene_count": 44,
+  "source_scene_overlap": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "split_summaries": {
+    "train": {
+      "images": 1571,
+      "annotations": 8558
+    },
+    "validation": {
+      "images": 321,
+      "annotations": 1110
+    },
+    "test": {
+      "images": 512,
+      "annotations": 5447
+    }
+  }
+}

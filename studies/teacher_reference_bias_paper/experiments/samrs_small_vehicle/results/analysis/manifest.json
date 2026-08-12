@@ -1,0 +1,30 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "created_at_utc": "2026-08-12T11:56:48.809856+00:00",
+  "experiment_id": "samrs_small_vehicle",
+  "dataset_id": "samrs_sota_small_vehicle",
+  "baseline_reference": "published_samrs_reference",
+  "reference_types": [
+    "published_samrs_reference",
+    "reproduced_pseudo_sam1",
+    "pseudo_sam2",
+    "pseudo_sam3"
+  ],
+  "bootstrap_seed": 42,
+  "bootstrap_samples": 10000,
+  "confidence_level": 0.95,
+  "inputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/canonical_instance_metrics.csv": "83bf5b36fcf014faba95c14fb0c3ad3e62789705e661fb79330dcb953772a342",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/detector/seed_42/evaluation/test/metrics.json": "26a559735adc73730c92f44631b2d3866f7c1508c3dbfe3f91c47f5a88f7db50"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/aggregate_metrics.csv": "2945ba429e06152677f1a5157ef7fdd27c87017db2bc897e8418303b1f38c304",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/paired_reference_effects.csv": "cd45bd69073a56327143e17894dde981c506c60307c1d3ab300cfb1507d4b079",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/ranking_by_reference.csv": "a2d6d97e22f77b47a96230c23613072948e10a692d34b69422ad399d5ce2c162",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/teacher_advantage.csv": "dc23ae8e982168e6e586b7379edc279fc5efd606fa3b4b51acb933748c0e9c1e",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/reference_agreement.csv": "bcddc48cc560e57826223389e3df43aa9172709f136167ffa3a6dce8940b5a0c",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/reference_empty_stats.csv": "12ec3200c38206e66c2bff64fa03370192ba745ffd845fdde092d5ab19f2cae1",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/detector_summary.csv": "f159a0aa33fa1f568f29c561dea44c7290371f3f8b15be241ecda89b4f052768"
+  }
+}

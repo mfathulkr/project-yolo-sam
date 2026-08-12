@@ -1,0 +1,24 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "created_at_utc": "2026-08-12T11:52:37.254484+00:00",
+  "experiment_id": "isaid_plane",
+  "dataset_id": "isaid_plane",
+  "reference_type": "pseudo_sam3",
+  "teacher": "sam3",
+  "teacher_prompt_type": "gt_bbox",
+  "teacher_inference_interface": "sam3_tracker_pvs",
+  "construction": "frozen_gt_bbox_prediction_identity",
+  "instance_count": 5447,
+  "empty_reference_count": 0,
+  "empty_reference_rate": 0.0,
+  "known_positive_empty_reference_policy": "score_zero",
+  "inputs": {
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/predictions.jsonl": "251abb4ec9d49ecc611103af5350033250c3504aa40ee11a6fd752dc1c579b73",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam3/gt_bbox/manifest.json": "e7ddeafe5a2f304733a684881254257d61f97dec20eca956ca439f8c293b1593"
+  },
+  "outputs": {
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/references/pseudo_sam3.jsonl": "d5338e8b0a2dad3e70dfcc0a0d7f101de9d6f7cf414c1a9d0614e11284732ca9"
+  },
+  "scientific_role": "coverage-aware identity control for the matching GT-bbox teacher; not independent ground truth"
+}

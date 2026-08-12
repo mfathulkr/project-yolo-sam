@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import warnings
 from pathlib import Path
 
 import numpy as np
@@ -24,6 +25,13 @@ def run_gt_box_sam3_pipeline(
     mask_threshold: float,
     hf_token: str | None = None,
 ) -> None:
+    warnings.warn(
+        "Historical gt_box_sam3 uses SAM3 PCS visual-exemplar semantics, not "
+        "specific-instance bbox prompting. Use yolo_sam.segmentation.factory "
+        "with sam3_tracker_pvs for valid bbox segmentation.",
+        RuntimeWarning,
+        stacklevel=2,
+    )
     masks_dir = ensure_dir(output_dir / "masks")
     raw_dir = ensure_dir(output_dir / "raw")
 

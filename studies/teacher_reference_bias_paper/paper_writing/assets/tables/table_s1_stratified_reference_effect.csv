@@ -1,0 +1,49 @@
+Experiment,Stratum,Model,Baseline IoU,Own-reference IoU,Delta
+iSAID Plane,no_overlap__low_mask_area,SAM1,0.542708,0.851527,0.308820
+iSAID Plane,no_overlap__low_mask_area,SAM2,0.518815,0.828474,0.309659
+iSAID Plane,no_overlap__low_mask_area,SAM3,0.601666,0.844840,0.243174
+iSAID Plane,no_overlap__high_mask_area,SAM1,0.611083,0.880989,0.269905
+iSAID Plane,no_overlap__high_mask_area,SAM2,0.624683,0.872438,0.247755
+iSAID Plane,no_overlap__high_mask_area,SAM3,0.688329,0.872937,0.184608
+iSAID Plane,overlap__low_mask_area,SAM1,0.576775,0.868211,0.291435
+iSAID Plane,overlap__low_mask_area,SAM2,0.532389,0.839864,0.307476
+iSAID Plane,overlap__low_mask_area,SAM3,0.611336,0.853450,0.242114
+iSAID Plane,overlap__high_mask_area,SAM1,0.615595,0.878259,0.262664
+iSAID Plane,overlap__high_mask_area,SAM2,0.597122,0.860008,0.262886
+iSAID Plane,overlap__high_mask_area,SAM3,0.649999,0.868880,0.218881
+iSAID Small Vehicle,no_overlap__low_mask_area,SAM1,0.466191,0.640053,0.173862
+iSAID Small Vehicle,no_overlap__low_mask_area,SAM2,0.451306,0.613719,0.162412
+iSAID Small Vehicle,no_overlap__low_mask_area,SAM3,0.474020,0.614952,0.140932
+iSAID Small Vehicle,no_overlap__high_mask_area,SAM1,0.626855,0.792626,0.165771
+iSAID Small Vehicle,no_overlap__high_mask_area,SAM2,0.630473,0.763319,0.132846
+iSAID Small Vehicle,no_overlap__high_mask_area,SAM3,0.642988,0.773583,0.130595
+iSAID Small Vehicle,overlap__low_mask_area,SAM1,0.298164,0.460681,0.162517
+iSAID Small Vehicle,overlap__low_mask_area,SAM2,0.286465,0.443568,0.157103
+iSAID Small Vehicle,overlap__low_mask_area,SAM3,0.306968,0.446659,0.139691
+iSAID Small Vehicle,overlap__high_mask_area,SAM1,0.485728,0.665861,0.180133
+iSAID Small Vehicle,overlap__high_mask_area,SAM2,0.463734,0.633002,0.169268
+iSAID Small Vehicle,overlap__high_mask_area,SAM3,0.499578,0.644174,0.144597
+SAMRS Plane,no_overlap__low_mask_area,SAM1,0.765066,0.783956,0.018889
+SAMRS Plane,no_overlap__low_mask_area,SAM2,0.630708,0.745023,0.114316
+SAMRS Plane,no_overlap__low_mask_area,SAM3,0.659295,0.758834,0.099539
+SAMRS Plane,no_overlap__high_mask_area,SAM1,0.900795,0.909401,0.008607
+SAMRS Plane,no_overlap__high_mask_area,SAM2,0.780167,0.892905,0.112738
+SAMRS Plane,no_overlap__high_mask_area,SAM3,0.743285,0.901473,0.158188
+SAMRS Plane,overlap__low_mask_area,SAM1,0.676348,0.677637,0.001288
+SAMRS Plane,overlap__low_mask_area,SAM2,0.511486,0.629951,0.118465
+SAMRS Plane,overlap__low_mask_area,SAM3,0.561955,0.655160,0.093206
+SAMRS Plane,overlap__high_mask_area,SAM1,0.891325,0.896604,0.005279
+SAMRS Plane,overlap__high_mask_area,SAM2,0.774847,0.870187,0.095341
+SAMRS Plane,overlap__high_mask_area,SAM3,0.771008,0.878959,0.107950
+SAMRS Small Vehicle,no_overlap__low_mask_area,SAM1,0.615850,0.615913,0.000063
+SAMRS Small Vehicle,no_overlap__low_mask_area,SAM2,0.555624,0.593376,0.037752
+SAMRS Small Vehicle,no_overlap__low_mask_area,SAM3,0.551145,0.598408,0.047263
+SAMRS Small Vehicle,no_overlap__high_mask_area,SAM1,0.808676,0.808735,0.000059
+SAMRS Small Vehicle,no_overlap__high_mask_area,SAM2,0.762406,0.792396,0.029990
+SAMRS Small Vehicle,no_overlap__high_mask_area,SAM3,0.752311,0.799343,0.047032
+SAMRS Small Vehicle,overlap__low_mask_area,SAM1,0.671924,0.672057,0.000133
+SAMRS Small Vehicle,overlap__low_mask_area,SAM2,0.580879,0.629228,0.048349
+SAMRS Small Vehicle,overlap__low_mask_area,SAM3,0.581222,0.639922,0.058700
+SAMRS Small Vehicle,overlap__high_mask_area,SAM1,0.854006,0.854339,0.000333
+SAMRS Small Vehicle,overlap__high_mask_area,SAM2,0.773927,0.817226,0.043300
+SAMRS Small Vehicle,overlap__high_mask_area,SAM3,0.777112,0.831813,0.054701

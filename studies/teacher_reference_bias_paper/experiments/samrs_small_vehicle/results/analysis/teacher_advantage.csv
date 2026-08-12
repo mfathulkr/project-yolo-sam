@@ -1,0 +1,9 @@
+dataset_id,bbox_source,reference_type,teacher,teacher_score,other_models_mean,teacher_advantage,identity_control
+samrs_sota_small_vehicle,gt_bbox,pseudo_sam2,sam2,1.0,0.8509276339586758,0.14907236604132423,True
+samrs_sota_small_vehicle,gt_bbox,pseudo_sam3,sam3,1.0,0.8532865160196703,0.14671348398032968,True
+samrs_sota_small_vehicle,gt_bbox,published_samrs_reference,sam1,0.9983379631120862,0.8486507592984041,0.14968720381368217,False
+samrs_sota_small_vehicle,gt_bbox,reproduced_pseudo_sam1,sam1,1.0,0.8486969643276261,0.1513030356723739,True
+samrs_sota_small_vehicle,yolo_bbox,pseudo_sam2,sam2,0.7487703920642805,0.6957066721537708,0.05306371991050973,False
+samrs_sota_small_vehicle,yolo_bbox,pseudo_sam3,sam3,0.7601818469071222,0.7048362901598545,0.05534555674726771,False
+samrs_sota_small_vehicle,yolo_bbox,published_samrs_reference,sam1,0.7819361991976443,0.7068924555307996,0.07504374366684474,False
+samrs_sota_small_vehicle,yolo_bbox,reproduced_pseudo_sam1,sam1,0.7821460140176111,0.7068905394361982,0.0752554745814129,False

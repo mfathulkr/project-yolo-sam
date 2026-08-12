@@ -1,0 +1,7 @@
+dataset_id,bbox_source,reference_type,teacher,teacher_score,other_models_mean,teacher_advantage,identity_control
+isaid_small_vehicle,gt_bbox,pseudo_sam1,sam1,0.9984233673554062,0.7570900577115256,0.24133330964388056,True
+isaid_small_vehicle,gt_bbox,pseudo_sam2,sam2,1.0,0.7596325859470107,0.24036741405298934,True
+isaid_small_vehicle,gt_bbox,pseudo_sam3,sam3,1.0,0.7681826467834647,0.2318173532165353,True
+isaid_small_vehicle,yolo_bbox,pseudo_sam1,sam1,0.6537127931714821,0.5556038746091858,0.09810891856229631,False
+isaid_small_vehicle,yolo_bbox,pseudo_sam2,sam2,0.6236493885723984,0.5527485937890759,0.07090079478332245,False
+isaid_small_vehicle,yolo_bbox,pseudo_sam3,sam3,0.6332161372943202,0.5556368693395362,0.07757926795478409,False

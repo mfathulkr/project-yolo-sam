@@ -1,0 +1,90 @@
+{
+  "schema_version": 3,
+  "status": "completed",
+  "experiment_id": "samrs_small_vehicle",
+  "qualitative_scope": "all_target_instances_in_selected_images",
+  "inputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/data/prepared/test/_annotations.coco.json",
+      "bytes": 2891444,
+      "sha256": "d13d27c7e1da6cd21849ee9be09883d14df4c14859fa2ee82802bb70d5dbda6f"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/aggregate_metrics.csv",
+      "bytes": 30712,
+      "sha256": "2945ba429e06152677f1a5157ef7fdd27c87017db2bc897e8418303b1f38c304"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/canonical_instance_metrics.csv",
+      "bytes": 79096206,
+      "sha256": "83bf5b36fcf014faba95c14fb0c3ad3e62789705e661fb79330dcb953772a342"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/paired_reference_effects.csv",
+      "bytes": 3655,
+      "sha256": "cd45bd69073a56327143e17894dde981c506c60307c1d3ab300cfb1507d4b079"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam1/gt_bbox/predictions.jsonl",
+      "bytes": 5663277,
+      "sha256": "949cf6c503a6d2a639c078e38794814130f2177795e861afc327f6957a7a14de"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam2/gt_bbox/predictions.jsonl",
+      "bytes": 5725998,
+      "sha256": "0a7cec5b8092b25cbe80d43411a81b80de949a57ce8e410f953242dacad836f1"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/gt_bbox/predictions.jsonl",
+      "bytes": 5761453,
+      "sha256": "b2dfec1b5753d000581963475c3ca8b4c422ea4e0d06a18f56b100afc51088bf"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/pseudo_sam2.jsonl",
+      "bytes": 6608711,
+      "sha256": "5986bd7b4a2764b331b95c952e983ab3456388b37bbc8661e1a04df5cbf00b65"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/pseudo_sam3.jsonl",
+      "bytes": 6645465,
+      "sha256": "ce1be102ba9afa901d0c48a37664008ebc0eeb84adaaa2e052ce39bd3ec1bd85"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/reproduced_pseudo_sam1.jsonl",
+      "bytes": 6631586,
+      "sha256": "4ddcec29ef88741e407a004b16c613fc05fc169b4740250d67d23cfe9ba0b2f9"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/model_reference_iou_matrix.png",
+      "bytes": 170456,
+      "sha256": "32122f4be8a91d53611e1c8114c8d32acfc01e7b6882f4f88229ee6da952b57b"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/pseudo_sam2_gt_bbox_qualitative.png",
+      "bytes": 2058049,
+      "sha256": "6b6cdfb3e203749ab927ef0597b680f274800dd60e02d49bffae023bcb0f732c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/pseudo_sam3_gt_bbox_qualitative.png",
+      "bytes": 1954374,
+      "sha256": "78d11c8db2dee18ddf4485c056da84e4121dc30311c38a097a38a43eb6e3c27c"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/published_samrs_reference_gt_bbox_qualitative.png",
+      "bytes": 2058174,
+      "sha256": "86a75329bdfd1ce855081b9b0ab3d2edd4c55e816e7d45270244258830c4a668"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/reference_effect_with_ci.png",
+      "bytes": 114046,
+      "sha256": "65003a2998747a57ceab59abbde5d3ab2b783ccdbbc63852253478593c5c1bb5"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/reproduced_pseudo_sam1_gt_bbox_qualitative.png",
+      "bytes": 2015725,
+      "sha256": "fee25ac665673f10a6a7f345328f15054abe0a97fe4c854c1319bf4db6247fe1"
+    }
+  ]
+}

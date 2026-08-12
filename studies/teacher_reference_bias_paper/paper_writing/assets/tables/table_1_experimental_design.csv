@@ -1,0 +1,5 @@
+Experiment,Target,Images,Instances,Strata,Baseline reference,Independent human
+iSAID Plane,uçak,512,5447,4 × 128,Human,yes
+iSAID Small Vehicle,küçük araç,512,12051,4 × 128,Human,yes
+SAMRS Plane,uçak,512,3713,4 × 128,Published SAMRS,no
+SAMRS Small Vehicle,küçük araç,512,7659,4 × 128,Published SAMRS,no
