@@ -1,8 +1,234 @@
 {
-  "schema_version": 3,
+  "schema_version": 5,
   "status": "completed",
   "experiment_id": "isaid_plane",
   "qualitative_scope": "all_target_instances_in_selected_images",
+  "qualitative_selection": [
+    {
+      "reference_type": "human",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "isaid_plane:483",
+      "coco_image_id": 483,
+      "file_name": "P2249_0016.png",
+      "source_scene_id": "P2249",
+      "mask_area_ratio": 0.0043516159057617,
+      "stratum_mask_area_ratio_median": 0.004279613494873,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 12,
+      "prompt_count_per_model": 12,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "human",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "isaid_plane:298",
+      "coco_image_id": 298,
+      "file_name": "P1854_0024.png",
+      "source_scene_id": "P1854",
+      "mask_area_ratio": 0.0313262939453125,
+      "stratum_mask_area_ratio_median": 0.031210899353027302,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 3,
+      "prompt_count_per_model": 3,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "human",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "isaid_plane:372",
+      "coco_image_id": 372,
+      "file_name": "P1869_0035.png",
+      "source_scene_id": "P1869",
+      "mask_area_ratio": 0.0078001022338867,
+      "stratum_mask_area_ratio_median": 0.00773572921752925,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 11,
+      "prompt_count_per_model": 11,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "human",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "isaid_plane:168",
+      "coco_image_id": 168,
+      "file_name": "P1390_0017.png",
+      "source_scene_id": "P1390",
+      "mask_area_ratio": 0.0486860275268554,
+      "stratum_mask_area_ratio_median": 0.049282550811767495,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 20,
+      "prompt_count_per_model": 20,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam1",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "isaid_plane:483",
+      "coco_image_id": 483,
+      "file_name": "P2249_0016.png",
+      "source_scene_id": "P2249",
+      "mask_area_ratio": 0.0043516159057617,
+      "stratum_mask_area_ratio_median": 0.004279613494873,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 12,
+      "prompt_count_per_model": 12,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam1",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "isaid_plane:298",
+      "coco_image_id": 298,
+      "file_name": "P1854_0024.png",
+      "source_scene_id": "P1854",
+      "mask_area_ratio": 0.0313262939453125,
+      "stratum_mask_area_ratio_median": 0.031210899353027302,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 3,
+      "prompt_count_per_model": 3,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam1",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "isaid_plane:372",
+      "coco_image_id": 372,
+      "file_name": "P1869_0035.png",
+      "source_scene_id": "P1869",
+      "mask_area_ratio": 0.0078001022338867,
+      "stratum_mask_area_ratio_median": 0.00773572921752925,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 11,
+      "prompt_count_per_model": 11,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam1",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "isaid_plane:168",
+      "coco_image_id": 168,
+      "file_name": "P1390_0017.png",
+      "source_scene_id": "P1390",
+      "mask_area_ratio": 0.0486860275268554,
+      "stratum_mask_area_ratio_median": 0.049282550811767495,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 20,
+      "prompt_count_per_model": 20,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "isaid_plane:483",
+      "coco_image_id": 483,
+      "file_name": "P2249_0016.png",
+      "source_scene_id": "P2249",
+      "mask_area_ratio": 0.0043516159057617,
+      "stratum_mask_area_ratio_median": 0.004279613494873,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 12,
+      "prompt_count_per_model": 12,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "isaid_plane:298",
+      "coco_image_id": 298,
+      "file_name": "P1854_0024.png",
+      "source_scene_id": "P1854",
+      "mask_area_ratio": 0.0313262939453125,
+      "stratum_mask_area_ratio_median": 0.031210899353027302,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 3,
+      "prompt_count_per_model": 3,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "isaid_plane:372",
+      "coco_image_id": 372,
+      "file_name": "P1869_0035.png",
+      "source_scene_id": "P1869",
+      "mask_area_ratio": 0.0078001022338867,
+      "stratum_mask_area_ratio_median": 0.00773572921752925,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 11,
+      "prompt_count_per_model": 11,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "isaid_plane:168",
+      "coco_image_id": 168,
+      "file_name": "P1390_0017.png",
+      "source_scene_id": "P1390",
+      "mask_area_ratio": 0.0486860275268554,
+      "stratum_mask_area_ratio_median": 0.049282550811767495,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 20,
+      "prompt_count_per_model": 20,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "isaid_plane:483",
+      "coco_image_id": 483,
+      "file_name": "P2249_0016.png",
+      "source_scene_id": "P2249",
+      "mask_area_ratio": 0.0043516159057617,
+      "stratum_mask_area_ratio_median": 0.004279613494873,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 12,
+      "prompt_count_per_model": 12,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "isaid_plane:298",
+      "coco_image_id": 298,
+      "file_name": "P1854_0024.png",
+      "source_scene_id": "P1854",
+      "mask_area_ratio": 0.0313262939453125,
+      "stratum_mask_area_ratio_median": 0.031210899353027302,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 3,
+      "prompt_count_per_model": 3,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "isaid_plane:372",
+      "coco_image_id": 372,
+      "file_name": "P1869_0035.png",
+      "source_scene_id": "P1869",
+      "mask_area_ratio": 0.0078001022338867,
+      "stratum_mask_area_ratio_median": 0.00773572921752925,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 11,
+      "prompt_count_per_model": 11,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "isaid_plane:168",
+      "coco_image_id": 168,
+      "file_name": "P1390_0017.png",
+      "source_scene_id": "P1390",
+      "mask_area_ratio": 0.0486860275268554,
+      "stratum_mask_area_ratio_median": 0.049282550811767495,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 20,
+      "prompt_count_per_model": 20,
+      "display_scope": "all_target_instances"
+    }
+  ],
   "inputs": [
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/data/prepared/test/_annotations.coco.json",
@@ -58,8 +284,8 @@
   "outputs": [
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/human_gt_bbox_qualitative.png",
-      "bytes": 2045802,
-      "sha256": "c6e523aef9033918a5818c1462331ddbb0645d9bcef911c2f13e6f1abccbbce9"
+      "bytes": 1881390,
+      "sha256": "5abe8ffc317cea8e72865aa14743d0dfce438786261f0164760deca95df80826"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/model_reference_iou_matrix.png",
@@ -68,18 +294,18 @@
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/pseudo_sam1_gt_bbox_qualitative.png",
-      "bytes": 1898776,
-      "sha256": "53800a53bb247ff4f840159cdc2f1a97c7cd97a43b665ef2fe2a43ff22ae639e"
+      "bytes": 1887892,
+      "sha256": "90149393ab5ef508af376a7049cae22d1e014f4b2b7ccb7a1edec698a29c1803"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/pseudo_sam2_gt_bbox_qualitative.png",
-      "bytes": 2000455,
-      "sha256": "a2974d1d9cf577f816033ea701344d7ff598a66d19f142112e73fb57b8ad9deb"
+      "bytes": 1886998,
+      "sha256": "6684b9dc1be07bca95b181d394324ec253eaa9ad839e47080fc953c11b46b12d"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/pseudo_sam3_gt_bbox_qualitative.png",
-      "bytes": 1839663,
-      "sha256": "ed529b9090c9310f8ae6508278a552143db04fb9775aec45540974494a3c5bce"
+      "bytes": 1885596,
+      "sha256": "ede0ea2b6f8b9d4e63de548634abdc5d6a7eff0249116b31aadd1107d9c2bd40"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/reference_effect_with_ci.png",

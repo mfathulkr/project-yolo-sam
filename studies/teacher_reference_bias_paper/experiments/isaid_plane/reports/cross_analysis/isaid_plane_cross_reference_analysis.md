@@ -1,19 +1,25 @@
-# Isaid Plane Cross-Reference Analysis
+# iSAID Plane Cross-Reference Analysis
 
 ## Teknik Özet
 
 - Temel referansta YOLO-bbox Overall Avg IoU bakımından en yüksek model SAM3 (0.638) olmuştur.
 - Aynı dondurulmuş tahminler bütün referanslara karşı değerlendirildiği için sütunlar arasındaki fark yalnız referans maskesi değişiminin etkisini gösterir.
-- GT-bbox öz-referans diagonali bağımsız performans değil coverage-aware identity control'dür; ana teacher-affinity kanıtı YOLO-bbox hücreleridir.
+- GT bbox ile bir modelin kendi ürettiği maske yine aynı maskeye karşı ölçüldüğünde IoU'nun 1,000 olması beklenir; bu bağımsız başarı sonucu değildir.
+- YOLO bbox koşulunda her modelin kendi ürettiği etikette kazandığı ek IoU, aynı tahminlerin diğer iki SAM etiketindeki ortalaması çıkarılarak hesaplandı; Overall aralık +0.124 ile +0.141 arasındadır.
 - Tabaka sonuçları, etkinin kalabalık/örtüşen sahne ve hedef alanı koşullarında tutarlı olup olmadığını kontrol eder.
 - İnsan referansı bağımsız kontroldür; pseudo referans kaynaklı sıralama veya skor değişimi buna göre yorumlanır.
 
 ## Kapsam ve Tanımlar
 
-- Kapsam: 512 görüntü. her dört tabakada 128 görüntü ve toplam 5.447 uçak instance.
-- Avg IoU instance başına hesaplanır ve bütün instance'lar eşit ağırlıkla ortalanır.
-- Teacher advantage, ilgili pseudo referansta öğretmen modelin IoU değeri ile diğer iki modelin ortalaması arasındaki farktır.
-- Eşleşmiş fark güven aralıkları kaynak sahne kümeli bootstrap ile hesaplanır; aynı büyük sahneden gelen crop'lar bağımsız sayılmaz.
+- Kapsam: 512 görüntü, dört sahne grubunun her birinde 128 görüntü ve toplam 5.447 uçak nesnesi.
+- Avg IoU her nesne için ayrı hesaplanır ve bütün nesneler eşit ağırlıkla ortalanır.
+- Model–referans matrislerinde satır değerlendirilen modeli, sütun kullanılan referans maskeyi, hücre ise Avg IoU değerini gösterir.
+- Kendi Etiketiyle IoU, örneğin SAM2 tahmininin SAM2 tarafından üretilen referans maskeye göre puanıdır.
+- Diğer SAM Etiketleriyle Ortalama IoU, aynı tahminin diğer iki SAM modelinin ürettiği maskelere göre aldığı iki puanın ortalamasıdır.
+- Ek IoU, bu iki değerin farkıdır. Pozitif değer, modelin kendi etiketine göre ölçüldüğünde daha yüksek puan aldığını gösterir.
+- Güven aralıkları ve ayrıntılı istatistiksel kontroller analiz CSV'lerinde saklanır; okunabilirliği korumak için bu özet tablolara basılmaz.
+- Bu karşılaştırmalar ilk sonuçlar görüldükten sonra geliştirilmiştir; önceden kaydedilmiş doğrulayıcı test değildir ve çoklu karşılaştırma düzeltmesi uygulanmamıştır.
+- Aynı-model karşılaştırması aynı dondurulmuş checkpoint ile sınırlıdır; farklı eğitim seed'i/checkpoint'i veya model ailesi düzeyinde genelleme test edilmemiştir.
 - Bilinen pozitif nesnedeki boş pseudo referans eksik etikettir ve 0 puanlanır.
 
 ## Overall
@@ -106,43 +112,50 @@
 | SAM2 | 0.597 | 0.765 | 0.860 | 0.728 |
 | SAM3 | 0.650 | 0.768 | 0.727 | 0.869 |
 
-## Eşleşmiş Referans Etkileri
+## Model Kendi Etiketiyle Ne Kadar Ek Puan Alıyor? · Overall · YOLO bbox
 
-| Model | BBox | Karşılaştırılan Referans | Temel IoU | Referans IoU | IoU Farkı (%95 GA) |
-| --- | --- | --- | --- | --- | --- |
-| SAM1 | GT bbox | SAM1 pseudo | 0.653 | 1.000 | +0.347 [+0.331, +0.369] |
-| SAM1 | GT bbox | SAM2 pseudo | 0.653 | 0.827 | +0.175 [+0.159, +0.189] |
-| SAM1 | GT bbox | SAM3 pseudo | 0.653 | 0.820 | +0.167 [+0.151, +0.182] |
-| SAM1 | YOLO bbox | SAM1 pseudo | 0.597 | 0.873 | +0.276 [+0.257, +0.297] |
-| SAM1 | YOLO bbox | SAM2 pseudo | 0.597 | 0.749 | +0.152 [+0.136, +0.166] |
-| SAM1 | YOLO bbox | SAM3 pseudo | 0.597 | 0.742 | +0.145 [+0.130, +0.158] |
-| SAM2 | GT bbox | SAM1 pseudo | 0.629 | 0.827 | +0.198 [+0.180, +0.215] |
-| SAM2 | GT bbox | SAM2 pseudo | 0.629 | 1.000 | +0.371 [+0.352, +0.396] |
-| SAM2 | GT bbox | SAM3 pseudo | 0.629 | 0.784 | +0.154 [+0.142, +0.168] |
-| SAM2 | YOLO bbox | SAM1 pseudo | 0.574 | 0.750 | +0.177 [+0.158, +0.195] |
-| SAM2 | YOLO bbox | SAM2 pseudo | 0.574 | 0.853 | +0.279 [+0.258, +0.302] |
-| SAM2 | YOLO bbox | SAM3 pseudo | 0.574 | 0.706 | +0.132 [+0.120, +0.144] |
-| SAM3 | GT bbox | SAM1 pseudo | 0.700 | 0.820 | +0.120 [+0.097, +0.140] |
-| SAM3 | GT bbox | SAM2 pseudo | 0.700 | 0.784 | +0.084 [+0.066, +0.101] |
-| SAM3 | GT bbox | SAM3 pseudo | 0.700 | 1.000 | +0.300 [+0.285, +0.320] |
-| SAM3 | YOLO bbox | SAM1 pseudo | 0.638 | 0.741 | +0.103 [+0.080, +0.121] |
-| SAM3 | YOLO bbox | SAM2 pseudo | 0.638 | 0.702 | +0.064 [+0.046, +0.081] |
-| SAM3 | YOLO bbox | SAM3 pseudo | 0.638 | 0.863 | +0.224 [+0.208, +0.240] |
+Ek IoU = Kendi Etiketiyle IoU − Diğer SAM Etiketleriyle Ortalama IoU. Pozitif değer, modelin kendi etiketinde daha yüksek puan aldığını gösterir.
 
-## Öğretmen Avantajı
+| Model | Kendi Etiketiyle IoU | Diğer SAM Etiketleriyle Ortalama IoU | Ek IoU |
+| --- | --- | --- | --- |
+| SAM1 | 0.873 | 0.745 | +0.128 |
+| SAM2 | 0.853 | 0.728 | +0.124 |
+| SAM3 | 0.863 | 0.722 | +0.141 |
 
-| Model | BBox | Referans | Öğretmen IoU | Diğerleri Ort. | Öğretmen Avantajı | Identity Control |
-| --- | --- | --- | --- | --- | --- | --- |
-| SAM1 | GT bbox | SAM1 pseudo | 1.000 | 0.824 | +0.176 | Evet |
-| SAM2 | GT bbox | SAM2 pseudo | 1.000 | 0.805 | +0.195 | Evet |
-| SAM3 | GT bbox | SAM3 pseudo | 1.000 | 0.802 | +0.198 | Evet |
-| SAM1 | YOLO bbox | SAM1 pseudo | 0.873 | 0.746 | +0.128 | Hayır |
-| SAM2 | YOLO bbox | SAM2 pseudo | 0.853 | 0.726 | +0.127 | Hayır |
-| SAM3 | YOLO bbox | SAM3 pseudo | 0.863 | 0.724 | +0.139 | Hayır |
+## Sahne Gruplarına Göre Kendi Etiketindeki Ek Puan · YOLO bbox
 
-## Referanslar Arası Anlaşma
+Ek IoU = Kendi Etiketiyle IoU − Diğer SAM Etiketleriyle Ortalama IoU. Pozitif değer, modelin kendi etiketinde daha yüksek puan aldığını gösterir.
 
-| Referans A | Referans B | Referans Anlaşması | Instance |
+| Sahne Grubu | Model | Kendi Etiketiyle IoU | Diğer SAM Etiketleriyle Ortalama IoU | Ek IoU |
+| --- | --- | --- | --- | --- |
+| No Overlap × Low Mask Area | SAM1 | 0.852 | 0.707 | +0.144 |
+| No Overlap × Low Mask Area | SAM2 | 0.828 | 0.693 | +0.136 |
+| No Overlap × Low Mask Area | SAM3 | 0.845 | 0.682 | +0.163 |
+| No Overlap × High Mask Area | SAM1 | 0.881 | 0.743 | +0.138 |
+| No Overlap × High Mask Area | SAM2 | 0.872 | 0.742 | +0.130 |
+| No Overlap × High Mask Area | SAM3 | 0.873 | 0.719 | +0.154 |
+| Overlap × Low Mask Area | SAM1 | 0.868 | 0.725 | +0.143 |
+| Overlap × Low Mask Area | SAM2 | 0.840 | 0.703 | +0.137 |
+| Overlap × Low Mask Area | SAM3 | 0.853 | 0.692 | +0.161 |
+| Overlap × High Mask Area | SAM1 | 0.878 | 0.765 | +0.113 |
+| Overlap × High Mask Area | SAM2 | 0.860 | 0.747 | +0.113 |
+| Overlap × High Mask Area | SAM3 | 0.869 | 0.748 | +0.121 |
+
+## Temel Referanstan Kendi Etiketine Geçince Puan Değişimi · YOLO bbox
+
+Aynı tahmin sabit tutulur; yalnız puanın hesaplandığı referans maske değişir.
+
+| Model | İnsan Etiketiyle IoU | Kendi Etiketiyle IoU | Puan Değişimi |
+| --- | --- | --- | --- |
+| SAM1 | 0.597 | 0.873 | +0.276 |
+| SAM2 | 0.574 | 0.853 | +0.279 |
+| SAM3 | 0.638 | 0.863 | +0.224 |
+
+## Referans Maskeler Birbirine Ne Kadar Benziyor?
+
+Bu tablo model başarısını değil, iki referans maske kümesinin birbirine benzerliğini gösterir.
+
+| Referans A | Referans B | Maskeler Arası Ortalama IoU | Nesne Sayısı |
 | --- | --- | --- | --- |
 | İnsan | SAM1 pseudo | 0.653 | 5447 |
 | İnsan | SAM2 pseudo | 0.629 | 5447 |
@@ -151,24 +164,24 @@
 | SAM1 pseudo | SAM3 pseudo | 0.820 | 5447 |
 | SAM2 pseudo | SAM3 pseudo | 0.784 | 5447 |
 
-## Model Sıralamaları
+## Referansa Göre Model Sırası
 
-| BBox | Referans | Sıralama | Temele Göre Değişen Sıra |
-| --- | --- | --- | --- |
-| GT bbox | İnsan | SAM3 > SAM1 > SAM2 | 0 |
-| GT bbox | SAM1 pseudo | SAM1 > SAM2 > SAM3 | 3 |
-| GT bbox | SAM2 pseudo | SAM2 > SAM1 > SAM3 | 2 |
-| GT bbox | SAM3 pseudo | SAM3 > SAM1 > SAM2 | 0 |
-| YOLO bbox | İnsan | SAM3 > SAM1 > SAM2 | 0 |
-| YOLO bbox | SAM1 pseudo | SAM1 > SAM2 > SAM3 | 3 |
-| YOLO bbox | SAM2 pseudo | SAM2 > SAM1 > SAM3 | 2 |
-| YOLO bbox | SAM3 pseudo | SAM3 > SAM1 > SAM2 | 0 |
+| BBox | Referans | Sıralama |
+| --- | --- | --- |
+| GT bbox | İnsan | SAM3 > SAM1 > SAM2 |
+| GT bbox | SAM1 pseudo | SAM1 > SAM2 > SAM3 |
+| GT bbox | SAM2 pseudo | SAM2 > SAM1 > SAM3 |
+| GT bbox | SAM3 pseudo | SAM3 > SAM1 > SAM2 |
+| YOLO bbox | İnsan | SAM3 > SAM1 > SAM2 |
+| YOLO bbox | SAM1 pseudo | SAM1 > SAM2 > SAM3 |
+| YOLO bbox | SAM2 pseudo | SAM2 > SAM1 > SAM3 |
+| YOLO bbox | SAM3 pseudo | SAM3 > SAM1 > SAM2 |
 
-## Boş Referans Denetimi
+## Boş Üretilen Referans Maskeler
 
 | Referans | Boş Maske | Boş Oranı |
 | --- | --- | --- |
-| İnsan | 0 | 0.0000 |
-| SAM1 pseudo | 0 | 0.0000 |
-| SAM2 pseudo | 0 | 0.0000 |
-| SAM3 pseudo | 0 | 0.0000 |
+| İnsan | 0 | 0.000 |
+| SAM1 pseudo | 0 | 0.000 |
+| SAM2 pseudo | 0 | 0.000 |
+| SAM3 pseudo | 0 | 0.000 |

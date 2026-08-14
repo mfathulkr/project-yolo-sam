@@ -125,6 +125,7 @@ def common_scope(source: ExperimentSource) -> tuple[str, ...]:
     return (
         f"Veri kaynağı {family}, hedef sınıf {source.target_label} ve model giriş çözünürlüğü 1024×1024 pikseldir.",
         "Test kümesi 512 görüntüdür. Dört Overlap × Mask Area grubunun her birinde tam 128 görüntü vardır.",
+        "Bu 512 görüntünün tamamında en az bir hedef instance vardır. Detector tablosu bu nedenle resmi, hedef-negatif görüntüler de içeren benchmark AP'si değil pozitif test alt kümesindeki deney içi kontroldür.",
         "No Overlap, görüntüdeki hedef GT bbox çiftlerinin kesişmemesi; Overlap ise en az bir hedef bbox çiftinin IoU değerinin 0,001 veya üstünde olmasıdır.",
         "Low/High Mask Area ayrımı yayımlanmış temel instance maskelerinin görüntü içindeki toplam alan oranına göre, testten önce dondurulmuş veri setine özgü eşikle yapılmıştır. Referans türü değişse bile stratum üyeliği değişmez.",
         "SAM1, SAM2 ve SAM3 tahminleri aynı 512 görüntüde hem GT bbox hem de seed 42 ile eğitilmiş YOLO bbox istemiyle bir kez üretilmiş ve bütün referanslara karşı değişmeden yeniden değerlendirilmiştir.",
@@ -194,7 +195,7 @@ def discussion_bullets(
     )
     bullets = [
         f"Bu referansta Overall GT-bbox sıralaması {reference_rank_gt}; YOLO-bbox sıralaması {reference_rank_yolo} biçimindedir.",
-        "GT bbox ile YOLO bbox arasındaki fark, segmenterden önceki detection hatasının uçtan uca sisteme etkisini gösterir.",
+        "GT bbox ile YOLO bbox arasındaki fark, eşleşen veya kaçırılan GT instance'lar üzerindeki lokalizasyon/recall etkisini gösterir. Eşleşmeyen detector yanlış pozitifleri maske ortalamasına eklenmediği için bu fark tam uçtan uca instance-segmentation performansı değildir.",
     ]
     if reference_type == baseline:
         if reference.is_independent_human:
@@ -224,7 +225,7 @@ def discussion_bullets(
         bullets.extend(
             (
                 f"{teacher.upper()} modeli YOLO bbox koşulunda temel referansa karşı {base_score:.3f}, kendi öğretmen ailesinin referansına karşı {own_score:.3f} Avg IoU verir; görünür fark {own_score - base_score:+.3f}'tür.",
-                "Kendi pseudo referansında yüksek skor, modelin gerçek dünyada daha doğru olduğunu tek başına kanıtlamaz; aynı model ailesinin benzer sınır ve hata tercihlerini ödüllendiren teacher-reference affinity etkisini gösterebilir.",
+                "Bu temel-referans farkı tek başına teacher affinity kanıtı değildir; pseudo referansların genel olarak daha kolay olması da fark yaratabilir. Ana exploratory kontrast, deney içi cross-analysis belgesinde aynı dondurulmuş checkpoint'in kendi pseudo referansı ile diğer iki öğretmenin pseudo referanslarını ve göreli model avantajını eşleşmiş olarak karşılaştırır; preregistered confirmatory test değildir.",
             )
         )
     bullets.append(
@@ -246,10 +247,10 @@ def report_spec(
         dataset_id=source.dataset_id,
         slug=slug,
         title=(
-            f"{source.experiment_id.replace('_', ' ').title()} - "
+            f"{source.display_name} - "
             f"{reference.display_name} Full Metric Document"
         ),
-        dataset_label=source.experiment_id.replace("_", " ").title(),
+        dataset_label=source.display_name,
         reference_sections=(
             ReferenceSection(
                 reference_type=reference_type,

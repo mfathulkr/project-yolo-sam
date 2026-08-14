@@ -30,6 +30,10 @@ class ExperimentSource:
     reference_types: tuple[str, ...]
 
     @property
+    def display_name(self) -> str:
+        return EXPERIMENT_DISPLAY_NAMES[self.experiment_id]
+
+    @property
     def root(self) -> Path:
         return EXPERIMENTS_ROOT / self.experiment_id
 
@@ -156,6 +160,13 @@ DATASETS = {
         area_threshold=0.0065670013427734,
         reference_types=SAMRS_REFERENCES,
     ),
+}
+
+EXPERIMENT_DISPLAY_NAMES = {
+    "isaid_plane": "iSAID Plane",
+    "isaid_small_vehicle": "iSAID Small Vehicle",
+    "samrs_plane": "SAMRS SOTA Plane",
+    "samrs_small_vehicle": "SAMRS SOTA Small Vehicle",
 }
 
 DATASETS_BY_DATASET_ID = {source.dataset_id: source for source in DATASETS.values()}

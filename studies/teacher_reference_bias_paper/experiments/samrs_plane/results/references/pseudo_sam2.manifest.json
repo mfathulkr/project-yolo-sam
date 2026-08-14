@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "completed",
-  "created_at_utc": "2026-08-12T11:52:39.385287+00:00",
+  "created_at_utc": "2026-08-12T18:56:16.810434+00:00",
   "experiment_id": "samrs_plane",
   "dataset_id": "samrs_sota_plane",
   "reference_type": "pseudo_sam2",
@@ -15,7 +15,7 @@
   "known_positive_empty_reference_policy": "score_zero",
   "inputs": {
     "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/gt_bbox/predictions.jsonl": "e72d8d1012f21dbd40da60d753955121a45bb567ea6aa3719163200bc6596e25",
-    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/gt_bbox/manifest.json": "97300bf9110c376268af9e76f3789e38e6356ce30ff0825dca1bff44663e0617"
+    "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/predictions/sam2/gt_bbox/manifest.json": "fdf397edd95d1305715fc436535d3ebd8edb1b33a0baa111ef46ab5cec20653e"
   },
   "outputs": {
     "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/references/pseudo_sam2.jsonl": "a93a25044b8f41017f58d40fde13412a51335197848a00dc3ef398e03e013fe7"

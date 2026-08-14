@@ -6,7 +6,7 @@ Tarama tarihi: **12 Ağustos 2026**.
 
 Amaç, şu soruya doğrudan veya metodolojik olarak yakın çalışmaları bulmaktır:
 
-> Bir yapay zekâ modelinin ürettiği etiketler değerlendirme referansı olarak kullanıldığında, aynı model veya benzer model ailesi bağımsız doğruluğundan daha başarılı görünebilir mi?
+> Bir yapay zekâ modelinin ürettiği etiketler değerlendirme referansı olarak kullanıldığında, aynı dondurulmuş üretici checkpoint bağımsız doğruluğundan daha başarılı görünebilir mi?
 
 Arama eksenleri:
 
@@ -115,7 +115,7 @@ maskeler arasında Plane için `0,990633`, Small Vehicle için `0,998338`
 instance-macro IoU bulmuştur. Bu yakınlık SAM1-benzeri bir referansı güçlü
 biçimde destekler; insan doğruluğu veya dosya düzeyinde özdeşlik kanıtı
 değildir. SAMRS deneyleri bu nedenle iSAID insan kontrolünün yerine değil,
-model-aile yakınlığını destekleyen ayrı bir kanıt katmanı olarak kullanılır.
+SAM1-benzeri referans yakınlığını destekleyen ayrı bir kanıt katmanı olarak kullanılır.
 
 ### 4.3 SAM, SAM2 ve SAM3
 
@@ -132,11 +132,26 @@ SOPSeg bu bildirinin ana yanlılık sorusunu araştırmaz; fakat iki noktada ba�
 1. Remote-sensing başarısı yalnız “hangi SAM sürümü” ile açıklanamaz; crop/büyütme, geometri ve sınır işleme önemlidir.
 2. Pseudo referansın sınır stili, modeli değerlendirirken ciddi fark yaratabilir. Edge-aware bir model, kaba öğretmen maskesine göre haksız yere cezalandırılabilir.
 
-### 4.5 “Segment Anything, from Space?”
+### 4.5 Remote SAMsing: model ağırlığını değiştirmeden ölçek ve tile işleme
+
+[Remote SAMsing](https://arxiv.org/abs/2605.00256), SAM2 ağırlığını değiştirmeden
+büyük remote-sensing görüntülerinde multi-pass maskeleme, eşikler durduğunda
+kademeli gevşetme, contextual padding ve tile sınırında best-match merge uygular.
+Yedi sahnede kapsamanın tek geçişli SAM2'deki `%30--68` aralığından `%91--98`
+aralığına çıktığını; tile boyutunu `1000`den `250`ye indirmenin `Det@0.5`
+değerini `%56`dan `%85`e çıkardığını raporlar. Bu çalışma, remote sensing'de
+crop/tile ölçeği ve sınır birleştirmenin model sürümü kadar belirleyici
+olabileceğini güncel bir örnekle gösterir.
+
+Remote SAMsing değerlendirme-referansı yanlılığını incelemez. Bu nedenle bizim
+aynı modelin kendi etiketinde ek puan kazanması hipotezimize kanıt değildir; yalnız inference/preprocessing
+tasarımının sonuçları güçlü biçimde değiştirebildiğini gösteren alan bağlamıdır.
+
+### 4.6 “Segment Anything, from Space?”
 
 [Osco ve arkadaşları](https://arxiv.org/abs/2304.13000), SAM'in overhead görüntülere sıfır atış aktarımını inceler ve bazı hedeflerde iyi genelleme görülse de overhead görüntülerin özgün nesne/ölçek özelliklerinde failure case'ler bulunduğunu raporlar. Bu çalışma pseudo referans yanlılığını ölçmez; insan referansıyla domain shift'in varlığını destekler.
 
-### 4.6 Güncel pseudo-label refinement çalışmaları: SAMST ve ReSAM
+### 4.7 Güncel pseudo-label refinement çalışmaları: SAMST ve ReSAM
 
 [SAMST](https://arxiv.org/abs/2507.11994), IGARSS 2025'te Potsdam üzerinde
 semi-supervised semantic segmentation için SAM pseudo etiketlerini doğrudan
@@ -254,7 +269,7 @@ gösterir.
 
 [Valabregue ve arkadaşları, “Unraveling Systematic Biases in Brain Segmentation”](https://openreview.net/forum?id=B3xO0c2Q3h), otomatik araçlardan türetilen beyin MR pseudo-ground-truth etiketlerindeki sistematik anatomik hataların modellerce öğrenilip yeniden üretilebildiğini gösterir. Putamen sınırında claustrum parçalarının sistematik olarak eklenmesi örneğini kullanır ve yüksek kaliteli uzman doğrulamasının gerekliliğini vurgular.
 
-Bu, sağlık alanındaki en yakın motivasyon çalışmasıdır. Farkı şudur: onların odağı eğitim etiketindeki sistematik hatanın öğrenciye aktarılmasıdır; bizim odağımız aynı model ailesinin ürettiği maskenin değerlendirme referansı olduğunda skor ve sıralamanın değişmesidir.
+Bu, sağlık alanındaki en yakın motivasyon çalışmasıdır. Farkı şudur: onların odağı eğitim etiketindeki sistematik hatanın öğrenciye aktarılmasıdır; bizim odağımız aynı dondurulmuş checkpoint'in ürettiği maskenin değerlendirme referansı olduğunda skor ve sıralamanın değişmesidir.
 
 ### 5.5 Model üretimli referansın performans ölçümünü bozması
 
@@ -305,7 +320,9 @@ boş referansı başarı saymamak zorunludur.
 
 [Medical Image Segmentation with SAM-generated Annotations](https://arxiv.org/abs/2409.20253), Medical Segmentation Decathlon CT görevlerinde SAM bbox promptlarıyla pseudo etiket üretip U-Net eğitir ve bazı koşullarda fully supervised modele yakın sonuç bildirir. [Push the Boundary of SAM](https://arxiv.org/abs/2308.00883), SAM pseudo etiketlerini kalite değerlendirme ve uncertainty tabanlı correction ile iyileştirir. [Nakai ve Hotta](https://openaccess.thecvf.com/content/ICCV2025W/CVAMD/html/Nakai_Unsupervised_Nuclei_Segmentation_by_Improving_Pseudo_Labels_from_Segment_Anything_ICCVW_2025_paper.html), nucleus pseudo maskelerinde eksik ve yanlış bölgeleri üç U-Net ve majority vote ile düzeltir.
 
-Bu çalışmalar pseudo etiketlerin eğitimde yararlı olabileceğini gösterir. Aynı zamanda ham SAM çıktısının doğrudan güvenilir kabul edilmediğini; correction, consensus veya bağımsız insan GT değerlendirmesi gerektiğini de gösterir.
+[SAMIX](https://openaccess.thecvf.com/content/CVPR2026/html/Hu_SAMIX_Reinforcing_SAM2_with_Semantic_Adapter_and_Reference_Selecting_Policy_CVPR_2026_paper.html), SAM2'yi semantic adapter ile pseudo-label üreticisine dönüştürür ve görüntü-maske referanslarını reinforcement-learning tabanlı bir seçim politikasıyla seçer. [Boxes2Pixels](https://openaccess.thecvf.com/content/CVPR2026W/AI4RWC/html/Lendering_Boxes2Pixels_Learning_Defect_Segmentation_from_Noisy_SAM_Masks_CVPRW_2026_paper.html), bbox'tan üretilen SAM maskelerini açıkça gürültülü öğretmen çıktısı sayar; öğrenci modelini bir taraflı self-correction ile eğitir ve sonucu insan anotasyonlu test benchmarkında ölçer.
+
+Bu çalışmalar pseudo etiketlerin eğitimde yararlı olabileceğini gösterir. Aynı zamanda ham SAM çıktısının doğrudan güvenilir kabul edilmediğini; selection, correction, consensus veya bağımsız insan GT değerlendirmesi gerektiğini de gösterir. Hiçbiri üretici SAM maskesini aynı üreticiyi tarafsız değerlendiren bağımsız test referansı olarak doğrulamaz.
 
 ### 5.13 Tek bir gold standard olmadan çoklu uzman değerlendirmesi
 
@@ -347,7 +364,7 @@ uygulanabilir bir veri kalite aracıdır.
 | En yakın kontrol | Aynı M-BASELINE tahmini silver ve gold referansa karşı ölçme | Aynı tahmini human/SAM1/SAM2/SAM3 referanslarına karşı ölçme |
 | Ana çıktı | Fairness gap, DPD, DIR | Instance-macro IoU farkı, teacher advantage ve model ranking |
 | Eğitim yanlılığı | Silver-label training ayrıca denenir | Mevcut deneyde pseudo-label training yapılmaz |
-| Referans-üretici yakınlığı | Tek silver üretici; model ailesi çaprazlanmaz | 3×3 model-reference matrisiyle doğrudan çaprazlanır |
+| Referans-üretici yakınlığı | Tek silver üretici | Üç sabit producer checkpoint × üç sabit candidate checkpoint matrisiyle doğrudan çaprazlanır |
 | Özdeşlik kontrolü | Yok | GT-bbox diagonal identity control ve ayrı YOLO-bbox non-identical kontrol |
 
 Özetle Parikh 2025 bizim ana problemi geçersiz kılmaz; genel problemin daha
@@ -385,9 +402,15 @@ Bizde evaluator matematiksel IoU olduğu için judge-model yanlılığı yoktur;
    dilation/over-segmentation aynı sayıda bozuk pikselde Dice/IoU'yu farklı
    etkileyebilir; tek overlap skoru mekanizmayı saklar.
 9. **Biased ruler ile teacher affinity ayrılmalıdır.** Her kusurlu referans
-   performansı yanlış ölçebilir. Üreticiyle aynı model ailesinin ortak hata
-   biçimleri nedeniyle ayrıca avantaj kazanması daha dar bir hipotezdir ve
-   cross-teacher matris gerektirir.
+   performansı yanlış ölçebilir. Aynı dondurulmuş üretici checkpoint'in ortak
+   hata biçimleri nedeniyle ayrıca avantaj kazanması daha dar bir hipotezdir
+   ve cross-teacher matris gerektirir. Bu deney farklı checkpoint veya model
+   ailesi düzeyindeki aktarımı sınamaz.
+10. **Teacher affinity doğrudan kontrastla sınanmalıdır.** Bir modelin kendi
+    pseudo referansında human referansa göre yükselmesi tek başına yeterli
+    değildir. Aynı modelin kendi referansı ile diğer öğretmen referanslarındaki
+    skoru ve modelin rakiplerine göre göreli avantajındaki değişim birlikte
+    ölçülmelidir.
 
 ## 8. Bildirinin Güvenli Özgünlük İddiası
 
@@ -409,7 +432,9 @@ Parikh 2025 nedeniyle şu daha geniş iddialar kullanılmamalıdır:
 Kullanılabilir:
 
 - “Model-generated references inflated agreement with the generating model.”
-- “Reference choice changed model ranking relative to the human reference.”
+- “SAM1 and SAM2 pseudo references changed the iSAID YOLO-box model ranking;
+  SAM3 pseudo references preserved the human-reference top ordering in these
+  two experiments.”
 - “The effect persisted under YOLO-box prompting, where predictions were not identical to GT-box teacher masks.”
 - “Pseudo labels may remain useful for pretraining; our results concern their use as independent evaluation references.”
 
@@ -430,6 +455,8 @@ Kaçınılmalı:
 | SOPSeg | Remote sensing | ArXiv preprint | Dolaylı | Small-object/preprocess bağlamı |
 | SAMST | Remote sensing | IGARSS 2025 | Yakın eğitim kullanımı | Pseudo-label filtering/refinement |
 | ReSAM | Remote sensing | CVPR 2026 | Yakın eğitim kullanımı | Hata yayılımını azaltan self-prompting |
+| SAMIX | Genel/mix-supervised segmentation | CVPR 2026 | Yakın eğitim kullanımı | SAM2 pseudo-label seçimi ve semantic adaptation |
+| Boxes2Pixels | Endüstriyel segmentation | CVPRW 2026 | Yakın eğitim kullanımı | SAM'i gürültülü öğretmen sayma ve insan testinde değerlendirme |
 | Parikh et al. 2025 | Medical segmentation | ArXiv v1; ISBI 2026'ya gönderilmiş | En doğrudan önceki çalışma | Gold/silver paired biased-ruler deneyi |
 | Parikh et al. 2026 | General/medical segmentation | ArXiv preprint | Çok yakın ve güncel | Label bias audit, yönlü hata ve ters teşhis |
 | Nichyporuk et al. | Medical segmentation | MELBA 2022 | Çok yakın kavram | Annotation-style kaynaklı değerlendirme farkı |

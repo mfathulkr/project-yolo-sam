@@ -464,7 +464,8 @@ def write_split(
     coco = {
         "info": {
             "description": (
-                "Teacher-reference-bias 512-image matched small-vehicle split"
+                "Teacher-reference-bias matched split for "
+                f"target category {categories[0]['name']}"
             ),
             "reference_type": (
                 annotations[0].get("reference_type")

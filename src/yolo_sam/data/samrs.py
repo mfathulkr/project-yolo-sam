@@ -474,7 +474,7 @@ def convert_samrs_split(
         )
         next_image_id += 1
 
-    categories = [{"id": 1, "name": merged_category_name, "supercategory": "aircraft"}]
+    categories = [{"id": 1, "name": merged_category_name, "supercategory": "object"}]
     (output_split_root / "_annotations.coco.json").write_text(
         json.dumps(
             {

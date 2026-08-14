@@ -9,7 +9,7 @@
 \usepackage{eufrak,amscd,bezier,latexsym,mathrsfs,eurosym,enumerate}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{cleveref,multirow}
+\usepackage{cleveref,multirow,booktabs}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[pagewise]{lineno}
 \linenumbers
@@ -54,9 +54,12 @@ Manuscript template: Full title must be in sentence case \\
 		% YAZILACAK: 300 kelimeden kısa olacak. Problem, kontrollü tasarım,
 		% iki ana sayısal bulgu ve dengeli sonuç tek paragrafta verilecek.
 		% Ana kapsam: dört deney, her birinde 512 görüntü ve toplam 28,870
-		% instance. Ana bağımsız kanıt iSAID'dır: YOLO-bbox own-reference artışı
-		% Plane için +0.224--+0.279, Small Vehicle için +0.142--+0.176 IoU;
-		% tüm yüzde 95 CI'lar sıfırın üzerinde. Destekleyici SAMRS bulgusu:
+			% instance. Ana bağımsız kanıt iSAID'dır: modelin kendi ürettiği
+			% etikette kazandığı ek IoU Plane için +0.124--+0.141,
+			% Small Vehicle için +0.074--+0.098 IoU; tüm yüzde 95 CI'lar sıfırın
+			% üzerinde. Ek IoU, kendi etiketindeki IoU'dan diğer iki SAM
+			% etiketindeki ortalama IoU çıkarılarak hesaplanır.
+			% Destekleyici SAMRS bulgusu:
 		% published/reproduced SAM1 referans IoU 0.991 ve 0.998. Bunun insan
 		% doğruluğu olmadığı yazılacak. Abstract içinde citation kullanılmayacak.
 
@@ -72,7 +75,8 @@ Manuscript template: Full title must be in sentence case \\
 % çalışması genel öncül olarak açıkça verilecek; bizim yeniliğimiz yalnız
 % remote-sensing SAM cross-teacher/reference matrisi olarak dar kurulacak.
 % Son paragrafta üç katkı maddesi verilecek: iSAID insan kontrollü paired
-% matris, SAMRS published/reproduced provenance kontrolü ve tabakalı analiz.
+% model-reference matrisi ve doğrudan affinity kontrastları, SAMRS
+% published/reproduced provenance kontrolü ve tabakalı analiz.
 
 \section*{Literature Review} \label{sec:literature}
 
@@ -80,16 +84,20 @@ Manuscript template: Full title must be in sentence case \\
 % YAZILACAK: iSAID'ın bağımsız uzman maskeleri; SAMRS'nin detection kutularını
 % SAM1 H-box prompt ile maskeye dönüştürmesi ve esas olarak pretraining amacı.
 % Bizim SAMRS published/reproduced SAM1 yakınlığımızın insan GT olmadığını açıkla;
-% SOPSeg'in small-object magnification ve edge-aware refinement bulguları.
-% SAMST ve ReSAM'in ham pseudo maskeyi filtreleme/requery ile eğitimde
-% iyileştirmesi; evaluation reference ile training signal ayrımı.
-% Kaynaklar: \cite{zamir2019isaid,wang2023samrs,wang2025sopseg,
-% yin2025samst,subhani2026resam}.
+% SOPSeg'in small-object magnification ve edge-aware refinement bulguları;
+% Remote SAMsing'in model ağırlığını değiştirmeden tile ölçeği, multi-pass,
+% contextual padding ve tile merge ile büyük fark yaratması. Son ikisi
+% preprocessing bağlamıdır; teacher-reference bias kanıtı değildir.
+% SAMST, ReSAM, SAMIX ve Boxes2Pixels'in ham pseudo maskeyi
+% filtreleme/requery/selection/correction ile eğitimde iyileştirmesi;
+% evaluation reference ile training signal ayrımı.
+% Kaynaklar: \cite{zamir2019isaid,wang2023samrs,wang2025sopseg,decarvalho2026remotesamsing,
+% yin2025samst,subhani2026resam,hu2026samix,lendering2026boxes2pixels}.
 
 \subsection*{Imperfect and circular reference standards}
 % YAZILACAK: Parikh et al. 2025'in aynı nnU-Net tahminini otomatik silver ve
 % uzman-düzeltilmiş gold maskelerle ölçtüğü Biased Ruler deneyi en doğrudan
-% öncül olarak anlatılacak: fairness gap 0.0399'dan görünürde 0.0559'a çıktı.
+% öncül olarak anlatılacak: fairness gap 0.040'tan görünürde 0.056'ya çıktı.
 % Parikh et al. 2026'nın bozuk maskenin farkı büyütebildiği, küçültebildiği
 % veya tersine çevirebildiği sonucu ve omission/commission ayrımı verilecek.
 % Nichyporuk et al.'ın annotation-style kaynaklı label-space shift'i; tıpta
@@ -107,8 +115,9 @@ Manuscript template: Full title must be in sentence case \\
 % matematiksel IoU; yanlılık judge modelden değil referans maskeden geliyor.
 % Kaynaklar: \cite{yuan2025silencer,xu2025translationbias,xu2024pride}.
 % Ayrım açık olacak: Parikh'in biased ruler etkisi her sistematik bozuk
-% referansta oluşabilir; bizim teacher affinity hipotezimiz, referans
-% üreticisiyle aynı model ailesinin ortak hata stilinden ayrıca yararlanmasıdır.
+% referansta oluşabilir; bizim teacher affinity hipotezimiz, aynı dondurulmuş
+% üretici checkpoint'in ortak hata stilinden ayrıca yararlanmasıdır. Farklı
+% checkpoint/seed ve model ailesi genellemesi test edilmemiştir.
 
 \section*{Materials and Methods} \label{sec:methods}
 
@@ -121,6 +130,10 @@ Manuscript template: Full title must be in sentence case \\
 % YAZILACAK: iSAID Plane 512/44 sahne/5,447 instance; iSAID Small Vehicle
 % 512/31/12,051; SAMRS Plane 512/24/3,713; SAMRS Small Vehicle 512/17/7,659.
 % Her deneyde no-overlap/overlap x low/high mask area ve tabaka başına 128 görüntü.
+% Splitler kaynak-sahne güvenlidir ancak iSAID resmi leaderboard split'i değildir.
+% Dört test hedef-pozitiftir. iSAID ve SAMRS ayrı anotasyon ürünleri olsa da
+% DOTA kökenini ve bazı test görüntülerini paylaşır; bağımsız dört replikasyon
+% olarak sunulmayacak. Ortak görüntü sayıları deep scientific audit'ten verilecek.
 % Table 1: ../assets/tables/table_1_experimental_design.tex
 
 \subsection*{Models, detector, and prompts}
@@ -137,30 +150,55 @@ Manuscript template: Full title must be in sentence case \\
 % kuralında maksimum F1 ile dondurulur. Detection'lar confidence sıralı greedy,
 % bire bir ve bbox IoU>=0.50 ile GT instance'lara bağlanır; eşleşmeyen GT sıfır
 % maske alır. Detector bbox AP ile segmentation mask IoU ayrı raporlanır.
+% Test AP'sinin yalnız 512 hedef-pozitif görüntüde olduğu ve resmi benchmark
+% sonucu olmadığı açıkça yazılacak. Eşleşmeyen detector FP'leri mask ortalamasında
+% bulunmadığı için mask tablosu tam end-to-end COCO mask AP değildir.
 
 \subsection*{Human and model-generated references}
 % YAZILACAK: iSAID için Human/SAM1/SAM2/SAM3; SAMRS için published SAMRS,
 % reproduced SAM1, SAM2 ve SAM3 referansları. SAMRS published insan GT değildir.
-% Pseudo referanslar ilgili temel GT/detection bbox ile üretildi. Empty maskeler silinmedi. GT diagonal hücreler
+% Pseudo referanslar ilgili insan/yayımlanmış GT/detection bbox ile üretildi.
+% Bu nedenle tam otomatik pseudo-etiketleme veya yalnız boundary etkisini izole
+% eden deney değildir. Empty maskeler silinmedi. GT diagonal hücreler
 % coverage-aware identity control: dolu referans 1.0, bilinen nesnedeki boş
 % pseudo referans eksik etiket olarak 0.0. Ana non-identical kontrol YOLO bbox.
 
 \subsection*{Metrics and statistical analysis}
 % YAZILACAK: instance-macro IoU ana metrik. Dice, precision, recall ve threshold
-% success tamamlayıcı. Paired pseudo-minus-human delta; 10,000 tekrar
-% source-scene-clustered bootstrap 95% CI; ranking, teacher advantage,
-% reference-human agreement ve empty-mask rate.
+% success tamamlayıcı. Temel referanstan kendi etikete puan değişimi betimleyicidir.
+% Ana okunabilir metrik, aynı dondurulmuş modelin kendi etiketindeki IoU'sundan
+% diğer iki SAM etiketindeki ortalama IoU çıkarılarak hesaplanan ek IoU'dur.
+% Teknik analizde ayrıca modelin diğer modellere göre avantajının kendi etiketinde
+% temel etikete kıyasla değişimi kontrol edilir. Ana tabloda yalnız kendi etiketindeki
+% IoU, diğer SAM etiketlerindeki ortalama IoU ve ek IoU gösterilir. Instance eşleşmiş
+% ve 10,000 kaynak-sahne kümeli bootstrap güven aralıkları analiz CSV'sinde saklanır.
+% Karşılaştırmaların sonuçlar görüldükten sonra geliştirildiği,
+% preregistered/confirmatory olmadığı ve çoklu karşılaştırma düzeltmesi
+% uygulanmadığı açıkça yazılacak. Ranking, reference agreement ve empty-mask
+% rate ek sonuçlardır.
+% Figure 1 çalışma protokolünü özetler:
+% ../assets/figures/figure_1_study_design.pdf
+% CAPTION: Controlled cross-reference evaluation protocol. The image, target
+% instance, bounding-box prompt, and frozen model prediction remain fixed while
+% only the evaluation reference mask changes. Extra IoU is the model's IoU on
+% its own generated labels minus its mean IoU on labels generated by the other
+% two SAM models.
 
 \subsection*{Reproducibility and quality control}
 % YAZILACAK: Sabit seed 42'nin detector ve bootstrap için kullanıldığı, model
 % revision/checkpoint SHA-256 değerleri ve canonical environment sürümleri.
 % Source-scene-safe split; model sonucundan önce dondurulan area/overlap
-% tabakaları; her tabakada 128 görüntü. Pseudo referanslar yalnız human GT-bbox
-% frozen prediction RLE'sinden birebir üretilir ve boş maskeler filtrelenmez.
+% tabakaları; her tabakada 128 görüntü. Pseudo referanslar human/yayımlanmış
+% annotation bbox ile üretilen frozen prediction RLE'sinden birebir kopyalanır
+% ve boş maskeler filtrelenmez.
 % Bilinen pozitif (known-positive) nesnede boş pseudo referans, aday da boş
 % olsa bile 0 puanlanır.
-% Ana ortalama instance-macro'dur; image-union ikincildir. Güven aralığı
-% source-scene clustered 10,000 bootstrap'tır. Effective config, input/output
+% Nitel örnekler model/referans IoU'suna göre seçilmez: her tabakada hazırlama
+% metadata'sındaki mask-area oranının medyanına en yakın görüntü seçilir ve aynı
+% dört görüntü bütün referanslarda kullanılır. Her görüntüdeki bütün hedef
+% instance'lar ayrı bbox istemi alır.
+% Ana ve tek kanonik granularity instance-macro'dur; image-union hesaplanmamıştır.
+% Güven aralığı source-scene clustered 10,000 bootstrap'tır. Effective config, input/output
 % fingerprint, run lock ve report/paper manifestleri açıklanacak. Tam operasyonel
 % sözleşme supplementary docs/REPRODUCIBILITY.md dosyasına yönlendirilecek.
 
@@ -170,36 +208,58 @@ Manuscript template: Full title must be in sentence case \\
 % YAZILACAK: Dört detector bbox AP50: iSAID Plane 0.920, iSAID Small Vehicle
 % 0.609, SAMRS Plane 0.913, SAMRS Small Vehicle 0.819. Human-reference model
 % sıralamaları yalnız iSAID için bağımsız kalite olarak yorumlanacak. Detector
-% tablosu: ../assets/tables/table_5_detector_control.tex
+% tablosu: ../assets/tables/table_6_detector_control.tex
 
-\subsection*{Identity control and cross-reference model matrix}
+\subsection*{Identity control and reference-dependent model selection}
 % YAZILACAK: GT diagonal coverage-aware identity control olarak açıklanacak.
-% Dolu kendi-referansı 1.0, boş pseudo referans 0.0 alır. Figure 2 dört deneylik
-% YOLO-bbox model-reference matrix ana görsel olacak; diagonal başarı iddiası
-% kurulmayacak. ../assets/figures/figure_2_model_reference_iou_matrix.pdf
+% Dolu kendi-referansı 1.0, boş pseudo referans 0.0 alır; diagonal başarı
+% iddiası kurulmayacak. Figure 3, dört deneyde her değerlendirme referansı için
+% en yüksek skoru alan modeli gösterir. Tam 3 x 4 matris ana figüre basılmaz.
+% ../assets/figures/figure_3_reference_dependent_model_selection.pdf
+% CAPTION: Reference-dependent model selection. Each cell reports the frozen
+% model with the highest mean instance IoU for one evaluation reference. Human
+% iSAID references select SAM3, whereas each SAM-generated reference selects
+% its producer; the SAM-derived published SAMRS reference selects SAM1.
 
-\subsection*{Self-reference effect under YOLO-box prompting}
-% YAZILACAK: Ana insan kontrollü iSAID sonucu. YOLO paired delta Plane'de
-% SAM1/SAM2/SAM3 için +0.276/+0.279/+0.224; Small Vehicle'da
-% +0.176/+0.163/+0.142. Altı yüzde 95 CI sıfırın üzerinde. Figure 3/Table 3.
+\subsection*{Extra score on self-generated references under YOLO-box prompting}
+% YAZILACAK: Ana insan kontrollü iSAID sonucu. Kendi etiketi ile diğer iki SAM
+% etiketindeki ortalama arasındaki ek IoU Plane'de
+% SAM1/SAM2/SAM3 için +0.128/+0.124/+0.141; Small Vehicle'da
+% +0.098/+0.074/+0.075. Altı yüzde 95 CI sıfırın üzerinde. Figure 2, diğer iki
+% SAM etiketindeki ortalama IoU ile kendi etiketindeki IoU'yu bağlı noktalarla
+% gösterir; yanındaki sayı Ek IoU'dur.
+% ../assets/figures/figure_2_isaid_own_label_comparison.pdf
+% CAPTION: Own-label score increase on the human-controlled iSAID experiments.
+% Open markers show each frozen model's mean IoU on labels from the other two
+% SAM models; filled markers show IoU on labels generated by the evaluated
+% model itself. Numbers report the paired difference under YOLO-box prompting.
+% Aynı sayıları yineleyen Table 3 ana metinde Figure 2 ile birlikte
+% kullanılmayacak. Table 4 temel referanstan kendi etikete puan değişimini
+% gösterecek.
 
 \subsection*{Stratified robustness}
 % YAZILACAK: Etkinin overlap/no-overlap ve low/high mask-area tabakalarında
-% sürüp sürmediği. Figure 5 veya supplement Table S1 kullanılacak.
+% sürüp sürmediği. Figure 4 ana metinde; kesin sayılar supplement Table S1'de.
+% ../assets/figures/figure_4_stratified_own_label_extra_iou.pdf
+% CAPTION: Own-label score increase across iSAID scene strata. Markers report
+% extra IoU under YOLO-box prompting and horizontal bars report 95\% confidence
+% intervals from source-scene clustered bootstrap resampling. The effect
+% remains positive across overlap and mask-area groups.
 
 \subsection*{Reference integrity and failure modes}
 % YAZILACAK: Human/pseudo agreement, RLE empty-mask sayısı ve status/alan
 % tutarlılığı. SAMRS published/reproduced SAM1 IoU 0.991/0.998; bu insan
-% doğruluğu değil SAM1-benzeri provenance kanıtıdır. Figure 4/Table 4.
+% doğruluğu değil SAM1-benzeri provenance kanıtıdır. Yalnız iki değer olduğu
+% için ayrı grafik yerine Table 5 kullanılacak.
 
 \section*{Discussion} \label{sec:discussion}
 
 \subsection*{Interpretation of reference-dependent performance}
 % YAZILACAK: Pseudo referansla yüksek agreement, insan doğruluğu değildir.
 % Ortak boundary, empty-mask, over/under-segmentation hata biçimleri aynı
-% model ailesine avantaj sağlayabilir. Sonuç, Parikh et al.'ın Biased Ruler
+% dondurulmuş üretici checkpoint'e avantaj sağlayabilir. Sonuç, Parikh et al.'ın Biased Ruler
 % bulgusunun remote-sensing/model-ranking karşılığı olarak konumlandırılacak;
-% genel biased-ruler etkisi ile daha dar teacher-affinity mekanizması
+% genel biased-ruler etkisi ile aynı modelin kendi etiketinde kazandığı ek puan
 % birbirine eşitlenmeyecek.
 
 \subsection*{Training utility versus evaluation validity}
@@ -213,9 +273,12 @@ Manuscript template: Full title must be in sentence case \\
 % leave-one-model-out.
 
 \subsection*{Limitations}
-% YAZILACAK: iki sınıf, tek remote-sensing veri ailesi, tek detector seed,
-% GT-box ile pseudo üretim, human inter-rater maskelerinin bulunmaması ve
-% yeni dört-referans küpünde boundary IoU hesaplanmaması. Ayrıca çalışma
+% YAZILACAK: iki sınıf; ortak DOTA kökenli iki anotasyon ürünü ve deneyler arası
+% görüntü bağımlılığı; hedef-pozitif detector test seçimi; tek detector seed;
+% GT-box ile pseudo üretim; SAMRS için insan maskesi bulunmaması; eşleşmeyen
+% detector FP'lerinin mask ortalamasına girmemesi; iki Small Vehicle detectorünün
+% resume başlangıç byte'larının korunmamış olması ve boundary IoU'nun kanonik
+% küpte hesaplanmaması. Ayrıca çalışma
 % teacher affinity'yi gözlemsel olarak gösterir; ortak hata stilinin nedensel
 % bileşenlerini erosion/dilation gibi kontrollü müdahalelerle ayırmaz.
 

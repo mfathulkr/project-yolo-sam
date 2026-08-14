@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "status": "completed_with_declared_limitations",
+  "created_at_utc": "2026-08-13T21:21:45.852468+00:00",
+  "split_audits": [
+    {
+      "experiment_id": "isaid_plane",
+      "image_counts": {
+        "train": 1571,
+        "validation": 321,
+        "test": 512
+      },
+      "source_scene_counts": {
+        "train": 377,
+        "validation": 82,
+        "test": 44
+      },
+      "source_scene_overlap_counts": {
+        "train__validation": 0,
+        "train__test": 0,
+        "validation__test": 0
+      },
+      "test_stratum_counts": {
+        "no_overlap__high_mask_area": 128,
+        "no_overlap__low_mask_area": 128,
+        "overlap__high_mask_area": 128,
+        "overlap__low_mask_area": 128
+      },
+      "test_is_target_positive_only": true,
+      "area_threshold": 0.0167140960693359
+    },
+    {
+      "experiment_id": "isaid_small_vehicle",
+      "image_counts": {
+        "train": 5930,
+        "validation": 1353,
+        "test": 512
+      },
+      "source_scene_counts": {
+        "train": 964,
+        "validation": 206,
+        "test": 31
+      },
+      "source_scene_overlap_counts": {
+        "train__validation": 0,
+        "train__test": 0,
+        "validation__test": 0
+      },
+      "test_stratum_counts": {
+        "no_overlap__high_mask_area": 128,
+        "no_overlap__low_mask_area": 128,
+        "overlap__high_mask_area": 128,
+        "overlap__low_mask_area": 128
+      },
+      "test_is_target_positive_only": true,
+      "area_threshold": 0.0018463134765625
+    },
+    {
+      "experiment_id": "samrs_plane",
+      "image_counts": {
+        "train": 2191,
+        "validation": 481,
+        "test": 512
+      },
+      "source_scene_counts": {
+        "train": 527,
+        "validation": 113,
+        "test": 24
+      },
+      "source_scene_overlap_counts": {
+        "train__validation": 0,
+        "train__test": 0,
+        "validation__test": 0
+      },
+      "test_stratum_counts": {
+        "no_overlap__high_mask_area": 128,
+        "no_overlap__low_mask_area": 128,
+        "overlap__high_mask_area": 128,
+        "overlap__low_mask_area": 128
+      },
+      "test_is_target_positive_only": true,
+      "area_threshold": 0.011932373046875
+    },
+    {
+      "experiment_id": "samrs_small_vehicle",
+      "image_counts": {
+        "train": 7824,
+        "validation": 1567,
+        "test": 512
+      },
+      "source_scene_counts": {
+        "train": 1444,
+        "validation": 308,
+        "test": 17
+      },
+      "source_scene_overlap_counts": {
+        "train__validation": 0,
+        "train__test": 0,
+        "validation__test": 0
+      },
+      "test_stratum_counts": {
+        "no_overlap__high_mask_area": 128,
+        "no_overlap__low_mask_area": 128,
+        "overlap__high_mask_area": 128,
+        "overlap__low_mask_area": 128
+      },
+      "test_is_target_positive_only": true,
+      "area_threshold": 0.0065670013427734
+    }
+  ],
+  "cross_experiment_overlap": [
+    {
+      "experiment_a": "isaid_plane",
+      "experiment_b": "isaid_small_vehicle",
+      "exact_rgb_test_image_overlap": 109,
+      "source_scene_id_overlap": 6
+    },
+    {
+      "experiment_a": "isaid_plane",
+      "experiment_b": "samrs_plane",
+      "exact_rgb_test_image_overlap": 19,
+      "source_scene_id_overlap": 15
+    },
+    {
+      "experiment_a": "isaid_plane",
+      "experiment_b": "samrs_small_vehicle",
+      "exact_rgb_test_image_overlap": 2,
+      "source_scene_id_overlap": 2
+    },
+    {
+      "experiment_a": "isaid_small_vehicle",
+      "experiment_b": "samrs_plane",
+      "exact_rgb_test_image_overlap": 10,
+      "source_scene_id_overlap": 6
+    },
+    {
+      "experiment_a": "isaid_small_vehicle",
+      "experiment_b": "samrs_small_vehicle",
+      "exact_rgb_test_image_overlap": 6,
+      "source_scene_id_overlap": 5
+    },
+    {
+      "experiment_a": "samrs_plane",
+      "experiment_b": "samrs_small_vehicle",
+      "exact_rgb_test_image_overlap": 71,
+      "source_scene_id_overlap": 3
+    }
+  ],
+  "exploratory_cross_source_mask_agreement": [
+    {
+      "target": "plane",
+      "exact_rgb_image_count": 19,
+      "human_instance_count": 118,
+      "samrs_instance_count": 88,
+      "bbox_matched_instance_count_at_iou_50": 48,
+      "human_unmatched_instance_count": 70,
+      "samrs_unmatched_instance_count": 40,
+      "matched_mask_mean_iou": 0.6290709516325088,
+      "matched_mask_success_at_iou_50": 0.8125,
+      "matched_mask_success_at_iou_75": 0.16666666666666666,
+      "matched_mask_success_at_iou_90": 0.0,
+      "interpretation": "Exploratory exact-image subset only; post-hoc and not a representative cross-dataset benchmark. Unmatched instances expose annotation coverage differences that matched-mask IoU alone omits."
+    },
+    {
+      "target": "small_vehicle",
+      "exact_rgb_image_count": 6,
+      "human_instance_count": 108,
+      "samrs_instance_count": 101,
+      "bbox_matched_instance_count_at_iou_50": 91,
+      "human_unmatched_instance_count": 17,
+      "samrs_unmatched_instance_count": 10,
+      "matched_mask_mean_iou": 0.7080033828910839,
+      "matched_mask_success_at_iou_50": 0.9120879120879121,
+      "matched_mask_success_at_iou_75": 0.46153846153846156,
+      "matched_mask_success_at_iou_90": 0.02197802197802198,
+      "interpretation": "Exploratory exact-image subset only; post-hoc and not a representative cross-dataset benchmark. Unmatched instances expose annotation coverage differences that matched-mask IoU alone omits."
+    }
+  ],
+  "detector_recomputation_audit": [
+    {
+      "experiment_id": "isaid_plane",
+      "images": 512,
+      "ground_truth_instances": 5447,
+      "detections_for_ap": 12840,
+      "maximum_absolute_metric_difference": 0.0,
+      "status": "exact_match"
+    },
+    {
+      "experiment_id": "isaid_small_vehicle",
+      "images": 512,
+      "ground_truth_instances": 12051,
+      "detections_for_ap": 92270,
+      "maximum_absolute_metric_difference": 0.0,
+      "status": "exact_match"
+    },
+    {
+      "experiment_id": "samrs_plane",
+      "images": 512,
+      "ground_truth_instances": 3713,
+      "detections_for_ap": 12790,
+      "maximum_absolute_metric_difference": 0.0,
+      "status": "exact_match"
+    },
+    {
+      "experiment_id": "samrs_small_vehicle",
+      "images": 512,
+      "ground_truth_instances": 7659,
+      "detections_for_ap": 34599,
+      "maximum_absolute_metric_difference": 0.0,
+      "status": "exact_match"
+    }
+  ],
+  "historical_metadata_errata": [
+    {
+      "experiment_id": "samrs_small_vehicle",
+      "split": "train",
+      "field": "info.description",
+      "historical_value": "Teacher-reference-bias v2 512-image matched plane split",
+      "impact": "nonfunctional_metadata_only"
+    },
+    {
+      "experiment_id": "samrs_small_vehicle",
+      "split": "train",
+      "field": "categories[0].supercategory",
+      "historical_value": "aircraft",
+      "impact": "nonfunctional_metadata_only"
+    },
+    {
+      "experiment_id": "samrs_small_vehicle",
+      "split": "validation",
+      "field": "info.description",
+      "historical_value": "Teacher-reference-bias v2 512-image matched plane split",
+      "impact": "nonfunctional_metadata_only"
+    },
+    {
+      "experiment_id": "samrs_small_vehicle",
+      "split": "validation",
+      "field": "categories[0].supercategory",
+      "historical_value": "aircraft",
+      "impact": "nonfunctional_metadata_only"
+    },
+    {
+      "experiment_id": "samrs_small_vehicle",
+      "split": "test",
+      "field": "info.description",
+      "historical_value": "Teacher-reference-bias v2 512-image matched plane split",
+      "impact": "nonfunctional_metadata_only"
+    },
+    {
+      "experiment_id": "samrs_small_vehicle",
+      "split": "test",
+      "field": "categories[0].supercategory",
+      "historical_value": "aircraft",
+      "impact": "nonfunctional_metadata_only"
+    }
+  ],
+  "scientific_conclusions": [
+    "No source-scene leakage exists among train/validation/test within an experiment.",
+    "Every 512-image test set is target-positive by design; detector AP is not an official full-distribution benchmark.",
+    "The four experiments are not independent replications because DOTA-derived source scenes and exact test images partially overlap.",
+    "The historical COCO description/supercategory issues do not affect image pixels, category ids, boxes, masks, model inputs, or metrics; immutable run inputs are retained for hash-valid provenance.",
+    "Frozen detector COCO AP and fixed-threshold precision/recall values were independently recomputed and exactly matched the recorded metrics."
+  ]
+}

@@ -1,0 +1,13 @@
+Experiment,Model,Baseline reference,Baseline-reference IoU,Own-label IoU,Score change
+iSAID Plane,SAM1,Human,0.597,0.873,0.276
+iSAID Plane,SAM2,Human,0.574,0.853,0.279
+iSAID Plane,SAM3,Human,0.638,0.863,0.224
+iSAID Small Vehicle,SAM1,Human,0.478,0.654,0.176
+iSAID Small Vehicle,SAM2,Human,0.461,0.624,0.163
+iSAID Small Vehicle,SAM3,Human,0.491,0.633,0.142
+SAMRS Plane,SAM1,Published SAMRS,0.813,0.818,0.005
+SAMRS Plane,SAM2,Published SAMRS,0.679,0.785,0.106
+SAMRS Plane,SAM3,Published SAMRS,0.691,0.799,0.108
+SAMRS Small Vehicle,SAM1,Published SAMRS,0.782,0.782,0.000
+SAMRS Small Vehicle,SAM2,Published SAMRS,0.707,0.749,0.042
+SAMRS Small Vehicle,SAM3,Published SAMRS,0.707,0.760,0.054

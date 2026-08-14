@@ -20,6 +20,8 @@ def test_protocol_is_single_seed_and_pinned_sam3_pvs() -> None:
     assert protocol.detector_seeds == (42,)
     assert protocol.image_size == 1024
     assert protocol.evaluation["max_per_stratum"] == 128
+    assert protocol.evaluation["primary_granularity"] == "instance"
+    assert protocol.evaluation["secondary_granularity"] == "not_computed"
     assert protocol.segmenter_configs["sam3"]["inference_interface"] == "sam3_tracker_pvs"
     assert protocol.segmenter_configs["sam3"]["mask_threshold"] == 0.0
 

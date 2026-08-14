@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "completed",
-  "created_at_utc": "2026-08-12T11:56:48.809856+00:00",
+  "created_at_utc": "2026-08-12T18:24:21.394075+00:00",
   "experiment_id": "samrs_small_vehicle",
   "dataset_id": "samrs_sota_small_vehicle",
   "baseline_reference": "published_samrs_reference",
@@ -21,6 +21,7 @@
   "outputs": {
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/aggregate_metrics.csv": "2945ba429e06152677f1a5157ef7fdd27c87017db2bc897e8418303b1f38c304",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/paired_reference_effects.csv": "cd45bd69073a56327143e17894dde981c506c60307c1d3ab300cfb1507d4b079",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/paired_teacher_affinity_contrasts.csv": "fbb5406f0f2bd5eedc0a67242aa86f5c1f6fc76a12a60a78f7a55bf7f1581f65",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/ranking_by_reference.csv": "a2d6d97e22f77b47a96230c23613072948e10a692d34b69422ad399d5ce2c162",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/teacher_advantage.csv": "dc23ae8e982168e6e586b7379edc279fc5efd606fa3b4b51acb933748c0e9c1e",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/reference_agreement.csv": "bcddc48cc560e57826223389e3df43aa9172709f136167ffa3a6dce8940b5a0c",

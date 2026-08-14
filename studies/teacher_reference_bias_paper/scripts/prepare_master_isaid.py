@@ -79,7 +79,7 @@ def load_train_scene_rows(raw_root: Path, target_category: str) -> list[dict[str
             "image_id": int(image["id"]),
             "file_name": str(image["file_name"]),
             "source_scene_id": Path(str(image["file_name"])).stem,
-            "plane_instances": counts.get(int(image["id"]), 0),
+            "target_instances": counts.get(int(image["id"]), 0),
         }
         for image in payload["images"]
     ]
@@ -92,8 +92,8 @@ def split_train_validation_scenes(
 ) -> tuple[set[str], set[str], list[dict[str, object]]]:
     if not 0 < validation_fraction < 1:
         raise ValueError("validation_fraction must be in (0, 1)")
-    positives = [row for row in rows if int(row["plane_instances"]) > 0]
-    negatives = [row for row in rows if int(row["plane_instances"]) == 0]
+    positives = [row for row in rows if int(row["target_instances"]) > 0]
+    negatives = [row for row in rows if int(row["target_instances"]) == 0]
     rng = random.Random(seed)
     rng.shuffle(positives)
     rng.shuffle(negatives)
@@ -239,7 +239,7 @@ def main() -> None:
             "image_id": "",
             "file_name": name,
             "source_scene_id": Path(name).stem,
-            "plane_instances": "",
+            "target_instances": "",
             "split": "test",
         }
         for name in sorted(test_source_names)

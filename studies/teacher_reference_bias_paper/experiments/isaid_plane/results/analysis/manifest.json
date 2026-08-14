@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "completed",
-  "created_at_utc": "2026-08-12T11:56:39.513012+00:00",
+  "created_at_utc": "2026-08-12T18:24:08.505074+00:00",
   "experiment_id": "isaid_plane",
   "dataset_id": "isaid_plane",
   "baseline_reference": "human",
@@ -21,6 +21,7 @@
   "outputs": {
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/aggregate_metrics.csv": "20c3393688464645bfee087d93df8b29d6b4f7f902c333519a55d79e2cd28c7c",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/paired_reference_effects.csv": "16de40c1c5914cb3ae6b0c28239169cecbb87c9828010876a5eb75d580d88d6a",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/paired_teacher_affinity_contrasts.csv": "8d668318b00f8c95df9c35eaa9c954d7c152d242f2e6f5dc89492947d9a56144",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/ranking_by_reference.csv": "8334ae7cd1c64210d2afc191b341d0bfffe0650a8ac27e6742eb941e71939844",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/teacher_advantage.csv": "f75d3004551bf96913682d96988f54caca98451553494ecc54e30dbed37827de",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/reference_agreement.csv": "5cf9ef37aada56e1602a17140ed26c2dc1e5692d0e1c168f096bee9622bddcd6",

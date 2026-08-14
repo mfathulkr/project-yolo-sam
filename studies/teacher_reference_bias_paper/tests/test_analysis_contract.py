@@ -3,7 +3,10 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from teacher_reference_bias_multiteacher.analysis import validate_metric_cube
+from teacher_reference_bias_multiteacher.analysis import (
+    paired_teacher_affinity_contrasts,
+    validate_metric_cube,
+)
 from teacher_reference_bias_multiteacher.paths import DATASETS, MODELS
 
 
@@ -41,3 +44,25 @@ def test_isaid_yolo_own_reference_effect_is_positive() -> None:
             ].iloc[0]
             assert float(row["delta_iou"]) > 0
             assert float(row["delta_ci_lower"]) > 0
+
+
+def test_direct_teacher_affinity_contrasts_are_paired_and_positive_on_isaid() -> None:
+    for experiment_id in ("isaid_plane", "isaid_small_vehicle"):
+        source = DATASETS[experiment_id]
+        metrics = pd.read_csv(source.analysis_root / "canonical_instance_metrics.csv")
+        metrics["detector_seed"] = metrics["detector_seed"].astype("Int64")
+        contrasts = paired_teacher_affinity_contrasts(
+            metrics,
+            baseline_reference="human",
+            bootstrap_samples=250,
+        )
+        selected = contrasts[
+            (contrasts["bbox_source"] == "yolo_bbox")
+            & (contrasts["stratum"] == "overall")
+        ]
+        assert set(selected["model"]) == set(MODELS)
+        assert set(selected["instance_count"].astype(int)) == {
+            source.instance_count
+        }
+        assert (selected["self_vs_cross_ci_lower"] > 0).all()
+        assert (selected["relative_advantage_did_ci_lower"] > 0).all()

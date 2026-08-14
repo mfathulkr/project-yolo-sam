@@ -1,8 +1,234 @@
 {
-  "schema_version": 3,
+  "schema_version": 5,
   "status": "completed",
   "experiment_id": "samrs_plane",
   "qualitative_scope": "all_target_instances_in_selected_images",
+  "qualitative_selection": [
+    {
+      "reference_type": "published_samrs_reference",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "samrs_sota_plane:15",
+      "coco_image_id": 15,
+      "file_name": "P0113_0019.png",
+      "source_scene_id": "P0113",
+      "mask_area_ratio": 0.0029211044311523,
+      "stratum_mask_area_ratio_median": 0.00290012359619135,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 1,
+      "prompt_count_per_model": 1,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "published_samrs_reference",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "samrs_sota_plane:320",
+      "coco_image_id": 320,
+      "file_name": "P1871_0011.png",
+      "source_scene_id": "P1871",
+      "mask_area_ratio": 0.0249509811401367,
+      "stratum_mask_area_ratio_median": 0.02489852905273435,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 2,
+      "prompt_count_per_model": 2,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "published_samrs_reference",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "samrs_sota_plane:394",
+      "coco_image_id": 394,
+      "file_name": "P2211_0017.png",
+      "source_scene_id": "P2211",
+      "mask_area_ratio": 0.0055856704711914,
+      "stratum_mask_area_ratio_median": 0.005561351776123,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 2,
+      "prompt_count_per_model": 2,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "published_samrs_reference",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "samrs_sota_plane:135",
+      "coco_image_id": 135,
+      "file_name": "P1397_0013.png",
+      "source_scene_id": "P1397",
+      "mask_area_ratio": 0.0350532531738281,
+      "stratum_mask_area_ratio_median": 0.03533363342285155,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 12,
+      "prompt_count_per_model": 12,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "reproduced_pseudo_sam1",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "samrs_sota_plane:15",
+      "coco_image_id": 15,
+      "file_name": "P0113_0019.png",
+      "source_scene_id": "P0113",
+      "mask_area_ratio": 0.0029211044311523,
+      "stratum_mask_area_ratio_median": 0.00290012359619135,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 1,
+      "prompt_count_per_model": 1,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "reproduced_pseudo_sam1",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "samrs_sota_plane:320",
+      "coco_image_id": 320,
+      "file_name": "P1871_0011.png",
+      "source_scene_id": "P1871",
+      "mask_area_ratio": 0.0249509811401367,
+      "stratum_mask_area_ratio_median": 0.02489852905273435,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 2,
+      "prompt_count_per_model": 2,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "reproduced_pseudo_sam1",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "samrs_sota_plane:394",
+      "coco_image_id": 394,
+      "file_name": "P2211_0017.png",
+      "source_scene_id": "P2211",
+      "mask_area_ratio": 0.0055856704711914,
+      "stratum_mask_area_ratio_median": 0.005561351776123,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 2,
+      "prompt_count_per_model": 2,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "reproduced_pseudo_sam1",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "samrs_sota_plane:135",
+      "coco_image_id": 135,
+      "file_name": "P1397_0013.png",
+      "source_scene_id": "P1397",
+      "mask_area_ratio": 0.0350532531738281,
+      "stratum_mask_area_ratio_median": 0.03533363342285155,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 12,
+      "prompt_count_per_model": 12,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "samrs_sota_plane:15",
+      "coco_image_id": 15,
+      "file_name": "P0113_0019.png",
+      "source_scene_id": "P0113",
+      "mask_area_ratio": 0.0029211044311523,
+      "stratum_mask_area_ratio_median": 0.00290012359619135,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 1,
+      "prompt_count_per_model": 1,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "samrs_sota_plane:320",
+      "coco_image_id": 320,
+      "file_name": "P1871_0011.png",
+      "source_scene_id": "P1871",
+      "mask_area_ratio": 0.0249509811401367,
+      "stratum_mask_area_ratio_median": 0.02489852905273435,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 2,
+      "prompt_count_per_model": 2,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "samrs_sota_plane:394",
+      "coco_image_id": 394,
+      "file_name": "P2211_0017.png",
+      "source_scene_id": "P2211",
+      "mask_area_ratio": 0.0055856704711914,
+      "stratum_mask_area_ratio_median": 0.005561351776123,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 2,
+      "prompt_count_per_model": 2,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "samrs_sota_plane:135",
+      "coco_image_id": 135,
+      "file_name": "P1397_0013.png",
+      "source_scene_id": "P1397",
+      "mask_area_ratio": 0.0350532531738281,
+      "stratum_mask_area_ratio_median": 0.03533363342285155,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 12,
+      "prompt_count_per_model": 12,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "samrs_sota_plane:15",
+      "coco_image_id": 15,
+      "file_name": "P0113_0019.png",
+      "source_scene_id": "P0113",
+      "mask_area_ratio": 0.0029211044311523,
+      "stratum_mask_area_ratio_median": 0.00290012359619135,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 1,
+      "prompt_count_per_model": 1,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "samrs_sota_plane:320",
+      "coco_image_id": 320,
+      "file_name": "P1871_0011.png",
+      "source_scene_id": "P1871",
+      "mask_area_ratio": 0.0249509811401367,
+      "stratum_mask_area_ratio_median": 0.02489852905273435,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 2,
+      "prompt_count_per_model": 2,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "samrs_sota_plane:394",
+      "coco_image_id": 394,
+      "file_name": "P2211_0017.png",
+      "source_scene_id": "P2211",
+      "mask_area_ratio": 0.0055856704711914,
+      "stratum_mask_area_ratio_median": 0.005561351776123,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 2,
+      "prompt_count_per_model": 2,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "samrs_sota_plane:135",
+      "coco_image_id": 135,
+      "file_name": "P1397_0013.png",
+      "source_scene_id": "P1397",
+      "mask_area_ratio": 0.0350532531738281,
+      "stratum_mask_area_ratio_median": 0.03533363342285155,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 12,
+      "prompt_count_per_model": 12,
+      "display_scope": "all_target_instances"
+    }
+  ],
   "inputs": [
     {
       "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/data/prepared/test/_annotations.coco.json",
@@ -63,18 +289,18 @@
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/pseudo_sam2_gt_bbox_qualitative.png",
-      "bytes": 1633887,
-      "sha256": "bbd3d62fc95af8347ae53e9c759144775331f92570f1fbeab6dbf67d73b14d16"
+      "bytes": 1882030,
+      "sha256": "025317fc3dac0ecace4702a09a745521e1918b75755f0c6ad65ba4019bc3a034"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/pseudo_sam3_gt_bbox_qualitative.png",
-      "bytes": 2120362,
-      "sha256": "a3b69be65ef3d48651babb9255269245d09fc776893d4a4b9b39ac0d5115187d"
+      "bytes": 1875789,
+      "sha256": "c198431b4bd03166de0d8c6089a0c7a5c46b1463194c9dd777ba34a08a7befb8"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/published_samrs_reference_gt_bbox_qualitative.png",
-      "bytes": 1763841,
-      "sha256": "90e8d0124e909356fd9c9ec714dddb1aa20823dab471bc931b33f85ade02cadc"
+      "bytes": 1875690,
+      "sha256": "0dfc6c524062d168a88a4d35ed44342ea922a8c5b9ca2faa1dbb4436d38d33b2"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/reference_effect_with_ci.png",
@@ -83,8 +309,8 @@
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/figures/reproduced_pseudo_sam1_gt_bbox_qualitative.png",
-      "bytes": 1631296,
-      "sha256": "950efa4b577cdf039a4099966c5f4fc45cde6fe2ff5c916ecd81be31b9c100ab"
+      "bytes": 1877054,
+      "sha256": "7f4a25bc57ccdc69b005645599f224128d7a684e6913d97a056604734e281060"
     }
   ]
 }

@@ -1,0 +1,7 @@
+experiment_a,experiment_b,exact_rgb_test_image_overlap,source_scene_id_overlap
+isaid_plane,isaid_small_vehicle,109,6
+isaid_plane,samrs_plane,19,15
+isaid_plane,samrs_small_vehicle,2,2
+isaid_small_vehicle,samrs_plane,10,6
+isaid_small_vehicle,samrs_small_vehicle,6,5
+samrs_plane,samrs_small_vehicle,71,3

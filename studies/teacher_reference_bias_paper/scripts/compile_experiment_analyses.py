@@ -17,6 +17,7 @@ for source_root in (REPO_ROOT / "src", STUDY_ROOT / "src"):
 
 from teacher_reference_bias_multiteacher.analysis import (  # noqa: E402
     aggregate_metrics,
+    paired_teacher_affinity_contrasts,
     paired_reference_effects,
     ranking_table,
     reference_agreement_table,
@@ -52,6 +53,10 @@ def compile_one(experiment_id: str) -> Path:
     baseline = source.reference_types[0]
     aggregates = aggregate_metrics(metrics)
     effects = paired_reference_effects(metrics, baseline_reference=baseline)
+    affinity = paired_teacher_affinity_contrasts(
+        metrics,
+        baseline_reference=baseline,
+    )
     rankings = ranking_table(
         aggregates,
         reference_order=source.reference_types,
@@ -106,6 +111,10 @@ def compile_one(experiment_id: str) -> Path:
     outputs = [
         write_csv(aggregates, source.analysis_root / "aggregate_metrics.csv"),
         write_csv(effects, source.analysis_root / "paired_reference_effects.csv"),
+        write_csv(
+            affinity,
+            source.analysis_root / "paired_teacher_affinity_contrasts.csv",
+        ),
         write_csv(rankings, source.analysis_root / "ranking_by_reference.csv"),
         write_csv(advantages, source.analysis_root / "teacher_advantage.csv"),
         write_csv(agreements, source.analysis_root / "reference_agreement.csv"),

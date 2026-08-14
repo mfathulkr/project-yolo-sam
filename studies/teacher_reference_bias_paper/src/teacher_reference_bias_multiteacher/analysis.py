@@ -134,6 +134,143 @@ def paired_reference_effects(
     return pd.DataFrame(rows)
 
 
+def paired_teacher_affinity_contrasts(
+    metrics: pd.DataFrame,
+    *,
+    baseline_reference: str,
+    bootstrap_samples: int = 10_000,
+    confidence_level: float = 0.95,
+    bootstrap_seed: int = 42,
+) -> pd.DataFrame:
+    """Measure producer-specific affinity, beyond generic pseudo-label easiness.
+
+    ``self_vs_cross`` compares one model against its own pseudo reference with the
+    same model against the other two teachers' pseudo references. ``relative_did``
+    is a paired difference-in-differences: the producer model's advantage over the
+    other models on its own reference minus that advantage on the baseline
+    reference. Both contrasts are computed per instance and bootstrapped by source
+    scene, so a generic improvement shared by every pseudo reference does not by
+    itself count as teacher affinity.
+    """
+
+    keys = ["dataset_id", "bbox_source", "detector_seed"]
+    rows: list[dict[str, object]] = []
+    for key, frame in metrics.groupby(keys, dropna=False, sort=True):
+        available_references = set(frame["reference_type"].astype(str))
+        pseudo_references = tuple(
+            reference_type
+            for reference_type in sorted(available_references)
+            if REFERENCES[reference_type].teacher is not None
+            and reference_type != "published_samrs_reference"
+        )
+        if len(pseudo_references) != len(MODELS):
+            raise ValueError(
+                f"Üç üretici pseudo referansı bekleniyordu: {key}/{pseudo_references}"
+            )
+        own_reference = {
+            model: next(
+                reference_type
+                for reference_type in pseudo_references
+                if REFERENCES[reference_type].teacher == model
+            )
+            for model in MODELS
+        }
+
+        for stratum, selected in stratum_groups(frame):
+            pivot = selected.pivot(
+                index=["instance_id", "source_scene_id"],
+                columns=["model", "reference_type"],
+                values="iou",
+            )
+            required_columns = {
+                (model, reference_type)
+                for model in MODELS
+                for reference_type in (baseline_reference, *pseudo_references)
+            }
+            missing = required_columns - set(pivot.columns)
+            if missing or pivot[list(required_columns)].isna().any().any():
+                raise ValueError(
+                    f"Teacher-affinity eşleşmesi eksik: {key}/{stratum}/{missing}"
+                )
+
+            for model in MODELS:
+                own = own_reference[model]
+                cross = tuple(
+                    reference_type
+                    for reference_type in pseudo_references
+                    if REFERENCES[reference_type].teacher != model
+                )
+                other_models = tuple(candidate for candidate in MODELS if candidate != model)
+                self_vs_cross = (
+                    pivot[(model, own)]
+                    - pivot[[(model, reference_type) for reference_type in cross]].mean(
+                        axis=1
+                    )
+                )
+                own_relative_advantage = (
+                    pivot[(model, own)]
+                    - pivot[[(candidate, own) for candidate in other_models]].mean(axis=1)
+                )
+                baseline_relative_advantage = (
+                    pivot[(model, baseline_reference)]
+                    - pivot[
+                        [
+                            (candidate, baseline_reference)
+                            for candidate in other_models
+                        ]
+                    ].mean(axis=1)
+                )
+                relative_did = own_relative_advantage - baseline_relative_advantage
+
+                def interval(values: pd.Series):
+                    values_frame = values.rename("contrast").reset_index()
+                    return clustered_bootstrap_mean(
+                        {
+                            str(scene): group["contrast"].astype(float).tolist()
+                            for scene, group in values_frame.groupby(
+                                "source_scene_id", sort=True
+                            )
+                        },
+                        bootstrap_samples=bootstrap_samples,
+                        confidence_level=confidence_level,
+                        seed=bootstrap_seed,
+                    )
+
+                self_interval = interval(self_vs_cross)
+                did_interval = interval(relative_did)
+                row = dict(zip(keys, key, strict=True))
+                row.update(
+                    {
+                        "stratum": stratum,
+                        "model": model,
+                        "baseline_reference": baseline_reference,
+                        "own_reference": own,
+                        "cross_references": "+".join(cross),
+                        "instance_count": int(len(pivot)),
+                        "source_scene_count": int(
+                            pivot.index.get_level_values("source_scene_id").nunique()
+                        ),
+                        "self_vs_cross_iou": self_interval.estimate,
+                        "self_vs_cross_ci_lower": self_interval.lower,
+                        "self_vs_cross_ci_upper": self_interval.upper,
+                        "relative_advantage_did": did_interval.estimate,
+                        "relative_advantage_did_ci_lower": did_interval.lower,
+                        "relative_advantage_did_ci_upper": did_interval.upper,
+                        "confidence_level": confidence_level,
+                        "bootstrap_samples": bootstrap_samples,
+                        "identity_control": bbox_source_is_identity_control(
+                            str(key[1])
+                        ),
+                    }
+                )
+                rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def bbox_source_is_identity_control(bbox_source: str) -> bool:
+    return bbox_source == "gt_bbox"
+
+
 def ranking_table(
     aggregates: pd.DataFrame,
     *,

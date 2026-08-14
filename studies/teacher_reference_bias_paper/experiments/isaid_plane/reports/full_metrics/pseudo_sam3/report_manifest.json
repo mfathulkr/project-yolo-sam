@@ -7,15 +7,15 @@
   "inputs": {
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/aggregate_metrics.csv": "20c3393688464645bfee087d93df8b29d6b4f7f902c333519a55d79e2cd28c7c",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/detector_summary.csv": "02dfb7ad73cd9ccb885b4a1bce1c21e5ac7928aebd75e5d4fecfc58283c0371c",
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/pseudo_sam3_gt_bbox_qualitative.png": "ed529b9090c9310f8ae6508278a552143db04fb9775aec45540974494a3c5bce",
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/manifest.json": "7e6b517c7b541d07532012aca154302965ed278313319eb45a9a30496b7caddf",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/pseudo_sam3_gt_bbox_qualitative.png": "ede0ea2b6f8b9d4e63de548634abdc5d6a7eff0249116b31aadd1107d9c2bd40",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/manifest.json": "2a036c7d00475cfa8eef1f9d45bc5a6042fab79540b098538cb20a20eb444eb5",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/paired_reference_effects.csv": "16de40c1c5914cb3ae6b0c28239169cecbb87c9828010876a5eb75d580d88d6a",
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/manifest.json": "336b75786756f4187273675beb2c1af9e490b23c19c9d0de51c19f611d21ba2f"
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/figures/manifest.json": "7d914ac9ce5ee9fb417540016fb2ea611450f52058ed47df2b8967a0dc55438e"
   },
   "outputs": {
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document.md": "c8c13eacf68e5fcddfca069e6e3e90d3de98799560525fee7f6b71ba587a80e3",
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document_colored.docx": "b513b6773e4a6ce08fcd51e617931a75962c48c99c320014610e22f8ea5471e5",
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document_colored.pdf": "5f80066cf25732b67b7eab62f6c1bd8f3d477dbc6079195c888740df6ac4bff3",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document.md": "8933f8405b752d9519e8a7b17d41c6a30ffd41bc1fb3082f199c6de2c099e35f",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document_colored.docx": "3f36a361d0b982058cfbe643e1bdbe9c2324031d22baf1508ace6c3c5e0aa065",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/isaid_plane_pseudo_sam3_full_metric_document_colored.pdf": "9656531fe90b64185ee2f32f10daa908541aa64180b902172a479bca988ca2af",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/tables/detector_summary.csv": "32d631cba66511f40822244b70f5df677656945f8b13a96723fa658a67671bb6",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/tables/pseudo_sam3__no_overlap__high_mask_area.csv": "8569528cc520ed1fc735857b4da4c1e1ad7d55ca7a12d3a1f2d07332669da1a3",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/tables/pseudo_sam3__no_overlap__low_mask_area.csv": "4aea6b738439c95dd17cf8ee1401b41adf42e15aff7aa9d2661019146b5c312c",
@@ -23,9 +23,9 @@
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/tables/pseudo_sam3__overlap__high_mask_area.csv": "560ba8089b296a00d98857297feb8814625f5ae86eacf2b1e83db0492266fc1d",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/tables/pseudo_sam3__overlap__low_mask_area.csv": "278db5f0277aa2d807cde0d16ffd440804e0a39ad3172123064381e83c19d017",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/tables/reference_sensitivity.csv": "d83ac8831a6a9aaaae0a2df7e03a742d4a35905f33bbe7193560d3dc0472fc95",
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/qualitative/no_overlap__low_mask_area.png": "ef8c6d30712474f9f04dceedcf462a8457a022d85e905375b49f0a729fc242f3",
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/qualitative/no_overlap__high_mask_area.png": "301c40b3c74435fe6908e3f2da06e90809f1550f2d71b5cf102fe5d173ee6aa7",
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/qualitative/overlap__low_mask_area.png": "8fbc10ecdc5d403c5d773baa6f0bde4b49f625b13ad44bd8d43b35d42804dcc2",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/qualitative/no_overlap__low_mask_area.png": "f72b237df0c98134f6b9a202650d8e969e409c597c19738e2708d4c076c4b964",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/qualitative/no_overlap__high_mask_area.png": "d3c6fc198434f56fdb0266b9ccbd2f5a6797d0c72c820308f0cc839c348f5b65",
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/qualitative/overlap__low_mask_area.png": "b9c00048dbb4c18745a9be67210fbfe2c42c0304b48e81515f810b8524c90cce",
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/full_metrics/pseudo_sam3/qualitative/overlap__high_mask_area.png": "b02abce642382c00b7fd35d87e2d1e7eacd6fdeab82edf0acea98cf899bc8bad"
   },
   "strata": [

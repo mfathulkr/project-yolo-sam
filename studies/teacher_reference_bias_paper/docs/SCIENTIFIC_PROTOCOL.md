@@ -10,13 +10,17 @@ Ana deney değişkeni model değil, değerlendirme referansıdır. Aynı SAM1/2/
 - Her deney `No Overlap/Overlap × Low/High Mask Area` biçiminde dört tabakaya ayrılır.
 - Her tabaka tam 128 görüntüdür; Overall 512 görüntüdür.
 - Ana metrik birimi nesne instance'ıdır, görüntü değildir.
+- Dört test kümesi hedef-pozitif olacak biçimde seçilmiştir; her görüntüde en az bir hedef instance vardır.
 - Kaynak sahne kimliği korunur; bootstrap aynı büyük sahneden gelen crop'ları bağımsız saymaz.
+- iSAID ve SAMRS ayrı anotasyon ürünleridir, fakat ikisi de DOTA kökenli görüntüler içerir. Test görüntülerindeki kısmi örtüşme nedeniyle dört deney bağımsız replikasyon sayılmaz.
 
 ## 3. Overlap ve Mask Area
 
 `Overlap`, aynı görüntüde en az bir hedef bbox çiftinin IoU değerinin `0.001` veya üstünde olmasıdır. Bu eşik yalnız “kutular hiç kesişiyor mu?” ayrımını yapar; yüksek kaliteli detection eşiği değildir.
 
-`Low/High Mask Area`, temel veri seti etiketlerindeki bütün hedef instance alanlarının görüntü alanına oranıyla belirlenir. Eşik her veri seti/sınıf için testten önce dondurulmuştur. Referans SAM1/2/3'e çevrildiğinde tabaka üyeliği yeniden hesaplanmaz.
+`Low/High Mask Area`, tek bir nesnenin büyüklüğü değil, görüntüdeki bütün hedef maskelerin toplam alanının görüntü alanına oranıdır. Yüzde olarak eşikler iSAID Plane `%1.671`, iSAID Small Vehicle `%0.185`, SAMRS Plane `%1.193`, SAMRS Small Vehicle `%0.657`'dir. Tam hassasiyetli değerler deney config dosyalarında saklanır. Referans SAM1/2/3'e çevrildiğinde grup üyeliği yeniden hesaplanmaz.
+
+iSAID'da resmi train ve validation anotasyon sürümlerindeki kaynak sahneler, kaynak-sahne güvenli özel train/validation/test bölünmesine yeniden ayrılmıştır; resmi iSAID test leaderboard protokolü kullanılmaz. SAMRS yayıncı split'inde bulunan kaynak-sahne çakışmaları da aynı nedenle özel bölünmede giderilmiştir.
 
 ## 4. Referanslar
 
@@ -31,7 +35,7 @@ Ana deney değişkeni model değil, değerlendirme referansıdır. Aynı SAM1/2/
 - `reproduced_pseudo_sam1`: bu çalışmanın dondurulmuş güncel SAM1 checkpoint'i ve yayımlanmış detection bbox'ı ile yeniden üretilmiş maske.
 - `pseudo_sam2/3`: aynı bbox ile SAM2/3 tarafından üretilmiş maske.
 
-SAMRS published ve reproduced SAM1 ayrı referanslardır. Plane'de aralarındaki instance-macro IoU `0.990633`, Small Vehicle'da `0.998338` çıkmıştır; yakınlık aynı dosya oldukları anlamına gelmez.
+SAMRS yayımlanmış ve yeniden üretilmiş SAM1 maskeleri ayrı referanslardır. Aralarındaki nesne-ortalama IoU Plane'de `0.991`, Small Vehicle'da `0.998`'dir; yakınlık aynı dosya oldukları anlamına gelmez.
 
 ## 5. Tahmin Koşulları
 
@@ -69,6 +73,10 @@ Her metrik önce instance başına hesaplanır, sonra instance'lar eşit ağırl
 - `BBox mAP50-95`, bbox IoU 0.50:0.05:0.95 eşiklerindeki AP ortalamasıdır.
 
 Buradaki IoU, iki bbox'ın geometrik örtüşmesidir; maske IoU değildir.
+Her deneyde detector yalnız tek hedef sınıf içerir; dolayısıyla sınıflar
+üzerindeki ortalama olan mAP, bu düzenekte o tek sınıfın AP değerine eşittir.
+
+Detector testlerinin tamamı hedef-pozitif 512 görüntüden oluşur. Bu nedenle AP/precision/recall değerleri resmi veri seti benchmark'ı değil, mask deneyinin seçilmiş test kümesindeki detector kontrolüdür.
 
 ## 8. Bilinen Pozitifte Boş Referans
 
@@ -86,11 +94,31 @@ Ana bulgu YOLO-bbox koşulundaki eşleşmiş farktır. Burada teacher referansı
 
 ## 10. İstatistik
 
-- Ana etki: aynı instance için `pseudo IoU - temel referans IoU`.
+- Temel referans değişimi: aynı nesne için modelin kendi etiketindeki IoU eksi insan/yayımlanmış temel etiketteki IoU. Bu değer yalnız referans değişince puanın ne kadar değiştiğini gösterir.
+- Ana ek IoU: aynı dondurulmuş modelin kendi ürettiği etiketteki IoU'su eksi diğer iki SAM etiketindeki ortalama IoU'su. Pozitif değer, modelin kendi etiketinde daha yüksek puan aldığını gösterir.
+- İkincil istatistiksel kontrol: modelin diğer modellere göre avantajının kendi etiketinde, temel etikete kıyasla ne kadar değiştiği de hesaplanır. Bu kontrol teknik analiz CSV'sinde tutulur ve ana okuyucu tablosuna basılmaz.
 - Güven aralığı: 10.000 tekrar, kaynak-sahne kümeli bootstrap, `%95`.
 - Ek sonuçlar: model sıralaması, teacher advantage, referanslar arası instance IoU ve boş maske oranı.
+- Nitel örnek seçimi: model ve referans skorlarından bağımsız, tabaka içi
+  `mask_area_ratio` medyanına en yakın görüntü; dört referansta aynı görüntüler
+  ve seçilen görüntüdeki bütün hedef instance'lar.
 - Farklı veri setleri tek bir global IoU ortalamasında birleştirilmez.
 
-## 11. Geçerli İddia Sınırı
+Bu kontrastlar ilk sonuçlar görüldükten sonra geliştirilmiştir; preregistered
+confirmatory test değildir ve çoklu karşılaştırma düzeltmesi uygulanmamıştır.
+Bu nedenle etki büyüklükleri ve güven aralıkları exploratory kanıt olarak
+yorumlanır. Aynı-model sonucu yalnız kullanılan dondurulmuş SAM1/2/3
+checkpoint'leri için geçerlidir; farklı eğitim seed'i/checkpoint'i ve model
+ailesi düzeyinde genelleme test edilmemiştir.
 
-Çalışma “pseudo etiketler yararsızdır” demez. Gösterdiği şey, model üretimli etiket test cetveli olduğunda cetvel ile aday arasındaki ortak hata stilinin skoru ve model sıralamasını değiştirebilmesidir. Eğitim yararlılığı bağımsız insan testinde ayrı ölçülmelidir.
+GT-bbox doğrudan kontrastları identity kontrol etkisini içerir. Bilimsel ana yorum, öğretmen referansının GT bbox ile; değerlendirilen adayın ise eşleşmiş YOLO bbox ile üretildiği non-identical koşula dayanır.
+
+## 11. Deneyler Arası Bağımlılık ve Exploratory Audit
+
+Piksel olarak birebir aynı test görüntüsü sayıları `docs/DEEP_SCIENTIFIC_AUDIT.md` içinde kayıtlıdır. Örneğin iSAID Plane ile SAMRS Plane arasında 19, iSAID Small Vehicle ile SAMRS Small Vehicle arasında 6 ortak test görüntüsü vardır. Bu nedenle sonuçlar deney içinde eşleşmiş olarak yorumlanır; dört deneylik pooled p-değeri veya bağımsız tekrar iddiası kurulmaz.
+
+Ortak görüntülerde insan ve yayımlanmış SAMRS maskeleri arasındaki post-hoc eşleştirme yalnız exploratory'dir. Alt küme temsili seçilmediği ve anotasyon kapsamı farklı olduğu için ana hipotez testi veya benchmark sonucu değildir.
+
+## 12. Geçerli İddia Sınırı
+
+Çalışma “pseudo etiketler yararsızdır” demez. Sonuçlar, kullanılan dondurulmuş checkpoint'ler ve seçilmiş test kapsamı içinde, model üretimli test cetveli ile aday arasındaki bağımlılığın skoru ve model sıralamasını değiştirebildiğini destekler. Pseudo üretimi insan/yayın kutusu lokalizasyonunu kullandığı için deney tam otomatik etiketleme hattı değildir ve yalnız maske sınırı etkisini izole etmez. Eğitim yararlılığı bağımsız insan testinde ayrı ölçülmelidir.

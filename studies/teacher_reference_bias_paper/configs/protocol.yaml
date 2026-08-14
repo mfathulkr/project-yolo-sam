@@ -58,7 +58,7 @@ bbox_sources:
 
 evaluation:
   primary_granularity: instance
-  secondary_granularity: image_union
+  secondary_granularity: not_computed
   yolo_instance_match_iou: 0.50
   overlap_threshold: 0.001
   area_reference: dataset_native_reference

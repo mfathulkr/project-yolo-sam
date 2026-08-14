@@ -28,6 +28,10 @@ from matplotlib.backends.backend_pdf import PdfPages
 from PIL import Image, ImageDraw, ImageFont
 
 
+plt.rcParams["pdf.fonttype"] = 42
+plt.rcParams["ps.fonttype"] = 42
+
+
 REPO_ROOT = Path(__file__).resolve().parents[5]
 
 STRATA = (
@@ -414,6 +418,8 @@ def metric_bullets(
 def detector_bullets(detector_seeds: tuple[int, ...] = (42,)) -> tuple[str, ...]:
     return (
         "Bu tablo yalnız YOLO detector kutularını değerlendirir; burada ölçülen bbox başarısıdır, maske başarısı değildir.",
+        "Detector testi, her birinde en az bir hedef nesne bulunan seçilmiş 512 görüntüden oluşur. Hedef-negatif görüntü içermediği için bu değerler resmi veri seti benchmark AP'si değil deney içi detector kontrolüdür.",
+        "Her detector yalnız tek hedef sınıf için eğitilip değerlendirildiğinden, sınıflar üzerindeki ortalama olan mAP bu deneyde o tek sınıfın AP değerine eşittir.",
         "BBox mAP50/mAP75/mAP90, tahmin kutusunun GT kutuyla sırasıyla en az 0,50/0,75/0,90 IoU yaptığı eşiklerde confidence sıralaması boyunca hesaplanan gerçek average precision değeridir.",
         "BBox mAP50-95, 0,50 ile 0,95 arasındaki on bbox IoU eşiğinin AP ortalamasıdır.",
         "BBox Precision ve Recall değerleri, doğrulama kümesinde seçilip testten önce sabitlenen güven eşiğinde hesaplanır.",
@@ -833,8 +839,9 @@ def build_pdf(
             detector_table,
             title="YOLO Detector BBox Metrics",
             note=(
-                "Not: Bu tablo yalnız YOLO detector bbox başarısını gösterir; "
-                f"maske metrikleri değildir. Değerler {_seed_note(detector_seeds)}."
+                "Not: Bu tablo yalnız YOLO detector bbox başarısını, seçilmiş "
+                "512 hedef-pozitif görüntüde gösterir; resmi benchmark veya maske "
+                f"metriği değildir. Değerler {_seed_note(detector_seeds)}."
             ),
         )
         for section in spec.reference_sections:

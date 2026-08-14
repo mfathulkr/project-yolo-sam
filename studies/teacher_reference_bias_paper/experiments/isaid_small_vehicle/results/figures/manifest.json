@@ -1,8 +1,234 @@
 {
-  "schema_version": 3,
+  "schema_version": 5,
   "status": "completed",
   "experiment_id": "isaid_small_vehicle",
   "qualitative_scope": "all_target_instances_in_selected_images",
+  "qualitative_selection": [
+    {
+      "reference_type": "human",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:129",
+      "coco_image_id": 129,
+      "file_name": "P1397_0016.png",
+      "source_scene_id": "P1397",
+      "mask_area_ratio": 0.0004482269287109,
+      "stratum_mask_area_ratio_median": 0.00045156478881829996,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 4,
+      "prompt_count_per_model": 4,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "human",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:198",
+      "coco_image_id": 198,
+      "file_name": "P1466_0027.png",
+      "source_scene_id": "P1466",
+      "mask_area_ratio": 0.0042982101440429,
+      "stratum_mask_area_ratio_median": 0.00426006317138665,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 7,
+      "prompt_count_per_model": 7,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "human",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:86",
+      "coco_image_id": 86,
+      "file_name": "P1179_0033.png",
+      "source_scene_id": "P1179",
+      "mask_area_ratio": 0.0008649826049804,
+      "stratum_mask_area_ratio_median": 0.0008606910705566001,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 4,
+      "prompt_count_per_model": 4,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "human",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:228",
+      "coco_image_id": 228,
+      "file_name": "P1791_0005.png",
+      "source_scene_id": "P1791",
+      "mask_area_ratio": 0.0072183609008789,
+      "stratum_mask_area_ratio_median": 0.0071544647216796,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 11,
+      "prompt_count_per_model": 11,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam1",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:129",
+      "coco_image_id": 129,
+      "file_name": "P1397_0016.png",
+      "source_scene_id": "P1397",
+      "mask_area_ratio": 0.0004482269287109,
+      "stratum_mask_area_ratio_median": 0.00045156478881829996,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 4,
+      "prompt_count_per_model": 4,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam1",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:198",
+      "coco_image_id": 198,
+      "file_name": "P1466_0027.png",
+      "source_scene_id": "P1466",
+      "mask_area_ratio": 0.0042982101440429,
+      "stratum_mask_area_ratio_median": 0.00426006317138665,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 7,
+      "prompt_count_per_model": 7,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam1",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:86",
+      "coco_image_id": 86,
+      "file_name": "P1179_0033.png",
+      "source_scene_id": "P1179",
+      "mask_area_ratio": 0.0008649826049804,
+      "stratum_mask_area_ratio_median": 0.0008606910705566001,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 4,
+      "prompt_count_per_model": 4,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam1",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:228",
+      "coco_image_id": 228,
+      "file_name": "P1791_0005.png",
+      "source_scene_id": "P1791",
+      "mask_area_ratio": 0.0072183609008789,
+      "stratum_mask_area_ratio_median": 0.0071544647216796,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 11,
+      "prompt_count_per_model": 11,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:129",
+      "coco_image_id": 129,
+      "file_name": "P1397_0016.png",
+      "source_scene_id": "P1397",
+      "mask_area_ratio": 0.0004482269287109,
+      "stratum_mask_area_ratio_median": 0.00045156478881829996,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 4,
+      "prompt_count_per_model": 4,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:198",
+      "coco_image_id": 198,
+      "file_name": "P1466_0027.png",
+      "source_scene_id": "P1466",
+      "mask_area_ratio": 0.0042982101440429,
+      "stratum_mask_area_ratio_median": 0.00426006317138665,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 7,
+      "prompt_count_per_model": 7,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:86",
+      "coco_image_id": 86,
+      "file_name": "P1179_0033.png",
+      "source_scene_id": "P1179",
+      "mask_area_ratio": 0.0008649826049804,
+      "stratum_mask_area_ratio_median": 0.0008606910705566001,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 4,
+      "prompt_count_per_model": 4,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam2",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:228",
+      "coco_image_id": 228,
+      "file_name": "P1791_0005.png",
+      "source_scene_id": "P1791",
+      "mask_area_ratio": 0.0072183609008789,
+      "stratum_mask_area_ratio_median": 0.0071544647216796,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 11,
+      "prompt_count_per_model": 11,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "no_overlap__low_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:129",
+      "coco_image_id": 129,
+      "file_name": "P1397_0016.png",
+      "source_scene_id": "P1397",
+      "mask_area_ratio": 0.0004482269287109,
+      "stratum_mask_area_ratio_median": 0.00045156478881829996,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 4,
+      "prompt_count_per_model": 4,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "no_overlap__high_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:198",
+      "coco_image_id": 198,
+      "file_name": "P1466_0027.png",
+      "source_scene_id": "P1466",
+      "mask_area_ratio": 0.0042982101440429,
+      "stratum_mask_area_ratio_median": 0.00426006317138665,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 7,
+      "prompt_count_per_model": 7,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "overlap__low_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:86",
+      "coco_image_id": 86,
+      "file_name": "P1179_0033.png",
+      "source_scene_id": "P1179",
+      "mask_area_ratio": 0.0008649826049804,
+      "stratum_mask_area_ratio_median": 0.0008606910705566001,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 4,
+      "prompt_count_per_model": 4,
+      "display_scope": "all_target_instances"
+    },
+    {
+      "reference_type": "pseudo_sam3",
+      "stratum": "overlap__high_mask_area",
+      "canonical_image_id": "isaid_small_vehicle:228",
+      "coco_image_id": 228,
+      "file_name": "P1791_0005.png",
+      "source_scene_id": "P1791",
+      "mask_area_ratio": 0.0072183609008789,
+      "stratum_mask_area_ratio_median": 0.0071544647216796,
+      "selection_method": "model_and_reference_independent_stratum_median_mask_area",
+      "target_instance_count": 11,
+      "prompt_count_per_model": 11,
+      "display_scope": "all_target_instances"
+    }
+  ],
   "inputs": [
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/data/prepared/test/_annotations.coco.json",
@@ -58,8 +284,8 @@
   "outputs": [
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/human_gt_bbox_qualitative.png",
-      "bytes": 1612235,
-      "sha256": "70e512a1c6c734fdf049277864ae696608160887b40db2552f609957c6c16417"
+      "bytes": 2052642,
+      "sha256": "e99edd8d01e071596187d4d7b041cd3f963bf6ce9e09979de57f85a66d861920"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/model_reference_iou_matrix.png",
@@ -68,18 +294,18 @@
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/pseudo_sam1_gt_bbox_qualitative.png",
-      "bytes": 1958433,
-      "sha256": "b33cd7e3ee339eaf893fa48cc0d2af3bffcf58df298958073d330b0d4cbe016e"
+      "bytes": 2056470,
+      "sha256": "5b0539adb916895dfd139ac89af733dce5c1ced05c89461031d9dfbac91880f5"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/pseudo_sam2_gt_bbox_qualitative.png",
-      "bytes": 1865880,
-      "sha256": "0415ccd12c053c2f1ccd2bef0887b1a3c968e57c0883dc90c0232d4ea03ebe0e"
+      "bytes": 2056738,
+      "sha256": "cf79039bd25ae5273a23d321ac05ca64667aeabf1eac5aa1665fc367c6a8d320"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/pseudo_sam3_gt_bbox_qualitative.png",
-      "bytes": 1703212,
-      "sha256": "6fcab019df7a8b86b89a26be88fefdad4a5202b400f71035604714091ef1bc31"
+      "bytes": 2054870,
+      "sha256": "2761070e777d2cf996fe5f4be04e11912f1f2b1f9ecfd1f9da224fdef7830617"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/reference_effect_with_ci.png",

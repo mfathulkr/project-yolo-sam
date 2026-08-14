@@ -7,25 +7,25 @@
   "inputs": {
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/aggregate_metrics.csv": "120ccd79d72e80bfba28f0fcc98c738d616e4a8d6ae6dc6d3704ffa255c810ef",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/detector_summary.csv": "9d59b8409f8d837397b172cf558f560c337eaab32fa0fe4feac50c7b5dced2da",
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/human_gt_bbox_qualitative.png": "70e512a1c6c734fdf049277864ae696608160887b40db2552f609957c6c16417",
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/manifest.json": "91c2b665840449397a891be7eeff2fed3cdee4a30c98f9e6fdedd48dfc1786be",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/human_gt_bbox_qualitative.png": "e99edd8d01e071596187d4d7b041cd3f963bf6ce9e09979de57f85a66d861920",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/manifest.json": "a87ef4ffaf0d15e254dc8f560884387998f2823636911aa15177304e6db74bf5",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_reference_effects.csv": "5883857675b274047838e1698593ff5e5147144a05525f51450c5af62cf229a6",
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/manifest.json": "6f6bf7967d37ab8be3c73b72a24412a9a75a48c8b8bff17443200832e11ba6d5"
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/figures/manifest.json": "a058668f52d66419fbaba2ab2834471a1cff35330613c05b84ec36f7c15f8c7b"
   },
   "outputs": {
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/isaid_small_vehicle_human_full_metric_document.md": "04b02f40d3dc3af627519d6bf0934570325db5065a8b8e47c258e5b7729bf2a8",
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/isaid_small_vehicle_human_full_metric_document_colored.docx": "851239271366374bf5030a15ca86a2bf901e51f531d5cb89b20e9f8eb4798979",
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/isaid_small_vehicle_human_full_metric_document_colored.pdf": "854e704506f6f7c522cbf379d0d59fada75ac72ba9cc507ade38abfcd3fbd97a",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/isaid_small_vehicle_human_full_metric_document.md": "248a38f446d9f72275d8d3f3c0a754247ccbc296b867f35823b9bdb657d49b42",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/isaid_small_vehicle_human_full_metric_document_colored.docx": "07f0b267b168d6324470820df77342428ebebbc29c3802cd5d11662871c35dfe",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/isaid_small_vehicle_human_full_metric_document_colored.pdf": "90a84c8a27de5d3bfd2ad89021b54c8d426f002c05ced594a6af63f21716c289",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/detector_summary.csv": "764bc28ba678961f448e8608cbf783b0036f93dc36805bd312dbf495356830dd",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__no_overlap__high_mask_area.csv": "4509698bb0046e8571fb6ac4d849b18c5dbc8d2eb4adfdc268e909d52b6392f5",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__no_overlap__low_mask_area.csv": "cac1cac2b6d82a860e8eb734088d45ec823e54e3e05e46cfc4b2a1dfc20df203",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__overall.csv": "6831ef16947a9fe3639bebaf14365701de42cbeaef9227898d446da0276b783e",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__overlap__high_mask_area.csv": "d6f8576fe2ade2c2427b7d9b065ed2075c4d24649ede7d113229884f1a5c2c70",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/tables/human__overlap__low_mask_area.csv": "caab888dc69b90dda0cd613f0504abaab2c45e90bb1c9cb579b83c8e2a412f84",
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/no_overlap__low_mask_area.png": "8b2218c063b5aeeaaea50410c943eb6c37f4d7ae1d0a25cc0ab607082a34da7f",
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/no_overlap__high_mask_area.png": "169fbab7a29cf7f8ac83ae2004af1bafb1afedea5127f014da9c54524d2e9217",
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/overlap__low_mask_area.png": "2753cc509e6225f20b8df9e7e70a4057f4e9ecef50ecde8544a3fdba702f1245",
-    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/overlap__high_mask_area.png": "a54596b2fa6c44f977aecd00dc76c65589e87c5216c2760aa26c4b6d992cbdbe"
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/no_overlap__low_mask_area.png": "dbc419b56a38399530798b4817a09876ecc13f506883a4f8b813b2885e85bfc4",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/no_overlap__high_mask_area.png": "381a2db5f70c537632ae16fbdaaeae1d8e776c1f78de98793ab09a8d7f943b12",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/overlap__low_mask_area.png": "7eee53d9060dff5e9267e0dcd221dfc02c3e6f6aaab01a169ffcffed02fb9ca9",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/full_metrics/human/qualitative/overlap__high_mask_area.png": "d407dcb1d49cc50c17d60f1dea073f6dc0f09226dd46d529f948a6b54f43f642"
   },
   "strata": [
     "overall",

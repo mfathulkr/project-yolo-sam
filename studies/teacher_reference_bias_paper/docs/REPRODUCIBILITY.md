@@ -11,6 +11,8 @@
 - NMS IoU: `0.70`, max detection: `500`
 - Segmenterler frozen; iSAID/SAMRS üzerinde fine-tune edilmez.
 
+Kanonik run manifestlerinde kaydedilen tam inference ortamı Python `3.12.3`, PyTorch `2.11.0`, Transformers `5.6.2`, Ultralytics `8.4.41`, NumPy `2.4.4`, pandas `3.0.2`, SciPy `1.17.1`, pycocotools `2.0.11`, Pillow `12.2.0` ve CUDA `13.0`'dır. `requirements.txt` yeniden kurulum için alt sınırlar verir; tam tarihsel sürümler run manifestlerinde otoritatiftir.
+
 Kanonik tam ayarlar `configs/protocol.yaml`, deney kaynakları `experiments/*/config.yaml`, ham veriden master havuz üretim ayarları ise `experiments/*/master_config.yaml` dosyalarındadır. `protocol.local_8gb.yaml` yalnız düşük VRAM çalışma profilidir; batching farkı nedeniyle runtime config hash'i kanonik koşuyla aynı değildir, fakat model checkpoint'i, giriş boyutu ve float32 çıkarım korunur.
 
 ## Model Kimlikleri
@@ -47,6 +49,8 @@ kullanılır. PCS visual-exemplar yolunu bbox segmentasyonu sanmak önceki hatal
 5. COCO instance kimlikleri ve kaynak sahne kimlikleri manifestte sabitlenir.
 6. `data.yaml` göreli yoldur; VM veya yerel makine mutlak yoluna bağlı değildir.
 
+Kanonik split, resmi leaderboard split'i değildir. iSAID resmi train+validation anotasyonlarından; SAMRS yayıncı havuzundan kaynak sahne düzeyinde yeniden bölünür. Dört test kümesinin tamamı hedef-pozitiftir. Tabaka eşiği görüntü başına toplam hedef maske alanı oranıdır ve deney config'inde inference öncesi sabitlenmiştir.
+
 Ham iSAID/SAMRS verisi `datasets/` altında hazırlandıktan sonra örneğin iSAID Plane için iki aşamalı üretim:
 
 ```bash
@@ -78,10 +82,12 @@ Her hedef/veri ailesi için ayrı YOLO detector vardır. Model seed 42 ile eğit
 
 | Deney | Sabit confidence |
 | --- | ---: |
-| iSAID Plane | `0.28115004301071167` |
-| iSAID Small Vehicle | `0.2740148901939392` |
-| SAMRS Plane | `0.7607834339141846` |
-| SAMRS Small Vehicle | `0.36182695627212524` |
+| iSAID Plane | `0.281` |
+| iSAID Small Vehicle | `0.274` |
+| SAMRS Plane | `0.761` |
+| SAMRS Small Vehicle | `0.362` |
+
+Tablo okunabilirlik için üç ondalığa yuvarlanmıştır; çalıştırmada kullanılan tam değerler deney config dosyalarındadır.
 
 Eğitim:
 
@@ -94,6 +100,10 @@ Tahmin ve test metriği:
 ```bash
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/study.py detect --experiment isaid_plane --device 0
 ```
+
+Detector test AP'si 512 hedef-pozitif görüntü üzerindedir; resmi iSAID/SAMRS detector benchmark sonucu olarak kullanılmamalıdır. Mask ortalamasında eşleşmeyen detector yanlış pozitifleri yoktur; bunlar detector metriklerinde cezalandırılır. Dolayısıyla maske sonuçları tam uçtan uca COCO mask AP değildir.
+
+`isaid_small_vehicle` ve `samrs_small_vehicle` detector eğitimleri tarihsel olarak resume edilmiştir. Resume başlangıç checkpoint'inin byte'ları korunmamış; başlangıç SHA-256/boyut kaydı, final `best.pt`, eğitim tablosu ve bütün değerlendirme giriş hash'leri korunmuştur. Final dondurulmuş ağırlıkla değerlendirme yeniden üretilebilir, fakat iki eğitimin ilk adımdan birebir trajectory yeniden üretimi garanti edilemez.
 
 ## Segmenter Inference
 
@@ -120,6 +130,12 @@ Pseudo üretici yeniden model çalıştırmaz. İlgili modelin dondurulmuş GT-b
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/build_references.py
 ```
 
+Pseudo üretim GT/published anotasyon bbox'ını lokalizasyon istemi olarak
+kullanır. Bu nedenle düzenek tam otomatik bir pseudo-etiketleme hattı değildir
+ve ölçülen fark yalnız maske sınırı stilini izole etmez. Sonuç; sabit üretici
+checkpoint, referans maskesi, GT/YOLO bbox farkı ve prompt hassasiyetinin ortak
+etkileşimi olarak yorumlanmalıdır.
+
 ## Değerlendirme ve Raporlar
 
 ```bash
@@ -131,19 +147,57 @@ Pseudo üretici yeniden model çalıştırmaz. İlgili modelin dondurulmuş GT-b
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/generate_paper_assets.py
 ```
 
-Figür manifestinde `qualitative_scope=all_target_instances_in_selected_images` olmalıdır. Nitel figürde seçilen görüntüdeki tek bir nesne değil bütün hedef instance'lar yer alır.
+Ana kendi etiketi ile diğer iki SAM etiketi arasındaki ek IoU ve ikincil
+istatistiksel kontroller ilk sonuçlar görüldükten sonra geliştirilmiştir. Bunlar
+önceden kaydedilmiş doğrulayıcı testler değil, çoklu karşılaştırma düzeltmesi
+uygulanmamış destekleyici analizlerdir. Yorum yalnız kaydedilmiş SAM1/SAM2/SAM3
+checkpoint'leri için geçerlidir; model ailesi, farklı seed veya farklı
+checkpoint genellemesi yapılmaz.
+
+Figür manifestinde `qualitative_scope=all_target_instances_in_selected_images`
+olmalıdır. Nitel figürde seçilen görüntüdeki tek bir nesne değil bütün hedef
+instance'lar yer alır. Dört gösterim görüntüsü model veya referans IoU'suna göre
+seçilmez: her tabakada hazırlama metadata'sındaki `mask_area_ratio` medyanına en
+yakın görüntü, farklı kaynak sahne koşuluyla deterministik seçilir. Aynı dört
+görüntü deneydeki Human/yayımlanmış, SAM1, SAM2 ve SAM3 referans belgelerinde
+değişmeden kullanılır. Manifest her panel için görüntü ID'sini, kaynak sahneyi,
+hedef instance sayısını ve modele verilen bbox istemi sayısını kaydeder.
 
 ## Manifest ve Taşınabilirlik
 
 Her ana artifact için SHA-256 manifesti vardır. `docs/MIGRATION_MANIFEST.json`, eski üç klasörden yeni yapıya taşınan büyük artifact'ların eski/yeni yollarını ve hash doğrulamasını saklar. `docs/RUN_MANIFEST_MIGRATION_AUDIT.json`, taşınan 36 çalışma manifestinin özgün manifest hash'ini ve yalnız yol/fingerprint onarımını kaydeder. Aktif manifest ve `train/args.yaml` yolları repository-relative'dir; eski mutlak yollar yalnız tarihsel taşıma denetiminde bulunur.
 
-Kanonik detector ağırlığı her deneyde `results/detector/seed_42/train/weights/best.pt` yolundadır. Büyük ham/prepared veri Git'e eklenmez; içerik manifestleri ve yeniden hazırlama config'leri repoda tutulur.
+Taşınmış prediction klasörlerindeki `effective_config.input.json` ve `segmenter_provenance.input.json`, özgün çalıştırmanın tarihsel snapshot'ıdır. Bu snapshot'lardaki protocol hash'i taşıma sonrasında düzenlenen güncel `configs/protocol.yaml` hash'iyle aynı olmak zorunda değildir; exact run ayarını snapshot, güncel tekrar koşulunu kanonik protocol tanımlar. Eski run kimlikleri de tarihsel çalıştırma kimliğidir ve sonuçlar yeniden inference edilmeden değiştirilmez.
+
+Kanonik detector ağırlığı her deneyde `results/detector/seed_42/train/weights/best.pt` yolundadır. Git+LFS ile analiz CSV'leri, tahminler, referanslar ve dondurulmuş detector ağırlıkları çekilerek metrik/rapor zinciri yeniden üretilebilir. Ham/prepared rasterlar ve SAM foundation checkpoint'leri Git'e girmez; inference için veri yeniden hazırlanmalı ve hash'i doğrulanan model checkpoint'leri ayrıca bulunmalıdır.
+
+Tarihsel SAMRS Small Vehicle COCO `info.description` ve `supercategory` alanlarında işlevsiz adlandırma hatası vardır. Kutu, maske, kategori id, görüntü ve metrikleri etkilemez. Eski input hash'lerini bozmamak için artifact değiştirilmemiş; üretim kodu düzeltilmiş ve ayrıntı `DEEP_SCIENTIFIC_AUDIT.md` içinde kaydedilmiştir.
 
 ## Son Doğrulama
 
 ```bash
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/validate_paper_study.py
+.venv/bin/python studies/teacher_reference_bias_paper/scripts/deep_scientific_audit.py
 .venv/bin/pytest -q studies/teacher_reference_bias_paper/tests
 ```
 
-Doğrulayıcı dört veri kümesini, master→matched config zincirini, 36 strict çalışma manifestini, 16 full-metric rapordaki 80 mask tablosunu, 16 detector tablosunu, dört çapraz analiz raporunu, ana raporu, metric-cube cardinality'sini, coverage-aware identity kuralını, taşınabilir yolları ve PDF/DOCX varlığını denetler.
+Doğrulayıcı dört veri kümesini, master→matched config zincirini, 36 strict
+çalışma manifestini, 16 full-metric rapordaki 80 mask tablosunu, 16 detector
+tablosunu, dört çapraz analiz raporunu, ana raporu, metric-cube cardinality'sini,
+coverage-aware identity kuralını, taşınabilir yolları ve PDF/DOCX varlığını
+denetler.
+
+Ek semantik denetim her model/bbox koşulundaki prediction satırlarını baştan
+okur. Validation'da seçilen confidence eşiğini, YOLO confidence filtresini ve
+greedy bire bir bbox eşlemesini bağımsız olarak yeniden kurar; her satırın
+instance kimliğini, giriş bbox'ını, detector confidence/IoU'sunu, prompt
+kaynağını, RLE boyutunu, boş maske durumunu, model/revision/checkpoint
+provenance'ını ve manifest cardinality'sini doğrular. Pseudo referanslarda RLE,
+kaynak GT-bbox prediction RLE'siyle doğrudan kimlik kontrolünden geçer. Son
+denetimde 173.220 model×bbox prediction satırı ile bütün native/pseudo referans
+zincirleri bu kontrollerden geçirilmiştir.
+
+Taşıma sonrasında pseudo manifestlerinde saptanan eski GT-inference manifest
+hash'leri `build_references.py` ile yenilenmiştir. Bu işlemde 12 pseudo JSONL
+dosyasının SHA-256 değerleri değişmemiş; yalnız provenance manifestleri güncel
+giriş hash'lerini gösterecek şekilde düzelmiştir.

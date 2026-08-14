@@ -7,15 +7,15 @@
   "inputs": {
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/aggregate_metrics.csv": "2945ba429e06152677f1a5157ef7fdd27c87017db2bc897e8418303b1f38c304",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/detector_summary.csv": "f159a0aa33fa1f568f29c561dea44c7290371f3f8b15be241ecda89b4f052768",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/reproduced_pseudo_sam1_gt_bbox_qualitative.png": "fee25ac665673f10a6a7f345328f15054abe0a97fe4c854c1319bf4db6247fe1",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/manifest.json": "d7ab579bd5313caa3592684733ddd251907eaf4b6c096492f391b8adad740eb9",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/reproduced_pseudo_sam1_gt_bbox_qualitative.png": "9338b2056974a74136e61c87bb606243bbbac8e1f0e24d6b865bf816fdeab23b",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/manifest.json": "23779bda4df3bab9514280a39a62ebd00f03bd1f85e12ab90bea6cf6a4111a00",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/paired_reference_effects.csv": "cd45bd69073a56327143e17894dde981c506c60307c1d3ab300cfb1507d4b079",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/manifest.json": "0b42d79cbe6319a7747602b2ed45c3238a4900634000935dffb587ff99156d52"
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/figures/manifest.json": "448e2441a4c0ffa336f999e706f3d4f7db5e410191f8ec681d36e635895b439e"
   },
   "outputs": {
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/samrs_small_vehicle_reproduced_pseudo_sam1_full_metric_document.md": "57971aa81254ce208ca48fd128c12146eed45ff36b791790b235bd2cb9acc18c",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/samrs_small_vehicle_reproduced_pseudo_sam1_full_metric_document_colored.docx": "9b510af0efb3cfffab4e2cb2b6e876b7b6228d82d29576f3e5dda41b051a94e5",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/samrs_small_vehicle_reproduced_pseudo_sam1_full_metric_document_colored.pdf": "2259b0ac33f9fcdd4c2cb428aba08f1b7507cd174ffd42a02b1f89c0bff8af48",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/samrs_small_vehicle_reproduced_pseudo_sam1_full_metric_document.md": "ba6be12d0bf1d8aa52c019db0d73456260ec5be27a0a048f707df867347a3aff",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/samrs_small_vehicle_reproduced_pseudo_sam1_full_metric_document_colored.docx": "c2eaf2d759f0de436504fe6e33795de0fefb4efad44f745d1212eeb0e8365d5d",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/samrs_small_vehicle_reproduced_pseudo_sam1_full_metric_document_colored.pdf": "9e4b3eea207065f7826b040ef1d3d6b767843957c69bea206ed62ce2faef408f",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/tables/detector_summary.csv": "a02ab6d707e601914a28cdcdd3c7837a4c1b03058aa6ddedbdc835728e2c75a1",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/tables/reference_sensitivity.csv": "21493d3920ec8e61a410b12298610e892fe32b6487b380c6a4b2514317cffee4",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/tables/reproduced_pseudo_sam1__no_overlap__high_mask_area.csv": "c52a5a54b199fb92e1fe7731e10c63e1275393537e6ecfcc586d3bcafa989f44",
@@ -23,10 +23,10 @@
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/tables/reproduced_pseudo_sam1__overall.csv": "c63d173e0e0aac864c02519c6a024ac871af8340f2ea979b7b882feea4c14513",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/tables/reproduced_pseudo_sam1__overlap__high_mask_area.csv": "450717b932c5c207d940ee71f039b256b5f2cc24a0f7dc77ac0cec290d244489",
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/tables/reproduced_pseudo_sam1__overlap__low_mask_area.csv": "b21acbe039e91e26127d3d4d11b92f5706496e2aed811421b8d855b11601a377",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/qualitative/no_overlap__low_mask_area.png": "c65b97a3b05726db9969ea0f4a59977694b1da0888625e51460e8237ebb4a1ec",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/qualitative/no_overlap__high_mask_area.png": "598ecfc362c35e140babb92c26bcb226ff8f34a0dbd541a37cf4bb3fe11d4c60",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/qualitative/overlap__low_mask_area.png": "fcdb8f1770a8d1ee6013c3a3602d9e3de015ad1a58233e435bcf7028db102137",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/qualitative/overlap__high_mask_area.png": "9b06192cbaffcd7ed51c3bb1a41c4f23385d660bbcaf8b2ae60e9ea49315145c"
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/qualitative/no_overlap__low_mask_area.png": "796c65c0c8aa0a3eeced6c95ef362225e98b256c130c479fdb636e5f04e2521f",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/qualitative/no_overlap__high_mask_area.png": "a388e934daba9c6c9d8e177e24ba983c8dfb98aa6a94cde4557c5d32fa9d6fdc",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/qualitative/overlap__low_mask_area.png": "db3b110b6fdf78d1d8c79a7f663e824fe958b36fe404fcb0ad26b981191c090e",
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/reports/full_metrics/reproduced_pseudo_sam1/qualitative/overlap__high_mask_area.png": "0e30e7b90765bf7dbb1c2bb2bc2e99eb98e47571ea9667b6ecabd460d0d47a57"
   },
   "strata": [
     "overall",

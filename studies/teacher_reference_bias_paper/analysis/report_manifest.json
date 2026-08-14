@@ -8,6 +8,11 @@
       "sha256": "20c3393688464645bfee087d93df8b29d6b4f7f902c333519a55d79e2cd28c7c"
     },
     {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/paired_teacher_affinity_contrasts.csv",
+      "bytes": 7342,
+      "sha256": "8d668318b00f8c95df9c35eaa9c954d7c152d242f2e6f5dc89492947d9a56144"
+    },
+    {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/paired_reference_effects.csv",
       "bytes": 2891,
       "sha256": "16de40c1c5914cb3ae6b0c28239169cecbb87c9828010876a5eb75d580d88d6a"
@@ -21,6 +26,11 @@
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/aggregate_metrics.csv",
       "bytes": 29794,
       "sha256": "120ccd79d72e80bfba28f0fcc98c738d616e4a8d6ae6dc6d3704ffa255c810ef"
+    },
+    {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_teacher_affinity_contrasts.csv",
+      "bytes": 7631,
+      "sha256": "adbad5dff81cd3e5c7c04631572bf8b8063f7776557a3c84e5479304e5ae3dd1"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_reference_effects.csv",
@@ -38,6 +48,11 @@
       "sha256": "dbd99298a060cdd0ad8e753c656fd1882944ef94145eccd00611a975ec785cae"
     },
     {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/paired_teacher_affinity_contrasts.csv",
+      "bytes": 8469,
+      "sha256": "7f561a019e4019a5a610a1c835d3a044d3df0efbc2c739f2e1a0f19e54b832ed"
+    },
+    {
       "path": "studies/teacher_reference_bias_paper/experiments/samrs_plane/results/analysis/paired_reference_effects.csv",
       "bytes": 3476,
       "sha256": "3d0fb69847ecd5e23a4b0cbcc81da4c3e8c7fc0038dcd221625080d14f05d376"
@@ -53,6 +68,11 @@
       "sha256": "2945ba429e06152677f1a5157ef7fdd27c87017db2bc897e8418303b1f38c304"
     },
     {
+      "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/paired_teacher_affinity_contrasts.csv",
+      "bytes": 8766,
+      "sha256": "fbb5406f0f2bd5eedc0a67242aa86f5c1f6fc76a12a60a78f7a55bf7f1581f65"
+    },
+    {
       "path": "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/analysis/paired_reference_effects.csv",
       "bytes": 3655,
       "sha256": "cd45bd69073a56327143e17894dde981c506c60307c1d3ab300cfb1507d4b079"
@@ -66,18 +86,18 @@
   "outputs": [
     {
       "path": "studies/teacher_reference_bias_paper/analysis/main_cross_analysis.md",
-      "bytes": 5963,
-      "sha256": "d5e1c9a0fcc91d20f1206116a6223052e5a6d29abb68db1bba3ebf1461c35172"
+      "bytes": 6166,
+      "sha256": "2292f1ec82c1c522187f03fddaca57eb87beaf17661859ac54516bbb0676f40d"
     },
     {
       "path": "studies/teacher_reference_bias_paper/analysis/main_cross_analysis_colored.docx",
-      "bytes": 40152,
-      "sha256": "8e567c7d6888638096831d346f8e3de9971966ff5480620fc9db1ce3b7cf4a03"
+      "bytes": 40174,
+      "sha256": "a15e7e5c3192cfd00c978a5bcbb38c2fdbd9cee31e6d0a2542808c971b0c6e5d"
     },
     {
       "path": "studies/teacher_reference_bias_paper/analysis/main_cross_analysis_colored.pdf",
-      "bytes": 52976,
-      "sha256": "d8047a05637b8259170a611ca13af9af359dfd8a374d8157affef6c364993136"
+      "bytes": 40652,
+      "sha256": "35b18c3450ae25080ebe1722a91fdb7390598bfd97cc2ca66360929383d18669"
     }
   ]
 }

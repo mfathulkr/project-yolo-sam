@@ -28,6 +28,9 @@ ekseni olarak eklenmiştir.
 6. `same model` veya `teacher` + `pseudo label` + `evaluation bias`
 7. `SAMRS` + `SAM/SAM2/SAM3` + `benchmark/evaluation`
 8. `circular evaluation`, `leave-one-out consensus` ve `imperfect reference`
+9. `remote sensing` + `SAM2` + `tiling`, `magnification`, `coverage` ve
+   `preprocessing`
+10. `self-bias` + `model-generated benchmark` + `multi-generator`
 
 Anahtar kelime aramasına ek olarak Parikh 2025'in kaynakları, aynı yazarların
 sonraki çalışmaları ve yakın yayınların ileri/geri kavram zinciri taranmıştır.
@@ -53,6 +56,10 @@ olarak kullanılmaz.
 | 4 | [Vorontsov ve Kadoury 2021](https://arxiv.org/abs/2107.02189) | ArXiv | Sistematik bias'ın rastgele label noise'dan daha zararlı olması |
 | 5 | [Lad ve Mueller 2023](https://arxiv.org/abs/2307.05080) | ICML DMLR Workshop | Temiz referans yokken model tabanlı etiket kalite önceliklendirme |
 | 6 | [SAMRS](https://arxiv.org/abs/2305.02034) | NeurIPS Datasets and Benchmarks 2023 | SAM1 maskelerinin esas kullanım amacı pretraining; bağımsız gold iddiası yok |
+| 7 | [Remote SAMsing](https://arxiv.org/abs/2605.00256) | ArXiv preprint, 30 Nisan 2026 | Tile ölçeği, multi-pass, contextual padding ve merge'in SAM2 remote-sensing sonucunu güçlü biçimde değiştirmesi; bias kanıtı değil |
+| 8 | [SILENCER](https://openreview.net/forum?id=dbioYc7qav) | NeurIPS 2025 | Model üretimli benchmark self-bias'ı ve heterojen çoklu üreticiyle azaltma yaklaşımı |
+| 9 | [SAMIX](https://openaccess.thecvf.com/content/CVPR2026/html/Hu_SAMIX_Reinforcing_SAM2_with_Semantic_Adapter_and_Reference_Selecting_Policy_CVPR_2026_paper.html) | CVPR 2026 | SAM2 pseudo-maskelerini semantic adapter ve öğrenilmiş referans seçimiyle eğitim sinyaline dönüştürme; test-reference çalışması değil |
+| 10 | [Boxes2Pixels](https://openaccess.thecvf.com/content/CVPR2026W/AI4RWC/html/Lendering_Boxes2Pixels_Learning_Defect_Segmentation_from_Noisy_SAM_Masks_CVPRW_2026_paper.html) | CVPRW 2026 | SAM maskesini gürültülü öğretmen sayıp insan anotasyonlu testte doğrulama |
 
 ## Parikh 2025 Deneyinin Özeti
 
@@ -97,6 +104,8 @@ aramasıyla doğrulanmalıdır; web taraması yokluk kanıtı değildir.
   kanıt, SAMRS published/reproduced SAM1 yakınlığı destekleyici kanıttır.
 - Ana kanıt GT-diagonal değildir; YOLO-bbox non-identical sonuçlarıdır.
 - Teacher affinity, genel biased-ruler etkisinden ayrı tanımlanır.
+- Ham pseudo-minus-human artışı ana affinity testi sayılmaz; own-vs-cross ve
+  aynı modelin kendi etiketinde kazandığı ek IoU doğrudan test edilir; ikincil istatistiksel kontrol ayrıntılı analizde tutulur.
 - IoU/Dice yanında over/under-segmentation yönü ve boundary davranışı sonraki
   deney uzantısı olarak önerilir.
 - Sonuç dili pseudo etiketlerin eğitim yararını reddetmez; yalnız bağımsız test
@@ -107,4 +116,6 @@ aramasıyla doğrulanmalıdır; web taraması yokluk kanıtı değildir.
 Arama sonucunda aynı remote-sensing SAM1/SAM2/SAM3 cross-teacher matrisini
 raporlayan bir çalışma bulunmamıştır. Ancak bu sonuç kesin yokluk kanıtı
 değildir. Gönderimden hemen önce başlık/özet benzerliği, atıf zinciri ve yeni
-2026 yayınları yeniden taranmalıdır.
+2026 yayınları yeniden taranmalıdır. Bu dosyadaki tarama arXiv, resmi konferans
+sayfaları, PubMed/PMC ve OpenReview'i kapsar; abonelik gerektiren Scopus ve Web
+of Science üzerinde doğrulama yapılmış gibi sunulamaz.

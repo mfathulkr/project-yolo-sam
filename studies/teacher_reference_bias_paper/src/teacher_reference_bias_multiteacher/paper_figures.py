@@ -14,6 +14,10 @@ from matplotlib.patches import Rectangle
 from PIL import Image
 from pycocotools.coco import COCO
 
+
+plt.rcParams["pdf.fonttype"] = 42
+plt.rcParams["ps.fonttype"] = 42
+
 from yolo_sam.segmentation.runner import decode_binary_mask
 
 from .io import read_jsonl
@@ -62,41 +66,41 @@ def reference_masks(
     }
 
 
-def select_representative_images(
-    metrics: pd.DataFrame,
-    *,
-    reference_type: str,
-) -> list[str]:
-    selected = metrics[
-        (metrics["reference_type"] == reference_type)
-        & (metrics["bbox_source"] == "gt_bbox")
-    ]
-    coverage = selected.groupby("instance_id")["model"].nunique()
-    if set(coverage.astype(int)) != {3}:
-        raise ValueError(f"Eksik model kapsamı: {reference_type}")
-    per_image = (
-        selected.groupby(
-            ["image_id", "source_scene_id", "stratum"],
-            as_index=False,
-            sort=True,
-        )["iou"]
-        .mean()
-        .rename(columns={"iou": "mean_model_iou"})
-    )
-    image_ids: list[str] = []
+def representative_image_records(source: ExperimentSource) -> list[dict[str, object]]:
+    """Select four qualitative images without looking at model/reference scores."""
+
+    metadata = pd.read_csv(source.prepared_root / "test" / "metadata.csv")
+    records: list[dict[str, object]] = []
     used_scenes: set[str] = set()
     for stratum in STRATA[1:]:
-        candidates = per_image[per_image["stratum"] == stratum].copy()
+        candidates = metadata[metadata["stratum"] == stratum].copy()
         if candidates.empty:
             raise ValueError(f"Nitel figür için boş stratum: {stratum}")
-        median = float(candidates["mean_model_iou"].median())
-        candidates["distance"] = (candidates["mean_model_iou"] - median).abs()
-        candidates = candidates.sort_values(["distance", "image_id"])
+        median = float(candidates["mask_area_ratio"].median())
+        candidates["distance"] = (candidates["mask_area_ratio"] - median).abs()
+        candidates = candidates.sort_values(["distance", "file_name"])
         unused = candidates[~candidates["source_scene_id"].isin(used_scenes)]
-        row = (unused if not unused.empty else candidates).iloc[0]
-        image_ids.append(str(row["image_id"]))
+        if unused.empty:
+            raise ValueError(
+                f"Nitel figür için farklı kaynak sahne bulunamadı: {stratum}"
+            )
+        row = unused.iloc[0]
         used_scenes.add(str(row["source_scene_id"]))
-    return image_ids
+        records.append(
+            {
+                "stratum": stratum,
+                "canonical_image_id": f"{source.dataset_id}:{int(row['image_id'])}",
+                "coco_image_id": int(row["image_id"]),
+                "file_name": str(row["file_name"]),
+                "source_scene_id": str(row["source_scene_id"]),
+                "mask_area_ratio": float(row["mask_area_ratio"]),
+                "stratum_mask_area_ratio_median": median,
+                "selection_method": (
+                    "model_and_reference_independent_stratum_median_mask_area"
+                ),
+            }
+        )
+    return records
 
 
 def _reference_overlay(image: np.ndarray, reference: np.ndarray) -> np.ndarray:
@@ -144,10 +148,7 @@ def qualitative_figure(
             annotation
         )
 
-    image_ids = select_representative_images(
-        metrics,
-        reference_type=reference_type,
-    )
+    selected_images = representative_image_records(source)
     figure, axes = plt.subplots(4, 5, figsize=(11.2, 9.1), squeeze=False)
     titles = (
         "Input + all GT bbox",
@@ -159,10 +160,10 @@ def qualitative_figure(
     for axis, title in zip(axes[0], titles, strict=True):
         axis.set_title(title)
 
-    for row_index, (stratum, canonical_image_id) in enumerate(
-        zip(STRATA[1:], image_ids, strict=True)
-    ):
-        image_id = int(canonical_image_id.rsplit(":", 1)[-1])
+    for row_index, selected_image in enumerate(selected_images):
+        stratum = str(selected_image["stratum"])
+        canonical_image_id = str(selected_image["canonical_image_id"])
+        image_id = int(selected_image["coco_image_id"])
         annotations = sorted(
             annotations_by_image[image_id], key=lambda item: int(item["id"])
         )
@@ -244,6 +245,49 @@ def qualitative_figure(
     figure.savefig(output_path, dpi=220, bbox_inches="tight")
     plt.close(figure)
     return output_path
+
+
+def qualitative_selection_records(
+    source: ExperimentSource,
+) -> list[dict[str, object]]:
+    """Record the exact images and target-instance coverage shown in figures."""
+
+    coco = COCO(str(source.coco_path))
+    images = {int(row["id"]): row for row in coco.loadImgs(coco.getImgIds())}
+    annotation_counts = {
+        image_id: len(coco.getAnnIds(imgIds=[image_id])) for image_id in images
+    }
+    records: list[dict[str, object]] = []
+    selected_images = representative_image_records(source)
+    for reference_type in source.reference_types:
+        for selection in selected_images:
+            stratum = str(selection["stratum"])
+            canonical_image_id = str(selection["canonical_image_id"])
+            image_id = int(selection["coco_image_id"])
+            instance_count = int(annotation_counts[image_id])
+            if instance_count < 1:
+                raise ValueError(
+                    f"Nitel figür hedef instance içermiyor: {reference_type}/{image_id}"
+                )
+            records.append(
+                {
+                    "reference_type": reference_type,
+                    "stratum": stratum,
+                    "canonical_image_id": canonical_image_id,
+                    "coco_image_id": image_id,
+                    "file_name": str(images[image_id]["file_name"]),
+                    "source_scene_id": str(selection["source_scene_id"]),
+                    "mask_area_ratio": float(selection["mask_area_ratio"]),
+                    "stratum_mask_area_ratio_median": float(
+                        selection["stratum_mask_area_ratio_median"]
+                    ),
+                    "selection_method": str(selection["selection_method"]),
+                    "target_instance_count": instance_count,
+                    "prompt_count_per_model": instance_count,
+                    "display_scope": "all_target_instances",
+                }
+            )
+    return records
 
 
 def model_reference_matrix_figure(
@@ -353,6 +397,7 @@ def write_figure_manifest(
     source: ExperimentSource,
     outputs: list[Path],
     inputs: list[Path],
+    qualitative_selection: list[dict[str, object]],
 ) -> Path:
     import hashlib
 
@@ -367,10 +412,11 @@ def write_figure_manifest(
     path.write_text(
         json.dumps(
             {
-                "schema_version": 3,
+                "schema_version": 5,
                 "status": "completed",
                 "experiment_id": source.experiment_id,
                 "qualitative_scope": "all_target_instances_in_selected_images",
+                "qualitative_selection": qualitative_selection,
                 "inputs": [row(item) for item in sorted(set(inputs))],
                 "outputs": [row(item) for item in sorted(set(outputs))],
             },

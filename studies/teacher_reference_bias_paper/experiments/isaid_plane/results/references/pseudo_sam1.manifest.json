@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "completed",
-  "created_at_utc": "2026-08-12T11:52:36.641590+00:00",
+  "created_at_utc": "2026-08-12T18:56:13.972506+00:00",
   "experiment_id": "isaid_plane",
   "dataset_id": "isaid_plane",
   "reference_type": "pseudo_sam1",
@@ -15,7 +15,7 @@
   "known_positive_empty_reference_policy": "score_zero",
   "inputs": {
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/gt_bbox/predictions.jsonl": "5c9deca36fc1a0812614b3bdf2ec2b7126bc9e0011d0bec662008ef993ff8575",
-    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/gt_bbox/manifest.json": "f35c17681b9f1c962cb91e170aa62c5fe94c29663f4dc0a39387cadfc726362f"
+    "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/predictions/sam1/gt_bbox/manifest.json": "e4c8c972e72bcd7e555a3307855f808447720b555dde46c27c6a60e2065667f6"
   },
   "outputs": {
     "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/references/pseudo_sam1.jsonl": "87ad1c0df13946ab183cd22e04c64d2265104c91d05a430201c540d3ea392b5c"

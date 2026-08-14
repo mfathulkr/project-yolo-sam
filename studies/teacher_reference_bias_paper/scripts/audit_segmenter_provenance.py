@@ -21,6 +21,10 @@ from teacher_reference_bias.reporting.analysis import sha256_file
 from teacher_reference_bias.config import load_matched_study_config
 
 
+def repository_relative(path: Path) -> str:
+    return path.resolve().relative_to(REPO_ROOT.resolve()).as_posix()
+
+
 def configuration_fingerprints(
     model_root: Path,
     checkpoint: Path,
@@ -96,8 +100,8 @@ def hf_model_row(name: str, config: dict[str, Any]) -> dict[str, Any]:
         "model": name,
         "model_id": model_id,
         "revision": revision,
-        "snapshot_path": str(snapshot),
-        "checkpoint_path": str(checkpoint),
+        "snapshot_locator": f"huggingface:{model_id}@{revision}",
+        "checkpoint_locator": f"huggingface:{model_id}@{revision}/model.safetensors",
         "checkpoint_bytes": checkpoint.stat().st_size,
         "expected_sha256": expected_sha256,
         "actual_sha256": actual_sha256,
@@ -123,8 +127,8 @@ def local_model_row(config: dict[str, Any]) -> dict[str, Any]:
         "inference_interface": str(config["inference_interface"]),
         "box_batch_size": int(config["box_batch_size"]),
         "revision": "local_checkpoint",
-        "snapshot_path": str(model_dir.resolve()),
-        "checkpoint_path": str(checkpoint.resolve()),
+        "snapshot_locator": repository_relative(model_dir),
+        "checkpoint_locator": repository_relative(checkpoint),
         "checkpoint_bytes": checkpoint.stat().st_size,
         "expected_sha256": expected_sha256,
         "actual_sha256": actual_sha256,
@@ -147,7 +151,8 @@ def main() -> None:
         "schema_version": 1,
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "pass" if passed else "fail",
-        "protocol": str(args.protocol.resolve()),
+        "path_base": "repository_root",
+        "protocol": repository_relative(args.protocol),
         "protocol_sha256": sha256_file(args.protocol),
         "models": rows,
     }

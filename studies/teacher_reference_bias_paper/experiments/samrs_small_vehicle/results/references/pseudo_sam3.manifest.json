@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "completed",
-  "created_at_utc": "2026-08-12T11:52:40.616963+00:00",
+  "created_at_utc": "2026-08-12T18:56:18.105658+00:00",
   "experiment_id": "samrs_small_vehicle",
   "dataset_id": "samrs_sota_small_vehicle",
   "reference_type": "pseudo_sam3",
@@ -15,7 +15,7 @@
   "known_positive_empty_reference_policy": "score_zero",
   "inputs": {
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/gt_bbox/predictions.jsonl": "b2dfec1b5753d000581963475c3ca8b4c422ea4e0d06a18f56b100afc51088bf",
-    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/gt_bbox/manifest.json": "e8810e49a720c38a2f0487fe2f5339ee97ade81a02a19f443100ba5bb1c030fa"
+    "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/predictions/sam3/gt_bbox/manifest.json": "caf14a87342b98597448b58b4687f9878942a586fa8bcda0d12c8d24545189d0"
   },
   "outputs": {
     "studies/teacher_reference_bias_paper/experiments/samrs_small_vehicle/results/references/pseudo_sam3.jsonl": "ce1be102ba9afa901d0c48a37664008ebc0eeb84adaaa2e052ce39bd3ec1bd85"

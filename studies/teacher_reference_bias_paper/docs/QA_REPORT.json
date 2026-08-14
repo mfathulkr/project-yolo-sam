@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "status": "completed",
-  "created_at_utc": "2026-08-12T17:32:01.313593+00:00",
+  "created_at_utc": "2026-08-13T21:43:16.315165+00:00",
   "checks": [
     {
       "name": "repo_root_contract",
       "status": "PASS",
-      "detail": "/home/ssyzai/projects/yolo-sam/project-yolo-sam"
+      "detail": "script ve kanonik path modülü aynı repository kökünü çözdü"
     },
     {
       "name": "isaid_plane:prepared",
@@ -16,7 +16,7 @@
     {
       "name": "isaid_plane:predictions",
       "status": "PASS",
-      "detail": "6 prediction kümesi tam"
+      "detail": "6 prediction kümesi; 4879 eşleşen, 568 kaçan ve 397 eşleşmeyen detection bağımsız doğrulandı"
     },
     {
       "name": "isaid_plane:run_manifests",
@@ -26,12 +26,12 @@
     {
       "name": "isaid_plane:references",
       "status": "PASS",
-      "detail": "human, pseudo_sam1, pseudo_sam2, pseudo_sam3"
+      "detail": "5447 native referans ve üç GT-bbox pseudo zinciri RLE düzeyinde doğrulandı"
     },
     {
       "name": "isaid_plane:analysis",
       "status": "PASS",
-      "detail": "130728 instance-metric satırı"
+      "detail": "130728 nesne-metrik ve 30 ek-IoU istatistik satırı"
     },
     {
       "name": "isaid_plane:figures",
@@ -46,7 +46,7 @@
     {
       "name": "isaid_plane:cross_report",
       "status": "PASS",
-      "detail": "17 sayfa"
+      "detail": "18 sayfa"
     },
     {
       "name": "isaid_small_vehicle:prepared",
@@ -56,7 +56,7 @@
     {
       "name": "isaid_small_vehicle:predictions",
       "status": "PASS",
-      "detail": "6 prediction kümesi tam"
+      "detail": "6 prediction kümesi; 8633 eşleşen, 3418 kaçan ve 7712 eşleşmeyen detection bağımsız doğrulandı"
     },
     {
       "name": "isaid_small_vehicle:run_manifests",
@@ -66,12 +66,12 @@
     {
       "name": "isaid_small_vehicle:references",
       "status": "PASS",
-      "detail": "human, pseudo_sam1, pseudo_sam2, pseudo_sam3"
+      "detail": "12051 native referans ve üç GT-bbox pseudo zinciri RLE düzeyinde doğrulandı"
     },
     {
       "name": "isaid_small_vehicle:analysis",
       "status": "PASS",
-      "detail": "289224 instance-metric satırı"
+      "detail": "289224 nesne-metrik ve 30 ek-IoU istatistik satırı"
     },
     {
       "name": "isaid_small_vehicle:figures",
@@ -86,7 +86,7 @@
     {
       "name": "isaid_small_vehicle:cross_report",
       "status": "PASS",
-      "detail": "17 sayfa"
+      "detail": "18 sayfa"
     },
     {
       "name": "samrs_plane:prepared",
@@ -96,7 +96,7 @@
     {
       "name": "samrs_plane:predictions",
       "status": "PASS",
-      "detail": "6 prediction kümesi tam"
+      "detail": "6 prediction kümesi; 3130 eşleşen, 583 kaçan ve 282 eşleşmeyen detection bağımsız doğrulandı"
     },
     {
       "name": "samrs_plane:run_manifests",
@@ -106,12 +106,12 @@
     {
       "name": "samrs_plane:references",
       "status": "PASS",
-      "detail": "published_samrs_reference, reproduced_pseudo_sam1, pseudo_sam2, pseudo_sam3"
+      "detail": "3713 native referans ve üç GT-bbox pseudo zinciri RLE düzeyinde doğrulandı"
     },
     {
       "name": "samrs_plane:analysis",
       "status": "PASS",
-      "detail": "89112 instance-metric satırı"
+      "detail": "89112 nesne-metrik ve 30 ek-IoU istatistik satırı"
     },
     {
       "name": "samrs_plane:figures",
@@ -126,7 +126,7 @@
     {
       "name": "samrs_plane:cross_report",
       "status": "PASS",
-      "detail": "17 sayfa"
+      "detail": "18 sayfa"
     },
     {
       "name": "samrs_small_vehicle:prepared",
@@ -136,7 +136,7 @@
     {
       "name": "samrs_small_vehicle:predictions",
       "status": "PASS",
-      "detail": "6 prediction kümesi tam"
+      "detail": "6 prediction kümesi; 6310 eşleşen, 1349 kaçan ve 2453 eşleşmeyen detection bağımsız doğrulandı"
     },
     {
       "name": "samrs_small_vehicle:run_manifests",
@@ -146,12 +146,12 @@
     {
       "name": "samrs_small_vehicle:references",
       "status": "PASS",
-      "detail": "published_samrs_reference, reproduced_pseudo_sam1, pseudo_sam2, pseudo_sam3"
+      "detail": "7659 native referans ve üç GT-bbox pseudo zinciri RLE düzeyinde doğrulandı"
     },
     {
       "name": "samrs_small_vehicle:analysis",
       "status": "PASS",
-      "detail": "183816 instance-metric satırı"
+      "detail": "183816 nesne-metrik ve 30 ek-IoU istatistik satırı"
     },
     {
       "name": "samrs_small_vehicle:figures",
@@ -166,19 +166,29 @@
     {
       "name": "samrs_small_vehicle:cross_report",
       "status": "PASS",
-      "detail": "17 sayfa"
+      "detail": "18 sayfa"
     },
     {
       "name": "paper_outputs",
       "status": "PASS",
-      "detail": "5 figür, 6 tablo, main report ve Overleaf iskeleti"
+      "detail": "4 açıklamalı dergi-boyutlu figür, 7 tablo, main report ve Overleaf iskeleti"
+    },
+    {
+      "name": "canonical_segmenter_provenance",
+      "status": "PASS",
+      "detail": "SAM1/SAM2/SAM3 checkpoint ve protocol hash'leri doğrulandı"
+    },
+    {
+      "name": "deep_scientific_audit",
+      "status": "PASS",
+      "detail": "split leakage yok; cross-experiment bağımlılık ve audit sınırlamaları kayıtlı"
     },
     {
       "name": "active_paths",
       "status": "PASS",
-      "detail": "179 aktif metin/kod dosyası"
+      "detail": "183 aktif metin/kod dosyası"
     }
   ],
-  "pass_count": 35,
+  "pass_count": 37,
   "fail_count": 0
 }

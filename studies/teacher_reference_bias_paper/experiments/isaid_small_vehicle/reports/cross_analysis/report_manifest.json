@@ -8,6 +8,11 @@
       "sha256": "120ccd79d72e80bfba28f0fcc98c738d616e4a8d6ae6dc6d3704ffa255c810ef"
     },
     {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_teacher_affinity_contrasts.csv",
+      "bytes": 7631,
+      "sha256": "adbad5dff81cd3e5c7c04631572bf8b8063f7776557a3c84e5479304e5ae3dd1"
+    },
+    {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_reference_effects.csv",
       "bytes": 3082,
       "sha256": "5883857675b274047838e1698593ff5e5147144a05525f51450c5af62cf229a6"
@@ -16,11 +21,6 @@
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/ranking_by_reference.csv",
       "bytes": 808,
       "sha256": "99d30b169ad483e08cca04d49feace46f386b1d73418517ef82cf85ac060a959"
-    },
-    {
-      "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/teacher_advantage.csv",
-      "bytes": 739,
-      "sha256": "020d24b28f0d262fdc73fc566f9c5b678af18d0ba6abbf54b52f921da99698fc"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/reference_agreement.csv",
@@ -36,18 +36,18 @@
   "outputs": [
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/cross_analysis/isaid_small_vehicle_cross_reference_analysis.md",
-      "bytes": 7081,
-      "sha256": "fb941914f5ef2c957792e50fb9fa137a54b1943c69d8c2f91e6ebf424ade886a"
+      "bytes": 8004,
+      "sha256": "2b622dc93fabc130530cbde06947df0c4504aff985c3e2c4f64fe57ba4a369c5"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/cross_analysis/isaid_small_vehicle_cross_reference_analysis_colored.docx",
-      "bytes": 262850,
-      "sha256": "088e12ef494a63830cfdc1884c25b2ff41a2f01d2530db2e87872d413581833f"
+      "bytes": 168477,
+      "sha256": "dfc5ba1b68a124b7e41a282d02b6020957daa116b173cce40e9b5748eb66a07a"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/reports/cross_analysis/isaid_small_vehicle_cross_reference_analysis_colored.pdf",
-      "bytes": 69352,
-      "sha256": "76291339dff119ae6aa5104c8c9b5c846b59fffbf85fccf012ffea441738d5bd"
+      "bytes": 57240,
+      "sha256": "e614d4888eeb205dc9d6533e0633088adf344d93a317fabb5f1ed83d52d89c11"
     }
   ]
 }

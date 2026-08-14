@@ -16,6 +16,7 @@ for source_root in (REPO_ROOT / "src", STUDY_ROOT / "src"):
 from teacher_reference_bias_multiteacher.paper_figures import (  # noqa: E402
     model_reference_matrix_figure,
     qualitative_figure,
+    qualitative_selection_records,
     reference_effect_figure,
     write_figure_manifest,
 )
@@ -73,7 +74,12 @@ def generate_one(experiment_id: str, *, manifest_only: bool = False) -> Path:
         inputs.append(prediction_path(source, model, "gt_bbox"))
     for reference_type in source.reference_types[1:]:
         inputs.append(reference_path(source, reference_type))
-    return write_figure_manifest(source, outputs, inputs)
+    return write_figure_manifest(
+        source,
+        outputs,
+        inputs,
+        qualitative_selection_records(source),
+    )
 
 
 def main() -> None:

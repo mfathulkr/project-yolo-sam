@@ -1,13 +1,14 @@
 # iSAID Plane Yöntem ve Yeniden Üretim
 
-- Kaynak: resmi iSAID instance anotasyonu; hedef kategori `plane`.
-- Prepared test: 512 adet 1024×1024 tile, 44 özgün sahne ve 5.447 Plane instance.
-- Area threshold: `0.0167140960693359`.
+- Kaynak: resmi iSAID train+validation instance anotasyonu; hedef kategori `plane`. Kaynak sahneler özel train/validation/test split'ine yeniden ayrılmıştır; resmi leaderboard testi değildir.
+- Hazırlanmış test: 512 adet 1024×1024 görüntü, 44 özgün sahne ve 5.447 uçak nesnesi.
+- Alan eşiği: görüntü alanının `%1.671`'i; görüntüdeki bütün uçak maskelerinin toplamıdır, tek nesne büyüklüğü değildir.
 - Temel referans: bağımsız insan maskesi.
-- Detector validation confidence: `0.28115004301071167`.
-- Detector test: bbox mAP50 `0.920479`, mAP75 `0.846556`, mAP90 `0.545348`, mAP50-95 `0.762251`.
+- Detector doğrulama confidence değeri: `0.281`.
+- Detector testi: bbox mAP50 `0.920`, mAP75 `0.847`, mAP90 `0.545`, mAP50-95 `0.762`. Testteki 512 görüntünün tamamı hedef-pozitiftir; bu resmi benchmark AP'si değildir.
 - Pseudo referansların tamamı ilgili frozen modelin insan GT bbox tahmininden üretilir; boş referans yoktur.
-- YOLO-bbox human Avg IoU: SAM1 `0.597033`, SAM2 `0.573660`, SAM3 `0.638357`.
-- YOLO own-reference eşleşmiş fark: SAM1 `+0.276232`, SAM2 `+0.278910`, SAM3 `+0.224210`.
+- İnsan etiketinde YOLO-bbox Avg IoU: SAM1 `0.597`, SAM2 `0.574`, SAM3 `0.638`.
+- İnsan etiketinden modelin kendi etiketine geçince puan değişimi: SAM1 `+0.276`, SAM2 `+0.279`, SAM3 `+0.224`.
+- Modelin kendi etiketindeki IoU ile diğer iki SAM etiketindeki ortalama IoU arasındaki ek puan: SAM1 `+0.128`, SAM2 `+0.124`, SAM3 `+0.141`.
 
-Matched çalıştırma ayarı `../config.yaml`, hamdan master havuz üretim ayarı `../master_config.yaml`, ortak protokol `../../../configs/protocol.yaml` dosyasındadır. Sonuçların yeniden türetilmesi ortak README'deki komut sırasıyla yapılır. GT diagonal `1.0` bağımsız performans değildir.
+Tam hassasiyetli eşik ve sonuçlar analiz/config dosyalarında saklanır. Çalıştırma ayarı `../config.yaml`, ham veri hazırlama ayarı `../master_config.yaml`, ortak protokol `../../../configs/protocol.yaml` dosyasındadır. GT bbox ile kendi maskesine göre ölçülen `1.000` değeri bağımsız performans değildir.

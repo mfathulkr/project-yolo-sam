@@ -8,6 +8,11 @@
       "sha256": "20c3393688464645bfee087d93df8b29d6b4f7f902c333519a55d79e2cd28c7c"
     },
     {
+      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/paired_teacher_affinity_contrasts.csv",
+      "bytes": 7342,
+      "sha256": "8d668318b00f8c95df9c35eaa9c954d7c152d242f2e6f5dc89492947d9a56144"
+    },
+    {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/paired_reference_effects.csv",
       "bytes": 2891,
       "sha256": "16de40c1c5914cb3ae6b0c28239169cecbb87c9828010876a5eb75d580d88d6a"
@@ -16,11 +21,6 @@
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/ranking_by_reference.csv",
       "bytes": 727,
       "sha256": "8334ae7cd1c64210d2afc191b341d0bfffe0650a8ac27e6742eb941e71939844"
-    },
-    {
-      "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/teacher_advantage.csv",
-      "bytes": 674,
-      "sha256": "f75d3004551bf96913682d96988f54caca98451553494ecc54e30dbed37827de"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/results/analysis/reference_agreement.csv",
@@ -36,18 +36,18 @@
   "outputs": [
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/cross_analysis/isaid_plane_cross_reference_analysis.md",
-      "bytes": 7056,
-      "sha256": "384bd1c069613fc4220f692d6eeed6390749eca2a634cedc6069a75f7639c47b"
+      "bytes": 7979,
+      "sha256": "afd765bb5a1fc083f42fccfffa0a859e30c2366223e250dbb9340de855ce4ce0"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/cross_analysis/isaid_plane_cross_reference_analysis_colored.docx",
-      "bytes": 264617,
-      "sha256": "4593ab72a19d22ba46486f161502128bb2c31aea1aa684bd16795e60f2016368"
+      "bytes": 169958,
+      "sha256": "b7aa055968a7aa34e41eaee177a5350d82199acebdad3820c06faac1f0b51be4"
     },
     {
       "path": "studies/teacher_reference_bias_paper/experiments/isaid_plane/reports/cross_analysis/isaid_plane_cross_reference_analysis_colored.pdf",
-      "bytes": 69612,
-      "sha256": "c96231d919a7da14fcc1c20ec7545be188f72fb407b1449c0176ecf6347c3ddb"
+      "bytes": 57483,
+      "sha256": "20cfded26e054e1ce2639c4444034d4e9be964f3d82f5161a44586be05b5395b"
     }
   ]
 }

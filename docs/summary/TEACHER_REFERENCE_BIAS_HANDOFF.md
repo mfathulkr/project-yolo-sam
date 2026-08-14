@@ -18,9 +18,9 @@ paper study dizinidir; tarihsel kopyalara yalnız Git geçmişinden ulaşılır.
 
 ## Bilimsel Soru
 
-Bir SAM modelinin ürettiği pseudo maskeler bağımsız test ground truth'u gibi
-kullanılırsa aynı model yapay olarak daha başarılı görünür ve model sıralaması
-değişir mi?
+Bir SAM checkpoint'inin ürettiği pseudo maskeler bağımsız test ground truth'u
+gibi kullanılırsa aynı dondurulmuş checkpoint daha başarılı görünür ve model
+sıralaması değişir mi?
 
 Bu klasik train/test görüntü sızıntısı değildir. Sorun, değerlendirme
 referansının değerlendirilen modelden bağımsız olmaması, yani ölçüm cetvelinin
@@ -29,13 +29,14 @@ yararsız olduğu iddia edilmez.
 
 Parikh, Das ve Feragen'in *Biased Ruler* çalışması aynı genel problemi tıbbi
 segmentasyonda göstermiştir. Bizim güvenli katkı iddiamız, uzaktan algılama
-instance segmentasyonunda üç SAM öğretmeni ile üç SAM adayını iki hedef sınıf,
-iki bbox kaynağı, insan kontrolü ve dört sahne tabakası altında çaprazlayan
-model-referans matrisidir.
+instance segmentasyonunda üç sabit SAM üretici checkpoint'i ile üç sabit SAM
+aday checkpoint'ini iki hedef sınıf, iki bbox kaynağı, insan kontrolü ve dört
+sahne tabakası altında çaprazlayan model-referans matrisidir. Farklı checkpoint,
+eğitim seed'i veya model ailesi düzeyinde genelleme bu deneyde sınanmamıştır.
 
 ## Dört Deney
 
-| Deney | Görüntü | Instance | Kaynak sahne | Referanslar |
+| Deney | Görüntü | Nesne | Kaynak sahne | Referanslar |
 |---|---:|---:|---:|---|
 | iSAID Plane | 512 | 5.447 | 44 | Human, SAM1, SAM2, SAM3 pseudo |
 | iSAID Small Vehicle | 512 | 12.051 | 31 | Human, SAM1, SAM2, SAM3 pseudo |
@@ -44,7 +45,7 @@ model-referans matrisidir.
 
 Her deney `No Overlap/Overlap × Low/High Mask Area` biçiminde dört ayrık
 tabakaya sahiptir; her tabakada 128 görüntü vardır. Seçilen görüntüdeki tek bir
-nesne değil bütün hedef instance'lar değerlendirilir.
+nesne değil bütün hedef nesneler değerlendirilir.
 
 ## Sabit Protokol
 
@@ -52,9 +53,13 @@ nesne değil bütün hedef instance'lar değerlendirilir.
 - İstemler: dataset-native GT bbox ve seed 42 YOLO bbox.
 - Pseudo referanslar: aynı modelin GT-bbox prediction RLE'sinin dondurulmuş
   kopyasıdır; yeniden inference yapılmaz.
-- Ana metrik: instance-macro IoU; her nesne eşit ağırlıktadır.
-- İstatistik: aynı instance üzerindeki eşlenmiş fark ve kaynak-sahne kümeli
+- Ana metrik: nesne-ortalama IoU; her nesne eşit ağırlıktadır.
+- İstatistik: aynı nesne üzerindeki eşlenmiş fark ve kaynak-sahne kümeli
   10.000 bootstrap ile %95 güven aralığı.
+- Ana karşılaştırma, modelin kendi etiketindeki IoU'sundan diğer iki SAM
+  etiketindeki ortalama IoU'yu çıkarır. İlk sonuçlar görüldükten sonra
+  geliştirilmiştir; önceden kaydedilmiş doğrulayıcı test değildir ve çoklu
+  karşılaştırma düzeltmesi uygulanmamıştır.
 - Bilinen pozitif nesnede boş pseudo referans, aday da boş olsa bile sıfır
   puanlanır.
 - GT-bbox diagonalı kimlik/coverage kontrolüdür; bağımsız başarı sonucu
@@ -69,22 +74,34 @@ ve aktif sonuçlarda kullanılmaz.
 
 ## Ana Sonuç
 
-iSAID YOLO-bbox koşulunda kendi pseudo referansına geçişin eşlenmiş IoU
-artışları:
+iSAID YOLO-bbox koşulunda aynı modelin kendi ürettiği etiketteki IoU'su eksi
+diğer iki SAM etiketindeki ortalama IoU, yani **ek IoU**:
 
 | Hedef | SAM1 | SAM2 | SAM3 |
 |---|---:|---:|---:|
-| Plane | +0,276 | +0,279 | +0,224 |
-| Small Vehicle | +0,176 | +0,163 | +0,142 |
+| Plane | +0,128 | +0,124 | +0,141 |
+| Small Vehicle | +0,098 | +0,074 | +0,075 |
 
-Altı %95 güven aralığının tamamı sıfırın üzerindedir. Bu, özdeş GT-bbox
-diagonalından daha güçlü kontroldür; tahmin YOLO bbox ile değişmiş olsa da
-öğretmen kendi referansıyla avantaj kazanır.
+Altı kaynak-sahne kümeli %95 güven aralığının tamamı sıfırın üzerindedir.
+Ayrıntılı güven aralıkları ve ikincil istatistiksel kontrol analiz CSV'lerinde
+saklanır. Karşılaştırma sonuçlar görüldükten sonra geliştirildiği için
+doğrulayıcı nedensel kanıt gibi sunulmaz.
+
+Ham kendi-pseudo eksi insan-referansı farkları Plane için
+`+0,276/+0,279/+0,224`, Small Vehicle için `+0,176/+0,163/+0,142`dir. Bunlar
+betimleyicidir; tek başına producer affinity kanıtı değildir.
 
 SAMRS yayımlanmış referansı ile yeniden üretilen SAM1 referansının ortalama
-instance IoU'su Plane'de `0,990633`, Small Vehicle'da `0,998338`dir. SAMRS
-yayımlanmış maskeleri SAM1 kökenlidir; bu deney insan doğruluğu kanıtı değil,
-referans kökeni ve teacher affinity desteğidir.
+nesne-ortalama IoU'su Plane'de `0,991`, Small Vehicle'da `0,998`dir. SAMRS
+yayımlanmış maskeleri SAM1-türevli üretim hattından gelir; bu deney insan
+doğruluğu veya orijinal üretim kodunun birebir yeniden çalıştırılması kanıtı
+değil, SAM1-benzeri referans yakınlığı desteğidir.
+
+Pseudo öğretmenler insan/yayımlanmış anotasyon kutularından gelen GT bbox ile,
+YOLO aday maskeleri tahmin kutularıyla çalışır. Bu nedenle ölçülen fark yalnız
+maske sınırını izole etmez; checkpoint kimliği, GT/YOLO kutu farkı, prompt
+hassasiyeti ve maske biçiminin ortak etkileşimidir. Düzenek tam otomatik
+pseudo-etiketleme hattı değildir.
 
 ## Çıktılar
 
@@ -110,6 +127,8 @@ referans kökeni ve teacher affinity desteğidir.
   `docs/SCIENTIFIC_PROTOCOL.md`
 - Otomatik kalite raporu:
   `docs/QA_REPORT.md`
+- Derin split/dependency/detector denetimi:
+  `docs/DEEP_SCIENTIFIC_AUDIT.md`
 
 ## Yeniden Üretim
 
@@ -120,6 +139,8 @@ referans kökeni ve teacher affinity desteğidir.
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/build_references.py
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/evaluate_reference_cubes.py
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/compile_experiment_analyses.py
+.venv/bin/python studies/teacher_reference_bias_paper/scripts/deep_scientific_audit.py
+.venv/bin/python studies/teacher_reference_bias_paper/scripts/audit_segmenter_provenance.py
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/generate_experiment_figures.py
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/write_full_metric_reports.py
 .venv/bin/python studies/teacher_reference_bias_paper/scripts/write_cross_analysis_reports.py

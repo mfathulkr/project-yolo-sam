@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "completed",
-  "created_at_utc": "2026-08-12T11:56:43.720681+00:00",
+  "created_at_utc": "2026-08-12T18:24:14.247672+00:00",
   "experiment_id": "isaid_small_vehicle",
   "dataset_id": "isaid_small_vehicle",
   "baseline_reference": "human",
@@ -21,6 +21,7 @@
   "outputs": {
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/aggregate_metrics.csv": "120ccd79d72e80bfba28f0fcc98c738d616e4a8d6ae6dc6d3704ffa255c810ef",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_reference_effects.csv": "5883857675b274047838e1698593ff5e5147144a05525f51450c5af62cf229a6",
+    "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/paired_teacher_affinity_contrasts.csv": "adbad5dff81cd3e5c7c04631572bf8b8063f7776557a3c84e5479304e5ae3dd1",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/ranking_by_reference.csv": "99d30b169ad483e08cca04d49feace46f386b1d73418517ef82cf85ac060a959",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/teacher_advantage.csv": "020d24b28f0d262fdc73fc566f9c5b678af18d0ba6abbf54b52f921da99698fc",
     "studies/teacher_reference_bias_paper/experiments/isaid_small_vehicle/results/analysis/reference_agreement.csv": "d73df154695eb7f02215d52ae22108571303efa4334e4b41ce16c1549a000660",
