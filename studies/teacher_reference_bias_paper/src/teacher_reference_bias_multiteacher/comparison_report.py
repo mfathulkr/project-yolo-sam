@@ -645,14 +645,14 @@ def write_experiment_report(source: ExperimentSource) -> dict[str, Path]:
     return {"markdown": markdown_path, "docx": docx_path, "pdf": pdf_path}
 
 
-def main_control_table() -> pd.DataFrame:
+def main_control_table(*, bbox_source: str = "yolo_bbox") -> pd.DataFrame:
     rows: list[dict[str, object]] = []
     for experiment_id, source in DATASETS.items():
         aggregates = pd.read_csv(source.analysis_root / "aggregate_metrics.csv")
         baseline = source.reference_types[0]
         overall = aggregates[
             (aggregates["stratum"] == "overall")
-            & (aggregates["bbox_source"] == "yolo_bbox")
+            & (aggregates["bbox_source"] == bbox_source)
             & (aggregates["reference_type"] == baseline)
         ]
         for _, row in overall.iterrows():
@@ -661,7 +661,7 @@ def main_control_table() -> pd.DataFrame:
                     "Deney": source.display_name,
                     "Temel Referans": REFERENCE_SHORT[baseline],
                     "Model": str(row["model"]).upper(),
-                    "BBox": "YOLO bbox",
+                    "BBox": "GT bbox" if bbox_source == "gt_bbox" else "YOLO bbox",
                     "Avg IoU": f"{float(row['mean_iou']):.3f}",
                     "Nesne Sayısı": int(row["instance_count"]),
                 }
@@ -669,23 +669,31 @@ def main_control_table() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def main_affinity_table(experiment_ids: Iterable[str]) -> pd.DataFrame:
+def main_affinity_table(
+    experiment_ids: Iterable[str], *, bbox_source: str = "yolo_bbox"
+) -> pd.DataFrame:
     frames: list[pd.DataFrame] = []
     for experiment_id in experiment_ids:
         source = DATASETS[experiment_id]
         aggregates = pd.read_csv(source.analysis_root / "aggregate_metrics.csv")
-        frame = readable_affinity_table(source, aggregates)
+        frame = readable_affinity_table(
+            source, aggregates, bbox_source=bbox_source
+        )
         frame.insert(0, "Deney", source.display_name)
         frames.append(frame)
     return pd.concat(frames, ignore_index=True)
 
 
-def main_reference_change_table(experiment_ids: Iterable[str]) -> pd.DataFrame:
+def main_reference_change_table(
+    experiment_ids: Iterable[str], *, bbox_source: str = "yolo_bbox"
+) -> pd.DataFrame:
     frames: list[pd.DataFrame] = []
     for experiment_id in experiment_ids:
         source = DATASETS[experiment_id]
         effects = pd.read_csv(source.analysis_root / "paired_reference_effects.csv")
-        frame = baseline_to_own_table(source, effects)
+        frame = baseline_to_own_table(
+            source, effects, bbox_source=bbox_source
+        )
         frame.insert(0, "Deney", source.display_name)
         frames.append(frame)
     return pd.concat(frames, ignore_index=True)
@@ -714,40 +722,72 @@ def samrs_affinity_table() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def write_main_report(output_dir: Path) -> dict[str, Path]:
+def _write_main_report(
+    output_dir: Path,
+    *,
+    bbox_source: str,
+    file_stem: str,
+    document_title: str,
+) -> dict[str, Path]:
     output_dir.mkdir(parents=True, exist_ok=True)
-    control = main_control_table()
-    isaid_affinity = main_affinity_table(("isaid_plane", "isaid_small_vehicle"))
-    isaid_change = main_reference_change_table(
-        ("isaid_plane", "isaid_small_vehicle")
+    control = main_control_table(bbox_source=bbox_source)
+    isaid_affinity = main_affinity_table(
+        ("isaid_plane", "isaid_small_vehicle"), bbox_source=bbox_source
     )
-    samrs_affinity = main_affinity_table(("samrs_plane", "samrs_small_vehicle"))
+    isaid_change = main_reference_change_table(
+        ("isaid_plane", "isaid_small_vehicle"), bbox_source=bbox_source
+    )
+    samrs_affinity = main_affinity_table(
+        ("samrs_plane", "samrs_small_vehicle"), bbox_source=bbox_source
+    )
     samrs = samrs_affinity_table()
     summary = [
         "Dört deney aynı 512 görüntü / dört eşit 128 görüntülük sahne grubu / seed 42 / 1024×1024 / SAM1-2-3 / GT ve YOLO bbox protokolünü kullanır.",
         "iSAID Plane ve Small Vehicle deneylerinde insan anotasyonu bağımsız kontrol referansıdır. Ana karşılaştırma, aynı dondurulmuş model tahmininin kendi ürettiği etikette aldığı IoU ile diğer iki SAM etiketinde aldığı ortalama IoU arasındaki farktır.",
         "SAMRS Plane ve Small Vehicle deneylerinde yayımlanmış etiket insan GT değildir; SAM tabanlı üretim hattından geldiği için bu iki deney destekleyici SAM1-benzeri referans yakınlığı analizi olarak yorumlanır.",
-        "GT bbox ile bir modelin kendi ürettiği maske yine aynı maskeye karşı ölçüldüğünde IoU'nun 1,000 olması beklenen matematiksel sonuçtur. Ana değerlendirme bu doğrudan eşitliği kıran YOLO bbox koşuludur.",
+        (
+            "Bu rapor yalnız GT bbox sonuçlarını gösterir. Aynı modelin kendi "
+            "GT-bbox pseudo referansına karşı 1,000 IoU alması beklenen matematiksel "
+            "özdeşlik kontrolüdür; bağımsız segmentasyon başarısı değildir."
+            if bbox_source == "gt_bbox"
+            else "GT bbox ile bir modelin kendi ürettiği maske yine aynı maskeye karşı ölçüldüğünde IoU'nun 1,000 olması beklenen matematiksel sonuçtur. Ana değerlendirme bu doğrudan eşitliği kıran YOLO bbox koşuludur."
+        ),
         "Dört deney tek bir ortalamada birleştirilmez. iSAID ve SAMRS ayrı anotasyon ürünleridir ancak ikisi de DOTA kökenli görüntüler içerdiği ve test kümeleri kısmen örtüştüğü için bağımsız dört replikasyon olarak yorumlanmaz.",
         "Sonuçlar, bu dondurulmuş checkpoint'ler ve seçilmiş test kapsamı içinde, pseudo etiket üreticisiyle bağımlı test referansının skor ve model seçimini etkileyebildiğini destekler; pseudo etiketlemenin eğitimde yararsız olduğunu göstermez.",
     ]
     limitations = [
         "Çalışma iki DOTA kökenli anotasyon ürünü ve iki hedef sınıfla sınırlıdır; dört deney bağımsız veri replikasyonları değildir.",
-        "512 görüntülük testlerin tamamı hedef-pozitif olarak seçilmiştir. Detector AP değerleri resmi, negatif görüntüler de içeren benchmark AP'si değil bu seçilmiş pozitif test kapsamının kontrol metriğidir.",
+        (
+            "512 görüntülük testlerin tamamı hedef-pozitiftir. GT bbox koşulu, nesne konumunun kusursuz bilindiği oracle-localization analizidir; uçtan uca detection + segmentation başarısı değildir."
+            if bbox_source == "gt_bbox"
+            else "512 görüntülük testlerin tamamı hedef-pozitif olarak seçilmiştir. Detector AP değerleri resmi, negatif görüntüler de içeren benchmark AP'si değil bu seçilmiş pozitif test kapsamının kontrol metriğidir."
+        ),
         "SAMRS için bağımsız insan instance maskesi bulunmadığından mutlak segmentasyon kalitesi iddiası kurulamaz.",
-        "Pseudo referanslar insan/yayımlanmış anotasyon kutularından gelen GT bbox ile, YOLO aday maskeleri ise tahmin kutularıyla üretilmiştir. Bu nedenle ölçülen fark yalnız sınır stilini izole etmez; checkpoint kimliği, GT/YOLO kutu farkı, prompt hassasiyeti ve maske biçiminin ortak etkileşimidir. Deney tam otomatik pseudo-etiketleme hattı değildir.",
+        (
+            "GT bbox koşulunda hem pseudo referanslar hem aday maskeler aynı anotasyon kutularından üretilir. Bu, detector hatasını kaldırır; ancak aynı modelin kendi pseudo referansındaki diagonal hücrelerini özdeşlik kontrolüne dönüştürür."
+            if bbox_source == "gt_bbox"
+            else "Pseudo referanslar insan/yayımlanmış anotasyon kutularından gelen GT bbox ile, YOLO aday maskeleri ise tahmin kutularıyla üretilmiştir. Bu nedenle ölçülen fark yalnız sınır stilini izole etmez; checkpoint kimliği, GT/YOLO kutu farkı, prompt hassasiyeti ve maske biçiminin ortak etkileşimidir. Deney tam otomatik pseudo-etiketleme hattı değildir."
+        ),
         "Ana kendi-etiketi karşılaştırmaları ilk sonuçlar görüldükten sonra geliştirilmiş destekleyici analizlerdir; önceden kaydedilmiş doğrulayıcı test değildir ve çoklu karşılaştırma düzeltmesi uygulanmamıştır.",
         "Aynı-üretici etkisi aynı dondurulmuş SAM1/2/3 checkpoint'leri için ölçülmüştür. Farklı seed/checkpoint veya model ailesi düzeyinde genelleme bu çalışmada test edilmemiştir.",
-        "YOLO yanlış pozitifleri detector mAP/precision/recall tablosunda ölçülür; instance maske ortalamasına sahte bir GT örneği olarak eklenmez. Bu nedenle maske tabloları tam uçtan uca instance-segmentation AP'si değildir.",
-        "Her detector tek hedef sınıflıdır; bu nedenle detector mAP değeri o tek sınıfın AP değerine eşittir.",
+        (
+            "Bu GT bbox raporunda detector kaçırmaları, yanlış pozitifleri ve kutu konum hataları yoktur; değerler yalnız verilen doğru kutu içindeki maske davranışını gösterir."
+            if bbox_source == "gt_bbox"
+            else "YOLO yanlış pozitifleri detector mAP/precision/recall tablosunda ölçülür; instance maske ortalamasına sahte bir GT örneği olarak eklenmez. Bu nedenle maske tabloları tam uçtan uca instance-segmentation AP'si değildir."
+        ),
+        (
+            "GT bbox değerleri YOLO bbox değerlerinden doğal olarak daha yüksektir; bu fark model kalitesindeki artış olarak yorumlanmamalıdır."
+            if bbox_source == "gt_bbox"
+            else "Her detector tek hedef sınıflıdır; bu nedenle detector mAP değeri o tek sınıfın AP değerine eşittir."
+        ),
     ]
-    markdown_path = output_dir / "main_cross_analysis.md"
-    docx_path = output_dir / "main_cross_analysis_colored.docx"
-    pdf_path = output_dir / "main_cross_analysis_colored.pdf"
+    markdown_path = output_dir / f"{file_stem}.md"
+    docx_path = output_dir / f"{file_stem}_colored.docx"
+    pdf_path = output_dir / f"{file_stem}_colored.pdf"
     markdown_path.write_text(
         "\n".join(
             [
-                "# Teacher-Reference Bias Main Cross Analysis",
+                f"# {document_title}",
                 "",
                 "## Ana Sonuç",
                 "",
@@ -789,7 +829,7 @@ def write_main_report(output_dir: Path) -> dict[str, Path]:
     )
     document = Document()
     _configure_docx(document)
-    document.add_heading("Teacher-Reference Bias Main Cross Analysis", 0)
+    document.add_heading(document_title, 0)
     document.add_heading("Ana Sonuç", level=1)
     _docx_bullets(document, summary)
     _docx_table(document, control, "Dört Deneyde Temel Referans Sonuçları")
@@ -849,5 +889,28 @@ def write_main_report(output_dir: Path) -> dict[str, Path]:
             "reference_agreement.csv",
         )
     )
-    _write_manifest(output_dir / "report_manifest.json", inputs, outputs)
+    manifest_path = (
+        output_dir / "report_manifest.json"
+        if bbox_source == "yolo_bbox"
+        else output_dir / f"{file_stem}_report_manifest.json"
+    )
+    _write_manifest(manifest_path, inputs, outputs)
     return {"markdown": markdown_path, "docx": docx_path, "pdf": pdf_path}
+
+
+def write_main_report(output_dir: Path) -> dict[str, Path]:
+    return _write_main_report(
+        output_dir,
+        bbox_source="yolo_bbox",
+        file_stem="main_cross_analysis",
+        document_title="Teacher-Reference Bias Main Cross Analysis",
+    )
+
+
+def write_main_gt_bbox_report(output_dir: Path) -> dict[str, Path]:
+    return _write_main_report(
+        output_dir,
+        bbox_source="gt_bbox",
+        file_stem="main_cross_analysis_gt_bbox",
+        document_title="Teacher-Reference Bias Main Cross Analysis · GT bbox",
+    )

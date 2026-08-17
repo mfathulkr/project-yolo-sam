@@ -13,6 +13,7 @@ for source_root in (REPO_ROOT / "src", STUDY_ROOT / "src"):
 
 from teacher_reference_bias_multiteacher.comparison_report import (  # noqa: E402
     write_experiment_report,
+    write_main_gt_bbox_report,
     write_main_report,
 )
 from teacher_reference_bias_multiteacher.paths import DATASETS  # noqa: E402
@@ -33,6 +34,8 @@ def main() -> None:
         print(result["pdf"])
     if not args.skip_main and args.experiment is None:
         result = write_main_report(STUDY_ROOT / "analysis")
+        print(result["pdf"])
+        result = write_main_gt_bbox_report(STUDY_ROOT / "analysis")
         print(result["pdf"])
 
 

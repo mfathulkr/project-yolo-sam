@@ -35,7 +35,8 @@ Bu sonuç yayımlanmış SAMRS maskelerinin SAM1'e çok yakın olduğunu destekl
 
 ## Hangi PDF'ler Gösterilecek?
 
-- Ana özet: `analysis/main_cross_analysis_colored.pdf`
+- Ana YOLO-bbox özeti: `analysis/main_cross_analysis_colored.pdf`
+- Aynı formatta GT-bbox özeti: `analysis/main_cross_analysis_gt_bbox_colored.pdf`
 - Deney içi karşılaştırma: `experiments/<id>/reports/cross_analysis/*_colored.pdf`
 - Ayrıntılı metrik: `experiments/<id>/reports/full_metrics/<reference>/*_colored.pdf`
 

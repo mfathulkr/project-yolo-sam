@@ -45,10 +45,11 @@ Her klasör MD, renkli DOCX, renkli PDF, beş maske tablosunun ve detector tablo
 experiments/<experiment>/reports/cross_analysis/
 ```
 
-Dört deney arası ana belge:
+Dört deney arası ana belgeler:
 
 ```text
-analysis/main_cross_analysis_colored.pdf
+analysis/main_cross_analysis_colored.pdf          # YOLO bbox
+analysis/main_cross_analysis_gt_bbox_colored.pdf  # GT bbox
 ```
 
 ## Kritik Yorum Kuralları

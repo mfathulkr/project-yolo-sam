@@ -1084,6 +1084,23 @@ def validate_paper_outputs() -> str:
     ):
         assert_file(main_root / name, 100 if name.endswith(".json") else 1000)
     validate_manifest(main_root / "report_manifest.json", verify_hashes=True)
+    for name in (
+        "main_cross_analysis_gt_bbox.md",
+        "main_cross_analysis_gt_bbox_colored.docx",
+        "main_cross_analysis_gt_bbox_colored.pdf",
+        "main_cross_analysis_gt_bbox_report_manifest.json",
+    ):
+        assert_file(main_root / name, 100 if name.endswith(".json") else 1000)
+    validate_manifest(
+        main_root / "main_cross_analysis_gt_bbox_report_manifest.json",
+        verify_hashes=True,
+    )
+    gt_pdf_text = pdf_text(
+        main_root / "main_cross_analysis_gt_bbox_colored.pdf"
+    )
+    for token in ("GT bbox", "özdeşlik kontrolüdür", "Sınırlılıklar"):
+        if token not in gt_pdf_text:
+            raise ValueError(f"GT-bbox main PDF text katmanı eksik: {token}")
     main_pdf_text = pdf_text(main_root / "main_cross_analysis_colored.pdf")
     for token in (
         "Model Kendi Etiketiyle Ne Kadar Ek Puan Alıyor?",
